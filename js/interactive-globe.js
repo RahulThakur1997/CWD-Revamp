@@ -78,15 +78,15 @@
     scene.add(globeGroup);
 
     // 3. Sun Lighting (Creates realistic day-side illumination and ocean specular gleam)
-    const sunLight = new THREE.DirectionalLight(0xffffff, 1.35);
+    const sunLight = new THREE.DirectionalLight(0xffffff, 1.05);
     sunLight.position.set(200, 100, 180);
     scene.add(sunLight);
 
-    const fillLight = new THREE.DirectionalLight(0x38bdf8, 0.45);
+    const fillLight = new THREE.DirectionalLight(0x1e3a5f, 0.25);
     fillLight.position.set(-200, -80, -100);
     scene.add(fillLight);
 
-    const ambLight = new THREE.AmbientLight(0xffffff, 0.65);
+    const ambLight = new THREE.AmbientLight(0xffffff, 0.75);
     scene.add(ambLight);
 
     // 4. Generate High-Fidelity Colorful Earth Texture Map
@@ -97,8 +97,7 @@
     const earthTexture = createProceduralEarthTexture();
     const earthMaterial = new THREE.MeshPhongMaterial({
       map: earthTexture,
-      specular: new THREE.Color(0x38BDF8),
-      shininess: 28,
+      specular: new THREE.Color(0x0a1828), shininess: 6,
       emissive: new THREE.Color(0x040D1A),
       emissiveIntensity: 0.15
     });
@@ -128,8 +127,7 @@
     const cloudMaterial = new THREE.MeshLambertMaterial({
       map: cloudTexture,
       transparent: true,
-      opacity: 0.38,
-      blending: THREE.AdditiveBlending,
+      opacity: 0.16, blending: THREE.NormalBlending,
       depthWrite: false
     });
     const cloudsMesh = new THREE.Mesh(cloudGeometry, cloudMaterial);
@@ -158,7 +156,8 @@
       depthWrite: false
     });
     const atmosphereMesh = new THREE.Mesh(atmosphereGeometry, atmosphereMaterial);
-    globeGroup.add(atmosphereMesh);
+    // Atmosphere glow mesh removed to prevent white/cyan lens flare washout
+    // globeGroup.add(atmosphereMesh);
 
     // 7. Client City Hub 3D Beacons
     function latLonToVector3(lat, lon, radius) {
@@ -475,8 +474,8 @@
 
       // Atmosphere Halo
       const halo = ctx.createRadialGradient(cx, cy, radius * 0.8, cx, cy, radius * 1.3);
-      halo.addColorStop(0, 'rgba(56, 189, 248, 0.25)');
-      halo.addColorStop(0.5, 'rgba(198, 242, 77, 0.1)');
+      halo.addColorStop(0, 'rgba(56, 189, 248, 0.08)');
+      halo.addColorStop(0.5, 'transparent');
       halo.addColorStop(1, 'transparent');
       ctx.fillStyle = halo;
       ctx.beginPath();

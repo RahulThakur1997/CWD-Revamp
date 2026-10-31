@@ -7487,3 +7487,177 @@ img {
     gap: 0 !important;
   }
 }
+
+
+/* ==========================================================================
+   TARGETED MOBILE POLISH: FOOTER, METRICS GRID, SERVICES & PROJECTOR FIXES
+   ========================================================================== */
+
+/* 1. FOOTER TYPOGRAPHY: NO CUT-OFF ON ALL MOBILE DEVICES */
+.footer-brand-banner {
+  width: 100% !important;
+  overflow: hidden !important;
+  text-align: center !important;
+  padding: 3.5rem 1rem 2rem 1rem !important;
+}
+
+.footer-brand-title {
+  font-size: clamp(1.5rem, 6.2vw, 5.5rem) !important;
+  white-space: nowrap !important;
+  letter-spacing: -0.03em !important;
+  line-height: 1 !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  color: #C6F24D !important;
+  text-align: center !important;
+  margin: 0 auto !important;
+  display: block !important;
+  width: 100% !important;
+}
+
+/* 2. KEYSTONE CARD & PROOF METRICS 2-COLUMN GRID (ELIMINATE TEXT RUN-IN) */
+.stack-metrics-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 1rem !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* 3. SERVICES CAROUSEL ON MOBILE (SWIPE TOUCH CAROUSEL, NO SLIVERS) */
+@media (max-width: 767px) {
+  .services-carousel-section {
+    padding: 3.5rem 0 4rem 0 !important;
+    overflow: hidden !important;
+  }
+
+  .services-carousel-viewport {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-snap-type: x mandatory !important;
+    display: flex !important;
+    width: 100% !important;
+    padding: 1rem 1rem 1.5rem 1rem !important;
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+    scrollbar-width: none !important;
+  }
+
+  .services-carousel-viewport::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .services-carousel-track {
+    display: flex !important;
+    width: auto !important;
+    animation: none !important;
+    gap: 1rem !important;
+  }
+
+  .services-carousel-group {
+    display: flex !important;
+    gap: 1rem !important;
+    padding-right: 0 !important;
+  }
+
+  .services-carousel-group[aria-hidden="true"] {
+    display: none !important;
+  }
+
+  .service-card {
+    width: 85vw !important;
+    max-width: 340px !important;
+    min-width: 0 !important;
+    height: auto !important;
+    aspect-ratio: 3 / 4 !important;
+    flex-shrink: 0 !important;
+    scroll-snap-align: center !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+  }
+
+  .service-image-container {
+    width: 100% !important;
+    height: 100% !important;
+    position: relative !important;
+  }
+
+  .service-image-bg {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  .service-title-overlay {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    padding: 1.25rem 1.25rem 1rem 1.25rem !important;
+    background: linear-gradient(to bottom, rgba(9, 9, 11, 0.95) 0%, rgba(9, 9, 11, 0.6) 75%, transparent 100%) !important;
+    z-index: 5 !important;
+  }
+
+  .service-title-text {
+    font-size: 1.25rem !important;
+    font-weight: 800 !important;
+    color: #FFFFFF !important;
+    line-height: 1.25 !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8) !important;
+  }
+}
+
+/* 4. COMPACT PROJECTOR CTA FIXTURE ON MOBILE */
+@media (max-width: 767px) {
+  .projector-cta-section {
+    padding-top: 2rem !important;
+    padding-bottom: 3.5rem !important;
+  }
+
+  .projector-layout-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  .projector-suspension-wire {
+    height: 20px !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  .projector-lamp-rig {
+    margin: 0 auto !important;
+  }
+
+  .luminary-web-window {
+    max-width: 260px !important;
+    padding: 0.5rem 0.75rem !important;
+    transform: scale(0.9) !important;
+    transform-origin: top center !important;
+    margin: 0 auto !important;
+  }
+
+  .web-window-topbar {
+    padding: 0.25rem 0.5rem !important;
+  }
+
+  .win-url-pill {
+    font-size: 0.65rem !important;
+    padding: 0.15rem 0.5rem !important;
+  }
+
+  .web-window-body-canvas {
+    padding: 0.5rem !important;
+    min-height: 50px !important;
+  }
+
+  .projector-main-headline {
+    font-size: clamp(1.75rem, 6.8vw, 2.5rem) !important;
+    line-height: 1.18 !important;
+  }
+
+  .projector-narrative-subtext {
+    font-size: 0.95rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+}
