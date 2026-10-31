@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <defs>
+    <radialGradient id="inPinGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#C6F24D" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#C6F24D" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="160" height="160" rx="14" fill="#0D131F"/>
+  <line x1="20" y1="80" x2="140" y2="80" stroke="#1E293B" stroke-width="0.8" stroke-dasharray="2,3"/>
+  <line x1="80" y1="20" x2="80" y2="140" stroke="#1E293B" stroke-width="0.8" stroke-dasharray="2,3"/>
+  <!-- Indian Subcontinent Silhouette -->
+  <!-- Northern Himalayas & Kashmir -->
+  <!-- Central & Peninsular Triangle -->
+  <path d="M 72,32 L 82,34 L 88,42 L 82,48 L 92,54 L 102,58 L 114,64 L 110,72 L 98,72 L 96,82 L 88,96 L 82,112 L 76,116 L 74,106 L 66,92 L 62,82 L 56,76 L 64,68 L 70,54 Z" fill="#F59E0B" opacity="0.85"/>
+  <!-- Sri Lanka -->
+  <ellipse cx="88" cy="120" rx="3.5" ry="5" fill="#F59E0B" opacity="0.65"/>
+  <!-- Mumbai / Bengaluru Tech Pin -->
+  <circle cx="68" cy="88" r="16" fill="url(#inPinGlow)"/>
+  <circle cx="68" cy="88" r="4.5" fill="#C6F24D"/>
+  <circle cx="68" cy="88" r="2" fill="#09090B"/>
+  <text x="80" y="146" fill="#94A3B8" font-family="monospace" font-size="9" text-anchor="middle" font-weight="600">19.0° N, 72.8° E</text>
+</svg>

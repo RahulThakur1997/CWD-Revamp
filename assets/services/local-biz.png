@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" width="600" height="500">
+  <defs>
+    <linearGradient id="bgGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#121217"/>
+      <stop offset="100%" stop-color="#08080A"/>
+    </linearGradient>
+    <radialGradient id="phoneHalo" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="rgba(198, 242, 77, 0.22)"/>
+      <stop offset="60%" stop-color="rgba(198, 242, 77, 0.02)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <filter id="dropShadow1" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="20" stdDeviation="28" flood-color="#000000" flood-opacity="0.85"/>
+    </filter>
+  </defs>
+
+  <rect width="600" height="500" fill="url(#bgGrad1)"/>
+  <circle cx="300" cy="225" r="220" fill="url(#phoneHalo)"/>
+
+  <!-- Subtle Studio Grid -->
+  <g stroke="rgba(255, 255, 255, 0.04)" stroke-width="1">
+    <line x1="100" y1="0" x2="100" y2="500"/>
+    <line x1="200" y1="0" x2="200" y2="500"/>
+    <line x1="300" y1="0" x2="300" y2="500"/>
+    <line x1="400" y1="0" x2="400" y2="500"/>
+    <line x1="500" y1="0" x2="500" y2="500"/>
+    <line x1="0" y1="125" x2="600" y2="125"/>
+    <line x1="0" y1="250" x2="600" y2="250"/>
+    <line x1="0" y1="375" x2="600" y2="375"/>
+  </g>
+
+  <!-- 3D Smartphone Frame -->
+  <g transform="translate(175, 45)" filter="url(#dropShadow1)">
+    <rect x="0" y="0" width="250" height="415" rx="36" fill="#1C1C24" stroke="rgba(255, 255, 255, 0.16)" stroke-width="2"/>
+    <rect x="8" y="8" width="234" height="399" rx="28" fill="#0C0C0E"/>
+
+    <!-- Dynamic Island -->
+    <rect x="90" y="18" width="70" height="15" rx="7.5" fill="#000000"/>
+    <circle cx="146" cy="25.5" r="3" fill="#1E293B"/>
+
+    <!-- Brand Bar -->
+    <g transform="translate(24, 46)">
+      <rect x="0" y="0" width="202" height="30" rx="8" fill="rgba(255, 255, 255, 0.04)"/>
+      <circle cx="15" cy="15" r="6" fill="#C6F24D"/>
+      <text x="28" y="19" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="800" letter-spacing="0.5">LONDON ELITE TRADE</text>
+    </g>
+
+    <!-- Status Banner: 24/7 Dispatch -->
+    <g transform="translate(24, 84)">
+      <rect x="0" y="0" width="202" height="24" rx="6" fill="rgba(198, 242, 77, 0.12)" stroke="rgba(198, 242, 77, 0.35)" stroke-width="1"/>
+      <circle cx="12" cy="12" r="3.5" fill="#C6F24D"/>
+      <text x="24" y="15.5" fill="#C6F24D" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="700">LIVE DISPATCH • 15 MIN ESTIMATE</text>
+    </g>
+
+    <!-- Hero Card Mockup -->
+    <g transform="translate(24, 116)">
+      <rect x="0" y="0" width="202" height="125" rx="14" fill="rgba(255, 255, 255, 0.03)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"/>
+      <text x="14" y="26" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="800">Instant Local Quote</text>
+      <text x="14" y="44" fill="#A1A1AA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">Tap below for emergency booking</text>
+      
+      <text x="14" y="62" fill="#FBBF24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10">★★★★★</text>
+      <text x="62" y="62" fill="#E4E4E7" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="600">4.9 (142 Verified Reviews)</text>
+
+      <rect x="14" y="76" width="174" height="34" rx="8" fill="#C6F24D"/>
+      <text x="44" y="97" fill="#000000" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="800">Book Service Online →</text>
+    </g>
+
+    <!-- Quick Schedule Slots -->
+    <g transform="translate(24, 250)">
+      <rect x="0" y="0" width="62" height="42" rx="8" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1"/>
+      <text x="14" y="17" fill="#A1A1AA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="7.5">TODAY</text>
+      <text x="10" y="32" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700">10:00 AM</text>
+
+      <rect x="70" y="0" width="62" height="42" rx="8" fill="rgba(198, 242, 77, 0.15)" stroke="rgba(198, 242, 77, 0.45)" stroke-width="1"/>
+      <text x="84" y="17" fill="#C6F24D" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="7.5">TODAY</text>
+      <text x="80" y="32" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700">01:30 PM</text>
+
+      <rect x="140" y="0" width="62" height="42" rx="8" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1"/>
+      <text x="154" y="17" fill="#A1A1AA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="7.5">TODAY</text>
+      <text x="150" y="32" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700">04:00 PM</text>
+    </g>
+
+    <!-- 1-Tap Click-to-Call Float -->
+    <g transform="translate(24, 302)">
+      <rect x="0" y="0" width="202" height="44" rx="10" fill="#181820" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1"/>
+      <circle cx="22" cy="22" r="13" fill="rgba(198, 242, 77, 0.18)"/>
+      <text x="16" y="27" fill="#C6F24D" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12">📞</text>
+      <text x="44" y="19" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="700">Call Dispatch Now</text>
+      <text x="44" y="32" fill="#A1A1AA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8">Average Answer: 8 Seconds</text>
+    </g>
+
+    <!-- Home Indicator -->
+    <rect x="75" y="386" width="100" height="4" rx="2" fill="rgba(255, 255, 255, 0.3)"/>
+  </g>
+</svg>

@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" width="600" height="500">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#121218"/>
+      <stop offset="100%" stop-color="#09090C"/>
+    </linearGradient>
+    <radialGradient id="tabletHalo" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="rgba(198, 242, 77, 0.18)"/>
+      <stop offset="60%" stop-color="rgba(99, 102, 241, 0.05)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <filter id="dropShadow2" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="22" stdDeviation="30" flood-color="#000000" flood-opacity="0.85"/>
+    </filter>
+  </defs>
+
+  <rect width="600" height="500" fill="url(#bgGrad2)"/>
+  <circle cx="300" cy="230" r="230" fill="url(#tabletHalo)"/>
+
+  <!-- Studio Grid -->
+  <g stroke="rgba(255, 255, 255, 0.04)" stroke-width="1">
+    <line x1="100" y1="0" x2="100" y2="500"/>
+    <line x1="200" y1="0" x2="200" y2="500"/>
+    <line x1="300" y1="0" x2="300" y2="500"/>
+    <line x1="400" y1="0" x2="400" y2="500"/>
+    <line x1="500" y1="0" x2="500" y2="500"/>
+    <line x1="0" y1="125" x2="600" y2="125"/>
+    <line x1="0" y1="250" x2="600" y2="250"/>
+    <line x1="0" y1="375" x2="600" y2="375"/>
+  </g>
+
+  <!-- 3D Floating Tablet Device -->
+  <g transform="translate(100, 75)" filter="url(#dropShadow2)">
+    <rect x="0" y="0" width="400" height="290" rx="24" fill="#1C1C24" stroke="rgba(255, 255, 255, 0.16)" stroke-width="2"/>
+    <rect x="8" y="8" width="384" height="274" rx="18" fill="#0C0C10"/>
+
+    <!-- Left Mini Sidebar -->
+    <rect x="8" y="8" width="56" height="274" rx="18" fill="rgba(255, 255, 255, 0.02)"/>
+    <circle cx="36" cy="32" r="10" fill="#C6F24D"/>
+    <rect x="22" y="60" width="28" height="6" rx="3" fill="rgba(255, 255, 255, 0.2)"/>
+    <rect x="22" y="80" width="28" height="6" rx="3" fill="rgba(255, 255, 255, 0.1)"/>
+    <rect x="22" y="100" width="28" height="6" rx="3" fill="rgba(255, 255, 255, 0.1)"/>
+    <rect x="22" y="120" width="28" height="6" rx="3" fill="rgba(255, 255, 255, 0.1)"/>
+
+    <!-- Dashboard Top Bar -->
+    <g transform="translate(76, 18)">
+      <text x="0" y="16" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="800">ENTERPRISE PIPELINE ARCHITECTURE</text>
+      <rect x="220" y="2" width="88" height="20" rx="10" fill="rgba(198, 242, 77, 0.15)" stroke="rgba(198, 242, 77, 0.4)" stroke-width="1"/>
+      <text x="232" y="16" fill="#C6F24D" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700">● LIVE PIPELINE</text>
+    </g>
+
+    <!-- 3 Metric Cards Row -->
+    <g transform="translate(76, 48)">
+      <!-- Metric 1 -->
+      <rect x="0" y="0" width="96" height="56" rx="10" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"/>
+      <text x="10" y="16" fill="#A1A1AA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="7.5" font-weight="600">ANNUAL PIPELINE</text>
+      <text x="10" y="36" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="800">$2.48M</text>
+      <text x="10" y="49" fill="#C6F24D" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700">+184% YoY</text>
+
+      <!-- Metric 2 -->
+      <rect x="104" y="0" width="96" height="56" rx="10" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"/>
+      <text x="114" y="16" fill="#A1A1AA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="7.5" font-weight="600">AVG DEAL VALUE</text>
+      <text x="114" y="36" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="800">$48,500</text>
+      <text x="114" y="49" fill="#C6F24D" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700">Enterprise Tiers</text>
+
+      <!-- Metric 3 -->
+      <rect x="208" y="0" width="96" height="56" rx="10" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"/>
+      <text x="218" y="16" fill="#A1A1AA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="7.5" font-weight="600">CONVERSION RATE</text>
+      <text x="218" y="36" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="800">8.42%</text>
+      <text x="218" y="49" fill="#C6F24D" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700">3.8x B2B Avg</text>
+    </g>
+
+    <!-- Interactive Growth Graph -->
+    <g transform="translate(76, 114)">
+      <rect x="0" y="0" width="304" height="150" rx="12" fill="rgba(255, 255, 255, 0.03)" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1"/>
+      
+      <!-- Graph Grid Lines -->
+      <line x1="20" y1="35" x2="284" y2="35" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1"/>
+      <line x1="20" y1="75" x2="284" y2="75" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1"/>
+      <line x1="20" y1="115" x2="284" y2="115" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1"/>
+
+      <!-- Glowing Neon Green Growth Curve -->
+      <path d="M 20 120 Q 80 110, 120 75 T 200 45 T 284 20" fill="none" stroke="#C6F24D" stroke-width="3" stroke-linecap="round"/>
+      
+      <!-- Area Gradient Under Curve -->
+      <path d="M 20 120 Q 80 110, 120 75 T 200 45 T 284 20 L 284 135 L 20 135 Z" fill="url(#limeGlowFill)"/>
+
+      <!-- Node Markers -->
+      <circle cx="120" cy="75" r="4.5" fill="#FFFFFF" stroke="#C6F24D" stroke-width="2"/>
+      <circle cx="200" cy="45" r="4.5" fill="#FFFFFF" stroke="#C6F24D" stroke-width="2"/>
+      <circle cx="284" cy="20" r="5" fill="#C6F24D" stroke="#FFFFFF" stroke-width="2"/>
+
+      <!-- Data Label Tag -->
+      <rect x="210" y="60" width="76" height="22" rx="6" fill="#181820" stroke="rgba(198, 242, 77, 0.4)" stroke-width="1"/>
+      <text x="218" y="75" fill="#C6F24D" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="800">Q4: +$840K ARR</text>
+    </g>
+  </g>
+
+  <defs>
+    <linearGradient id="limeGlowFill" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(198, 242, 77, 0.25)"/>
+      <stop offset="100%" stop-color="rgba(198, 242, 77, 0.0)"/>
+    </linearGradient>
+  </defs>
+</svg>

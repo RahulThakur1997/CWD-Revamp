@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" width="400" height="240">
+  <defs>
+    <linearGradient id="dcSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="60%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="capitolGlow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C6F24D" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#C6F24D" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="240" fill="url(#dcSky)"/>
+  <!-- Ambient dome glow -->
+  <circle cx="200" cy="140" r="120" fill="url(#capitolGlow)"/>
+  <!-- Stylized US Capitol / Washington Monument Silhouette -->
+  <!-- Obelisk -->
+  <polygon points="100,50 106,70 108,180 92,180 94,70" fill="#E2E8F0"/>
+  <polygon points="100,45 106,70 94,70" fill="#F8FAFC"/>
+  <!-- Capitol Dome -->
+  <path d="M 180,180 L 180,140 Q 200,100 220,140 L 220,180 Z" fill="#F1F5F9"/>
+  <path d="M 195,100 L 205,100 L 202,80 L 198,80 Z" fill="#E2E8F0"/>
+  <!-- Columns colonnade -->
+  <rect x="150" y="150" width="100" height="30" fill="#CBD5E1"/>
+  <line x1="160" y1="150" x2="160" y2="180" stroke="#475569" stroke-width="2"/>
+  <line x1="175" y1="150" x2="175" y2="180" stroke="#475569" stroke-width="2"/>
+  <line x1="190" y1="150" x2="190" y2="180" stroke="#475569" stroke-width="2"/>
+  <line x1="205" y1="150" x2="205" y2="180" stroke="#475569" stroke-width="2"/>
+  <line x1="220" y1="150" x2="220" y2="180" stroke="#475569" stroke-width="2"/>
+  <line x1="235" y1="150" x2="235" y2="180" stroke="#475569" stroke-width="2"/>
+  <!-- Reflecting Pool -->
+  <rect x="0" y="180" width="400" height="60" fill="#090D16"/>
+  <rect x="60" y="188" width="280" height="30" fill="#0F172A" rx="4"/>
+  <line x1="70" y1="195" x2="330" y2="195" stroke="#38BDF8" stroke-opacity="0.3" stroke-width="1.5"/>
+  <line x1="90" y1="205" x2="310" y2="205" stroke="#C6F24D" stroke-opacity="0.4" stroke-width="1.5"/>
+</svg>

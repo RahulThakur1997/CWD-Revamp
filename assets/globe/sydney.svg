@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" width="400" height="240">
+  <defs>
+    <linearGradient id="sydSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#021B35"/>
+      <stop offset="60%" stop-color="#0B3C68"/>
+      <stop offset="100%" stop-color="#145A96"/>
+    </linearGradient>
+    <linearGradient id="harborGlow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0284C7" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="240" fill="url(#sydSky)"/>
+  <!-- Ambient Harbor glow -->
+  <circle cx="240" cy="140" r="130" fill="url(#harborGlow)"/>
+  <!-- Sydney Opera House Sails Silhouette -->
+  <!-- Sail 1 -->
+  <path d="M 120,180 Q 150,110 180,95 Q 165,150 160,180 Z" fill="#F8FAFC"/>
+  <!-- Sail 2 -->
+  <path d="M 155,180 Q 185,115 210,105 Q 200,150 195,180 Z" fill="#E2E8F0"/>
+  <!-- Sail 3 -->
+  <path d="M 190,180 Q 220,130 240,120 Q 235,160 230,180 Z" fill="#CBD5E1"/>
+  <!-- Small Sail 4 -->
+  <path d="M 230,180 Q 250,145 265,140 Q 260,165 255,180 Z" fill="#94A3B8"/>
+  <!-- Sydney Harbour Bridge Arch Fragment in background -->
+  <path d="M 20,180 Q 80,60 170,140" fill="none" stroke="#475569" stroke-width="6"/>
+  <path d="M 20,180 Q 80,75 170,140" fill="none" stroke="#334155" stroke-width="3"/>
+  <!-- Deep Harbor Water with Neon Reflection -->
+  <rect x="0" y="180" width="400" height="60" fill="#031628"/>
+  <line x1="120" y1="195" x2="260" y2="195" stroke="#38BDF8" stroke-opacity="0.5" stroke-width="2"/>
+  <line x1="140" y1="205" x2="240" y2="205" stroke="#C6F24D" stroke-opacity="0.4" stroke-width="1.5"/>
+</svg>

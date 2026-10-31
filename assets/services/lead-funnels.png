@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" width="600" height="500">
+  <defs>
+    <linearGradient id="bgGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#121218"/>
+      <stop offset="100%" stop-color="#08080C"/>
+    </linearGradient>
+    <radialGradient id="funnelHalo" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="rgba(198, 242, 77, 0.22)"/>
+      <stop offset="60%" stop-color="rgba(244, 63, 94, 0.05)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <filter id="dropShadow5" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="20" stdDeviation="28" flood-color="#000000" flood-opacity="0.85"/>
+    </filter>
+  </defs>
+
+  <rect width="600" height="500" fill="url(#bgGrad5)"/>
+  <circle cx="300" cy="220" r="230" fill="url(#funnelHalo)"/>
+
+  <!-- Studio Grid -->
+  <g stroke="rgba(255, 255, 255, 0.04)" stroke-width="1">
+    <line x1="100" y1="0" x2="100" y2="500"/>
+    <line x1="200" y1="0" x2="200" y2="500"/>
+    <line x1="300" y1="0" x2="300" y2="500"/>
+    <line x1="400" y1="0" x2="400" y2="500"/>
+    <line x1="500" y1="0" x2="500" y2="500"/>
+    <line x1="0" y1="125" x2="600" y2="125"/>
+    <line x1="0" y1="250" x2="600" y2="250"/>
+    <line x1="0" y1="375" x2="600" y2="375"/>
+  </g>
+
+  <!-- Multi-Layered Conversion Funnel Architecture -->
+  <g transform="translate(100, 50)" filter="url(#dropShadow5)">
+    <!-- Base Card -->
+    <rect x="0" y="0" width="400" height="360" rx="24" fill="#14141C" stroke="rgba(255, 255, 255, 0.15)" stroke-width="2"/>
+
+    <!-- Layer 1: Ad Creative Stage -->
+    <g transform="translate(24, 24)">
+      <rect x="0" y="0" width="352" height="68" rx="12" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1"/>
+      <circle cx="20" cy="20" r="8" fill="#3B82F6"/>
+      <text x="36" y="24" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="700">Meta &amp; Google Paid Acquisition</text>
+      <rect x="260" y="10" width="76" height="20" rx="6" fill="rgba(59, 130, 246, 0.15)" stroke="rgba(59, 130, 246, 0.4)" stroke-width="1"/>
+      <text x="270" y="24" fill="#93C5FD" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="800">4.8% HIGH CTR</text>
+      <text x="20" y="52" fill="#A1A1AA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9">Hyper-targeted local intent creative capturing high-intent search traffic</text>
+    </g>
+
+    <!-- Downward Flow Funnel Arrow 1 -->
+    <polygon points="200,98 206,108 194,108" fill="#C6F24D"/>
+
+    <!-- Layer 2: Dedicated Conversion Landing Page -->
+    <g transform="translate(24, 114)">
+      <rect x="0" y="0" width="352" height="96" rx="14" fill="rgba(198, 242, 77, 0.08)" stroke="rgba(198, 242, 77, 0.4)" stroke-width="1.5"/>
+      <circle cx="20" cy="22" r="8" fill="#C6F24D"/>
+      <text x="36" y="26" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="800">CWD Frictionless Funnel Page</text>
+      <rect x="250" y="12" width="86" height="22" rx="6" fill="#C6F24D"/>
+      <text x="260" y="27" fill="#000000" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="900">42% CONVERSION</text>
+      
+      <!-- Micro-Form simulation -->
+      <g transform="translate(18, 44)">
+        <rect x="0" y="0" width="145" height="24" rx="6" fill="rgba(0, 0, 0, 0.4)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1"/>
+        <text x="10" y="16" fill="#A1A1AA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5">Select Service...</text>
+
+        <rect x="155" y="0" width="160" height="24" rx="6" fill="#C6F24D"/>
+        <text x="180" y="16" fill="#000000" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="800">Instant Estimate →</text>
+      </g>
+      <text x="20" y="84" fill="#C6F24D" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="600">● 0.8s Load Time • Zero Revision Drift • Integrated Pixels</text>
+    </g>
+
+    <!-- Downward Flow Funnel Arrow 2 -->
+    <polygon points="200,216 206,226 194,226" fill="#C6F24D"/>
+
+    <!-- Layer 3: Direct Lead Dispatch & Closed Revenue -->
+    <g transform="translate(24, 232)">
+      <rect x="0" y="0" width="352" height="96" rx="12" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1"/>
+      <circle cx="20" cy="22" r="8" fill="#10B981"/>
+      <text x="36" y="26" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700">Automated CRM &amp; SMS Dispatch</text>
+      <rect x="240" y="12" width="96" height="22" rx="6" fill="rgba(16, 185, 129, 0.15)" stroke="rgba(16, 185, 129, 0.4)" stroke-width="1"/>
+      <text x="252" y="27" fill="#6EE7B7" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="800">4.8X ROAS RETURN</text>
+      
+      <!-- Metrics row -->
+      <g transform="translate(18, 48)">
+        <rect x="0" y="0" width="98" height="36" rx="6" fill="#181822"/>
+        <text x="8" y="14" fill="#A1A1AA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="7">AVG COST / LEAD</text>
+        <text x="8" y="28" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800">$14.20 (-52%)</text>
+
+        <rect x="106" y="0" width="98" height="36" rx="6" fill="#181822"/>
+        <text x="114" y="14" fill="#A1A1AA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="7">RESPONSE SPEED</text>
+        <text x="114" y="28" fill="#C6F24D" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800">&lt; 30 Seconds</text>
+
+        <rect x="212" y="0" width="98" height="36" rx="6" fill="#181822"/>
+        <text x="220" y="14" fill="#A1A1AA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="7">QUALIFIED RATE</text>
+        <text x="220" y="28" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800">89.4% Qualified</text>
+      </g>
+    </g>
+  </g>
+</svg>

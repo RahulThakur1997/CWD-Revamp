@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="lonBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E1E28"/>
+      <stop offset="50%" stop-color="#121218"/>
+      <stop offset="100%" stop-color="#09090C"/>
+    </linearGradient>
+    <linearGradient id="goldSky" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="rgba(198, 242, 77, 0.25)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#lonBg)"/>
+  <rect y="120" width="400" height="180" fill="url(#goldSky)"/>
+  <!-- London Skyline Silhouette -->
+  <path d="M0 300 L0 260 L40 260 L40 240 L50 240 L50 200 L60 160 L65 160 L65 240 L100 240 L100 270 L140 270 L140 220 L160 190 L180 220 L180 270 L220 270 L240 180 L250 140 L260 180 L280 270 L320 270 L340 210 L360 210 L380 250 L400 250 L400 300 Z" fill="#2D2D3A"/>
+  <!-- Clock Tower Big Ben Feature -->
+  <g transform="translate(60, 110)">
+    <rect x="-10" y="50" width="20" height="140" fill="#3A3A4C"/>
+    <polygon points="-10,50 0,10 10,50" fill="#C6F24D" opacity="0.8"/>
+    <circle cx="0" cy="70" r="6" fill="#FFFFFF"/>
+    <circle cx="0" cy="70" r="2" fill="#09090C"/>
+  </g>
+  <!-- London Eye Wheel -->
+  <circle cx="160" cy="200" r="45" stroke="rgba(198, 242, 77, 0.4)" stroke-width="2" fill="none"/>
+  <circle cx="160" cy="200" r="3" fill="#C6F24D"/>
+  <!-- Modern Shard Tower -->
+  <polygon points="250,110 238,280 262,280" fill="#3F3F54"/>
+  <!-- Glowing River Thames Refraction -->
+  <path d="M0 270 Q100 280 200 270 T400 280 L400 300 L0 300 Z" fill="rgba(198, 242, 77, 0.15)"/>
+</svg>

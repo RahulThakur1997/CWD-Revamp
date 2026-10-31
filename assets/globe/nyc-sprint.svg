@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="nycBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#181822"/>
+      <stop offset="60%" stop-color="#0F0F16"/>
+      <stop offset="100%" stop-color="#09090C"/>
+    </linearGradient>
+    <linearGradient id="violetGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(124, 58, 237, 0.35)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#nycBg)"/>
+  <circle cx="200" cy="150" r="120" fill="url(#violetGlow)"/>
+  <!-- Collaborative Founder Laptop Studio Scene -->
+  <g transform="translate(110, 60)">
+    <rect x="0" y="0" width="180" height="110" rx="8" fill="#1E1E28" stroke="rgba(255,255,255,0.1)"/>
+    <rect x="8" y="8" width="164" height="94" rx="4" fill="#0A0A0E"/>
+    <!-- Wireframe / Dashboard layout on screen -->
+    <rect x="18" y="18" width="60" height="12" rx="3" fill="#C6F24D"/>
+    <rect x="18" y="36" width="144" height="6" rx="2" fill="rgba(255,255,255,0.3)"/>
+    <rect x="18" y="48" width="110" height="6" rx="2" fill="rgba(255,255,255,0.3)"/>
+    <rect x="18" y="62" width="40" height="28" rx="4" fill="rgba(124, 58, 237, 0.4)"/>
+    <rect x="66" y="62" width="40" height="28" rx="4" fill="rgba(198, 242, 77, 0.4)"/>
+    <rect x="114" y="62" width="48" height="28" rx="4" fill="rgba(59, 130, 246, 0.4)"/>
+    <!-- Base of Laptop -->
+    <polygon points="-15,110 195,110 180,122 0,122" fill="#2E2E3E"/>
+  </g>
+  <!-- Office Table Surface -->
+  <line x1="30" y1="182" x2="370" y2="182" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+  <!-- Floating Tag: New York Launch -->
+  <g transform="translate(130, 215)">
+    <rect x="0" y="0" width="140" height="32" rx="16" fill="rgba(198, 242, 77, 0.12)" stroke="#C6F24D" stroke-width="1"/>
+    <text x="70" y="20" font-family="-apple-system, sans-serif" font-size="11" font-weight="bold" fill="#C6F24D" text-anchor="middle">NEW YORK &bull; SPRINT ACTIVE</text>
+  </g>
+</svg>

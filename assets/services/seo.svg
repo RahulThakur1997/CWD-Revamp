@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" width="600" height="500">
+  <defs>
+    <linearGradient id="seoBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F0FDF4"/>
+      <stop offset="50%" stop-color="#ECFDF5"/>
+      <stop offset="100%" stop-color="#EFF6FF"/>
+    </linearGradient>
+    <filter id="seoShad" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="22" flood-color="#059669" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect width="600" height="500" fill="url(#seoBg)"/>
+  
+  <circle cx="450" cy="150" r="150" fill="rgba(167, 243, 208, 0.45)"/>
+  <circle cx="150" cy="380" r="140" fill="rgba(191, 219, 254, 0.45)"/>
+
+  <!-- Google Rank #1 Dominance Card Floating in Center -->
+  <g transform="translate(80, 55)" filter="url(#seoShad)">
+    <rect x="0" y="0" width="440" height="390" rx="20" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+    
+    <!-- Search Bar Mockup -->
+    <rect x="24" y="24" width="392" height="46" rx="23" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="45" y="52" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" fill="#0F172A" font-weight="600">best private clinic london</text>
+    <circle cx="390" cy="47" r="14" fill="#10B981"/>
+    <text x="385" y="52" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" fill="#FFFFFF">🔍</text>
+    
+    <!-- Google #1 Result Card -->
+    <rect x="24" y="86" width="392" height="135" rx="14" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1.5"/>
+    <rect x="42" y="104" width="80" height="20" rx="6" fill="#15803D"/>
+    <text x="50" y="118" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="10" font-weight="900" fill="#FFFFFF">#1 ON GOOGLE</text>
+    
+    <text x="135" y="118" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="600" fill="#059669">https://cwd-client-clinic.co.uk</text>
+    
+    <text x="42" y="148" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" font-weight="800" fill="#0F172A">London Elite Healthcare • Private Diagnostic Center</text>
+    <text x="42" y="172" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" fill="#475569">Award-winning private clinic. Same day appointments, 5-star patient reviews, instant online booking.</text>
+    <text x="42" y="196" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="bold" fill="#059669">★ ★ ★ ★ ★ 4.9 (240+ reviews) &bull; Core Web Vitals: 99/100</text>
+    
+    <!-- Organic Growth Metrics Chart -->
+    <rect x="24" y="235" width="392" height="130" rx="14" fill="#FFFFFF" stroke="#E2E8F0"/>
+    <text x="42" y="260" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="bold" fill="#64748B">ORGANIC TRAFFIC TRAJECTORY</text>
+    <text x="330" y="260" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="900" fill="#15803D">+384% LIFT</text>
+    
+    <!-- Trend Line -->
+    <path d="M42 335 C120 330, 180 310, 240 280 C300 250, 360 230, 396 220" stroke="#10B981" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <circle cx="396" cy="220" r="6" fill="#10B981"/>
+    
+    <!-- Metric Pill Tags -->
+    <rect x="42" y="338" width="105" height="18" rx="4" fill="#DCFCE7"/>
+    <text x="50" y="351" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="10" font-weight="bold" fill="#15803D">0% Ad Spend</text>
+    
+    <rect x="155" y="338" width="120" height="18" rx="4" fill="#EFF6FF"/>
+    <text x="163" y="351" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="10" font-weight="bold" fill="#1D4ED8">12ms TTFB Speed</text>
+  </g>
+</svg>

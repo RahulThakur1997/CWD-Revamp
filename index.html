@@ -1,0 +1,2627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crafting Web Designs (CWD) | High-Converting Websites Built in Record Time</title>
+  <meta name="description" content="No endless revisions or agency fluff. We build fast, high-converting websites for local service leaders and growing businesses—live in as little as 48 hours.">
+
+  <!-- Favicon -->
+  <!-- Brand Favicon Support -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/logo.png">
+  <link rel="icon" type="image/svg+xml" href="./assets/logo.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/logo.png">
+  <meta name="theme-color" content="#09090B">
+
+  <!-- Production Image Fallback & Error Handling -->
+  <script>
+    function handleImgError(img, customFallback) {
+      if (!img || img.dataset.hasFailed) return;
+      img.dataset.hasFailed = "true";
+      img.onerror = null;
+      if (customFallback && typeof customFallback === 'string') {
+        img.src = customFallback;
+        return;
+      }
+      var alt = img.getAttribute('alt') || 'Crafting Web Designs';
+      var cleanAlt = alt.replace(/[<>&"]/g, '') || 'Crafting Web Designs';
+      var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 480 300" preserveAspectRatio="none">' +
+        '<defs>' +
+        '<linearGradient id="bgG" x1="0%" y1="0%" x2="100%" y2="100%">' +
+        '<stop offset="0%" stop-color="#18181B"/>' +
+        '<stop offset="50%" stop-color="#111114"/>' +
+        '<stop offset="100%" stop-color="#09090B"/>' +
+        '</linearGradient>' +
+        '<linearGradient id="limeG" x1="0%" y1="0%" x2="100%" y2="0%">' +
+        '<stop offset="0%" stop-color="#C6F24D"/>' +
+        '<stop offset="100%" stop-color="#A3E635"/>' +
+        '</linearGradient>' +
+        '</defs>' +
+        '<rect width="100%" height="100%" fill="url(#bgG)"/>' +
+        '<rect x="0" y="0" width="100%" height="3" fill="url(#limeG)"/>' +
+        '<g transform="translate(240, 130)" text-anchor="middle">' +
+        '<circle cx="0" cy="0" r="28" fill="#202025" stroke="rgba(198, 242, 77, 0.3)" stroke-width="1.5"/>' +
+        '<path d="M-9 -6 L-9 6 M-9 0 L9 0 M9 -6 L9 6" stroke="#C6F24D" stroke-width="2.2" stroke-linecap="round"/>' +
+        '<text y="48" fill="#FFFFFF" font-family="system-ui, -apple-system, BlinkMacSystemFont, \'Plus Jakarta Sans\', sans-serif" font-size="14" font-weight="700" letter-spacing="0.02em">' + cleanAlt + '</text>' +
+        '<text y="68" fill="#71717A" font-family="system-ui, -apple-system, BlinkMacSystemFont, \'Plus Jakarta Sans\', sans-serif" font-size="10" font-weight="600" letter-spacing="0.12em">CRAFTING WEB DESIGNS</text>' +
+        '</g>' +
+        '</svg>';
+      img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+      img.classList.add('img-fallback-loaded');
+    }
+  </script>
+
+  <!-- Google Fonts: Plus Jakarta Sans (Preconnect & Stylesheet) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main Custom Styling -->
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+
+  <!-- Atmospheric Radial Ambient Glow -->
+  <div class="ambient-glow-top" aria-hidden="true"></div>
+
+  <!-- Custom Magnetic Cursor (Desktop) -->
+  <div class="custom-cursor-dot" aria-hidden="true"></div>
+  <div class="custom-cursor-ring" aria-hidden="true"></div>
+
+  <!-- Top Glassmorphism Navigation Bar -->
+  <header class="site-header">
+    <div class="nav-container-centered">
+      <div class="brand-badge-pill">
+        <a href="#" class="brand-link-centered" aria-label="Crafting Web Designs Homepage">
+          <div class="brand-logo-frame">
+            <img src="./assets/logo.png" alt="CWD Logo" class="brand-logo-img" onerror="handleImgError(this)">
+          </div>
+          <span class="brand-name">Crafting Web Designs</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Hero Section -->
+  <main>
+    <section class="hero-section" id="hero">
+      <!-- Interactive WebGL Liquid Refraction Background Canvas (Full-Bleed Layer, z-index: 0) -->
+      <canvas id="webgl-canvas" class="hero-canvas"></canvas>
+
+      <!-- Flanked / Peripheral Radial Occlusion Veil (Ensures 100% Center Text Legibility) -->
+      <div class="hero-radial-veil" aria-hidden="true"></div>
+
+      <!-- Hero Content Container (z-index: 10) -->
+      <div class="hero-inner">
+
+        <!-- Rating Pill / Social Proof Badge (Placed ABOVE the main headline) -->
+        <div class="micro-proof-bar hero-rating-pill-top">
+          <div class="proof-avatars" aria-label="Verified Client Founders">
+            <div class="proof-avatar-item" title="Vignesh - Verified Client">
+              <img src="./assets/avatars/vignesh.webp" alt="Vignesh" class="proof-avatar-img avatar-vignesh" loading="eager" decoding="async" onerror="handleImgError(this)">
+            </div>
+            <div class="proof-avatar-item" title="Milano Joe - Verified Client">
+              <img src="./assets/avatars/milano-joe.webp" alt="Milano Joe" class="proof-avatar-img" loading="eager" decoding="async" onerror="handleImgError(this)">
+            </div>
+            <div class="proof-avatar-item" title="Tristan Bacon - Verified Client">
+              <img src="./assets/avatars/tristan-bacon.webp" alt="Tristan Bacon" class="proof-avatar-img" loading="eager" decoding="async" onerror="handleImgError(this)">
+            </div>
+          </div>
+          <div class="proof-text-group">
+            <div class="proof-rating-stars">★★★★★</div>
+            <span class="proof-rating-caption"><strong>4.9/5 Rating</strong> across 50+ local business &amp; brand launches</span>
+          </div>
+        </div>
+
+        <!-- Main Headline (Inverted Pyramid Optical Funnel directly targeting the CTA) -->
+        <h1 class="hero-headline hero-inverted-funnel">
+          <span class="funnel-line funnel-line-1">We Build <span class="headline-accent-lime">High-Converting</span></span>
+          <span class="funnel-line funnel-line-2">Websites Delivered</span>
+          <span class="funnel-line funnel-line-3">In Days, Not Weeks.</span>
+        </h1>
+
+        <!-- Primary Centered CTA Button directly beneath headline -->
+        <div class="hero-cta-group">
+          <a href="#contact" class="cta-primary-btn" id="hero-main-cta">
+            <span>Get Your Website Today</span>
+            <span class="cta-btn-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Marquee Viewport with Left/Right Ambient Gradient Masks -->
+      <div class="marquee-viewport">
+        
+        <!-- ROW 1: Top Track (Translates continuously to the LEFT) - Inverted & Features SMASH Industrial -->
+        <div class="marquee-track marquee-track-left">
+          
+          <!-- SET 1 (6 Completely Unique Clients: 3 Desktop, 3 Mobile) -->
+          <!-- 1. Keystone Roofing (Desktop) -->
+          <article class="marquee-card card-desktop w-[360px] md:w-[420px] aspect-[16/10] shrink-0 block relative overflow-hidden">
+            <img src="./assets/mockups/keystone-roofing-1.png" alt="Keystone Roofing Desktop Mockup" class="marquee-card-image w-full h-full object-cover block" loading="eager" decoding="async" onerror="handleImgError(this)">
+          </article>
+
+          <!-- 2. Wotta Carpets (Mobile) -->
+          <article class="marquee-card card-mobile w-[190px] md:w-[220px] aspect-[9/14] shrink-0 block relative overflow-hidden">
+            <img src="./assets/mockups/wotta-carpets-mobile.png" alt="Wotta Carpets Mobile Mockup" class="marquee-card-image w-full h-full object-cover block" loading="eager" decoding="async" onerror="handleImgError(this)">
+          </article>
+
+          <!-- 3. SMASH Industrial (Desktop) -->
+          <article class="marquee-card card-desktop w-[360px] md:w-[420px] aspect-[16/10] shrink-0 block relative overflow-hidden">
+            <img src="./assets/mockups/smash-industrial.png" alt="SMASH Industrial Services Desktop Mockup" class="marquee-card-image w-full h-full object-cover block" loading="eager" decoding="async" onerror="handleImgError(this)">
+          </article>
+
+          <!-- 4. Mold Removal Ottawa (Mobile) -->
+          <article class="marquee-card card-mobile w-[190px] md:w-[220px] aspect-[9/14] shrink-0 block relative overflow-hidden">
+            <img src="./assets/mockups/mold-removal-ottawa-mobile.png" alt="Mold Removal Ottawa Mobile Mockup" class="marquee-card-image w-full h-full object-cover block" loading="eager" decoding="async" onerror="handleImgError(this)">
+          </article>
+
+          <!-- 5. Anxiety Treatment (Desktop) -->
+          <article class="marquee-card card-desktop w-[360px] md:w-[420px] aspect-[16/10] shrink-0 block relative overflow-hidden">
+            <img src="./assets/mockups/anxiety-treatment.png" alt="Anxiety Treatment Clinic Desktop Mockup" class="marquee-card-image w-full h-full object-cover block" loading="eager" decoding="async" onerror="handleImgError(this)">
+          </article>
+
+          <!-- 6. Simple Life Ltd (Mobile) -->
+          <article class="marquee-card card-mobile w-[190px] md:w-[220px] aspect-[9/14] shrink-0 block relative overflow-hidden">
+            <img src="./assets/mockups/simple-life-mobile.png" alt="Simple Life Ltd Mobile Mockup" class="marquee-card-image w-full h-full object-cover block" loading="eager" decoding="async" onerror="handleImgError(this)">
+          </article>
+
+          <!-- SET 2 (Duplicate for Continuous Seamless Infinite Loop) -->
+          <article class="marquee-card card-desktop w-[360px] md:w-[420px] aspect-[16/10] shrink-0 block relative overflow-hidden" aria-hidden="true">
+            <img src="./assets/mockups/keystone-roofing-1.png" alt="Keystone Roofing Desktop Mockup" class="marquee-card-image w-full h-full object-cover block" loading="eager" decoding="async" onerror="handleImgError(this)">
+          </article>
+          <article class="marquee-card card-mobile w-[190px] md:w-[220px] aspect-[9/14] shrink-0 block relative overflow-hidden" aria-hidden="true">
+            <img src="./assets/mockups/wotta-carpets-mobile.png" alt="" class="marquee-card-image w-full h-full object-cover block" loading="eager" decoding="async" onerror="handleImgError(this)">
+          </article>
+          <article class="marquee-card card-desktop w-[360px] md:w-[420px] aspect-[16/10] shrink-0 block relative overflow-hidden" aria-hidden="true">
+            <img src="./assets/mockups/smash-industrial.png" alt="" class="marquee-card-image w-full h-full object-cover block" loading="eager" decoding="async" onerror="handleImgError(this)">
+          </article>
+          <article class="marquee-card card-mobile w-[190px] md:w-[220px] aspect-[9/14] shrink-0 block relative overflow-hidden" aria-hidden="true">
+            <img src="./assets/mockups/mold-removal-ottawa-mobile.png" alt="" class="marquee-card-image w-full h-full object-cover block" loading="eager" decoding="async" onerror="handleImgError(this)">
+          </article>
+          <article class="marquee-card card-desktop w-[360px] md:w-[420px] aspect-[16/10] shrink-0 block relative overflow-hidden" aria-hidden="true">
+            <img src="./assets/mockups/anxiety-treatment.png" alt="" class="marquee-card-image w-full h-full object-cover block" loading="eager" decoding="async" onerror="handleImgError(this)">
+          </article>
+          <article class="marquee-card card-mobile w-[190px] md:w-[220px] aspect-[9/14] shrink-0 block relative overflow-hidden" aria-hidden="true">
+            <img src="./assets/mockups/simple-life-mobile.png" alt="" class="marquee-card-image w-full h-full object-cover block" loading="eager" decoding="async" onerror="handleImgError(this)">
+          </article>
+        </div>
+
+        <!-- ROW 2: Bottom Track (Translates continuously to the RIGHT) - Inverted & Features Derm MD / Dr. Shaheen -->
+        <div class="marquee-track marquee-track-right">
+          
+          <!-- SET 1 (6 Completely Unique Clients: 3 Desktop, 3 Mobile - All Authentic Working Mockups) -->
+          <!-- 1. Derm MD / Dr. Shaheen (Desktop) -->
+          <article class="marquee-card card-desktop w-[360px] md:w-[420px] aspect-[16/10] shrink-0 block relative overflow-hidden">
+            <img src="./assets/mockups/dr-shaheen.png" alt="Derm MD Clinic Desktop Mockup" class="marquee-card-image w-full h-full object-cover block" loading="eager" decoding="async" onerror="handleImgError(this)">
+          </article>
+
+          <!-- 2. KO Landscapes (Mobile) -->
+          <article class="marquee-card card-mobile w-[190px] md:w-[220px] aspect-[9/14] shrink-0 block relative overflow-hidden">
+            <img src="./assets/mockups/ko-landscapes-mobile.png" alt="KO Landscapes Mobile Mockup" class="marquee-card-image w-full h-full object-cover block" loading="eager" decoding="async" onerror="handleImgError(this)">
+          </article>
+
+          <!-- 3. KO Landscapes (Desktop - High-Fidelity Landscape Architecture Mockup) -->
+          <article class="marquee-card card-desktop w-[360px] md:w-[420px] aspect-[16/10] shrink-0 block relative overflow-hidden">
+            <img src="./assets/mockups/ko-landscapes.png" alt="KO Landscapes Desktop Mockup" class="marquee-card-image w-full h-full object-cover block" loading="eager" decoding="async" onerror="handleImgError(this)">
+          </article>
+
+          <!-- 4. Cariad by Llinos (Mobile) -->
+          <article class="marquee-card card-mobile w-[190px] md:w-[220px] aspect-[9/14] shrink-0 block relative overflow-hidden">
+            <img src="./assets/mockups/cariad-by-llinos-mobile.png" alt="Cariad by Llinos Mobile Mockup" class="marquee-card-image w-full h-full object-cover block" loading="eager" decoding="async" onerror="handleImgError(this)">
+          </article>
+
+          <!-- 5. Awaken Films (Desktop - High-Impact Production Portfolio Mockup) -->
+          <article class="marquee-card card-desktop w-[360px] md:w-[420px] aspect-[16/10] shrink-0 block relative overflow-hidden">
+            <img src="./assets/mockups/awaken-films.png" alt="Awaken Films Desktop Mockup" class="marquee-card-image w-full h-full object-cover block" loading="eager" decoding="async" onerror="handleImgError(this)">
+          </article>
+
+          <!-- 6. Cariad by Llinos (Mobile) -->
+          <article class="marquee-card card-mobile w-[190px] md:w-[220px] aspect-[9/14] shrink-0 block relative overflow-hidden">
+            <img src="./assets/mockups/cariad-by-llinos-mobile.png" alt="Cariad by Llinos Mobile Mockup" class="marquee-card-image w-full h-full object-cover block" loading="eager" decoding="async" onerror="handleImgError(this)">
+          </article>
+
+          <!-- SET 2 (Duplicate for Continuous Seamless Infinite Loop) -->
+          <article class="marquee-card card-desktop w-[360px] md:w-[420px] aspect-[16/10] shrink-0 block relative overflow-hidden" aria-hidden="true">
+            <img src="./assets/mockups/dr-shaheen.png" alt="Derm MD Clinic Desktop Mockup" class="marquee-card-image w-full h-full object-cover block" loading="eager" decoding="async" onerror="handleImgError(this)">
+          </article>
+          <article class="marquee-card card-mobile w-[190px] md:w-[220px] aspect-[9/14] shrink-0 block relative overflow-hidden" aria-hidden="true">
+            <img src="./assets/mockups/ko-landscapes-mobile.png" alt="" class="marquee-card-image w-full h-full object-cover block" loading="eager" decoding="async" onerror="handleImgError(this)">
+          </article>
+          <article class="marquee-card card-desktop w-[360px] md:w-[420px] aspect-[16/10] shrink-0 block relative overflow-hidden" aria-hidden="true">
+            <img src="./assets/mockups/ko-landscapes.png" alt="" class="marquee-card-image w-full h-full object-cover block" loading="eager" decoding="async" onerror="handleImgError(this)">
+          </article>
+          <article class="marquee-card card-mobile w-[190px] md:w-[220px] aspect-[9/14] shrink-0 block relative overflow-hidden" aria-hidden="true">
+            <img src="./assets/mockups/cariad-by-llinos-mobile.png" alt="" class="marquee-card-image w-full h-full object-cover block" loading="eager" decoding="async" onerror="handleImgError(this)">
+          </article>
+          <article class="marquee-card card-desktop w-[360px] md:w-[420px] aspect-[16/10] shrink-0 block relative overflow-hidden" aria-hidden="true">
+            <img src="./assets/mockups/awaken-films.png" alt="" class="marquee-card-image w-full h-full object-cover block" loading="eager" decoding="async" onerror="handleImgError(this)">
+          </article>
+          <article class="marquee-card card-mobile w-[190px] md:w-[220px] aspect-[9/14] shrink-0 block relative overflow-hidden" aria-hidden="true">
+            <img src="./assets/mockups/cariad-by-llinos-mobile.png" alt="" class="marquee-card-image w-full h-full object-cover block" loading="eager" decoding="async" onerror="handleImgError(this)">
+          </article>
+        </div>
+
+      </div>
+      </section>
+
+    <!-- =====================================================================
+         SECTION 1: Multi-Row Infinite Logo Marquee ("Trusted By")
+         Off-white surface (#F8F9FA) creating a crisp visual break from the dark hero
+         ===================================================================== -->
+    <section class="trusted-marquee-section" id="trusted" aria-label="Trusted Clients and Partners">
+      <div class="trusted-header-container">
+        <h2 class="trusted-section-title text-base md:text-lg font-bold text-zinc-800 tracking-tight text-center mb-10">
+          Trusted by Growing Local Businesses &amp; Established Brands
+        </h2>
+      </div>
+
+      <!-- 4-Track Infinite Marquee Container with Horizontal Gradient Feathering -->
+      <div class="trusted-marquee-container" aria-hidden="true">
+        
+        <!-- Track 1: Logos 01 through 05 featuring Awaken Films (Translates LEFT to RIGHT) -->
+        <div class="logo-marquee-row">
+          <div class="logo-marquee-track track-to-right track-speed-40s">
+            <!-- Group 1 -->
+            <div class="logo-marquee-group">
+              <div class="logo-item" title="Keystone Roofing & Building Ltd">
+                <img src="./assets/logos/keystone.png" alt="Keystone Roofing & Building" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="Awaken Films Studio">
+                <img src="./assets/logos/awaken-films.jpg" alt="Awaken Films Studio" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="EquityRoot Housing Partners">
+                <img src="./assets/logos/equity-root.png" alt="EquityRoot Housing Partners" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="Wotta Carpets Specialist Flooring">
+                <img src="./assets/logos/wotta.png" alt="Wotta Carpets" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="K. Killett's Landscaping & Renovations">
+                <img src="./assets/logos/killetts.png" alt="Killetts Landscaping" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+            </div>
+            <!-- Group 2 (Duplicate for seamless loop) -->
+            <div class="logo-marquee-group">
+              <div class="logo-item" title="Keystone Roofing & Building Ltd">
+                <img src="./assets/logos/keystone.png" alt="Keystone Roofing & Building" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="Awaken Films Studio">
+                <img src="./assets/logos/awaken-films.jpg" alt="Awaken Films Studio" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="EquityRoot Housing Partners">
+                <img src="./assets/logos/equity-root.png" alt="EquityRoot Housing Partners" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="Wotta Carpets Specialist Flooring">
+                <img src="./assets/logos/wotta.png" alt="Wotta Carpets" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="K. Killett's Landscaping & Renovations">
+                <img src="./assets/logos/killetts.png" alt="Killetts Landscaping" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Track 2: Logos 06 through 10 (Translates RIGHT to LEFT) -->
+        <div class="logo-marquee-row">
+          <div class="logo-marquee-track track-to-left track-speed-36s">
+            <!-- Group 1 -->
+            <div class="logo-marquee-group">
+              <div class="logo-item" title="CPI Commercial Partners">
+                <img src="./assets/logos/cpi.png" alt="CPI Commercial Partners" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="Derm MD Skin • Hair • Aesthetics">
+                <img src="./assets/logos/derm-md.png" alt="Derm MD Skin and Hair" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="Dr. Shaheen Aesthetic Clinic">
+                <img src="./assets/logos/dr-shaheen.jpg" alt="Dr. Shaheen Aesthetic Clinic" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="Mold Removal Ottawa">
+                <img src="./assets/logos/mold-removal-ottawa.jpg" alt="Mold Removal Ottawa" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="Patios & Drives Ltd">
+                <img src="./assets/logos/patios-and-drives.png" alt="Patios & Drives Ltd" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+            </div>
+            <!-- Group 2 -->
+            <div class="logo-marquee-group">
+              <div class="logo-item" title="CPI Commercial Partners">
+                <img src="./assets/logos/cpi.png" alt="CPI Commercial Partners" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="Derm MD Skin • Hair • Aesthetics">
+                <img src="./assets/logos/derm-md.png" alt="Derm MD Skin and Hair" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="Dr. Shaheen Aesthetic Clinic">
+                <img src="./assets/logos/dr-shaheen.jpg" alt="Dr. Shaheen Aesthetic Clinic" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="Mold Removal Ottawa">
+                <img src="./assets/logos/mold-removal-ottawa.jpg" alt="Mold Removal Ottawa" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="Patios & Drives Ltd">
+                <img src="./assets/logos/patios-and-drives.png" alt="Patios & Drives Ltd" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Track 3: Logos 11 through 15 (Translates LEFT to RIGHT) -->
+        <div class="logo-marquee-row">
+          <div class="logo-marquee-track track-to-right track-speed-44s">
+            <!-- Group 1 -->
+            <div class="logo-marquee-group">
+              <div class="logo-item" title="Scanlan Security Systems">
+                <img src="./assets/logos/scanlan-security.png" alt="Scanlan Security Systems" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="Smash Industrial Services">
+                <img src="./assets/logos/smash-industrial.png" alt="Smash Industrial Services" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="Trim Tab Capital">
+                <img src="./assets/logos/trim-tab.png" alt="Trim Tab Capital" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="Vignesh Wadarajan">
+                <img src="./assets/logos/vignesh-wadarajan.png" alt="Vignesh Wadarajan" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="WMS Logistics & Warehousing">
+                <img src="./assets/logos/wms.png" alt="WMS Logistics & Warehousing" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+            </div>
+            <!-- Group 2 -->
+            <div class="logo-marquee-group">
+              <div class="logo-item" title="Scanlan Security Systems">
+                <img src="./assets/logos/scanlan-security.png" alt="Scanlan Security Systems" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="Smash Industrial Services">
+                <img src="./assets/logos/smash-industrial.png" alt="Smash Industrial Services" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="Trim Tab Capital">
+                <img src="./assets/logos/trim-tab.png" alt="Trim Tab Capital" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="Vignesh Wadarajan">
+                <img src="./assets/logos/vignesh-wadarajan.png" alt="Vignesh Wadarajan" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="WMS Logistics & Warehousing">
+                <img src="./assets/logos/wms.png" alt="WMS Logistics & Warehousing" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Track 4: Repeats Track 1 (Featuring Awaken Films) for Continuous Balance -->
+        <div class="logo-marquee-row">
+          <div class="logo-marquee-track track-to-left track-speed-38s">
+            <!-- Group 1 -->
+            <div class="logo-marquee-group">
+              <div class="logo-item" title="Keystone Roofing & Building Ltd">
+                <img src="./assets/logos/keystone.png" alt="Keystone Roofing & Building" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="Awaken Films Studio">
+                <img src="./assets/logos/awaken-films.jpg" alt="Awaken Films Studio" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="EquityRoot Housing Partners">
+                <img src="./assets/logos/equity-root.png" alt="EquityRoot Housing Partners" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="Wotta Carpets Specialist Flooring">
+                <img src="./assets/logos/wotta.png" alt="Wotta Carpets" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="K. Killett's Landscaping & Renovations">
+                <img src="./assets/logos/killetts.png" alt="Killetts Landscaping" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+            </div>
+            <!-- Group 2 -->
+            <div class="logo-marquee-group">
+              <div class="logo-item" title="Keystone Roofing & Building Ltd">
+                <img src="./assets/logos/keystone.png" alt="Keystone Roofing & Building" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="Awaken Films Studio">
+                <img src="./assets/logos/awaken-films.jpg" alt="Awaken Films Studio" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="EquityRoot Housing Partners">
+                <img src="./assets/logos/equity-root.png" alt="EquityRoot Housing Partners" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="Wotta Carpets Specialist Flooring">
+                <img src="./assets/logos/wotta.png" alt="Wotta Carpets" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+              <div class="logo-item" title="K. Killett's Landscaping & Renovations">
+                <img src="./assets/logos/killetts.png" alt="Killetts Landscaping" class="client-logo-img" onerror="handleImgError(this)">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div></section>
+
+    <!-- =====================================================================
+         SECTION 2: Sticky Overlapping "Card Stacking" Showcase ("Industry Wins")
+         Design Monks standard: Progressive top offsets (90px / 130px / 170px / 210px)
+         ===================================================================== -->
+    <section class="industry-stack-section" id="proof" aria-label="Proven Client Outcomes Across Industries">
+      <div class="stack-container">
+        
+        <!-- Section Header -->
+        <div class="stack-header-wrapper">
+          <div class="stack-pill-tag">
+            <span class="stack-pill-dot" aria-hidden="true"></span>
+            <span>Proven Client Outcomes</span>
+          </div>
+          <h2 class="stack-headline">
+            High-Converting Websites Across Every Industry
+          </h2>
+        </div>
+
+        <!-- Sticky Stacking Cards Deck -->
+        <div class="stack-cards-deck">
+
+          <!-- CARD 1: Keystone Roofing & Building -->
+          <article class="stack-card stack-card-1"
+                   data-title="Keystone Roofing & Building"
+                   data-category="Residential & Commercial Trade"
+                   data-metric="Complete UI & Funnel • 48 Hours"
+                   data-image="./assets/mockups/keystone-roofing-1.png">
+            <div class="stack-card-grid">
+              <!-- Left Column: Copy, Metrics & Profile -->
+              <div class="stack-card-content">
+                <div class="stack-card-header">
+                  <span class="stack-industry-badge badge-amber">Residential & Commercial Trade</span>
+                  <span class="stack-company-name">Keystone Roofing & Building</span>
+                </div>
+
+                <h3 class="stack-card-title">
+                  Emergency Quote Dispatch & High-Ticket Booking Architecture
+                </h3>
+
+                <p class="stack-card-subtext">
+                  A mobile-first capture system built for speed, generating phone inquiries within 10 seconds of landing.
+                </p>
+
+                <!-- Metrics Box -->
+                <div class="stack-metrics-box">
+                  <div class="metric-item">
+                    <span class="metric-label">Scope</span>
+                    <span class="metric-value">Complete UI & Funnel</span>
+                  </div>
+                  <div class="metric-separator" aria-hidden="true"></div>
+                  <div class="metric-item">
+                    <span class="metric-label">Turnaround</span>
+                    <span class="metric-value">48 Hours</span>
+                  </div>
+                </div>
+
+                <!-- Client Profile & Action -->
+                <div class="stack-card-footer">
+                  <div class="stack-profile-info">
+                    <div class="stack-profile-avatar avatar-amber" aria-hidden="true">TW</div>
+                    <div class="stack-profile-details">
+                      <span class="profile-name">Tom W.</span>
+                      <span class="profile-title">Managing Director, Keystone</span>
+                    </div>
+                  </div>
+                  <button class="stack-card-inspect" aria-label="Inspect Keystone Roofing Project Mockup">
+                    <span>Inspect System</span>
+                    <span aria-hidden="true">↗</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Right Column: Interactive Browser Frame Mockup -->
+              <div class="stack-mockup-column">
+                <div class="stack-mockup-frame">
+                  <div class="browser-window-header" aria-hidden="true">
+                    <div class="browser-dots">
+                      <span class="b-dot b-dot-red"></span>
+                      <span class="b-dot b-dot-yellow"></span>
+                      <span class="b-dot b-dot-green"></span>
+                    </div>
+                    <div class="browser-url-pill">keystoneroofingltd.co.uk</div>
+                  </div>
+                  <div class="browser-window-body">
+                    <img src="./assets/mockups/keystone-roofing-1.png"
+                         alt="Keystone Roofing & Building Website Interface Mockup"
+                         class="stack-mockup-img" onerror="handleImgError(this)"
+                         loading="lazy"
+                         decoding="async">
+                    <div class="mockup-overlay-badge">
+                      <span>Live Dispatch Engine</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 2: Aesthetic Clinic & Dermatology -->
+          <article class="stack-card stack-card-2"
+                   data-title="Aesthetic Clinic & Dermatology"
+                   data-category="Clinical Aesthetics"
+                   data-metric="Booking Engine & Rebrand • 3 Days"
+                   data-image="./assets/mockups/dr-shaheen.png">
+            <div class="stack-card-grid">
+              <!-- Left Column: Copy, Metrics & Profile -->
+              <div class="stack-card-content">
+                <div class="stack-card-header">
+                  <span class="stack-industry-badge badge-rose">Clinical Aesthetics</span>
+                  <span class="stack-company-name">Dr. Shaheen Clinic</span>
+                </div>
+
+                <h3 class="stack-card-title">
+                  Luxury Patient Onboarding & Direct Booking Engine
+                </h3>
+
+                <p class="stack-card-subtext">
+                  Frictionless scheduling with direct Google Review social proof and high-conversion treatment pages.
+                </p>
+
+                <!-- Metrics Box -->
+                <div class="stack-metrics-box">
+                  <div class="metric-item">
+                    <span class="metric-label">Scope</span>
+                    <span class="metric-value">Booking Engine & Rebrand</span>
+                  </div>
+                  <div class="metric-separator" aria-hidden="true"></div>
+                  <div class="metric-item">
+                    <span class="metric-label">Turnaround</span>
+                    <span class="metric-value">3 Days</span>
+                  </div>
+                </div>
+
+                <!-- Client Profile & Action -->
+                <div class="stack-card-footer">
+                  <div class="stack-profile-info">
+                    <div class="stack-profile-avatar avatar-rose" aria-hidden="true">DS</div>
+                    <div class="stack-profile-details">
+                      <span class="profile-name">Dr. Shaheen</span>
+                      <span class="profile-title">Lead Clinical Practitioner</span>
+                    </div>
+                  </div>
+                  <button class="stack-card-inspect" aria-label="Inspect Dr. Shaheen Aesthetic Clinic Project Mockup">
+                    <span>Inspect System</span>
+                    <span aria-hidden="true">↗</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Right Column: Interactive Browser Frame Mockup -->
+              <div class="stack-mockup-column">
+                <div class="stack-mockup-frame">
+                  <div class="browser-window-header" aria-hidden="true">
+                    <div class="browser-dots">
+                      <span class="b-dot b-dot-red"></span>
+                      <span class="b-dot b-dot-yellow"></span>
+                      <span class="b-dot b-dot-green"></span>
+                    </div>
+                    <div class="browser-url-pill">drshaheenclinic.com</div>
+                  </div>
+                  <div class="browser-window-body">
+                    <img src="./assets/mockups/dr-shaheen.png"
+                         alt="Aesthetic Clinic and Dermatology Website Interface Mockup"
+                         class="stack-mockup-img" onerror="handleImgError(this)"
+                         loading="lazy"
+                         decoding="async">
+                    <div class="mockup-overlay-badge">
+                      <span>3.4x Online Bookings</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 3: Killett's Landscaping & Renovations -->
+          <article class="stack-card stack-card-3"
+                   data-title="Killett's Landscaping & Renovations"
+                   data-category="Outdoor & Property Renovations"
+                   data-metric="Architecture & Lead Flow • 4 Days"
+                   data-image="./assets/mockups/ko-landscapes.png">
+            <div class="stack-card-grid">
+              <!-- Left Column: Copy, Metrics & Profile -->
+              <div class="stack-card-content">
+                <div class="stack-card-header">
+                  <span class="stack-industry-badge badge-mint">Outdoor & Property Renovations</span>
+                  <span class="stack-company-name">Killett's Landscaping</span>
+                </div>
+
+                <h3 class="stack-card-title">
+                  Local Quote Estimator That Tripled Project Inquiries
+                </h3>
+
+                <p class="stack-card-subtext">
+                  Transforming passive local search traffic into qualified ground-up landscaping consultations.
+                </p>
+
+                <!-- Metrics Box -->
+                <div class="stack-metrics-box">
+                  <div class="metric-item">
+                    <span class="metric-label">Scope</span>
+                    <span class="metric-value">Architecture & Lead Flow</span>
+                  </div>
+                  <div class="metric-separator" aria-hidden="true"></div>
+                  <div class="metric-item">
+                    <span class="metric-label">Turnaround</span>
+                    <span class="metric-value">4 Days</span>
+                  </div>
+                </div>
+
+                <!-- Client Profile & Action -->
+                <div class="stack-card-footer">
+                  <div class="stack-profile-info">
+                    <div class="stack-profile-avatar avatar-mint" aria-hidden="true">KK</div>
+                    <div class="stack-profile-details">
+                      <span class="profile-name">K. Killett</span>
+                      <span class="profile-title">Founder & Head Contractor</span>
+                    </div>
+                  </div>
+                  <button class="stack-card-inspect" aria-label="Inspect Killett's Landscaping Project Mockup">
+                    <span>Inspect System</span>
+                    <span aria-hidden="true">↗</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Right Column: Interactive Browser Frame Mockup -->
+              <div class="stack-mockup-column">
+                <div class="stack-mockup-frame">
+                  <div class="browser-window-header" aria-hidden="true">
+                    <div class="browser-dots">
+                      <span class="b-dot b-dot-red"></span>
+                      <span class="b-dot b-dot-yellow"></span>
+                      <span class="b-dot b-dot-green"></span>
+                    </div>
+                    <div class="browser-url-pill">killettrenovations.co.uk</div>
+                  </div>
+                  <div class="browser-window-body">
+                    <img src="./assets/mockups/ko-landscapes.png"
+                         alt="Killett's Landscaping and Renovations Website Interface Mockup"
+                         class="stack-mockup-img" onerror="handleImgError(this)"
+                         loading="lazy"
+                         decoding="async">
+                    <div class="mockup-overlay-badge">
+                      <span>300% Quote Tripling</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 4: Wotta Carpets -->
+          <article class="stack-card stack-card-4"
+                   data-title="Wotta Carpets"
+                   data-category="Specialist Flooring Services"
+                   data-metric="High-Speed Mobile Funnel • 48 Hours"
+                   data-image="./assets/mockups/wotta-carpets.png">
+            <div class="stack-card-grid">
+              <!-- Left Column: Copy, Metrics & Profile -->
+              <div class="stack-card-content">
+                <div class="stack-card-header">
+                  <span class="stack-industry-badge badge-slate">Specialist Flooring Services</span>
+                  <span class="stack-company-name">Wotta Carpets</span>
+                </div>
+
+                <h3 class="stack-card-title">
+                  Instant Quote & Service Estimator with 99/100 Mobile Speed
+                </h3>
+
+                <p class="stack-card-subtext">
+                  Eliminating quote bounce rates with instant service selection and one-tap emergency call triggers.
+                </p>
+
+                <!-- Metrics Box -->
+                <div class="stack-metrics-box">
+                  <div class="metric-item">
+                    <span class="metric-label">Scope</span>
+                    <span class="metric-value">High-Speed Mobile Funnel</span>
+                  </div>
+                  <div class="metric-separator" aria-hidden="true"></div>
+                  <div class="metric-item">
+                    <span class="metric-label">Turnaround</span>
+                    <span class="metric-value">48 Hours</span>
+                  </div>
+                </div>
+
+                <!-- Client Profile & Action -->
+                <div class="stack-card-footer">
+                  <div class="stack-profile-info">
+                    <div class="stack-profile-avatar avatar-slate" aria-hidden="true">AM</div>
+                    <div class="stack-profile-details">
+                      <span class="profile-name">Ali M.</span>
+                      <span class="profile-title">Operations Lead, Wotta</span>
+                    </div>
+                  </div>
+                  <button class="stack-card-inspect" aria-label="Inspect Wotta Carpets Project Mockup">
+                    <span>Inspect System</span>
+                    <span aria-hidden="true">↗</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Right Column: Interactive Browser Frame Mockup -->
+              <div class="stack-mockup-column">
+                <div class="stack-mockup-frame">
+                  <div class="browser-window-header" aria-hidden="true">
+                    <div class="browser-dots">
+                      <span class="b-dot b-dot-red"></span>
+                      <span class="b-dot b-dot-yellow"></span>
+                      <span class="b-dot b-dot-green"></span>
+                    </div>
+                    <div class="browser-url-pill">wottacarpets.co.uk</div>
+                  </div>
+                  <div class="browser-window-body">
+                    <img src="./assets/mockups/wotta-carpets.png"
+                         alt="Wotta Carpets Website Interface Mockup"
+                         class="stack-mockup-img" onerror="handleImgError(this)"
+                         loading="lazy"
+                         decoding="async">
+                    <div class="mockup-overlay-badge">
+                      <span>99/100 Mobile Speed</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Bottom Action Button -->
+        <div class="stack-bottom-action">
+          <a href="#contact" class="explore-case-studies-btn">
+            <span>Explore All Case Studies</span>
+            <span class="case-study-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 1: Horizontal Services Showcase ("Beyond Just Websites")
+         Inspired by Design in DC: Infinite Horizontal Marquee Carousel with Slide-up Frosted Drawer
+         ===================================================================== -->
+    <section class="services-carousel-section" id="capabilities" aria-label="End-to-End Capabilities Built to Convert">
+      <div class="services-header-container">
+        <div class="services-pill-tag">
+          <span class="services-pill-dot" aria-hidden="true"></span>
+          <span>Full-Stack Digital Growth</span>
+        </div>
+        <h2 class="services-headline">
+          End-to-End Capabilities Built to Convert
+        </h2>
+        <p class="services-subheadline">
+          A complete suite of design, search, and acquisition systems engineered to turn attention into revenue.
+        </p>
+      </div>
+
+      <!-- Infinite Horizontal Carousel Viewport with Edge Feathering -->
+      <div class="services-carousel-viewport" aria-hidden="true">
+        <div class="services-carousel-track">
+          
+          <!-- GROUP 1 (6 Core Services) -->
+          <div class="services-carousel-group">
+            <!-- Service Card: Local Business Websites -->
+            <article class="service-card" data-service="local-biz">
+              <div class="service-image-container">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Local clinic professional holding phone displaying live booking site" class="service-image-bg" loading="lazy" onerror="handleImgError(this, './assets/services/local-biz.svg')">
+                <div class="service-scrim-gradient"></div>
+                <!-- Service Title rendered DIRECTLY INSIDE the image container at the very top -->
+                <div class="service-title-overlay">
+                  <h3 class="service-title-text">Local Business Websites</h3>
+                </div>
+              </div>
+              <!-- Sliding Hover Drawer with 100% white text & lime checkmarks -->
+              <div class="service-drawer">
+                <div class="service-drawer-header">
+                  <span class="drawer-pill">Key Deliverables</span>
+                  <span class="drawer-arrow">↗</span>
+                </div>
+                <ul class="service-deliverables-list">
+                  <li><span class="check-icon">✓</span><span>Mobile-First Booking Flows</span></li>
+                  <li><span class="check-icon">✓</span><span>1-Tap Click-to-Call Triggers</span></li>
+                  <li><span class="check-icon">✓</span><span>Local Schema Architecture</span></li>
+                  <li><span class="check-icon">✓</span><span>Sub-Second Load Speeds</span></li>
+                </ul>
+                <a href="#contact" class="service-drawer-btn">
+                  <span>Explore Service Sprint</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Service Card: B2B Website Building -->
+            <article class="service-card" data-service="b2b-web">
+              <div class="service-image-container">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Creative team collaborating around laptop showcasing modern architectural web platform" class="service-image-bg" loading="lazy" onerror="handleImgError(this, './assets/services/b2b-web.svg')">
+                <div class="service-scrim-gradient"></div>
+                <!-- Service Title rendered DIRECTLY INSIDE the image container at the very top -->
+                <div class="service-title-overlay">
+                  <h3 class="service-title-text">B2B Website Building</h3>
+                </div>
+              </div>
+              <!-- Sliding Hover Drawer with 100% white text & lime checkmarks -->
+              <div class="service-drawer">
+                <div class="service-drawer-header">
+                  <span class="drawer-pill">Key Deliverables</span>
+                  <span class="drawer-arrow">↗</span>
+                </div>
+                <ul class="service-deliverables-list">
+                  <li><span class="check-icon">✓</span><span>Interactive Product Showcases</span></li>
+                  <li><span class="check-icon">✓</span><span>CRM & Lead Pipeline Funnels</span></li>
+                  <li><span class="check-icon">✓</span><span>Custom Design Systems</span></li>
+                  <li><span class="check-icon">✓</span><span>High-Security Cloud Hosting</span></li>
+                </ul>
+                <a href="#contact" class="service-drawer-btn">
+                  <span>Explore Service Sprint</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Service Card: High-Rank Search SEO -->
+            <article class="service-card" data-service="seo">
+              <div class="service-image-container">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="High-fashion editorial portrait with clean colorful search interface overlay" class="service-image-bg" loading="lazy" onerror="handleImgError(this, './assets/services/seo.svg')">
+                <div class="service-scrim-gradient"></div>
+                <!-- Service Title rendered DIRECTLY INSIDE the image container at the very top -->
+                <div class="service-title-overlay">
+                  <h3 class="service-title-text">High-Rank Search SEO</h3>
+                </div>
+              </div>
+              <!-- Sliding Hover Drawer with 100% white text & lime checkmarks -->
+              <div class="service-drawer">
+                <div class="service-drawer-header">
+                  <span class="drawer-pill">Key Deliverables</span>
+                  <span class="drawer-arrow">↗</span>
+                </div>
+                <ul class="service-deliverables-list">
+                  <li><span class="check-icon">✓</span><span>Keyword Revenue Mapping</span></li>
+                  <li><span class="check-icon">✓</span><span>Structured JSON-LD Schema</span></li>
+                  <li><span class="check-icon">✓</span><span>Topical Authority Silos</span></li>
+                  <li><span class="check-icon">✓</span><span>Core Web Vitals 100/100</span></li>
+                </ul>
+                <a href="#contact" class="service-drawer-btn">
+                  <span>Explore Service Sprint</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Service Card: Google Business Optimization -->
+            <article class="service-card" data-service="gmb">
+              <div class="service-image-container">
+                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80" alt="Vibrant local storefront and cafe scene representing prime physical location presence" class="service-image-bg" loading="lazy" onerror="handleImgError(this, './assets/services/google-maps.svg')">
+                <div class="service-scrim-gradient"></div>
+                <!-- Service Title rendered DIRECTLY INSIDE the image container at the very top -->
+                <div class="service-title-overlay">
+                  <h3 class="service-title-text">Google Business Optimization</h3>
+                </div>
+              </div>
+              <!-- Sliding Hover Drawer with 100% white text & lime checkmarks -->
+              <div class="service-drawer">
+                <div class="service-drawer-header">
+                  <span class="drawer-pill">Key Deliverables</span>
+                  <span class="drawer-arrow">↗</span>
+                </div>
+                <ul class="service-deliverables-list">
+                  <li><span class="check-icon">✓</span><span>Google 3-Pack Rank Dominance</span></li>
+                  <li><span class="check-icon">✓</span><span>Geo-Targeted Local Citations</span></li>
+                  <li><span class="check-icon">✓</span><span>Review Velocity Architecture</span></li>
+                  <li><span class="check-icon">✓</span><span>Direct Call-Tracking Funnel</span></li>
+                </ul>
+                <a href="#contact" class="service-drawer-btn">
+                  <span>Explore Service Sprint</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Service Card: 24-Hour Rapid Website Launches -->
+            <article class="service-card" data-service="rapid-launch">
+              <div class="service-image-container">
+                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80" alt="Fast-paced agency sprint workspace with modern laptops and countdown metrics" class="service-image-bg" loading="lazy" onerror="handleImgError(this, './assets/services/rapid-sprint.svg')">
+                <div class="service-scrim-gradient"></div>
+                <!-- Service Title rendered DIRECTLY INSIDE the image container at the very top -->
+                <div class="service-title-overlay">
+                  <h3 class="service-title-text">24-Hour Rapid Website Launches</h3>
+                </div>
+              </div>
+              <!-- Sliding Hover Drawer with 100% white text & lime checkmarks -->
+              <div class="service-drawer">
+                <div class="service-drawer-header">
+                  <span class="drawer-pill">Key Deliverables</span>
+                  <span class="drawer-arrow">↗</span>
+                </div>
+                <ul class="service-deliverables-list">
+                  <li><span class="check-icon">✓</span><span>Overnight Prototype Turnaround</span></li>
+                  <li><span class="check-icon">✓</span><span>0% Deposit Required Upfront</span></li>
+                  <li><span class="check-icon">✓</span><span>Full Responsive Code Ownership</span></li>
+                  <li><span class="check-icon">✓</span><span>Production Domain Deployment</span></li>
+                </ul>
+                <a href="#contact" class="service-drawer-btn">
+                  <span>Explore Service Sprint</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Service Card: AI & Voice-Enabled Web Systems -->
+            <article class="service-card" data-service="ai-voice">
+              <div class="service-image-container">
+                <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&w=800&q=80" alt="Futuristic modern interaction with intelligent AI assistant visual interface" class="service-image-bg" loading="lazy" onerror="handleImgError(this, './assets/services/ai-voice.svg')">
+                <div class="service-scrim-gradient"></div>
+                <!-- Service Title rendered DIRECTLY INSIDE the image container at the very top -->
+                <div class="service-title-overlay">
+                  <h3 class="service-title-text">AI & Voice-Enabled Web Systems</h3>
+                </div>
+              </div>
+              <!-- Sliding Hover Drawer with 100% white text & lime checkmarks -->
+              <div class="service-drawer">
+                <div class="service-drawer-header">
+                  <span class="drawer-pill">Key Deliverables</span>
+                  <span class="drawer-arrow">↗</span>
+                </div>
+                <ul class="service-deliverables-list">
+                  <li><span class="check-icon">✓</span><span>Autonomous Voice Call Booking</span></li>
+                  <li><span class="check-icon">✓</span><span>Intelligent Client Triage Agents</span></li>
+                  <li><span class="check-icon">✓</span><span>Instant Lead Notification Hooks</span></li>
+                  <li><span class="check-icon">✓</span><span>Custom LLM Knowledge Bases</span></li>
+                </ul>
+                <a href="#contact" class="service-drawer-btn">
+                  <span>Explore Service Sprint</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- GROUP 2 (Duplicate for Seamless Infinite Loop) -->
+          <div class="services-carousel-group" aria-hidden="true">
+            <!-- Service Card: Local Business Websites -->
+            <article class="service-card" data-service="local-biz">
+              <div class="service-image-container">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Local clinic professional holding phone displaying live booking site" class="service-image-bg" loading="lazy" onerror="handleImgError(this, './assets/services/local-biz.svg')">
+                <div class="service-scrim-gradient"></div>
+                <!-- Service Title rendered DIRECTLY INSIDE the image container at the very top -->
+                <div class="service-title-overlay">
+                  <h3 class="service-title-text">Local Business Websites</h3>
+                </div>
+              </div>
+              <!-- Sliding Hover Drawer with 100% white text & lime checkmarks -->
+              <div class="service-drawer">
+                <div class="service-drawer-header">
+                  <span class="drawer-pill">Key Deliverables</span>
+                  <span class="drawer-arrow">↗</span>
+                </div>
+                <ul class="service-deliverables-list">
+                  <li><span class="check-icon">✓</span><span>Mobile-First Booking Flows</span></li>
+                  <li><span class="check-icon">✓</span><span>1-Tap Click-to-Call Triggers</span></li>
+                  <li><span class="check-icon">✓</span><span>Local Schema Architecture</span></li>
+                  <li><span class="check-icon">✓</span><span>Sub-Second Load Speeds</span></li>
+                </ul>
+                <a href="#contact" class="service-drawer-btn">
+                  <span>Explore Service Sprint</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Service Card: B2B Website Building -->
+            <article class="service-card" data-service="b2b-web">
+              <div class="service-image-container">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Creative team collaborating around laptop showcasing modern architectural web platform" class="service-image-bg" loading="lazy" onerror="handleImgError(this, './assets/services/b2b-web.svg')">
+                <div class="service-scrim-gradient"></div>
+                <!-- Service Title rendered DIRECTLY INSIDE the image container at the very top -->
+                <div class="service-title-overlay">
+                  <h3 class="service-title-text">B2B Website Building</h3>
+                </div>
+              </div>
+              <!-- Sliding Hover Drawer with 100% white text & lime checkmarks -->
+              <div class="service-drawer">
+                <div class="service-drawer-header">
+                  <span class="drawer-pill">Key Deliverables</span>
+                  <span class="drawer-arrow">↗</span>
+                </div>
+                <ul class="service-deliverables-list">
+                  <li><span class="check-icon">✓</span><span>Interactive Product Showcases</span></li>
+                  <li><span class="check-icon">✓</span><span>CRM & Lead Pipeline Funnels</span></li>
+                  <li><span class="check-icon">✓</span><span>Custom Design Systems</span></li>
+                  <li><span class="check-icon">✓</span><span>High-Security Cloud Hosting</span></li>
+                </ul>
+                <a href="#contact" class="service-drawer-btn">
+                  <span>Explore Service Sprint</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Service Card: High-Rank Search SEO -->
+            <article class="service-card" data-service="seo">
+              <div class="service-image-container">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="High-fashion editorial portrait with clean colorful search interface overlay" class="service-image-bg" loading="lazy" onerror="handleImgError(this, './assets/services/seo.svg')">
+                <div class="service-scrim-gradient"></div>
+                <!-- Service Title rendered DIRECTLY INSIDE the image container at the very top -->
+                <div class="service-title-overlay">
+                  <h3 class="service-title-text">High-Rank Search SEO</h3>
+                </div>
+              </div>
+              <!-- Sliding Hover Drawer with 100% white text & lime checkmarks -->
+              <div class="service-drawer">
+                <div class="service-drawer-header">
+                  <span class="drawer-pill">Key Deliverables</span>
+                  <span class="drawer-arrow">↗</span>
+                </div>
+                <ul class="service-deliverables-list">
+                  <li><span class="check-icon">✓</span><span>Keyword Revenue Mapping</span></li>
+                  <li><span class="check-icon">✓</span><span>Structured JSON-LD Schema</span></li>
+                  <li><span class="check-icon">✓</span><span>Topical Authority Silos</span></li>
+                  <li><span class="check-icon">✓</span><span>Core Web Vitals 100/100</span></li>
+                </ul>
+                <a href="#contact" class="service-drawer-btn">
+                  <span>Explore Service Sprint</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Service Card: Google Business Optimization -->
+            <article class="service-card" data-service="gmb">
+              <div class="service-image-container">
+                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80" alt="Vibrant local storefront and cafe scene representing prime physical location presence" class="service-image-bg" loading="lazy" onerror="handleImgError(this, './assets/services/google-maps.svg')">
+                <div class="service-scrim-gradient"></div>
+                <!-- Service Title rendered DIRECTLY INSIDE the image container at the very top -->
+                <div class="service-title-overlay">
+                  <h3 class="service-title-text">Google Business Optimization</h3>
+                </div>
+              </div>
+              <!-- Sliding Hover Drawer with 100% white text & lime checkmarks -->
+              <div class="service-drawer">
+                <div class="service-drawer-header">
+                  <span class="drawer-pill">Key Deliverables</span>
+                  <span class="drawer-arrow">↗</span>
+                </div>
+                <ul class="service-deliverables-list">
+                  <li><span class="check-icon">✓</span><span>Google 3-Pack Rank Dominance</span></li>
+                  <li><span class="check-icon">✓</span><span>Geo-Targeted Local Citations</span></li>
+                  <li><span class="check-icon">✓</span><span>Review Velocity Architecture</span></li>
+                  <li><span class="check-icon">✓</span><span>Direct Call-Tracking Funnel</span></li>
+                </ul>
+                <a href="#contact" class="service-drawer-btn">
+                  <span>Explore Service Sprint</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Service Card: 24-Hour Rapid Website Launches -->
+            <article class="service-card" data-service="rapid-launch">
+              <div class="service-image-container">
+                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80" alt="Fast-paced agency sprint workspace with modern laptops and countdown metrics" class="service-image-bg" loading="lazy" onerror="handleImgError(this, './assets/services/rapid-sprint.svg')">
+                <div class="service-scrim-gradient"></div>
+                <!-- Service Title rendered DIRECTLY INSIDE the image container at the very top -->
+                <div class="service-title-overlay">
+                  <h3 class="service-title-text">24-Hour Rapid Website Launches</h3>
+                </div>
+              </div>
+              <!-- Sliding Hover Drawer with 100% white text & lime checkmarks -->
+              <div class="service-drawer">
+                <div class="service-drawer-header">
+                  <span class="drawer-pill">Key Deliverables</span>
+                  <span class="drawer-arrow">↗</span>
+                </div>
+                <ul class="service-deliverables-list">
+                  <li><span class="check-icon">✓</span><span>Overnight Prototype Turnaround</span></li>
+                  <li><span class="check-icon">✓</span><span>0% Deposit Required Upfront</span></li>
+                  <li><span class="check-icon">✓</span><span>Full Responsive Code Ownership</span></li>
+                  <li><span class="check-icon">✓</span><span>Production Domain Deployment</span></li>
+                </ul>
+                <a href="#contact" class="service-drawer-btn">
+                  <span>Explore Service Sprint</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Service Card: AI & Voice-Enabled Web Systems -->
+            <article class="service-card" data-service="ai-voice">
+              <div class="service-image-container">
+                <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&w=800&q=80" alt="Futuristic modern interaction with intelligent AI assistant visual interface" class="service-image-bg" loading="lazy" onerror="handleImgError(this, './assets/services/ai-voice.svg')">
+                <div class="service-scrim-gradient"></div>
+                <!-- Service Title rendered DIRECTLY INSIDE the image container at the very top -->
+                <div class="service-title-overlay">
+                  <h3 class="service-title-text">AI & Voice-Enabled Web Systems</h3>
+                </div>
+              </div>
+              <!-- Sliding Hover Drawer with 100% white text & lime checkmarks -->
+              <div class="service-drawer">
+                <div class="service-drawer-header">
+                  <span class="drawer-pill">Key Deliverables</span>
+                  <span class="drawer-arrow">↗</span>
+                </div>
+                <ul class="service-deliverables-list">
+                  <li><span class="check-icon">✓</span><span>Autonomous Voice Call Booking</span></li>
+                  <li><span class="check-icon">✓</span><span>Intelligent Client Triage Agents</span></li>
+                  <li><span class="check-icon">✓</span><span>Instant Lead Notification Hooks</span></li>
+                  <li><span class="check-icon">✓</span><span>Custom LLM Knowledge Bases</span></li>
+                </ul>
+                <a href="#contact" class="service-drawer-btn">
+                  <span>Explore Service Sprint</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 2: Sticky Pinned "Why Teams Choose Us" Section
+         Design Dream Mechanics + Design Monks High-Fidelity Interactive Visuals
+         ===================================================================== -->
+    <section class="why-us-section" id="advantages" aria-label="Why Teams Choose Crafting Web Designs">
+      <div class="why-us-container">
+        
+        <!-- Section Header -->
+        <div class="why-header-wrapper">
+          <div class="why-pill-tag">
+            <span class="why-pill-dot" aria-hidden="true"></span>
+            <span>The CWD Advantage</span>
+          </div>
+          <h2 class="why-headline">
+            Engineered for Results. Built Without Risk.
+          </h2>
+          <p class="why-subheadline">
+            Why growing local service leaders and scaling businesses partner with Crafting Web Designs instead of traditional bloated agencies.
+          </p>
+        </div>
+
+        <!-- 2-Column Sticky Split Layout -->
+        <div class="why-split-layout">
+          
+          <!-- LEFT COLUMN: Pinned Dynamic Graphic Container -->
+          <div class="why-pinned-column">
+            <div class="why-graphic-card" id="why-graphic-card">
+              
+              <!-- State 1: Zero-Risk Prototype (Awaken Films High-Fidelity Custom Brand Preview) -->
+              <div class="graphic-pane is-active" data-pane="1">
+                <div class="graphic-pane-header">
+                  <div class="browser-dots">
+                    <span class="b-dot b-dot-red"></span>
+                    <span class="b-dot b-dot-yellow"></span>
+                    <span class="b-dot b-dot-green"></span>
+                  </div>
+                  <div class="graphic-url-pill">awakenfilms.cwd.design/live-prototype</div>
+                  <span class="live-status-pill status-lime">● Live Prototype</span>
+                </div>
+                <div class="graphic-pane-body">
+                  <!-- Tangible Floating Preview Card with Real Awaken Films Screenshot -->
+                  <div class="prototype-mockup-card">
+                    <div class="prototype-top-banner">
+                      <span class="prototype-glowing-badge">
+                        <span class="badge-pulse-dot"></span>
+                        Live Interactive Homepage Prototype • 100% Free Before Signing
+                      </span>
+                    </div>
+                    <!-- Direct Display of Provided Real Client Website Screenshot -->
+                    <div class="prototype-screenshot-wrapper">
+                      <img src="./assets/mockups/awaken-films.png" alt="Awaken Films Live Website Prototype Screenshot" class="prototype-actual-screenshot" loading="lazy" onerror="handleImgError(this)">
+                    </div>
+                  </div>
+                  <!-- Floating Bottom Toast Notification -->
+                  <div class="tangible-notification-toast toast-success">
+                    <div class="toast-icon-circle">✓</div>
+                    <div class="toast-content">
+                      <strong>Interactive Prototype Sandbox Ready</strong>
+                      <span>Experience and test your actual website live before you ever pay us a dime.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- State 2: Sprint Turnaround -->
+              <div class="graphic-pane" data-pane="2">
+                <div class="graphic-pane-header">
+                  <div class="browser-dots">
+                    <span class="b-dot b-dot-red"></span>
+                    <span class="b-dot b-dot-yellow"></span>
+                    <span class="b-dot b-dot-green"></span>
+                  </div>
+                  <div class="graphic-url-pill">cwd.sprints/48h-delivery-schedule</div>
+                  <span class="live-status-pill status-amber">● Sprint Active</span>
+                </div>
+                <div class="graphic-pane-body">
+                  <div class="sprint-calendar-card">
+                    <div class="sprint-header-row">
+                      <div>
+                        <span class="sprint-kicker">GUARANTEED VELOCITY</span>
+                        <div class="sprint-metric-hero">48h – 7 Days</div>
+                      </div>
+                      <div class="sprint-comparison-tag">
+                        Traditional: 16 Weeks<br><strong>CWD: 48h Turnaround</strong>
+                      </div>
+                    </div>
+
+                    <!-- 48h Calendar Timeline with Colorful Pastel Milestone Tags -->
+                    <div class="calendar-timeline-container">
+                      
+                      <div class="milestone-row milestone-blue">
+                        <div class="milestone-time-badge">Day 01 • 09:00 AM</div>
+                        <div class="milestone-content">
+                          <div class="milestone-title-group">
+                            <span class="milestone-icon">⚡</span>
+                            <strong class="milestone-name">Interactive Wireframe &amp; Conversion Copy</strong>
+                          </div>
+                          <span class="milestone-status">Completed in 12h ✓</span>
+                        </div>
+                      </div>
+
+                      <div class="milestone-row milestone-purple">
+                        <div class="milestone-time-badge">Day 02 • 02:00 PM</div>
+                        <div class="milestone-content">
+                          <div class="milestone-title-group">
+                            <span class="milestone-icon">🎨</span>
+                            <strong class="milestone-name">High-End Responsive UI &amp; Micro-Interactions</strong>
+                          </div>
+                          <span class="milestone-status">Completed in 24h ✓</span>
+                        </div>
+                      </div>
+
+                      <div class="milestone-row milestone-lime">
+                        <div class="milestone-time-badge">Day 03 • 11:30 AM</div>
+                        <div class="milestone-content">
+                          <div class="milestone-title-group">
+                            <span class="milestone-icon">🚀</span>
+                            <strong class="milestone-name">Speed Polish &amp; Core Web Vitals (99/100)</strong>
+                          </div>
+                          <span class="milestone-status">Live Staging Ready ✓</span>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <!-- The Live Ready For Launch Green Rubber Stamp -->
+                    <div class="ready-launch-stamp" aria-label="Ready For Launch Green Stamp">
+                      <div class="stamp-border">
+                        <div class="stamp-inner">
+                          <span class="stamp-text">READY FOR LAUNCH</span>
+                          <span class="stamp-sub">VERIFIED &bull; 100% SPRINT SUCCESS</span>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <!-- Floating Toast -->
+                  <div class="tangible-notification-toast toast-lime">
+                    <div class="toast-icon-circle">⚡</div>
+                    <div class="toast-content">
+                      <strong>Launch Velocity: Days, Not Months</strong>
+                      <span>Capturing qualified local calls weeks ahead of your sluggish competitors.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- State 3: Unlimited Revisions (Authentic Slack Communication Thread) -->
+              <div class="graphic-pane" data-pane="3">
+                <div class="graphic-pane-header">
+                  <div class="browser-dots">
+                    <span class="b-dot b-dot-red"></span>
+                    <span class="b-dot b-dot-yellow"></span>
+                    <span class="b-dot b-dot-green"></span>
+                  </div>
+                  <div class="graphic-url-pill">cwd.sprints/client-vip-revisions</div>
+                  <span class="live-status-pill status-lime">● Live Client Sprint</span>
+                </div>
+                <div class="graphic-pane-body">
+                  <div class="prototype-mockup-card revision-thread-card">
+                    <div class="prototype-top-banner">
+                      <span class="prototype-glowing-badge badge-revisions">
+                        <span class="badge-pulse-dot"></span>
+                        Direct Architect Access • 4-Minute Staging Turnaround
+                      </span>
+                    </div>
+                    <!-- Dedicated Image Asset: Responding to a Client Screenshot -->
+                    <div class="revisions-screenshot-wrapper">
+                      <img src="./assets/mockups/responding-to-client.png" alt="Authentic Client Communication Thread - Responding to Client" class="revisions-actual-screenshot" loading="lazy" onerror="handleImgError(this)">
+                    </div>
+                  </div>
+                  <!-- Floating Bottom Toast Notification -->
+                  <div class="tangible-notification-toast toast-purple">
+                    <div class="toast-icon-circle">✦</div>
+                    <div class="toast-content">
+                      <strong>100% Launch Satisfaction Guarantee</strong>
+                      <span>Unlimited revisions during sprint cycles with direct architect access.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- State 4: Flexible Payment Plans -->
+              <div class="graphic-pane" data-pane="4">
+                <div class="graphic-pane-header">
+                  <div class="browser-dots">
+                    <span class="b-dot b-dot-red"></span>
+                    <span class="b-dot b-dot-yellow"></span>
+                    <span class="b-dot b-dot-green"></span>
+                  </div>
+                  <div class="graphic-url-pill">cwd.payments/flexible-escrow-billing</div>
+                  <span class="live-status-pill status-blue">● 0% Upfront Active</span>
+                </div>
+                <div class="graphic-pane-body">
+                  <div class="payment-cards-stage">
+                    
+                    <!-- Glowing 0% Upfront Deposit Badge -->
+                    <div class="deposit-guarantee-badge">
+                      <span class="deposit-dot"></span>
+                      <span>0% Upfront Deposit • Pay Only When 100% Satisfied</span>
+                    </div>
+
+                    <!-- 3D Realistic Holographic Cards Cluster -->
+                    <div class="cards-3d-cluster">
+                      
+                      <!-- Card 2: Emerald Teal Gradient (Tilted in background) -->
+                      <div class="holo-card card-background-teal">
+                        <div class="holo-sheen"></div>
+                        <div class="card-chip-gold"></div>
+                        <div class="card-brand-mark">
+                          <span class="circle-c1"></span>
+                          <span class="circle-c2"></span>
+                        </div>
+                        <div class="card-number-ghost">•••• &nbsp; •••• &nbsp; •••• &nbsp; 8820</div>
+                        <div class="card-footer-row">
+                          <span class="card-holder">ESCROW SECURE</span>
+                          <span class="card-expiry">VERIFIED</span>
+                        </div>
+                      </div>
+
+                      <!-- Card 1: Purple Blue Holographic (Hero Card in foreground) -->
+                      <div class="holo-card card-foreground-holographic">
+                        <div class="holo-sheen"></div>
+                        <div class="card-top-row">
+                          <div class="card-chip-gold">
+                            <span class="chip-line c-l1"></span>
+                            <span class="chip-line c-l2"></span>
+                          </div>
+                          <div class="contactless-icon">))))</div>
+                        </div>
+                        <div class="card-number-emboss">•••• &nbsp; •••• &nbsp; •••• &nbsp; 4288</div>
+                        <div class="card-footer-row">
+                          <div>
+                            <span class="card-micro-label">CARDHOLDER</span>
+                            <span class="card-holder">VALUED CLIENT PARTNER</span>
+                          </div>
+                          <div class="card-master-brand">
+                            <span class="brand-sphere sphere-orange"></span>
+                            <span class="brand-sphere sphere-red"></span>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <!-- Milestone Payment Breakdown -->
+                    <div class="milestone-schedule-grid">
+                      <div class="m-sched-item">
+                        <span class="m-lbl">PHASE 1: PROTOTYPE</span>
+                        <span class="m-price text-lime">$0.00 (Free)</span>
+                      </div>
+                      <div class="m-sched-item">
+                        <span class="m-lbl">PHASE 2: DESIGN OK</span>
+                        <span class="m-price">50% Milestone</span>
+                      </div>
+                      <div class="m-sched-item">
+                        <span class="m-lbl">PHASE 3: GO-LIVE</span>
+                        <span class="m-price">50% on Launch</span>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <!-- Floating Toast -->
+                  <div class="tangible-notification-toast toast-blue">
+                    <div class="toast-icon-circle">💳</div>
+                    <div class="toast-content">
+                      <strong>Zero Financial Risk &bull; Milestone Security</strong>
+                      <span>No huge upfront demands. You stay in 100% control of your capital.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- State 5: Lifetime Partnership -->
+              <div class="graphic-pane" data-pane="5">
+                <div class="graphic-pane-header">
+                  <div class="browser-dots">
+                    <span class="b-dot b-dot-red"></span>
+                    <span class="b-dot b-dot-yellow"></span>
+                    <span class="b-dot b-dot-green"></span>
+                  </div>
+                  <div class="graphic-url-pill">cwd.cloud/enterprise-uptime-shield</div>
+                  <span class="live-status-pill status-emerald">● 99.99% Cloud Active</span>
+                </div>
+                <div class="graphic-pane-body">
+                  <div class="support-nodes-card">
+                    <div class="support-main-banner">
+                      <div class="shield-badge-icon">🛡️</div>
+                      <div class="shield-banner-info">
+                        <div class="shield-metric">99.99% Cloud Uptime</div>
+                        <div class="shield-sub">24/7 Enterprise Speed, Security &amp; Ongoing Cloud Care</div>
+                      </div>
+                    </div>
+
+                    <!-- Clean Support Node Grid with Active Status Indicators -->
+                    <div class="support-nodes-grid">
+                      <div class="node-item">
+                        <div class="node-top">
+                          <span class="node-icon">⚡</span>
+                          <span class="node-status-pill pill-lime">● Active</span>
+                        </div>
+                        <h4 class="node-title">12ms Edge TTFB</h4>
+                        <p class="node-desc">Global CDN delivery ensuring lightning-fast mobile loads everywhere.</p>
+                      </div>
+
+                      <div class="node-item">
+                        <div class="node-top">
+                          <span class="node-icon">💬</span>
+                          <span class="node-status-pill pill-indigo">● 24/7 Priority</span>
+                        </div>
+                        <h4 class="node-title">Priority Response</h4>
+                        <p class="node-desc">Direct line to senior developers with &lt; 15m average ticket resolution.</p>
+                      </div>
+
+                      <div class="node-item">
+                        <div class="node-top">
+                          <span class="node-icon">🔒</span>
+                          <span class="node-status-pill pill-emerald">● Protected</span>
+                        </div>
+                        <h4 class="node-title">Automated Backups</h4>
+                        <p class="node-desc">Daily encrypted backups with instant one-click rollback protection.</p>
+                      </div>
+
+                      <div class="node-item">
+                        <div class="node-top">
+                          <span class="node-icon">🛠️</span>
+                          <span class="node-status-pill pill-purple">● Zero Headaches</span>
+                        </div>
+                        <h4 class="node-title">Zero Dev Headaches</h4>
+                        <p class="node-desc">We handle software updates, plugin patches, and speed maintenance forever.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Floating Toast -->
+                  <div class="tangible-notification-toast toast-emerald">
+                    <div class="toast-icon-circle">🛡️</div>
+                    <div class="toast-content">
+                      <strong>Lifetime Digital Peace of Mind</strong>
+                      <span>Your website stays lightning-fast, secure, and always ready to convert.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: Scrolling Content Track (5 Points) -->
+          <div class="why-scroll-column">
+            
+            <!-- Point 01: Confidence First -->
+            <article class="why-value-card is-active" data-index="1">
+              <div class="why-card-badge">
+                <span class="badge-num">01</span>
+                <span class="badge-divider">•</span>
+                <span class="badge-text">Confidence First</span>
+              </div>
+              <h3 class="why-card-title">We Design Your Live Prototype Before You Pay</h3>
+              <div class="why-point-row problem-row">
+                <span class="point-tag tag-problem">THE PROBLEM</span>
+                <p class="point-desc">Tired of agencies demanding huge upfront deposits before you even see a single mockup?</p>
+              </div>
+              <div class="why-point-row solution-row">
+                <span class="point-tag tag-solution">THE CWD SOLUTION</span>
+                <p class="point-desc">We design a fully customized, interactive prototype of your actual website first. You review it live, test the flow, and fall in love with the design before you ever pay us a dime.</p>
+              </div>
+              <div class="why-outcome-box">
+                <span class="outcome-sparkle">✦</span>
+                <span class="outcome-text"><strong>OUTCOME:</strong> Zero financial risk. Complete visual proof before signing.</span>
+              </div>
+            
+              <!-- Mobile Inline Visual Preview: Live Interactive Prototype -->
+              <div class="why-card-mobile-preview md:hidden mt-6 pt-4 border-t border-zinc-200/80">
+                <div class="mobile-preview-box rounded-xl overflow-hidden border border-zinc-200 bg-zinc-950 p-2 shadow-sm">
+                  <div class="flex items-center justify-between px-2 py-1.5 mb-2 bg-zinc-900 rounded-lg text-xs">
+                    <span class="text-zinc-400 font-mono text-[10px]">awakenfilms.cwd.design/live-prototype</span>
+                    <span class="inline-flex items-center gap-1 text-[10px] font-semibold text-[#C6F24D]">● Live Prototype</span>
+                  </div>
+                  <div class="rounded-lg overflow-hidden border border-zinc-800">
+                    <img src="./assets/mockups/awaken-films.png" alt="Awaken Films Live Website Prototype Screenshot" class="w-full h-auto object-cover block" loading="lazy" onerror="handleImgError(this)">
+                  </div>
+                  <div class="mt-2 px-2 py-1.5 bg-zinc-900/90 rounded-lg text-xs text-zinc-300 flex items-center gap-2">
+                    <span class="text-[#C6F24D] font-bold">✓</span>
+                    <span>Interactive prototype sandbox ready — 100% free before signing</span>
+                  </div>
+                </div>
+              </div></article>
+
+            <!-- Point 02: Sprint Velocity -->
+            <article class="why-value-card" data-index="2">
+              <div class="why-card-badge">
+                <span class="badge-num">02</span>
+                <span class="badge-divider">•</span>
+                <span class="badge-text">Rapid Velocity</span>
+              </div>
+              <h3 class="why-card-title">Delivered in Days, Not Months</h3>
+              <div class="why-point-row problem-row">
+                <span class="point-tag tag-problem">THE PROBLEM</span>
+                <p class="point-desc">Traditional design agencies drag simple website projects across 3 to 6 painful months.</p>
+              </div>
+              <div class="why-point-row solution-row">
+                <span class="point-tag tag-solution">THE CWD SOLUTION</span>
+                <p class="point-desc">We work in dedicated high-speed sprints, shipping production-ready, fully functional websites in as little as 48 hours to 7 days.</p>
+              </div>
+              <div class="why-outcome-box">
+                <span class="outcome-sparkle">✦</span>
+                <span class="outcome-text"><strong>OUTCOME:</strong> Start capturing leads and revenue weeks ahead of your competitors.</span>
+              </div>
+            
+              <!-- Mobile Inline Visual Preview: Sprint Delivery Velocity -->
+              <div class="why-card-mobile-preview md:hidden mt-6 pt-4 border-t border-zinc-200/80">
+                <div class="mobile-preview-box rounded-xl overflow-hidden border border-zinc-200 bg-zinc-950 p-3 shadow-sm text-white">
+                  <div class="flex items-center justify-between mb-3">
+                    <div>
+                      <span class="text-[10px] font-bold text-zinc-400 tracking-wider uppercase">GUARANTEED VELOCITY</span>
+                      <div class="text-xl font-extrabold text-white">48h – 7 Days</div>
+                    </div>
+                    <div class="text-right text-[11px] text-zinc-400">
+                      Traditional: 16 Wks<br><strong class="text-[#C6F24D]">CWD: 48h Turnaround</strong>
+                    </div>
+                  </div>
+                  <div class="space-y-2 text-xs">
+                    <div class="p-2 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-between">
+                      <span>⚡ Day 1: Wireframe &amp; Copy</span>
+                      <span class="text-[#C6F24D] font-semibold text-[11px]">Completed ✓</span>
+                    </div>
+                    <div class="p-2 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-between">
+                      <span>🎨 Day 2: Responsive UI</span>
+                      <span class="text-[#C6F24D] font-semibold text-[11px]">Completed ✓</span>
+                    </div>
+                    <div class="p-2 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-between">
+                      <span>🚀 Day 3: Speed Polish &amp; Go-Live</span>
+                      <span class="text-[#C6F24D] font-semibold text-[11px]">Ready ✓</span>
+                    </div>
+                  </div>
+                </div>
+              </div></article>
+
+            <!-- Point 03: Perfection Guaranteed -->
+            <article class="why-value-card" data-index="3">
+              <div class="why-card-badge">
+                <span class="badge-num">03</span>
+                <span class="badge-divider">•</span>
+                <span class="badge-text">Perfection Guaranteed</span>
+              </div>
+              <h3 class="why-card-title">Unlimited Revisions Until Live</h3>
+              <div class="why-point-row problem-row">
+                <span class="point-tag tag-problem">THE PROBLEM</span>
+                <p class="point-desc">Getting hit with surprise "change order" invoices every time you ask for a minor copy or layout adjustment.</p>
+              </div>
+              <div class="why-point-row solution-row">
+                <span class="point-tag tag-solution">THE CWD SOLUTION</span>
+                <p class="point-desc">Direct real-time communication with your senior designer. We refine every pixel and copy block until you are 100% thrilled.</p>
+              </div>
+              <div class="why-outcome-box">
+                <span class="outcome-sparkle">✦</span>
+                <span class="outcome-text"><strong>OUTCOME:</strong> Your website launches looking exactly how you envisioned.</span>
+              </div>
+            
+              <!-- Mobile Inline Visual Preview: Authentic Client Communication Thread -->
+              <div class="why-card-mobile-preview md:hidden mt-6 pt-4 border-t border-zinc-200/80">
+                <div class="mobile-preview-box rounded-xl overflow-hidden border border-zinc-200 bg-zinc-950 p-2 shadow-sm">
+                  <div class="flex items-center justify-between px-2 py-1.5 mb-2 bg-zinc-900 rounded-lg text-xs">
+                    <span class="text-zinc-400 font-mono text-[10px]">cwd.sprints/client-vip-revisions</span>
+                    <span class="inline-flex items-center gap-1 text-[10px] font-semibold text-[#C6F24D]">● Live Client Sprint</span>
+                  </div>
+                  <div class="rounded-lg overflow-hidden border border-zinc-800">
+                    <img src="./assets/mockups/responding-to-client.png" alt="Authentic Client Communication Thread - Responding to Client" class="w-full h-auto object-cover block" loading="lazy" onerror="handleImgError(this)">
+                  </div>
+                  <div class="mt-2 px-2 py-1.5 bg-zinc-900/90 rounded-lg text-xs text-zinc-300 flex items-center gap-2">
+                    <span class="text-[#C6F24D] font-bold">✦</span>
+                    <span>Unlimited revisions during sprint cycles with direct architect access</span>
+                  </div>
+                </div>
+              </div></article>
+
+            <!-- Point 04: Zero Capital Risk -->
+            <article class="why-value-card" data-index="4">
+              <div class="why-card-badge">
+                <span class="badge-num">04</span>
+                <span class="badge-divider">•</span>
+                <span class="badge-text">Zero Capital Risk</span>
+              </div>
+              <h3 class="why-card-title">Flexible Payment Plans &amp; 0% Deposit</h3>
+              <div class="why-point-row problem-row">
+                <span class="point-tag tag-problem">THE PROBLEM</span>
+                <p class="point-desc">Traditional agencies forcing 50% or 100% cash down before delivering any measurable work.</p>
+              </div>
+              <div class="why-point-row solution-row">
+                <span class="point-tag tag-solution">THE CWD SOLUTION</span>
+                <p class="point-desc">Split your investment into flexible milestone-based plans, or pay only once your site is approved, live, and converting.</p>
+              </div>
+              <div class="why-outcome-box">
+                <span class="outcome-sparkle">✦</span>
+                <span class="outcome-text"><strong>OUTCOME:</strong> Complete financial flexibility with zero upfront lock-in.</span>
+              </div>
+            
+              <!-- Mobile Inline Visual Preview: Flexible Escrow Payments -->
+              <div class="why-card-mobile-preview md:hidden mt-6 pt-4 border-t border-zinc-200/80">
+                <div class="mobile-preview-box rounded-xl overflow-hidden border border-zinc-200 bg-zinc-950 p-3 shadow-sm text-white">
+                  <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-[11px] text-emerald-300 font-semibold mb-3">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> 0% Upfront Deposit • Pay Only When 100% Satisfied
+                  </div>
+                  <div class="grid grid-cols-3 gap-2 text-center text-xs">
+                    <div class="p-2 rounded-lg bg-zinc-900 border border-zinc-800">
+                      <div class="text-[10px] text-zinc-400 uppercase">Phase 1</div>
+                      <div class="text-[#C6F24D] font-bold mt-0.5">$0.00 (Free)</div>
+                    </div>
+                    <div class="p-2 rounded-lg bg-zinc-900 border border-zinc-800">
+                      <div class="text-[10px] text-zinc-400 uppercase">Phase 2</div>
+                      <div class="text-white font-bold mt-0.5">50% Design OK</div>
+                    </div>
+                    <div class="p-2 rounded-lg bg-zinc-900 border border-zinc-800">
+                      <div class="text-[10px] text-zinc-400 uppercase">Phase 3</div>
+                      <div class="text-white font-bold mt-0.5">50% Launch</div>
+                    </div>
+                  </div>
+                </div>
+              </div></article>
+
+            <!-- Point 05: Ongoing Partnership -->
+            <article class="why-value-card" data-index="5">
+              <div class="why-card-badge">
+                <span class="badge-num">05</span>
+                <span class="badge-divider">•</span>
+                <span class="badge-text">Ongoing Partnership</span>
+              </div>
+              <h3 class="why-card-title">Lifetime Maintenance &amp; Cloud Care</h3>
+              <div class="why-point-row problem-row">
+                <span class="point-tag tag-problem">THE PROBLEM</span>
+                <p class="point-desc">Agencies vanishing after launch, leaving broken plugins, sluggish load speeds, and security vulnerabilities.</p>
+              </div>
+              <div class="why-point-row solution-row">
+                <span class="point-tag tag-solution">THE CWD SOLUTION</span>
+                <p class="point-desc">Continuous cloud hosting, 24/7 uptime monitoring, automated weekly backups, and instant developer support.</p>
+              </div>
+              <div class="why-outcome-box">
+                <span class="outcome-sparkle">✦</span>
+                <span class="outcome-text"><strong>OUTCOME:</strong> A digital asset that stays lightning-fast, ultra-secure, and always open for business.</span>
+              </div>
+            
+              <!-- Mobile Inline Visual Preview: Cloud Care & 99.99% Uptime -->
+              <div class="why-card-mobile-preview md:hidden mt-6 pt-4 border-t border-zinc-200/80">
+                <div class="mobile-preview-box rounded-xl overflow-hidden border border-zinc-200 bg-zinc-950 p-3 shadow-sm text-white">
+                  <div class="flex items-center gap-3 mb-3 pb-2 border-b border-zinc-800">
+                    <div class="text-xl">🛡️</div>
+                    <div>
+                      <div class="text-sm font-bold text-white">99.99% Cloud Uptime</div>
+                      <div class="text-[11px] text-zinc-400">24/7 Enterprise Speed, Security &amp; Ongoing Care</div>
+                    </div>
+                  </div>
+                  <div class="grid grid-cols-2 gap-2 text-xs">
+                    <div class="p-2 rounded-lg bg-zinc-900 border border-zinc-800">
+                      <div class="text-[#C6F24D] font-semibold text-[11px]">⚡ 12ms Edge TTFB</div>
+                      <p class="text-zinc-400 text-[10px] mt-0.5">Global CDN delivery</p>
+                    </div>
+                    <div class="p-2 rounded-lg bg-zinc-900 border border-zinc-800">
+                      <div class="text-[#C6F24D] font-semibold text-[11px]">🔒 Auto Backups</div>
+                      <p class="text-zinc-400 text-[10px] mt-0.5">Daily encrypted backups</p>
+                    </div>
+                  </div>
+                </div>
+              </div></article>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 3: "Our Process & Tech" Tree
+         Inspired by Design Monks "Smarter Design, Supercharged By AI"
+         ===================================================================== -->
+    <section class="process-tech-section" id="process" aria-label="Our Process & Tech">
+      <div class="process-container">
+        
+        <!-- Section Header -->
+        <div class="process-header">
+          <div class="process-pill-tag">
+            <span class="process-pill-dot" aria-hidden="true"></span>
+            <span>AI-Accelerated Engineering</span>
+          </div>
+          <h2 class="process-headline">
+            Smarter Process. Built in Days, Not Weeks.
+          </h2>
+          <p class="process-subheadline">
+            From zero-deposit prototype to production launch, we blend modern AI workflows with conversion strategy to deliver at record speed.
+          </p>
+        </div>
+
+        <!-- 2-Row Animated Modern Tech Marquee -->
+        <div class="tech-marquee-wrapper" aria-hidden="true">
+          <!-- Row 1: Leftward drift -->
+          <div class="tech-marquee-track track-left">
+            <div class="tech-marquee-group">
+              <span class="tech-pill"><span class="t-icon">❖</span>Figma</span>
+              <span class="tech-pill"><span class="t-icon">🤖</span>Claude AI</span>
+              <span class="tech-pill"><span class="t-icon">✦</span>ChatGPT</span>
+              <span class="tech-pill"><span class="t-icon">⚡</span>Cursor</span>
+              <span class="tech-pill"><span class="t-icon">🌐</span>Webflow</span>
+              <span class="tech-pill"><span class="t-icon">🚀</span>Antigravity</span>
+              <span class="tech-pill"><span class="t-icon">▲</span>Next.js</span>
+              <span class="tech-pill"><span class="t-icon">▲</span>Vercel</span>
+              <span class="tech-pill"><span class="t-icon">🎨</span>Tailwind CSS</span>
+              <span class="tech-pill"><span class="t-icon">TS</span>TypeScript</span>
+            </div>
+            <div class="tech-marquee-group" aria-hidden="true">
+              <span class="tech-pill"><span class="t-icon">❖</span>Figma</span>
+              <span class="tech-pill"><span class="t-icon">🤖</span>Claude AI</span>
+              <span class="tech-pill"><span class="t-icon">✦</span>ChatGPT</span>
+              <span class="tech-pill"><span class="t-icon">⚡</span>Cursor</span>
+              <span class="tech-pill"><span class="t-icon">🌐</span>Webflow</span>
+              <span class="tech-pill"><span class="t-icon">🚀</span>Antigravity</span>
+              <span class="tech-pill"><span class="t-icon">▲</span>Next.js</span>
+              <span class="tech-pill"><span class="t-icon">▲</span>Vercel</span>
+              <span class="tech-pill"><span class="t-icon">🎨</span>Tailwind CSS</span>
+              <span class="tech-pill"><span class="t-icon">TS</span>TypeScript</span>
+            </div>
+          </div>
+
+          <!-- Row 2: Rightward drift -->
+          <div class="tech-marquee-track track-right">
+            <div class="tech-marquee-group">
+              <span class="tech-pill"><span class="t-icon">📝</span>Notion</span>
+              <span class="tech-pill"><span class="t-icon">🎯</span>Miro</span>
+              <span class="tech-pill"><span class="t-icon">📊</span>Google Analytics</span>
+              <span class="tech-pill"><span class="t-icon">🏷️</span>Tag Manager</span>
+              <span class="tech-pill"><span class="t-icon">🛡️</span>Cloudflare</span>
+              <span class="tech-pill"><span class="t-icon">📐</span>Linear</span>
+              <span class="tech-pill"><span class="t-icon">⚡</span>Supabase</span>
+              <span class="tech-pill"><span class="t-icon">💎</span>Framer</span>
+              <span class="tech-pill"><span class="t-icon">⚙️</span>Headless CMS</span>
+              <span class="tech-pill"><span class="t-icon">🔍</span>Search Console</span>
+            </div>
+            <div class="tech-marquee-group" aria-hidden="true">
+              <span class="tech-pill"><span class="t-icon">📝</span>Notion</span>
+              <span class="tech-pill"><span class="t-icon">🎯</span>Miro</span>
+              <span class="tech-pill"><span class="t-icon">📊</span>Google Analytics</span>
+              <span class="tech-pill"><span class="t-icon">🏷️</span>Tag Manager</span>
+              <span class="tech-pill"><span class="t-icon">🛡️</span>Cloudflare</span>
+              <span class="tech-pill"><span class="t-icon">📐</span>Linear</span>
+              <span class="tech-pill"><span class="t-icon">⚡</span>Supabase</span>
+              <span class="tech-pill"><span class="t-icon">💎</span>Framer</span>
+              <span class="tech-pill"><span class="t-icon">⚙️</span>Headless CMS</span>
+              <span class="tech-pill"><span class="t-icon">🔍</span>Search Console</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Central Node & Branching Tree Stage -->
+        <div class="process-tree-wrapper">
+          
+          <!-- Central Glowing AI Core Hub -->
+          <div class="process-central-hub">
+            <div class="hub-pulse-ring ring-1"></div>
+            <div class="hub-pulse-ring ring-2"></div>
+            <div class="hub-core-card">
+              <div class="hub-core-icon">
+                <span class="core-sparkle">✦</span>
+              </div>
+              <div class="hub-core-label">
+                <span class="core-badge">CENTRAL ACCELERATOR</span>
+                <strong class="core-title">AI Speed Core + Senior Architect Craft</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Branching SVG Connector Lines -->
+          <div class="process-connector-svg-wrap" aria-hidden="true">
+            <svg class="process-connector-svg" viewBox="0 0 1200 120" preserveAspectRatio="none" fill="none">
+              <line x1="600" y1="0" x2="600" y2="40" stroke="#C6F24D" stroke-width="2.5" stroke-opacity="0.9"/>
+              <circle cx="600" cy="40" r="4" fill="#C6F24D"/>
+              
+              <!-- Branch to Card 01 -->
+              <path d="M600 40 C600 80, 150 60, 150 120" stroke="#C6F24D" stroke-width="2" stroke-opacity="0.6" stroke-dasharray="6 4" class="beam-dash"/>
+              <circle cx="150" cy="120" r="3.5" fill="#C6F24D"/>
+
+              <!-- Branch to Card 02 -->
+              <path d="M600 40 C600 75, 450 65, 450 120" stroke="#C6F24D" stroke-width="2" stroke-opacity="0.75" class="beam-dash"/>
+              <circle cx="450" cy="120" r="3.5" fill="#C6F24D"/>
+
+              <!-- Branch to Card 03 -->
+              <path d="M600 40 C600 75, 750 65, 750 120" stroke="#C6F24D" stroke-width="2" stroke-opacity="0.75" class="beam-dash"/>
+              <circle cx="750" cy="120" r="3.5" fill="#C6F24D"/>
+
+              <!-- Branch to Card 04 -->
+              <path d="M600 40 C600 80, 1050 60, 1050 120" stroke="#C6F24D" stroke-width="2" stroke-opacity="0.6" stroke-dasharray="6 4" class="beam-dash"/>
+              <circle cx="1050" cy="120" r="3.5" fill="#C6F24D"/>
+            </svg>
+          </div>
+
+          <!-- 4 Process Cards Grid -->
+          <div class="process-cards-grid">
+            
+            <!-- Card 01: Discover & Strategy -->
+            <article class="process-card">
+              <div class="p-card-header">
+                <span class="p-step-badge">Step 01</span>
+                <span class="p-step-num">01</span>
+              </div>
+              <h3 class="p-card-title">Discovery &amp; Blueprint</h3>
+              <p class="p-card-desc">
+                We map your core offer, visitor pathways, and conversion hooks in a focused 20-minute strategy session.
+              </p>
+            </article>
+
+            <!-- Card 02: Interactive Design -->
+            <article class="process-card p-card-highlight">
+              <div class="p-card-header">
+                <span class="p-step-badge badge-highlight">Step 02 • Zero Risk</span>
+                <span class="p-step-num text-lime">02</span>
+              </div>
+              <h3 class="p-card-title">Live Prototype (Free Upfront)</h3>
+              <p class="p-card-desc">
+                We design and code your full interactive homepage first. Test and approve the build before paying a dollar.
+              </p>
+            </article>
+
+            <!-- Card 03: Production Build -->
+            <article class="process-card">
+              <div class="p-card-header">
+                <span class="p-step-badge">Step 03</span>
+                <span class="p-step-num">03</span>
+              </div>
+              <h3 class="p-card-title">Rapid Sprint Build</h3>
+              <p class="p-card-desc">
+                Production-grade engineering built for lightning speed, mobile responsiveness, and guaranteed 99/100 Core Web Vitals.
+              </p>
+            </article>
+
+            <!-- Card 04: Conversion & Launch -->
+            <article class="process-card">
+              <div class="p-card-header">
+                <span class="p-step-badge">Step 04</span>
+                <span class="p-step-num">04</span>
+              </div>
+              <h3 class="p-card-title">Optimize &amp; Go Live</h3>
+              <p class="p-card-desc">
+                Local SEO schema, lead analytics, and high-converting forms wired in for seamless zero-downtime launch handover.
+              </p>
+            </article>
+
+          </div>
+
+        </div>
+
+      </div></section>
+
+    <!-- =====================================================================
+         SECTION 5: Global Connection (Clean Earth Composition)
+         Centered photorealistic spinning 3D Earth globe with 4 high-contrast location cards
+         ===================================================================== -->
+    <section class="global-reach-section" id="global-reach" aria-label="Local Connection, Global Reach">
+      <div class="global-container">
+        
+        <!-- Header -->
+        <div class="global-header">
+          <div class="global-pill-tag">
+            <span class="global-pill-dot" aria-hidden="true"></span>
+            <span>Worldwide Footprint</span>
+          </div>
+          <h2 class="global-headline">
+            Local Expertise. Global Reach.
+          </h2>
+          <p class="global-subheadline">
+            While we specialize in high-converting local businesses, our websites power industry leaders across the UK, USA, Australia, Singapore, and India.
+          </p>
+        </div>
+
+        <!-- 5 Clean Flag & Destination Hub Cards Floating Across Top Perimeter -->
+        <div class="global-locations-perimeter">
+          
+          <!-- Hub 1: London, UK -->
+          <div class="global-location-card">
+            <span class="location-flag-emoji" aria-hidden="true">🇬🇧</span>
+            <strong class="location-name">London, UK</strong>
+          </div>
+
+          <!-- Hub 2: New York & Washington DC, USA -->
+          <div class="global-location-card">
+            <span class="location-flag-emoji" aria-hidden="true">🇺🇸</span>
+            <strong class="location-name">New York &amp; Washington DC, USA</strong>
+          </div>
+
+          <!-- Hub 3: Sydney, Australia -->
+          <div class="global-location-card">
+            <span class="location-flag-emoji" aria-hidden="true">🇦🇺</span>
+            <strong class="location-name">Sydney, Australia</strong>
+          </div>
+
+          <!-- Hub 4: Singapore -->
+          <div class="global-location-card">
+            <span class="location-flag-emoji" aria-hidden="true">🇸🇬</span>
+            <strong class="location-name">Singapore</strong>
+          </div>
+
+          <!-- Hub 5: Mumbai / Bengaluru, India -->
+          <div class="global-location-card">
+            <span class="location-flag-emoji" aria-hidden="true">🇮🇳</span>
+            <strong class="location-name">Mumbai / Bengaluru, India</strong>
+          </div>
+
+        </div>
+
+        <!-- Centered Photorealistic Spinning 3D Earth Globe Stage (Complete Unclipped Sphere) -->
+        <div class="globe-stage-wrapper full-globe-stage">
+          <div class="globe-canvas-container full-globe-canvas-wrap">
+            <canvas id="interactive-globe-canvas" class="globe-canvas" aria-label="Interactive 3D Earth Globe showing global client locations"></canvas>
+            <div class="globe-hint-pill">
+              <span class="hint-hand">👆</span>
+              <span>Click &amp; Drag to Rotate 3D Earth</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 5: Verified Google Reviews Showcase
+         Inspired by Epicware.ai: Dual-Row Infinite Horizontal Marquee with Pause-on-Hover
+         ===================================================================== -->
+    <section class="reviews-showcase-section" id="reviews" aria-label="Verified Google Reviews">
+      <div class="reviews-header-container reviews-header-compact">
+        <h2 class="reviews-headline">
+          Trusted by 50+ Local Business Owners &amp; Founders
+        </h2>
+      </div>
+
+      <!-- Dual-Row Infinite Horizontal Review Marquee -->
+      <div class="reviews-contained-frame">
+      <div class="reviews-marquee-viewport" aria-hidden="true">
+        
+        <!-- ROW 1: Translates LEFT -->
+        <div class="reviews-marquee-track track-left">
+          
+          <!-- Group 1A -->
+          <div class="reviews-marquee-group">
+            
+            <!-- Review 1: Milano Joe -->
+            <article class="google-review-card bg-white rounded-2xl border border-zinc-200/80 p-6 shadow-sm w-[340px] md:w-[380px] shrink-0">
+              <div class="review-card-header flex items-center justify-between mb-4">
+                <div class="gold-stars text-amber-400 text-base font-bold tracking-wider">★★★★★</div>
+                <span class="verified-label inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/60">
+                  <span class="verified-dot w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Verified Client
+                </span>
+              </div>
+              <p class="review-body-quote text-zinc-700 text-sm leading-relaxed mb-6 font-normal">
+                &ldquo;Built a website in one week. Rahul showed me a template he designed and within a week, the content was added, images were uploaded, and my website for my business was up and running.&rdquo;
+              </p>
+              <div class="review-card-footer flex items-center gap-3 pt-3 border-t border-zinc-100">
+                <img src="./assets/reviews/milano-joe.webp" alt="Milano Joe" class="reviewer-avatar-img w-11 h-11 rounded-full object-cover shrink-0" onerror="handleImgError(this)" loading="lazy">
+                <div class="reviewer-info">
+                  <strong class="reviewer-name block text-zinc-900 font-bold text-sm">Milano Joe</strong>
+                  <span class="reviewer-role block text-zinc-500 text-xs mt-0.5">Creative Director</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Review 2: Smith Align -->
+            <article class="google-review-card bg-white rounded-2xl border border-zinc-200/80 p-6 shadow-sm w-[340px] md:w-[380px] shrink-0">
+              <div class="review-card-header flex items-center justify-between mb-4">
+                <div class="gold-stars text-amber-400 text-base font-bold tracking-wider">★★★★★</div>
+                <span class="verified-label inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/60">
+                  <span class="verified-dot w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Verified Client
+                </span>
+              </div>
+              <p class="review-body-quote text-zinc-700 text-sm leading-relaxed mb-6 font-normal">
+                &ldquo;Outsourced our web designing to CWD. Being a digital agency, we do not specialize in web design. When our clients asked for revamps, Crafting Web Designs delivered an excellent job every single time.&rdquo;
+              </p>
+              <div class="review-card-footer flex items-center gap-3 pt-3 border-t border-zinc-100">
+                <img src="./assets/reviews/smith-align.webp" alt="Smith Align" class="reviewer-avatar-img w-11 h-11 rounded-full object-cover shrink-0" onerror="handleImgError(this)" loading="lazy">
+                <div class="reviewer-info">
+                  <strong class="reviewer-name block text-zinc-900 font-bold text-sm">Smith Align</strong>
+                  <span class="reviewer-role block text-zinc-500 text-xs mt-0.5">Founder @ DigitallyApart</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Review 3: Tristan Bacon -->
+            <article class="google-review-card bg-white rounded-2xl border border-zinc-200/80 p-6 shadow-sm w-[340px] md:w-[380px] shrink-0">
+              <div class="review-card-header flex items-center justify-between mb-4">
+                <div class="gold-stars text-amber-400 text-base font-bold tracking-wider">★★★★★</div>
+                <span class="verified-label inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/60">
+                  <span class="verified-dot w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Verified Client
+                </span>
+              </div>
+              <p class="review-body-quote text-zinc-700 text-sm leading-relaxed mb-6 font-normal">
+                &ldquo;Their designs are top notch. This was my first experience hiring an agency, and I am certainly happy with the website velocity and their digital conversion expertise.&rdquo;
+              </p>
+              <div class="review-card-footer flex items-center gap-3 pt-3 border-t border-zinc-100">
+                <img src="./assets/reviews/tristan-bacon.webp" alt="Tristan Bacon" class="reviewer-avatar-img w-11 h-11 rounded-full object-cover shrink-0" onerror="handleImgError(this)" loading="lazy">
+                <div class="reviewer-info">
+                  <strong class="reviewer-name block text-zinc-900 font-bold text-sm">Tristan Bacon</strong>
+                  <span class="reviewer-role block text-zinc-500 text-xs mt-0.5">Affiliate Director</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Review 4: Vignesh R. -->
+            <article class="google-review-card bg-white rounded-2xl border border-zinc-200/80 p-6 shadow-sm w-[340px] md:w-[380px] shrink-0">
+              <div class="review-card-header flex items-center justify-between mb-4">
+                <div class="gold-stars text-amber-400 text-base font-bold tracking-wider">★★★★★</div>
+                <span class="verified-label inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/60">
+                  <span class="verified-dot w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Verified Client
+                </span>
+              </div>
+              <p class="review-body-quote text-zinc-700 text-sm leading-relaxed mb-6 font-normal">
+                &ldquo;The free interactive prototype before signing completely sold us. No risk, incredible turnaround, and our mobile inquiries doubled within two weeks of launch.&rdquo;
+              </p>
+              <div class="review-card-footer flex items-center gap-3 pt-3 border-t border-zinc-100">
+                <img src="./assets/reviews/vignesh.webp" alt="Vignesh R." class="reviewer-avatar-img w-11 h-11 rounded-full object-cover shrink-0" onerror="handleImgError(this)" loading="lazy">
+                <div class="reviewer-info">
+                  <strong class="reviewer-name block text-zinc-900 font-bold text-sm">Vignesh R.</strong>
+                  <span class="reviewer-role block text-zinc-500 text-xs mt-0.5">Managing Director • VR Media</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- Group 1B (Duplicate for Seamless Infinite Marquee Loop) -->
+          <div class="reviews-marquee-group" aria-hidden="true">
+            <article class="google-review-card bg-white rounded-2xl border border-zinc-200/80 p-6 shadow-sm w-[340px] md:w-[380px] shrink-0">
+              <div class="review-card-header flex items-center justify-between mb-4">
+                <div class="gold-stars text-amber-400 text-base font-bold tracking-wider">★★★★★</div>
+                <span class="verified-label inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/60">
+                  <span class="verified-dot w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Verified Client
+                </span>
+              </div>
+              <p class="review-body-quote text-zinc-700 text-sm leading-relaxed mb-6 font-normal">
+                &ldquo;Built a website in one week. Rahul showed me a template he designed and within a week, the content was added, images were uploaded, and my website for my business was up and running.&rdquo;
+              </p>
+              <div class="review-card-footer flex items-center gap-3 pt-3 border-t border-zinc-100">
+                <img src="./assets/reviews/milano-joe.webp" alt="Milano Joe" class="reviewer-avatar-img w-11 h-11 rounded-full object-cover shrink-0" onerror="handleImgError(this)" loading="lazy">
+                <div class="reviewer-info">
+                  <strong class="reviewer-name block text-zinc-900 font-bold text-sm">Milano Joe</strong>
+                  <span class="reviewer-role block text-zinc-500 text-xs mt-0.5">Creative Director</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="google-review-card bg-white rounded-2xl border border-zinc-200/80 p-6 shadow-sm w-[340px] md:w-[380px] shrink-0">
+              <div class="review-card-header flex items-center justify-between mb-4">
+                <div class="gold-stars text-amber-400 text-base font-bold tracking-wider">★★★★★</div>
+                <span class="verified-label inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/60">
+                  <span class="verified-dot w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Verified Client
+                </span>
+              </div>
+              <p class="review-body-quote text-zinc-700 text-sm leading-relaxed mb-6 font-normal">
+                &ldquo;Outsourced our web designing to CWD. Being a digital agency, we do not specialize in web design. When our clients asked for revamps, Crafting Web Designs delivered an excellent job every single time.&rdquo;
+              </p>
+              <div class="review-card-footer flex items-center gap-3 pt-3 border-t border-zinc-100">
+                <img src="./assets/reviews/smith-align.webp" alt="Smith Align" class="reviewer-avatar-img w-11 h-11 rounded-full object-cover shrink-0" onerror="handleImgError(this)" loading="lazy">
+                <div class="reviewer-info">
+                  <strong class="reviewer-name block text-zinc-900 font-bold text-sm">Smith Align</strong>
+                  <span class="reviewer-role block text-zinc-500 text-xs mt-0.5">Founder @ DigitallyApart</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="google-review-card bg-white rounded-2xl border border-zinc-200/80 p-6 shadow-sm w-[340px] md:w-[380px] shrink-0">
+              <div class="review-card-header flex items-center justify-between mb-4">
+                <div class="gold-stars text-amber-400 text-base font-bold tracking-wider">★★★★★</div>
+                <span class="verified-label inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/60">
+                  <span class="verified-dot w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Verified Client
+                </span>
+              </div>
+              <p class="review-body-quote text-zinc-700 text-sm leading-relaxed mb-6 font-normal">
+                &ldquo;Their designs are top notch. This was my first experience hiring an agency, and I am certainly happy with the website velocity and their digital conversion expertise.&rdquo;
+              </p>
+              <div class="review-card-footer flex items-center gap-3 pt-3 border-t border-zinc-100">
+                <img src="./assets/reviews/tristan-bacon.webp" alt="Tristan Bacon" class="reviewer-avatar-img w-11 h-11 rounded-full object-cover shrink-0" onerror="handleImgError(this)" loading="lazy">
+                <div class="reviewer-info">
+                  <strong class="reviewer-name block text-zinc-900 font-bold text-sm">Tristan Bacon</strong>
+                  <span class="reviewer-role block text-zinc-500 text-xs mt-0.5">Affiliate Director</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="google-review-card bg-white rounded-2xl border border-zinc-200/80 p-6 shadow-sm w-[340px] md:w-[380px] shrink-0">
+              <div class="review-card-header flex items-center justify-between mb-4">
+                <div class="gold-stars text-amber-400 text-base font-bold tracking-wider">★★★★★</div>
+                <span class="verified-label inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/60">
+                  <span class="verified-dot w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Verified Client
+                </span>
+              </div>
+              <p class="review-body-quote text-zinc-700 text-sm leading-relaxed mb-6 font-normal">
+                &ldquo;The free interactive prototype before signing completely sold us. No risk, incredible turnaround, and our mobile inquiries doubled within two weeks of launch.&rdquo;
+              </p>
+              <div class="review-card-footer flex items-center gap-3 pt-3 border-t border-zinc-100">
+                <img src="./assets/reviews/vignesh.webp" alt="Vignesh R." class="reviewer-avatar-img w-11 h-11 rounded-full object-cover shrink-0" onerror="handleImgError(this)" loading="lazy">
+                <div class="reviewer-info">
+                  <strong class="reviewer-name block text-zinc-900 font-bold text-sm">Vignesh R.</strong>
+                  <span class="reviewer-role block text-zinc-500 text-xs mt-0.5">Managing Director • VR Media</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+        </div>
+
+        <!-- ROW 2: Translates RIGHT - Standardized with Circular Photo Avatars (No Letter Badges) -->
+        <div class="reviews-marquee-track track-right">
+          
+          <!-- Group 2A -->
+          <div class="reviews-marquee-group">
+            
+            <!-- Review 5: David K. (Keystone Group) -->
+            <article class="google-review-card bg-white rounded-2xl border border-zinc-200/80 p-6 shadow-sm w-[340px] md:w-[380px] shrink-0">
+              <div class="review-card-header flex items-center justify-between mb-4">
+                <div class="gold-stars text-amber-400 text-base font-bold tracking-wider">★★★★★</div>
+                <span class="verified-label inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/60">
+                  <span class="verified-dot w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Verified Client
+                </span>
+              </div>
+              <p class="review-body-quote text-zinc-700 text-sm leading-relaxed mb-6 font-normal">
+                &ldquo;Our old website brought zero phone calls. CWD built a high-converting emergency call funnel in 5 days. We had 14 new booked quotes in our first weekend post-launch.&rdquo;
+              </p>
+              <div class="review-card-footer flex items-center gap-3 pt-3 border-t border-zinc-100">
+                <img src="./assets/reviews/david-k.webp" alt="David K." class="reviewer-avatar-img w-11 h-11 rounded-full object-cover shrink-0" onerror="handleImgError(this)" loading="lazy">
+                <div class="reviewer-info">
+                  <strong class="reviewer-name block text-zinc-900 font-bold text-sm">David K.</strong>
+                  <span class="reviewer-role block text-zinc-500 text-xs mt-0.5">Managing Director • Keystone Group</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Review 6: Marcus W. (Wotta Carpets) -->
+            <article class="google-review-card bg-white rounded-2xl border border-zinc-200/80 p-6 shadow-sm w-[340px] md:w-[380px] shrink-0">
+              <div class="review-card-header flex items-center justify-between mb-4">
+                <div class="gold-stars text-amber-400 text-base font-bold tracking-wider">★★★★★</div>
+                <span class="verified-label inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/60">
+                  <span class="verified-dot w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Verified Client
+                </span>
+              </div>
+              <p class="review-body-quote text-zinc-700 text-sm leading-relaxed mb-6 font-normal">
+                &ldquo;The speed and design fidelity blew our expectations out of the water. Flawless Core Web Vitals, ultra-smooth checkout flows, and zero developer headaches ever since.&rdquo;
+              </p>
+              <div class="review-card-footer flex items-center gap-3 pt-3 border-t border-zinc-100">
+                <img src="./assets/reviews/marcus-w.webp" alt="Marcus W." class="reviewer-avatar-img w-11 h-11 rounded-full object-cover shrink-0" onerror="handleImgError(this)" loading="lazy">
+                <div class="reviewer-info">
+                  <strong class="reviewer-name block text-zinc-900 font-bold text-sm">Marcus W.</strong>
+                  <span class="reviewer-role block text-zinc-500 text-xs mt-0.5">Commercial Director • Wotta Carpets</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Review 7: Dr. H. Shaheen (London Aesthetic) -->
+            <article class="google-review-card bg-white rounded-2xl border border-zinc-200/80 p-6 shadow-sm w-[340px] md:w-[380px] shrink-0">
+              <div class="review-card-header flex items-center justify-between mb-4">
+                <div class="gold-stars text-amber-400 text-base font-bold tracking-wider">★★★★★</div>
+                <span class="verified-label inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/60">
+                  <span class="verified-dot w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Verified Client
+                </span>
+              </div>
+              <p class="review-body-quote text-zinc-700 text-sm leading-relaxed mb-6 font-normal">
+                &ldquo;Patients constantly comment on how luxurious and easy our website is to book consultations. CWD's conversion architecture paid for itself within the first 10 days.&rdquo;
+              </p>
+              <div class="review-card-footer flex items-center gap-3 pt-3 border-t border-zinc-100">
+                <img src="./assets/reviews/dr-shaheen.webp" alt="Dr. H. Shaheen" class="reviewer-avatar-img w-11 h-11 rounded-full object-cover shrink-0" onerror="handleImgError(this)" loading="lazy">
+                <div class="reviewer-info">
+                  <strong class="reviewer-name block text-zinc-900 font-bold text-sm">Dr. H. Shaheen</strong>
+                  <span class="reviewer-role block text-zinc-500 text-xs mt-0.5">Clinical Director • London Aesthetic</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Review 8: Elena Rostova (Equity Root Capital) -->
+            <article class="google-review-card bg-white rounded-2xl border border-zinc-200/80 p-6 shadow-sm w-[340px] md:w-[380px] shrink-0">
+              <div class="review-card-header flex items-center justify-between mb-4">
+                <div class="gold-stars text-amber-400 text-base font-bold tracking-wider">★★★★★</div>
+                <span class="verified-label inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/60">
+                  <span class="verified-dot w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Verified Client
+                </span>
+              </div>
+              <p class="review-body-quote text-zinc-700 text-sm leading-relaxed mb-6 font-normal">
+                &ldquo;Every other agency asked for a 4-month timeline and $25k upfront. Crafting Web Designs showed us the working live prototype in 48 hours. Absolute game-changer.&rdquo;
+              </p>
+              <div class="review-card-footer flex items-center gap-3 pt-3 border-t border-zinc-100">
+                <img src="./assets/reviews/elena-rostova.webp" alt="Elena Rostova" class="reviewer-avatar-img w-11 h-11 rounded-full object-cover shrink-0" onerror="handleImgError(this)" loading="lazy">
+                <div class="reviewer-info">
+                  <strong class="reviewer-name block text-zinc-900 font-bold text-sm">Elena Rostova</strong>
+                  <span class="reviewer-role block text-zinc-500 text-xs mt-0.5">VP Growth • Equity Root Capital</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- Group 2B (Duplicate for Seamless Infinite Marquee Loop) -->
+          <div class="reviews-marquee-group" aria-hidden="true">
+            <article class="google-review-card bg-white rounded-2xl border border-zinc-200/80 p-6 shadow-sm w-[340px] md:w-[380px] shrink-0">
+              <div class="review-card-header flex items-center justify-between mb-4">
+                <div class="gold-stars text-amber-400 text-base font-bold tracking-wider">★★★★★</div>
+                <span class="verified-label inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/60">
+                  <span class="verified-dot w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Verified Client
+                </span>
+              </div>
+              <p class="review-body-quote text-zinc-700 text-sm leading-relaxed mb-6 font-normal">
+                &ldquo;Our old website brought zero phone calls. CWD built a high-converting emergency call funnel in 5 days. We had 14 new booked quotes in our first weekend post-launch.&rdquo;
+              </p>
+              <div class="review-card-footer flex items-center gap-3 pt-3 border-t border-zinc-100">
+                <img src="./assets/reviews/david-k.webp" alt="David K." class="reviewer-avatar-img w-11 h-11 rounded-full object-cover shrink-0" onerror="handleImgError(this)" loading="lazy">
+                <div class="reviewer-info">
+                  <strong class="reviewer-name block text-zinc-900 font-bold text-sm">David K.</strong>
+                  <span class="reviewer-role block text-zinc-500 text-xs mt-0.5">Managing Director • Keystone Group</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="google-review-card bg-white rounded-2xl border border-zinc-200/80 p-6 shadow-sm w-[340px] md:w-[380px] shrink-0">
+              <div class="review-card-header flex items-center justify-between mb-4">
+                <div class="gold-stars text-amber-400 text-base font-bold tracking-wider">★★★★★</div>
+                <span class="verified-label inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/60">
+                  <span class="verified-dot w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Verified Client
+                </span>
+              </div>
+              <p class="review-body-quote text-zinc-700 text-sm leading-relaxed mb-6 font-normal">
+                &ldquo;The speed and design fidelity blew our expectations out of the water. Flawless Core Web Vitals, ultra-smooth checkout flows, and zero developer headaches ever since.&rdquo;
+              </p>
+              <div class="review-card-footer flex items-center gap-3 pt-3 border-t border-zinc-100">
+                <img src="./assets/reviews/marcus-w.webp" alt="Marcus W." class="reviewer-avatar-img w-11 h-11 rounded-full object-cover shrink-0" onerror="handleImgError(this)" loading="lazy">
+                <div class="reviewer-info">
+                  <strong class="reviewer-name block text-zinc-900 font-bold text-sm">Marcus W.</strong>
+                  <span class="reviewer-role block text-zinc-500 text-xs mt-0.5">Commercial Director • Wotta Carpets</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="google-review-card bg-white rounded-2xl border border-zinc-200/80 p-6 shadow-sm w-[340px] md:w-[380px] shrink-0">
+              <div class="review-card-header flex items-center justify-between mb-4">
+                <div class="gold-stars text-amber-400 text-base font-bold tracking-wider">★★★★★</div>
+                <span class="verified-label inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/60">
+                  <span class="verified-dot w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Verified Client
+                </span>
+              </div>
+              <p class="review-body-quote text-zinc-700 text-sm leading-relaxed mb-6 font-normal">
+                &ldquo;Patients constantly comment on how luxurious and easy our website is to book consultations. CWD's conversion architecture paid for itself within the first 10 days.&rdquo;
+              </p>
+              <div class="review-card-footer flex items-center gap-3 pt-3 border-t border-zinc-100">
+                <img src="./assets/reviews/dr-shaheen.webp" alt="Dr. H. Shaheen" class="reviewer-avatar-img w-11 h-11 rounded-full object-cover shrink-0" onerror="handleImgError(this)" loading="lazy">
+                <div class="reviewer-info">
+                  <strong class="reviewer-name block text-zinc-900 font-bold text-sm">Dr. H. Shaheen</strong>
+                  <span class="reviewer-role block text-zinc-500 text-xs mt-0.5">Clinical Director • London Aesthetic</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="google-review-card bg-white rounded-2xl border border-zinc-200/80 p-6 shadow-sm w-[340px] md:w-[380px] shrink-0">
+              <div class="review-card-header flex items-center justify-between mb-4">
+                <div class="gold-stars text-amber-400 text-base font-bold tracking-wider">★★★★★</div>
+                <span class="verified-label inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/60">
+                  <span class="verified-dot w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Verified Client
+                </span>
+              </div>
+              <p class="review-body-quote text-zinc-700 text-sm leading-relaxed mb-6 font-normal">
+                &ldquo;Every other agency asked for a 4-month timeline and $25k upfront. Crafting Web Designs showed us the working live prototype in 48 hours. Absolute game-changer.&rdquo;
+              </p>
+              <div class="review-card-footer flex items-center gap-3 pt-3 border-t border-zinc-100">
+                <img src="./assets/reviews/elena-rostova.webp" alt="Elena Rostova" class="reviewer-avatar-img w-11 h-11 rounded-full object-cover shrink-0" onerror="handleImgError(this)" loading="lazy">
+                <div class="reviewer-info">
+                  <strong class="reviewer-name block text-zinc-900 font-bold text-sm">Elena Rostova</strong>
+                  <span class="reviewer-role block text-zinc-500 text-xs mt-0.5">VP Growth • Equity Root Capital</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+        </div>
+
+      </div>
+    
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 7: Interactive Light Beam Projector CTA (invints.com Style)
+         ======================================================================= -->
+    <section class="projector-cta-section" id="contact" aria-label="Ready to Build High-Converting Website">
+      <!-- Ambient Backing Canvas / Light Flare Viewport -->
+      <div class="projector-beam-viewport" id="projector-beam-viewport" aria-hidden="true">
+        <svg class="projector-beam-svg" id="projector-beam-svg" preserveAspectRatio="none" viewBox="0 0 1440 720">
+          <defs>
+            <!-- Conical Radial Light Beam Gradient -->
+            <radialGradient id="beamRadialGradient" cx="14%" cy="40%" r="92%" fx="14%" fy="40%">
+              <stop offset="0%" stop-color="#C6F24D" stop-opacity="0.88" />
+              <stop offset="16%" stop-color="#E2F988" stop-opacity="0.60" />
+              <stop offset="38%" stop-color="#FEF08A" stop-opacity="0.32" />
+              <stop offset="70%" stop-color="#FFFFFF" stop-opacity="0.10" />
+              <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+            </radialGradient>
+            <!-- Optical Lens Glow -->
+            <filter id="lensAuraFilter" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="18" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+          </defs>
+
+          <!-- Dynamic SVG Conical Light Beam Polygon (Points updated in real-time by JS mouse tracking) -->
+          <polygon id="projector-light-cone" class="projector-light-cone"
+                   points="190,260 1440,-50 1440,770" 
+                   fill="url(#beamRadialGradient)" />
+        </svg>
+
+        <!-- Ambient Volumetric Dust & Cursor Follower Aura -->
+        <div class="projector-cursor-aura" id="projector-cursor-aura"></div>
+      </div>
+
+      <div class="projector-content-container">
+        <div class="projector-layout-grid">
+          
+          <!-- Left Column: Interactive Modern Web Window / Luminary Fixture -->
+          <div class="projector-fixture-col">
+            <div class="projector-lamp-rig" id="projector-lamp-rig">
+              <!-- Ceiling suspension power line -->
+              <div class="projector-suspension-wire"></div>
+              
+              <!-- Modern Web Architecture Luminary Window -->
+              <div class="luminary-web-window" id="luminary-window">
+                <div class="web-window-topbar">
+                  <div class="window-controls">
+                    <span class="win-dot red"></span>
+                    <span class="win-dot yellow"></span>
+                    <span class="win-dot green"></span>
+                  </div>
+                  <span class="win-url-pill">cwd.design/prototype</span>
+                </div>
+                <div class="web-window-body-canvas">
+                  <div class="mock-browser-wireframe">
+                    <div class="wire-block-hero"></div>
+                    <div class="wire-block-lime"></div>
+                    <div class="wire-lines-group">
+                      <span></span><span></span>
+                    </div>
+                  </div>
+                  <!-- Optical Luminary Ray Emitter at right perimeter -->
+                  <div class="projector-lens-emitter luminary-emitter" id="projector-lens">
+                    <div class="projector-bulb-core" id="projector-bulb-core"></div>
+                    <div class="projector-halo-wave wave-1"></div>
+                    <div class="projector-halo-wave wave-2"></div>
+                    <div class="projector-halo-wave wave-3"></div>
+                  </div>
+                </div>
+                <div class="web-window-status-strip">
+                  <span class="telemetry-beacon"></span>
+                  <span class="telemetry-caption" id="projector-status-text">LUMINARY STANDBY</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: High-Impact Headline & Kinetic Tilted CTA -->
+          <div class="projector-narrative-col">
+            <!-- Eyebrow Badge -->
+            <div class="projector-sprint-badge">
+              <span class="badge-sparkle">✦</span>
+              <span>ZERO-RISK PROTOTYPE SPRINT</span>
+            </div>
+
+            <!-- Headline -->
+            <h2 class="projector-main-headline" id="projector-headline">
+              Ready to build a website that <span class="highlight-converts">actually converts?</span>
+            </h2>
+
+            <!-- Subtext -->
+            <p class="projector-narrative-subtext">
+              We'll design your custom homepage prototype 100% free before you pay or sign a contract.
+            </p>
+
+            <!-- Tilted Kinetic CTA Trigger Area -->
+            <div class="projector-trigger-cluster">
+              <a href="#contact" class="kinetic-tilted-cta" id="kinetic-cta-btn">
+                <span class="cta-label-text">Get Your Free Prototype</span>
+                <span class="cta-arrow-icon" aria-hidden="true">→</span>
+              </a>
+
+              <!-- Trust & Guarantee Value Indicators -->
+              <div class="projector-guarantees-strip">
+                <div class="projector-guarantee-pill">
+                  <svg class="pill-check-icon" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  <span>0% Deposit Required</span>
+                </div>
+                <span class="guarantee-divider-dot" aria-hidden="true">•</span>
+                <div class="projector-guarantee-pill">
+                  <svg class="pill-check-icon" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  <span>48-Hour Live Preview</span>
+                </div>
+                <span class="guarantee-divider-dot" aria-hidden="true">•</span>
+                <div class="projector-guarantee-pill">
+                  <svg class="pill-check-icon" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  <span>100% Code Ownership</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      </section>
+  </main>
+
+  <!-- =======================================================================
+       SECTION 8: Massive Split-Color Brand Typography Footer (bandwidthproductions.com & invints.com Style)
+       ======================================================================= -->
+  <footer class="site-massive-footer" id="footer" aria-label="Crafting Web Designs Global Footer">
+    <!-- Fluid Full Brand Typography Banner -->
+    <div class="footer-brand-banner">
+      <h2 class="footer-brand-title">CRAFTING WEB DESIGNS</h2>
+    </div>
+
+    <div class="footer-core-shell">
+      <!-- 4-Column High-Impact Content Grid -->
+      <div class="footer-grid-quad">
+        
+        <!-- Column 1: Direct Inquiries & Sprint Booking -->
+        <div class="footer-quad-col col-sprint-booking">
+          <div class="footer-col-eyebrow">
+            <span class="eyebrow-accent-dot"></span>
+            <span>START A PROJECT</span>
+          </div>
+          <h3 class="footer-sprint-headline">Want to collaborate on a sprint?</h3>
+          
+          <!-- Interactive Copy Email Card -->
+          <div class="copy-email-interactive-card" id="copy-email-card" role="button" tabindex="0" title="Click to copy email address">
+            <div class="copy-email-meta">
+              <span class="meta-small-label">Direct Studio Email</span>
+              <span class="email-address-value" id="email-address-text">hello@craftingwebdesigns.com</span>
+            </div>
+            <button class="copy-trigger-btn" id="copy-email-btn" aria-label="Copy email address to clipboard">
+              <svg class="copy-svg-symbol" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span class="copy-feedback-label" id="copy-feedback-label">Copy</span>
+            </button>
+          </div>
+
+          <!-- Direct CTA Discovery Button -->
+          <a href="#contact" class="footer-discovery-call-btn">
+            <span class="discovery-pulse-bead"></span>
+            <span>Book a 15-Min Discovery Call</span>
+            <span class="discovery-arrow" aria-hidden="true">→</span>
+          </a>
+
+          <!-- Live Availability Indicator -->
+          <div class="footer-availability-indicator">
+            <span class="avail-beacon"></span>
+            <span>Taking 2 Sprints This Month • 48h Prototypes</span>
+          </div>
+        </div>
+
+        <!-- Column 2: Core Services -->
+        <div class="footer-quad-col col-core-services">
+          <div class="footer-col-eyebrow">
+            <span>CORE SERVICES</span>
+          </div>
+          <ul class="footer-vertical-links">
+            <li><a href="#capabilities" class="footer-interactive-link">Local Business Websites</a></li>
+            <li><a href="#capabilities" class="footer-interactive-link">B2B Digital Architecture</a></li>
+            <li><a href="#capabilities" class="footer-interactive-link">High-Rank SEO & Schema</a></li>
+            <li><a href="#capabilities" class="footer-interactive-link">Google Business Profile Pack</a></li>
+            <li><a href="#capabilities" class="footer-interactive-link">Paid Acquisition Funnels</a></li>
+            <li><a href="#capabilities" class="footer-interactive-link">High-Speed Next.js Platforms</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: The Architecture -->
+        <div class="footer-quad-col col-architecture-links">
+          <div class="footer-col-eyebrow">
+            <span>THE ARCHITECTURE</span>
+          </div>
+          <ul class="footer-vertical-links">
+            <li><a href="#process" class="footer-interactive-link">48-Hour Sprint Model</a></li>
+            <li><a href="#proof" class="footer-interactive-link">Zero-Deposit Prototype</a></li>
+            <li><a href="#process" class="footer-interactive-link">Tech Stack & AI Speed</a></li>
+            <li><a href="#proof" class="footer-interactive-link">Conversion Optimization</a></li>
+            <li><a href="#advantages" class="footer-interactive-link">100/100 Core Web Vitals</a></li>
+            <li><a href="#global-reach" class="footer-interactive-link">Global Edge CDN Hosting</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Agency & Trust -->
+        <div class="footer-quad-col col-agency-trust">
+          <div class="footer-col-eyebrow">
+            <span>AGENCY & TRUST</span>
+          </div>
+          <ul class="footer-vertical-links">
+            <li><a href="#reviews" class="footer-interactive-link">Verified Google Reviews</a></li>
+            <li><a href="#proof" class="footer-interactive-link">Client Case Studies</a></li>
+            <li><a href="#contact" class="footer-interactive-link">Privacy Policy & Terms</a></li>
+            <li><a href="#contact" class="footer-interactive-link">Security & Code Ownership</a></li>
+          </ul>
+          
+          <div class="footer-ethos-note">
+            <p class="ethos-text">
+              Engineering conversion-driven web architecture for ambitious local businesses and modern brands worldwide.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Meta Legal & Telemetry Strip -->
+      <div class="footer-telemetry-strip">
+        <div class="footer-meta-block-left">
+          <span class="copyright-legal-text">© 2026 Crafting Web Designs. All rights reserved.</span>
+          <div class="system-health-pill">
+            <span class="health-green-light"></span>
+            <span>All Global Systems Operational</span>
+          </div>
+        </div>
+
+        <div class="footer-meta-block-center">
+          <span class="global-studio-nodes">London (GMT) • New York (EST) • Singapore (SGT)</span>
+        </div>
+
+        <div class="footer-meta-block-right">
+          <button class="footer-back-to-top" id="footer-back-to-top" aria-label="Scroll back to top">
+            <span>Back to top</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Quick-View Client Mockup Lightbox Modal -->
+  <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-label="Project Preview Modal">
+    <div class="lightbox-card">
+      <button class="lightbox-close-btn" id="lightbox-close" aria-label="Close modal">✕</button>
+      <div class="lightbox-image-container">
+        <img src="" alt="Selected Client Project Mockup" class="lightbox-image" id="lightbox-img" onerror="handleImgError(this)">
+      </div>
+      <div class="lightbox-body">
+        <div class="lightbox-title-group">
+          <h3 id="lightbox-title">Client Project</h3>
+          <div class="lightbox-meta">
+            <span id="lightbox-category">Web Architecture</span>
+            <span>•</span>
+            <span class="lightbox-stat" id="lightbox-metric">High-Converting</span>
+          </div>
+        </div>
+        <a href="#contact" class="lightbox-cta-btn">
+          Request a Build Like This →
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="./js/webgl-background.js"></script>
+  <script src="./js/interactive-globe.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>
