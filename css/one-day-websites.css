@@ -1,14 +1,15 @@
 /* ==========================================================================
    Crafting Web Designs (CWD) - One Day Websites Service Page Stylesheet
    Brand: Crafting Web Designs | Primary Accent: #BFF747 / #C6F24D
-   Typography: Syne (Headings) & Inter / Plus Jakarta Sans (Body & UI)
+   Typography: Plus Jakarta Sans (Headings) & Inter / Plus Jakarta Sans (Body & UI)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
    Typography Classes
    -------------------------------------------------------------------------- */
 .font-display {
-  font-family: 'Syne', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  letter-spacing: -0.035em !important;
 }
 
 .font-body {

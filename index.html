@@ -218,18 +218,18 @@
         display: inline-flex !important;
         flex-direction: row !important;
         align-items: center !important;
-        gap: 0.5rem !important;
-        padding: 0.35rem 0.75rem !important;
+        gap: 0.65rem !important;
+        padding: 0.5rem 1.15rem !important;
         margin-top: 0 !important;
-        margin-bottom: 16px !important;
+        margin-bottom: 14px !important;
         background: rgba(255, 255, 255, 0.05) !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
         border-radius: 9999px !important;
-        backdrop-filter: blur(12px) !important;
-        -webkit-backdrop-filter: blur(12px) !important;
+        backdrop-filter: blur(14px) !important;
+        -webkit-backdrop-filter: blur(14px) !important;
         white-space: nowrap !important;
         max-width: 95vw !important;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35) !important;
       }
       .proof-avatars {
         display: flex !important;
@@ -237,10 +237,10 @@
         flex-shrink: 0 !important;
       }
       .proof-avatar-item {
-        width: 20px !important;
-        height: 20px !important;
-        margin-left: -6px !important;
-        border: 1px solid #000000 !important;
+        width: 28px !important;
+        height: 28px !important;
+        margin-left: -8px !important;
+        border: 1.5px solid #000000 !important;
         border-radius: 9999px !important;
         flex-shrink: 0 !important;
         overflow: hidden !important;
@@ -249,16 +249,16 @@
         margin-left: 0 !important;
       }
       .proof-rating-stars {
-        font-size: 10px !important;
+        font-size: 13.5px !important;
         color: #FBBF24 !important;
-        letter-spacing: -0.05em !important;
+        letter-spacing: -0.02em !important;
         display: inline-flex !important;
         align-items: center !important;
         flex-shrink: 0 !important;
         filter: none !important;
       }
       .proof-rating-caption {
-        font-size: 11px !important;
+        font-size: 13px !important;
         font-weight: 500 !important;
         color: #D4D4D8 !important;
         white-space: nowrap !important;
@@ -270,7 +270,7 @@
       }
       .hero-headline.hero-inverted-funnel {
         margin-top: 0 !important;
-        margin-bottom: 20px !important;
+        margin-bottom: 12px !important;
       }
       .hero-headline .funnel-line {
         font-family: inherit !important;
@@ -290,19 +290,37 @@
         margin-top: 4px !important;
       }
       .headline-accent-lime {
-        color: #C6F24D !important;
-        text-shadow: 0 0 24px rgba(198, 242, 77, 0.45), 0 0 45px rgba(198, 242, 77, 0.2) !important;
-        filter: drop-shadow(0 0 20px rgba(198, 242, 77, 0.45)) !important;
+        color: #BFF747 !important;
+        text-shadow: none !important;
+        filter: none !important;
         font-weight: 900 !important;
         display: inline !important;
       }
+      .hero-supporting-copy {
+        font-size: 0.8125rem !important;
+        line-height: 1.45 !important;
+        margin-top: 6px !important;
+        margin-bottom: 20px !important;
+        padding: 0 0.5rem !important;
+        color: #A1A1AA !important;
+      }
       .hero-cta-group {
         margin-top: 0 !important;
-        margin-bottom: 28px !important;
+        margin-bottom: 24px !important;
+        width: 100% !important;
+        max-width: 360px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
       }
       .cta-primary-btn {
-        padding: 0.85rem 1.75rem !important;
+        width: 100% !important;
+        min-height: 48px !important;
+        padding: 0.95rem 1.75rem !important;
         font-size: 0.95rem !important;
+        font-weight: 800 !important;
+        background: #BFF747 !important;
+        color: #09090B !important;
+        box-shadow: 0 4px 20px rgba(191, 247, 71, 0.4) !important;
       }
     }
 
@@ -516,34 +534,34 @@
           </a>
         </div>
 
-        <!-- 2. Compact Single-Line Rating Pill (Never wraps on mobile) -->
-        <div class="micro-proof-bar hero-rating-pill-top inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md shadow-sm mx-auto mb-4 md:mb-6 whitespace-nowrap" style="margin-top: 0; margin-bottom: 16px;">
-          <!-- Overlapping Client Avatars -->
+        <!-- 2. Single-Line 4.9/5 Rating Pill (~50% Enlarged Dimensions, Clean Non-Wrapping Layout) -->
+        <div class="micro-proof-bar hero-rating-pill-top inline-flex items-center gap-2.5 sm:gap-3 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md shadow-sm mx-auto mb-4 md:mb-6 whitespace-nowrap" style="margin-top: 0; margin-bottom: 14px;">
+          <!-- Overlapping Client Avatars (~50% Larger: 28px mobile, 34px desktop) -->
           <div class="proof-avatars flex items-center shrink-0" aria-label="Verified Client Founders">
-            <div class="proof-avatar-item w-5 h-5 rounded-full border border-black -ml-1.5 first:ml-0 overflow-hidden shrink-0" title="Vignesh - Verified Client">
+            <div class="proof-avatar-item w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-black -ml-2 first:ml-0 overflow-hidden shrink-0" title="Vignesh - Verified Client">
               <img src="./assets/avatars/vignesh.webp" alt="Vignesh" class="proof-avatar-img avatar-vignesh w-full h-full object-cover" loading="eager" decoding="async" onerror="handleImgError(this)">
             </div>
-            <div class="proof-avatar-item w-5 h-5 rounded-full border border-black -ml-1.5 first:ml-0 overflow-hidden shrink-0" title="Milano Joe - Verified Client">
+            <div class="proof-avatar-item w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-black -ml-2 first:ml-0 overflow-hidden shrink-0" title="Milano Joe - Verified Client">
               <img src="./assets/avatars/milano-joe.webp" alt="Milano Joe" class="proof-avatar-img w-full h-full object-cover" loading="eager" decoding="async" onerror="handleImgError(this)">
             </div>
-            <div class="proof-avatar-item w-5 h-5 rounded-full border border-black -ml-1.5 first:ml-0 overflow-hidden shrink-0" title="Tristan Bacon - Verified Client">
+            <div class="proof-avatar-item w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-black -ml-2 first:ml-0 overflow-hidden shrink-0" title="Tristan Bacon - Verified Client">
               <img src="./assets/avatars/tristan-bacon.webp" alt="Tristan Bacon" class="proof-avatar-img w-full h-full object-cover" loading="eager" decoding="async" onerror="handleImgError(this)">
             </div>
           </div>
           
-          <!-- Compact Gold Stars -->
-          <div class="proof-rating-stars text-[10px] text-amber-400 tracking-tighter shrink-0 flex items-center" aria-hidden="true">★★★★★</div>
+          <!-- Gold Stars (~50% Larger: 13.5px-15px) -->
+          <div class="proof-rating-stars text-sm sm:text-base text-amber-400 tracking-tight shrink-0 flex items-center" aria-hidden="true">★★★★★</div>
           
-          <!-- Shortened Single-Line Text -->
-          <span class="proof-rating-caption text-[11px] md:text-xs font-medium text-zinc-300 whitespace-nowrap">
-            <strong class="text-white font-bold">4.9/5</strong> (50+ Launches)
+          <!-- Single-Line Rating Text (~50% Larger: 13px-14.5px) -->
+          <span class="proof-rating-caption text-[13px] sm:text-sm md:text-[14.5px] font-medium text-zinc-300 whitespace-nowrap">
+            <strong class="text-white font-bold" style="color: #FFFFFF; font-weight: 700;">4.9/5</strong> (50+ Launches)
           </span>
         </div>
 
-        <!-- 3. Inverted Funnel Headline (Restored Full Original Copy & Glow) -->
-        <h1 class="hero-headline hero-inverted-funnel text-center font-black tracking-tight leading-[1.12] mt-4 mb-6" style="margin-top: 0; margin-bottom: 20px;">
+        <!-- 3. Inverted Funnel Headline (Crisp Solid Brand Lime on "High-Converting", Zero Glow) -->
+        <h1 class="hero-headline hero-inverted-funnel text-center font-black tracking-tight leading-[1.12] mt-4 mb-3 sm:mb-4" style="margin-top: 0; margin-bottom: 12px;">
           <span class="funnel-line funnel-line-1 block text-white text-[2rem] sm:text-[2.5rem] md:text-[3.25rem] lg:text-[4.25rem]">
-            We Build <span class="headline-accent-lime text-[#C6F24D] drop-shadow-[0_0_20px_rgba(198,242,77,0.45)]" style="color: #C6F24D; text-shadow: 0 0 24px rgba(198, 242, 77, 0.45), 0 0 45px rgba(198, 242, 77, 0.2);">High-Converting</span>
+            We Build <span class="headline-accent-lime text-[#BFF747]" style="color: #BFF747 !important; text-shadow: none !important; filter: none !important;">High-Converting</span>
           </span>
           <span class="funnel-line funnel-line-2 block text-white text-[1.85rem] sm:text-[2.3rem] md:text-[2.95rem] lg:text-[3.8rem] mt-1 md:mt-1.5">
             Websites Delivered
@@ -553,7 +571,12 @@
           </span>
         </h1>
 
-        <!-- Primary Centered CTA Button directly beneath headline -->
+        <!-- Supporting Value Proposition Description (Clear Downward Eye-Path on Mobile & Desktop) -->
+        <p class="hero-supporting-copy text-zinc-400 text-xs sm:text-sm md:text-base max-w-md mx-auto text-center mt-2 mb-6 font-normal leading-relaxed">
+          Fast, bespoke websites engineered to turn local visitors into paying customers — delivered in days, not weeks.
+        </p>
+
+        <!-- Primary Centered CTA Button directly beneath headline and supporting copy -->
         <div class="hero-cta-group">
           <a href="#contact" class="cta-primary-btn" id="hero-main-cta">
             <span>Get Your Website Today</span>

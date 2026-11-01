@@ -69,7 +69,7 @@
             }
           },
           fontFamily: {
-            display: ['Syne', 'Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
             body: ['Inter', 'Plus Jakarta Sans', 'system-ui', 'sans-serif']
           }
         }
@@ -91,11 +91,15 @@
       overflow-x: hidden;
     }
     .font-display {
-      font-family: 'Syne', 'Plus Jakarta Sans', system-ui, sans-serif !important;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+      letter-spacing: -0.035em !important;
     }
   </style>
 </head>
-<body class="bg-[#09090B] text-white selection:bg-[#BFF747] selection:text-black">
+<body class="bg-[#09090B] text-white selection:bg-[#BFF747] selection:text-black relative">
+
+  <!-- Atmospheric Radial Ambient Glow (Matches Homepage Exactly) -->
+  <div class="ambient-glow-top" aria-hidden="true"></div>
 
   <!-- =======================================================================
        GLOBAL FLOATING HEADER (Centered CWD Capsule Logo & Corner Menu Trigger)
@@ -155,18 +159,13 @@
         <span class="tracking-tight">How It Works</span>
         <span class="ml-auto text-xs text-zinc-600 group-hover:text-[#BFF747] transition-transform duration-200 group-hover:translate-x-1">→</span>
       </a>
-      <a href="#examples" class="nav-overlay-item group flex items-center gap-4 py-2.5 text-base md:text-lg font-bold text-white hover:text-[#BFF747] transition-colors no-underline border-b border-white/5">
-        <span class="text-xs font-mono text-zinc-500 group-hover:text-[#BFF747] transition-colors">[05]</span>
-        <span class="tracking-tight">Real Website Examples</span>
-        <span class="ml-auto text-xs text-zinc-600 group-hover:text-[#BFF747] transition-transform duration-200 group-hover:translate-x-1">→</span>
-      </a>
       <a href="#comparison" class="nav-overlay-item group flex items-center gap-4 py-2.5 text-base md:text-lg font-bold text-white hover:text-[#BFF747] transition-colors no-underline border-b border-white/5">
-        <span class="text-xs font-mono text-zinc-500 group-hover:text-[#BFF747] transition-colors">[06]</span>
+        <span class="text-xs font-mono text-zinc-500 group-hover:text-[#BFF747] transition-colors">[05]</span>
         <span class="tracking-tight">One Day vs Traditional</span>
         <span class="ml-auto text-xs text-zinc-600 group-hover:text-[#BFF747] transition-transform duration-200 group-hover:translate-x-1">→</span>
       </a>
       <a href="#faq" class="nav-overlay-item group flex items-center gap-4 py-2.5 text-base md:text-lg font-bold text-white hover:text-[#BFF747] transition-colors no-underline border-b border-white/5">
-        <span class="text-xs font-mono text-zinc-500 group-hover:text-[#BFF747] transition-colors">[07]</span>
+        <span class="text-xs font-mono text-zinc-500 group-hover:text-[#BFF747] transition-colors">[06]</span>
         <span class="tracking-tight">FAQ</span>
         <span class="ml-auto text-xs text-zinc-600 group-hover:text-[#BFF747] transition-transform duration-200 group-hover:translate-x-1">→</span>
       </a>
@@ -191,6 +190,12 @@
          SECTION 1: HERO SECTION (2-Column Desktop Layout & Choreographed Entrance)
          ======================================================================= -->
     <section class="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden" id="hero" aria-label="One Day Websites Hero">
+      <!-- Interactive WebGL Liquid Refraction Background Canvas (Matches Homepage Exactly) -->
+      <canvas id="webgl-canvas" class="hero-canvas"></canvas>
+
+      <!-- Flanked / Peripheral Radial Occlusion Veil (Ensures 100% Contrast & Text Legibility) -->
+      <div class="hero-radial-veil" aria-hidden="true"></div>
+
       <!-- Subtle Ambient Glows -->
       <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-[#BFF747]/10 rounded-full blur-[140px] pointer-events-none" aria-hidden="true"></div>
       <div class="absolute top-1/3 right-10 w-80 h-80 bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" aria-hidden="true"></div>
@@ -219,9 +224,9 @@
             </div>
 
             <!-- Main Headline -->
-            <h1 class="hero-animate-title font-display text-4xl sm:text-5xl lg:text-[4.25rem] font-black text-white tracking-tight leading-[1.08] mb-6">
+            <h1 class="hero-animate-title font-display text-4xl sm:text-5xl lg:text-[4.25rem] font-black text-white tracking-tight leading-[1.12] mb-6">
               Your Business Website.<br>
-              Live in Just <span class="text-[#BFF747] drop-shadow-[0_0_24px_rgba(191,247,71,0.45)]">One Day.</span>
+              Live in Just <span class="text-[#BFF747]">One Day.</span>
             </h1>
 
             <!-- Supporting Copy -->
@@ -964,131 +969,7 @@
       </div>
     </section>
 
-    <!-- =======================================================================
-         SECTION 7: REAL WEBSITE EXAMPLES (Genuine Portfolio Showcase)
-         ======================================================================= -->
-    <section class="py-20 md:py-28 relative border-t border-white/5 bg-[#0D0D11]" id="examples" aria-label="Real Website Examples">
-      <div class="max-w-6xl mx-auto px-5 sm:px-8">
-        
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono uppercase tracking-widest text-[#BFF747] mb-4">
-            Proven Work
-          </div>
-          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
-            Built for Businesses Like Yours.
-          </h2>
-          <p class="text-zinc-400 text-base sm:text-lg">
-            See the kind of professional websites we create for local service businesses.
-          </p>
-        </div>
 
-        <!-- Real Portfolio Cards Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          
-          <!-- Example 1: Keystone Roofing -->
-          <article class="rounded-2xl border border-white/10 bg-[#121216] overflow-hidden shadow-2xl group">
-            <div class="aspect-[16/10] overflow-hidden relative bg-[#18181F]">
-              <img src="./assets/mockups/keystone-roofing-1.png" alt="Keystone Roofing Website Project" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy" onerror="handleImgError(this)">
-            </div>
-            <div class="p-6 sm:p-7">
-              <div class="flex items-center justify-between mb-3">
-                <span class="text-xs font-mono uppercase font-bold text-[#BFF747] bg-[#BFF747]/10 px-2.5 py-0.5 rounded-full border border-[#BFF747]/20">
-                  Roofing &amp; Construction
-                </span>
-                <span class="text-xs text-zinc-400 font-medium">Verified Launch</span>
-              </div>
-              <h3 class="font-display text-2xl font-bold text-white mb-2">Keystone Roofing</h3>
-              <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4">
-                Complete local service architecture featuring emergency roof repair callouts, slate inspection request funnels, and verified trust badges.
-              </p>
-              <div class="pt-4 border-t border-white/5 flex items-center justify-between">
-                <span class="text-xs text-zinc-300">Deliverables: Full UI, Funnel, Mobile Grid</span>
-                <button data-open-modal="lead-modal" data-industry="Roofing & Building Contractors" class="text-xs font-bold text-[#BFF747] hover:underline cursor-pointer">
-                  Request Similar Website →
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <!-- Example 2: KO Landscapes -->
-          <article class="rounded-2xl border border-white/10 bg-[#121216] overflow-hidden shadow-2xl group">
-            <div class="aspect-[16/10] overflow-hidden relative bg-[#18181F]">
-              <img src="./assets/mockups/ko-landscapes.png" alt="KO Landscapes Website Project" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy" onerror="handleImgError(this)">
-            </div>
-            <div class="p-6 sm:p-7">
-              <div class="flex items-center justify-between mb-3">
-                <span class="text-xs font-mono uppercase font-bold text-[#BFF747] bg-[#BFF747]/10 px-2.5 py-0.5 rounded-full border border-[#BFF747]/20">
-                  Landscaping &amp; Paving
-                </span>
-                <span class="text-xs text-zinc-400 font-medium">Verified Launch</span>
-              </div>
-              <h3 class="font-display text-2xl font-bold text-white mb-2">KO Landscapes</h3>
-              <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4">
-                Visual garden transformation portfolio with before-and-after project sliders, patio quotation forms, and regional coverage guides.
-              </p>
-              <div class="pt-4 border-t border-white/5 flex items-center justify-between">
-                <span class="text-xs text-zinc-300">Deliverables: Portfolio Gallery, Quote Form</span>
-                <button data-open-modal="lead-modal" data-industry="Landscaping & Garden Services" class="text-xs font-bold text-[#BFF747] hover:underline cursor-pointer">
-                  Request Similar Website →
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <!-- Example 3: Dr. Shaheen Aesthetic Clinic -->
-          <article class="rounded-2xl border border-white/10 bg-[#121216] overflow-hidden shadow-2xl group">
-            <div class="aspect-[16/10] overflow-hidden relative bg-[#18181F]">
-              <img src="./assets/mockups/dr-shaheen.png" alt="Dr. Shaheen Clinic Website Project" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy" onerror="handleImgError(this)">
-            </div>
-            <div class="p-6 sm:p-7">
-              <div class="flex items-center justify-between mb-3">
-                <span class="text-xs font-mono uppercase font-bold text-[#BFF747] bg-[#BFF747]/10 px-2.5 py-0.5 rounded-full border border-[#BFF747]/20">
-                  Aesthetic Medicine &amp; Dermatology
-                </span>
-                <span class="text-xs text-zinc-400 font-medium">Verified Launch</span>
-              </div>
-              <h3 class="font-display text-2xl font-bold text-white mb-2">Dr. Shaheen Clinic</h3>
-              <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4">
-                Clinical credibility system showcasing specialized treatments, practitioner qualifications, and private consultation request forms.
-              </p>
-              <div class="pt-4 border-t border-white/5 flex items-center justify-between">
-                <span class="text-xs text-zinc-300">Deliverables: Treatment Directory, Booking</span>
-                <button data-open-modal="lead-modal" data-industry="Dermatology & Aesthetic Clinics" class="text-xs font-bold text-[#BFF747] hover:underline cursor-pointer">
-                  Request Similar Website →
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <!-- Example 4: Smash Industrial -->
-          <article class="rounded-2xl border border-white/10 bg-[#121216] overflow-hidden shadow-2xl group">
-            <div class="aspect-[16/10] overflow-hidden relative bg-[#18181F]">
-              <img src="./assets/mockups/smash-industrial.png" alt="Smash Industrial Maintenance Website" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy" onerror="handleImgError(this)">
-            </div>
-            <div class="p-6 sm:p-7">
-              <div class="flex items-center justify-between mb-3">
-                <span class="text-xs font-mono uppercase font-bold text-[#BFF747] bg-[#BFF747]/10 px-2.5 py-0.5 rounded-full border border-[#BFF747]/20">
-                  Industrial Contracting
-                </span>
-                <span class="text-xs text-zinc-400 font-medium">Verified Launch</span>
-              </div>
-              <h3 class="font-display text-2xl font-bold text-white mb-2">Smash Industrial</h3>
-              <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4">
-                Heavy-duty commercial contracting hub with capability specifications, fleet equipment lists, and tender bid inquiry contact pathways.
-              </p>
-              <div class="pt-4 border-t border-white/5 flex items-center justify-between">
-                <span class="text-xs text-zinc-300">Deliverables: B2B Specifications, RFQ Form</span>
-                <button data-open-modal="lead-modal" data-industry="Plumbing & HVAC" class="text-xs font-bold text-[#BFF747] hover:underline cursor-pointer">
-                  Request Similar Website →
-                </button>
-              </div>
-            </div>
-          </article>
-
-        </div>
-
-      </div>
-    </section>
 
     <!-- =======================================================================
          SECTION 8: ONE DAY VS TRADITIONAL (Clean 2-Column Comparison)
@@ -1582,5 +1463,6 @@
 
   <!-- Scripts -->
   <script src="./js/one-day-websites.js?v=1.0"></script>
+  <script src="./js/webgl-background.js"></script>
 </body>
 </html>

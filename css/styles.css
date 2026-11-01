@@ -470,9 +470,10 @@ img {
 }
 
 .headline-accent-lime {
-  color: var(--brand-lime);
-  text-shadow: 0 0 35px rgba(198, 242, 77, 0.35);
-  font-weight: 750;
+  color: #BFF747;
+  text-shadow: none;
+  filter: none;
+  font-weight: 900;
   display: inline-block;
 }
 
@@ -1206,8 +1207,8 @@ img {
     display: inline-flex !important;
     flex-direction: row !important;
     align-items: center !important;
-    gap: 0.5rem !important;
-    padding: 0.35rem 0.75rem !important;
+    gap: 0.65rem !important;
+    padding: 0.5rem 1.15rem !important;
     margin-top: 0 !important;
     margin-bottom: 16px !important;
     white-space: nowrap !important;
@@ -6281,21 +6282,45 @@ img {
   z-index: 10 !important;
 }
 
-/* Rating Pill Moved ABOVE Main Headline */
+/* Rating Pill Moved ABOVE Main Headline (~50% Enlarged) */
 .hero-rating-pill-top,
 .micro-proof-bar {
   margin-top: 1.25rem !important;
-  margin-bottom: 1.65rem !important;
+  margin-bottom: 1.5rem !important;
   display: inline-flex !important;
   align-items: center !important;
-  gap: 0.85rem !important;
-  padding: 0.42rem 1.15rem 0.42rem 0.6rem !important;
+  gap: 0.75rem !important;
+  padding: 0.65rem 1.45rem !important;
   background: rgba(18, 18, 22, 0.85) !important;
   border: 1px solid rgba(255, 255, 255, 0.12) !important;
   border-radius: 9999px !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+  white-space: nowrap !important;
+}
+
+@media (min-width: 768px) {
+  .hero-rating-pill-top .proof-avatar-item,
+  .micro-proof-bar .proof-avatar-item {
+    width: 34px !important;
+    height: 34px !important;
+    margin-left: -10px !important;
+  }
+  .hero-rating-pill-top .proof-avatar-item:first-child,
+  .micro-proof-bar .proof-avatar-item:first-child {
+    margin-left: 0 !important;
+  }
+  .hero-rating-pill-top .proof-rating-stars,
+  .micro-proof-bar .proof-rating-stars {
+    font-size: 15px !important;
+    color: #FBBF24 !important;
+    filter: none !important;
+  }
+  .hero-rating-pill-top .proof-rating-caption,
+  .micro-proof-bar .proof-rating-caption {
+    font-size: 14.5px !important;
+  }
 }
 
 /* Inverted Funnel Headline: Line 1 -> Line 2 -> Line 3 pointing down directly to CTA */
@@ -6338,11 +6363,11 @@ img {
   margin-top: 4px !important;
 }
 
-/* Glowing Electric Lime Brand Accent */
+/* Crisp Electric Lime Brand Accent (Solid, Clean Editorial Typography) */
 .headline-accent-lime {
-  color: #C6F24D !important;
-  text-shadow: 0 0 24px rgba(198, 242, 77, 0.45), 0 0 45px rgba(198, 242, 77, 0.2) !important;
-  filter: drop-shadow(0 0 20px rgba(198, 242, 77, 0.45)) !important;
+  color: #BFF747 !important;
+  text-shadow: none !important;
+  filter: none !important;
   font-weight: 900 !important;
   display: inline !important;
 }
@@ -7206,24 +7231,25 @@ img {
   .hero-rating-pill-top,
   .micro-proof-bar {
     max-width: 95vw !important;
-    padding: 0.32rem 0.65rem !important;
-    gap: 0.4rem !important;
+    padding: 0.5rem 1.15rem !important;
+    gap: 0.65rem !important;
     margin-bottom: 16px !important;
     white-space: nowrap !important;
   }
   .proof-avatar-item {
-    width: 20px !important;
-    height: 20px !important;
-    margin-left: -6px !important;
+    width: 28px !important;
+    height: 28px !important;
+    margin-left: -8px !important;
   }
   .proof-rating-caption {
-    font-size: 11px !important;
+    font-size: 13px !important;
     line-height: 1 !important;
     white-space: nowrap !important;
   }
   .proof-rating-stars {
-    font-size: 10px !important;
+    font-size: 13.5px !important;
     color: #FBBF24 !important;
+    filter: none !important;
   }
   .funnel-line-1 {
     font-size: 2rem !important;
