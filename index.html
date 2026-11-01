@@ -76,7 +76,7 @@
 
   <!-- Critical Anti-Collision & Zero-FOUC Inline Overrides -->
   <style>
-    /* Clean Centered Brand Header with Corner Menu Trigger */
+    /* Absolutely Positioned Header Bar & Right-Side Menu Button */
     #site-header,
     .site-header {
       position: absolute !important;
@@ -85,43 +85,75 @@
       right: 0 !important;
       width: 100% !important;
       z-index: 50 !important;
-      padding: 1.5rem 2rem !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: space-between !important;
+      pointer-events: none !important;
+      padding: 1.5rem !important;
       box-sizing: border-box !important;
       background: transparent !important;
       border: none !important;
     }
-    @media (max-width: 767px) {
-      #site-header,
-      .site-header {
-        padding: 1.25rem 1rem !important;
-      }
-    }
-    /* Hero generous vertical padding beneath centered header */
-    .hero-section,
-    #hero {
-      padding-top: clamp(6.5rem, 13vh, 8.5rem) !important;
-    }
-    /* Corner Menu Button */
-    #nav-menu-trigger {
+
+    #nav-menu-trigger,
+    .nav-menu-trigger-btn {
+      position: absolute !important;
+      top: 1.5rem !important;
+      right: 1.5rem !important;
+      z-index: 50 !important;
       width: 40px !important;
       height: 40px !important;
       border-radius: 9999px !important;
-      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
       background: rgba(255, 255, 255, 0.05) !important;
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
       cursor: pointer !important;
+      pointer-events: auto !important;
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
-    #nav-menu-trigger:hover {
-      background: rgba(255, 255, 255, 0.1) !important;
-      border-color: rgba(255, 255, 255, 0.22) !important;
+
+    @media (min-width: 768px) {
+      #nav-menu-trigger,
+      .nav-menu-trigger-btn {
+        top: 1.5rem !important;
+        right: 2.5rem !important;
+      }
+    }
+
+    #nav-menu-trigger:hover,
+    .nav-menu-trigger-btn:hover {
+      background: rgba(255, 255, 255, 0.12) !important;
+      border-color: rgba(255, 255, 255, 0.2) !important;
       transform: scale(1.05) !important;
     }
+
+    /* Centered CWD Capsule Logo (Elevated Glass Pill) */
+    .brand-capsule-pill {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 0.65rem !important;
+      padding: 0.65rem 1.25rem !important;
+      border-radius: 1rem !important;
+      background: rgba(17, 17, 21, 0.9) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.1) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      text-decoration: none !important;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease !important;
+    }
+
+    .brand-capsule-pill:hover {
+      transform: translateY(-2px) scale(1.02) !important;
+      border-color: rgba(255, 255, 255, 0.2) !important;
+      box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.15) !important;
+    }
+
+    /* Hero Vertical Hierarchy Spacing */
+    .hero-section,
+    #hero {
+      padding-top: clamp(3.25rem, 6vh, 5rem) !important;
+    }
+
     /* Navigation Overlay Backdrop */
     #nav-overlay-backdrop {
       position: fixed !important;
@@ -134,10 +166,12 @@
       pointer-events: none;
       transition: opacity 0.25s ease-out !important;
     }
+
     #nav-overlay-backdrop.is-open {
       opacity: 1 !important;
       pointer-events: auto !important;
     }
+
     /* Navigation Overlay Panel */
     .nav-overlay-panel {
       position: fixed !important;
@@ -152,21 +186,24 @@
       transform: scale(0.95);
       transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
+
     .nav-overlay-panel.is-open {
       opacity: 1 !important;
       pointer-events: auto !important;
       transform: scale(1) translateY(0) !important;
     }
+
     @media (min-width: 768px) {
       .nav-overlay-panel {
         top: 5rem !important;
-        right: 2rem !important;
+        right: 2.5rem !important;
         width: 22rem !important;
         max-width: calc(100vw - 4rem) !important;
         border-radius: 1.5rem !important;
         padding: 1.5rem !important;
       }
     }
+
     @media (max-width: 767px) {
       .nav-overlay-panel {
         top: 0 !important;
@@ -185,6 +222,7 @@
         overflow-y: auto !important;
       }
     }
+
     /* Services Horizontal Carousel (Design in DC Style) */
     .services-carousel-track {
       display: flex !important;
@@ -232,22 +270,10 @@
   <div class="custom-cursor-dot" aria-hidden="true"></div>
   <div class="custom-cursor-ring" aria-hidden="true"></div>
 
-  <!-- Top Centered Brand Header with Corner Menu Trigger -->
-  <header class="site-header absolute top-0 left-0 right-0 w-full z-50 px-4 py-5 md:px-8 md:py-6 flex items-center justify-between" id="site-header" style="position: absolute; top: 0; left: 0; right: 0; width: 100%; z-index: 50; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; box-sizing: border-box;">
-    
-    <!-- Left Optical Balance Spacer (Maintains perfect optical center for brand mark) -->
-    <div class="w-10 h-10 shrink-0 opacity-0 pointer-events-none" aria-hidden="true" style="width: 40px; height: 40px;"></div>
-
-    <!-- Center: CWD Brand Logo + Text Mark -->
-    <a href="#" class="brand-link-center flex items-center gap-2.5 text-white no-underline group" aria-label="Crafting Web Designs Homepage" style="display: flex; align-items: center; gap: 0.65rem; text-decoration: none;">
-      <div class="w-8 h-8 rounded-full bg-[#09090B] border border-[#C6F24D]/35 flex items-center justify-center overflow-hidden shrink-0 shadow-[0_0_12px_rgba(198,242,77,0.25)] transition-transform duration-300 group-hover:scale-105" style="width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; border: 1px solid rgba(198, 242, 77, 0.35); background: #09090B;">
-        <img src="./assets/logo.png" alt="CWD Logo" class="w-full h-full object-contain" onerror="handleImgError(this)" style="width: 100%; height: 100%; object-fit: contain;">
-      </div>
-      <span class="font-bold text-sm tracking-tight text-white whitespace-nowrap" style="font-weight: 700; font-size: 0.9375rem; color: #FFFFFF; white-space: nowrap; letter-spacing: -0.02em;">Crafting Web Designs</span>
-    </a>
-
-    <!-- Far Right: Sleek Minimalist Menu Icon Button (2-line pill icon) -->
-    <button id="nav-menu-trigger" aria-label="Open Navigation Menu" aria-expanded="false" class="w-10 h-10 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 active:scale-95 flex items-center justify-center transition-all cursor-pointer text-white shrink-0" style="width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.05); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s ease;">
+  <!-- Top Site Header with Anchored Corner Menu Trigger (Absolute Positioning: Never shifts center stack) -->
+  <header class="site-header" id="site-header" style="position: absolute; top: 0; left: 0; right: 0; width: 100%; z-index: 50; pointer-events: none; padding: 1.5rem; box-sizing: border-box;">
+    <!-- Right-Side Menu Trigger (Preserved & Anchored to Top-Right Corner) -->
+    <button id="nav-menu-trigger" aria-label="Open Navigation Menu" aria-expanded="false" class="nav-menu-trigger-btn pointer-events-auto" style="position: absolute; top: 1.5rem; right: 1.5rem; z-index: 50; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.05); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);">
       <div class="flex flex-col gap-1.5 items-center justify-center w-4 pointer-events-none" style="display: flex; flex-direction: column; gap: 5px; align-items: center; justify-content: center; width: 16px;">
         <span class="w-4 h-0.5 bg-white rounded-full block" style="width: 16px; height: 1.5px; background: #FFFFFF; border-radius: 9999px;"></span>
         <span class="w-4 h-0.5 bg-white rounded-full block" style="width: 16px; height: 1.5px; background: #FFFFFF; border-radius: 9999px;"></span>
@@ -313,7 +339,7 @@
 
   <!-- Main Hero Section -->
   <main>
-    <section class="hero-section" id="hero" style="padding-top: clamp(6.5rem, 13vh, 8.5rem) !important;">
+    <section class="hero-section" id="hero" style="padding-top: clamp(3.25rem, 6vh, 5rem) !important;">
       <!-- Interactive WebGL Liquid Refraction Background Canvas (Full-Bleed Layer, z-index: 0) -->
       <canvas id="webgl-canvas" class="hero-canvas"></canvas>
 
@@ -323,6 +349,17 @@
       <!-- Hero Content Container (z-index: 10) -->
       <div class="hero-inner">
 
+        <!-- 1. Centered CWD Capsule Logo (Elevated Glass Pill) -->
+        <div class="hero-capsule-logo-wrap mb-5">
+          <a href="#" class="brand-capsule-pill inline-flex items-center gap-2.5 px-5 py-2.5 rounded-2xl bg-[#111115]/90 border border-white/10 shadow-2xl backdrop-blur-md transition-all duration-300 hover:border-white/20 hover:scale-[1.02] no-underline" style="box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.1);" aria-label="Crafting Web Designs Homepage">
+            <div class="w-7 h-7 rounded-lg bg-black/80 border border-white/5 flex items-center justify-center p-1 shrink-0 overflow-hidden" style="width: 28px; height: 28px; border-radius: 8px; background: rgba(0, 0, 0, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); display: flex; align-items: center; justify-content: center; padding: 4px;">
+              <img src="./assets/logo.png" alt="CWD Logo" class="w-full h-full object-contain" onerror="handleImgError(this)" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <span class="text-sm font-semibold text-white tracking-tight whitespace-nowrap" style="font-size: 0.875rem; font-weight: 600; color: #FFFFFF; letter-spacing: -0.02em;">Crafting Web Designs</span>
+          </a>
+        </div>
+
+        <!-- 2. Rating Badge / Social Proof Pill (Placed directly beneath Capsule Logo) -->
         <!-- Rating Pill / Social Proof Badge (Placed ABOVE the main headline) -->
         <div class="micro-proof-bar hero-rating-pill-top">
           <div class="proof-avatars" aria-label="Verified Client Founders">

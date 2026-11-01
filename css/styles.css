@@ -7667,7 +7667,7 @@ img {
 }
 
 /* ==========================================================================
-   CLEAN CENTERED BRAND HEADER WITH CORNER MENU TRIGGER
+   TOP SITE HEADER WITH ANCHORED CORNER MENU TRIGGER & CENTERED CAPSULE LOGO
    ========================================================================== */
 #site-header,
 .site-header {
@@ -7677,10 +7677,8 @@ img {
   right: 0 !important;
   width: 100% !important;
   z-index: 50 !important;
-  padding: 1.5rem 2rem !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
+  pointer-events: none !important;
+  padding: 1.5rem !important;
   box-sizing: border-box !important;
   background: transparent !important;
   backdrop-filter: none !important;
@@ -7689,31 +7687,96 @@ img {
   box-shadow: none !important;
 }
 
-@media (max-width: 767px) {
-  #site-header,
-  .site-header {
-    padding: 1.25rem 1rem !important;
-  }
-}
-
-/* Corner Menu Trigger Button */
-#nav-menu-trigger {
+/* Corner Menu Trigger Button (Anchored to Top-Right Corner) */
+#nav-menu-trigger,
+.nav-menu-trigger-btn {
+  position: absolute !important;
+  top: 1.5rem !important;
+  right: 1.5rem !important;
+  z-index: 50 !important;
   width: 40px !important;
   height: 40px !important;
   border-radius: 9999px !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
   background: rgba(255, 255, 255, 0.05) !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   cursor: pointer !important;
+  pointer-events: auto !important;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-#nav-menu-trigger:hover {
-  background: rgba(255, 255, 255, 0.1) !important;
-  border-color: rgba(255, 255, 255, 0.22) !important;
+@media (min-width: 768px) {
+  #nav-menu-trigger,
+  .nav-menu-trigger-btn {
+    top: 1.5rem !important;
+    right: 2.5rem !important;
+  }
+}
+
+#nav-menu-trigger:hover,
+.nav-menu-trigger-btn:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
   transform: scale(1.05) !important;
+}
+
+/* Centered CWD Capsule Logo (Elevated Glass Pill) */
+.hero-capsule-logo-wrap {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-bottom: 1.25rem !important;
+}
+
+.brand-capsule-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.65rem !important;
+  padding: 0.65rem 1.25rem !important;
+  border-radius: 1rem !important;
+  background: rgba(17, 17, 21, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  text-decoration: none !important;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.brand-capsule-pill:hover {
+  transform: translateY(-2px) scale(1.02) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.15) !important;
+}
+
+.brand-capsule-icon {
+  width: 28px !important;
+  height: 28px !important;
+  border-radius: 8px !important;
+  background: rgba(0, 0, 0, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 4px !important;
+  flex-shrink: 0 !important;
+  overflow: hidden !important;
+}
+
+.brand-capsule-icon img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+}
+
+.brand-capsule-text {
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  color: #FFFFFF !important;
+  letter-spacing: -0.02em !important;
+  white-space: nowrap !important;
 }
 
 /* Navigation Overlay Backdrop */
@@ -7758,7 +7821,7 @@ img {
 @media (min-width: 768px) {
   .nav-overlay-panel {
     top: 5rem !important;
-    right: 2rem !important;
+    right: 2.5rem !important;
     width: 22rem !important;
     max-width: calc(100vw - 4rem) !important;
     border-radius: 1.5rem !important;
@@ -7785,10 +7848,10 @@ img {
   }
 }
 
-/* Hero Section: Generous vertical padding beneath centered header */
+/* Hero Section: Vertical padding accommodating centered capsule logo */
 .hero-section,
 #hero {
-  padding-top: clamp(6.5rem, 13vh, 8.5rem) !important;
+  padding-top: clamp(3.25rem, 6vh, 5rem) !important;
 }
 
 /* ==========================================================================
