@@ -614,58 +614,70 @@ function initFooterUtilities() {
 }
 
 /* --------------------------------------------------------------------------
-   Floating Sticky Header Mobile Menu Controller
+   Header Navigation Overlay Toggle Controller
    -------------------------------------------------------------------------- */
 function initMobileMenu() {
-  const toggleBtn = document.getElementById('mobile-menu-toggle');
-  const dropdown = document.getElementById('mobile-dropdown-menu');
-  if (!toggleBtn || !dropdown) return;
+  const trigger = document.getElementById('nav-menu-trigger');
+  const closeBtn = document.getElementById('nav-menu-close');
+  const panel = document.getElementById('nav-overlay-panel');
+  const backdrop = document.getElementById('nav-overlay-backdrop');
 
-  function toggleMenu(forceOpen) {
-    const isCurrentlyOpen = dropdown.classList.contains('is-open') || dropdown.style.display === 'block';
-    const willOpen = forceOpen !== undefined ? forceOpen : !isCurrentlyOpen;
+  if (!trigger || !panel) return;
 
-    if (willOpen) {
-      dropdown.classList.add('is-open');
-      dropdown.classList.remove('hidden');
-      dropdown.style.setProperty('display', 'block', 'important');
-      toggleBtn.classList.add('is-open');
-      toggleBtn.setAttribute('aria-expanded', 'true');
-      dropdown.setAttribute('aria-hidden', 'false');
-    } else {
-      dropdown.classList.remove('is-open');
-      dropdown.classList.add('hidden');
-      dropdown.style.setProperty('display', 'none', 'important');
-      toggleBtn.classList.remove('is-open');
-      toggleBtn.setAttribute('aria-expanded', 'false');
-      dropdown.setAttribute('aria-hidden', 'true');
+  function openMenu() {
+    panel.classList.add('is-open');
+    if (backdrop) backdrop.classList.add('is-open');
+    trigger.setAttribute('aria-expanded', 'true');
+    if (window.innerWidth < 768) {
+      document.body.style.overflow = 'hidden';
     }
   }
 
-  toggleBtn.addEventListener('click', (e) => {
+  function closeMenu() {
+    panel.classList.remove('is-open');
+    if (backdrop) backdrop.classList.remove('is-open');
+    trigger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  trigger.addEventListener('click', (e) => {
     e.stopPropagation();
-    toggleMenu();
-  });
-
-  // Close when clicking any nav link in mobile dropdown
-  const mobileLinks = dropdown.querySelectorAll('a');
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      toggleMenu(false);
-    });
-  });
-
-  // Close when clicking anywhere outside
-  document.addEventListener('click', (e) => {
-    if (!dropdown.contains(e.target) && !toggleBtn.contains(e.target)) {
-      toggleMenu(false);
+    if (panel.classList.contains('is-open')) {
+      closeMenu();
+    } else {
+      openMenu();
     }
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeMenu();
+    });
+  }
+
+  if (backdrop) {
+    backdrop.addEventListener('click', closeMenu);
+  }
+
+  // Close when clicking outside panel
+  document.addEventListener('click', (e) => {
+    if (panel.classList.contains('is-open') && !panel.contains(e.target) && !trigger.contains(e.target)) {
+      closeMenu();
+    }
+  });
+
+  // Close on nav link click
+  panel.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      closeMenu();
+    });
   });
 
   // Close on Escape key
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      toggleMenu(false);
+    if (e.key === 'Escape' && panel.classList.contains('is-open')) {
+      closeMenu();
     }
   });
 }

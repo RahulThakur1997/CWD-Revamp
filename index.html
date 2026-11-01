@@ -76,50 +76,114 @@
 
   <!-- Critical Anti-Collision & Zero-FOUC Inline Overrides -->
   <style>
-    /* Fixed 64px Header Container */
-    #site-header {
-      position: fixed !important;
+    /* Clean Centered Brand Header with Corner Menu Trigger */
+    #site-header,
+    .site-header {
+      position: absolute !important;
       top: 0 !important;
       left: 0 !important;
       right: 0 !important;
-      z-index: 999 !important;
-      height: 64px !important;
-      background: rgba(9, 9, 11, 0.92) !important;
-      backdrop-filter: blur(12px) !important;
-      -webkit-backdrop-filter: blur(12px) !important;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-      padding-left: 1rem !important;
-      padding-right: 1rem !important;
+      width: 100% !important;
+      z-index: 50 !important;
+      padding: 1.5rem 2rem !important;
       display: flex !important;
       align-items: center !important;
       justify-content: space-between !important;
       box-sizing: border-box !important;
+      background: transparent !important;
+      border: none !important;
     }
     @media (max-width: 767px) {
-      #desktop-nav {
-        display: none !important;
-      }
-      #mobile-menu-toggle {
-        display: flex !important;
+      #site-header,
+      .site-header {
+        padding: 1.25rem 1rem !important;
       }
     }
-    @media (min-width: 768px) {
-      #desktop-nav {
-        display: flex !important;
-        align-items: center !important;
-        gap: 1.5rem !important;
-      }
-      #mobile-menu-toggle {
-        display: none !important;
-      }
-      #mobile-dropdown-menu {
-        display: none !important;
-      }
-    }
-    /* Hero padding-top 80px */
+    /* Hero generous vertical padding beneath centered header */
     .hero-section,
     #hero {
-      padding-top: 80px !important;
+      padding-top: clamp(6.5rem, 13vh, 8.5rem) !important;
+    }
+    /* Corner Menu Button */
+    #nav-menu-trigger {
+      width: 40px !important;
+      height: 40px !important;
+      border-radius: 9999px !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      background: rgba(255, 255, 255, 0.05) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      cursor: pointer !important;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    #nav-menu-trigger:hover {
+      background: rgba(255, 255, 255, 0.1) !important;
+      border-color: rgba(255, 255, 255, 0.22) !important;
+      transform: scale(1.05) !important;
+    }
+    /* Navigation Overlay Backdrop */
+    #nav-overlay-backdrop {
+      position: fixed !important;
+      inset: 0 !important;
+      background: rgba(0, 0, 0, 0.65) !important;
+      backdrop-filter: blur(8px) !important;
+      -webkit-backdrop-filter: blur(8px) !important;
+      z-index: 98 !important;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease-out !important;
+    }
+    #nav-overlay-backdrop.is-open {
+      opacity: 1 !important;
+      pointer-events: auto !important;
+    }
+    /* Navigation Overlay Panel */
+    .nav-overlay-panel {
+      position: fixed !important;
+      z-index: 100 !important;
+      background: rgba(9, 9, 11, 0.96) !important;
+      backdrop-filter: blur(28px) !important;
+      -webkit-backdrop-filter: blur(28px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.95), 0 0 1px 1px rgba(255, 255, 255, 0.06) !important;
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.95);
+      transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    .nav-overlay-panel.is-open {
+      opacity: 1 !important;
+      pointer-events: auto !important;
+      transform: scale(1) translateY(0) !important;
+    }
+    @media (min-width: 768px) {
+      .nav-overlay-panel {
+        top: 5rem !important;
+        right: 2rem !important;
+        width: 22rem !important;
+        max-width: calc(100vw - 4rem) !important;
+        border-radius: 1.5rem !important;
+        padding: 1.5rem !important;
+      }
+    }
+    @media (max-width: 767px) {
+      .nav-overlay-panel {
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        border-radius: 0 !important;
+        border: none !important;
+        padding: 1.5rem 1.5rem 2.5rem 1.5rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        overflow-y: auto !important;
+      }
     }
     /* Services Horizontal Carousel (Design in DC Style) */
     .services-carousel-track {
@@ -168,56 +232,88 @@
   <div class="custom-cursor-dot" aria-hidden="true"></div>
   <div class="custom-cursor-ring" aria-hidden="true"></div>
 
-  <!-- Top Global Navigation Bar (Clean Full-Width 64px Fixed Header) -->
-  <header class="fixed top-0 left-0 right-0 z-[999] h-16 bg-[#09090B]/90 backdrop-blur-md border-b border-white/10 px-4 md:px-8 flex items-center justify-between" id="site-header" style="position: fixed; top: 0; left: 0; right: 0; z-index: 999; height: 64px; background: rgba(9, 9, 11, 0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-left: 1.25rem; padding-right: 1.25rem; display: flex; align-items: center; justify-content: space-between;">
+  <!-- Top Centered Brand Header with Corner Menu Trigger -->
+  <header class="site-header absolute top-0 left-0 right-0 w-full z-50 px-4 py-5 md:px-8 md:py-6 flex items-center justify-between" id="site-header" style="position: absolute; top: 0; left: 0; right: 0; width: 100%; z-index: 50; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; box-sizing: border-box;">
     
-    <!-- Brand Mark (Left): CWD logo icon + "Crafting Web Designs" text -->
-    <a href="#" class="flex items-center gap-2.5 text-white no-underline shrink-0" aria-label="Crafting Web Designs Homepage" style="display: flex; align-items: center; gap: 0.65rem; text-decoration: none;">
-      <div class="w-8 h-8 rounded-full bg-[#09090B] border border-[#C6F24D]/35 flex items-center justify-center overflow-hidden shrink-0 shadow-[0_0_12px_rgba(198,242,77,0.25)]" style="width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; border: 1px solid rgba(198, 242, 77, 0.35); background: #09090B;">
+    <!-- Left Optical Balance Spacer (Maintains perfect optical center for brand mark) -->
+    <div class="w-10 h-10 shrink-0 opacity-0 pointer-events-none" aria-hidden="true" style="width: 40px; height: 40px;"></div>
+
+    <!-- Center: CWD Brand Logo + Text Mark -->
+    <a href="#" class="brand-link-center flex items-center gap-2.5 text-white no-underline group" aria-label="Crafting Web Designs Homepage" style="display: flex; align-items: center; gap: 0.65rem; text-decoration: none;">
+      <div class="w-8 h-8 rounded-full bg-[#09090B] border border-[#C6F24D]/35 flex items-center justify-center overflow-hidden shrink-0 shadow-[0_0_12px_rgba(198,242,77,0.25)] transition-transform duration-300 group-hover:scale-105" style="width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; border: 1px solid rgba(198, 242, 77, 0.35); background: #09090B;">
         <img src="./assets/logo.png" alt="CWD Logo" class="w-full h-full object-contain" onerror="handleImgError(this)" style="width: 100%; height: 100%; object-fit: contain;">
       </div>
-      <span class="font-bold text-sm tracking-tight text-white whitespace-nowrap" style="font-weight: 700; font-size: 0.875rem; color: #FFFFFF; white-space: nowrap;">Crafting Web Designs</span>
+      <span class="font-bold text-sm tracking-tight text-white whitespace-nowrap" style="font-weight: 700; font-size: 0.9375rem; color: #FFFFFF; white-space: nowrap; letter-spacing: -0.02em;">Crafting Web Designs</span>
     </a>
 
-    <!-- Desktop Navigation Links (Center): MUST HAVE hidden md:flex items-center gap-6 -->
-    <nav class="hidden md:flex items-center gap-6 desktop-nav-bar" id="desktop-nav" aria-label="Main Desktop Navigation">
-      <a href="#proof" class="text-xs uppercase tracking-wider font-semibold text-zinc-300 hover:text-white transition-colors no-underline">Portfolio</a>
-      <a href="#proof" class="text-xs uppercase tracking-wider font-semibold text-zinc-300 hover:text-white transition-colors no-underline">Case Studies</a>
-      <a href="#capabilities" class="text-xs uppercase tracking-wider font-semibold text-zinc-300 hover:text-white transition-colors no-underline">Services</a>
-      <a href="#advantages" class="text-xs uppercase tracking-wider font-semibold text-zinc-300 hover:text-white transition-colors no-underline">About Us</a>
-    </nav>
-
-    <!-- Action Button (Right): [ Let's Talk → ] (small, compact button, visible on all screens) -->
-    <div class="flex items-center gap-2.5 shrink-0" style="display: flex; align-items: center; gap: 0.65rem;">
-      <a href="#contact" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#C6F24D] hover:bg-[#D4FF5E] text-[#09090B] text-xs font-extrabold tracking-tight transition-all duration-200 no-underline shadow-[0_2px_10px_rgba(198,242,77,0.3)] shrink-0" style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.9rem; border-radius: 9999px; background: #C6F24D; color: #09090B; font-size: 0.75rem; font-weight: 800; text-decoration: none;">
-        <span>Let's Talk</span>
-        <span aria-hidden="true">→</span>
-      </a>
-      <!-- Hamburger Toggle for Mobile (Off-Canvas Menu, strictly hidden below 64px header when toggled) -->
-      <button class="md:hidden flex flex-col justify-center items-center gap-1 w-8 h-8 rounded-lg bg-white/5 border border-white/10 text-white p-1 cursor-pointer" id="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" style="display: none; width: 32px; height: 32px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 8px; cursor: pointer;">
-        <span class="w-4 h-0.5 bg-white block transition-transform"></span>
-        <span class="w-4 h-0.5 bg-white block transition-transform"></span>
-      </button>
-    </div>
+    <!-- Far Right: Sleek Minimalist Menu Icon Button (2-line pill icon) -->
+    <button id="nav-menu-trigger" aria-label="Open Navigation Menu" aria-expanded="false" class="w-10 h-10 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 active:scale-95 flex items-center justify-center transition-all cursor-pointer text-white shrink-0" style="width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.05); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s ease;">
+      <div class="flex flex-col gap-1.5 items-center justify-center w-4 pointer-events-none" style="display: flex; flex-direction: column; gap: 5px; align-items: center; justify-content: center; width: 16px;">
+        <span class="w-4 h-0.5 bg-white rounded-full block" style="width: 16px; height: 1.5px; background: #FFFFFF; border-radius: 9999px;"></span>
+        <span class="w-4 h-0.5 bg-white rounded-full block" style="width: 16px; height: 1.5px; background: #FFFFFF; border-radius: 9999px;"></span>
+      </div>
+    </button>
   </header>
 
-  <!-- Mobile Dropdown Drawer (Positioned fixed below the 64px navbar, COMPLETELY HIDDEN by default) -->
-  <div class="fixed top-16 left-0 right-0 bg-[#09090B]/98 backdrop-blur-2xl border-b border-white/10 px-6 py-5 z-[998] shadow-2xl transition-all hidden" id="mobile-dropdown-menu" style="display: none !important; position: fixed; top: 64px; left: 0; right: 0; z-index: 998; background: rgba(9, 9, 11, 0.98); border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding: 1.25rem 1.5rem;">
-    <nav class="flex flex-col gap-3" style="display: flex; flex-direction: column; gap: 0.75rem;">
-      <a href="#proof" class="mobile-nav-link py-2 text-sm font-semibold text-zinc-200 hover:text-[#C6F24D] border-b border-white/5 transition-colors no-underline block">Portfolio</a>
-      <a href="#proof" class="mobile-nav-link py-2 text-sm font-semibold text-zinc-200 hover:text-[#C6F24D] border-b border-white/5 transition-colors no-underline block">Case Studies</a>
-      <a href="#capabilities" class="mobile-nav-link py-2 text-sm font-semibold text-zinc-200 hover:text-[#C6F24D] border-b border-white/5 transition-colors no-underline block">Services</a>
-      <a href="#advantages" class="mobile-nav-link py-2 text-sm font-semibold text-zinc-200 hover:text-[#C6F24D] border-b border-white/5 transition-colors no-underline block">About Us</a>
-      <a href="#contact" class="mobile-nav-link mt-2 flex items-center justify-between py-2.5 px-4 rounded-xl bg-[#C6F24D] text-[#09090B] font-bold text-xs no-underline">
-        <span>Book A Strategy Call</span>
-        <span>→</span>
+  <!-- Navigation Overlay Backdrop -->
+  <div id="nav-overlay-backdrop" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[98] opacity-0 pointer-events-none transition-opacity duration-250 ease-out" style="position: fixed; inset: 0; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(4px); z-index: 98; opacity: 0; pointer-events: none; transition: opacity 0.25s ease;" aria-hidden="true"></div>
+
+  <!-- Sliding / Dropdown Navigation Overlay (Desktop: Floating Top-Right Card | Mobile: Clean Fullscreen Drawer) -->
+  <div id="nav-overlay-panel" class="nav-overlay-panel fixed z-[100] opacity-0 pointer-events-none scale-95 transition-all duration-250 ease-out bg-[#09090B]/95 backdrop-blur-2xl border border-white/10 shadow-2xl" style="position: fixed; z-index: 100; opacity: 0; pointer-events: none; transform: scale(0.95); transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);" role="dialog" aria-modal="true" aria-label="Site Navigation">
+    
+    <!-- Top Row: Label + Close Button (✕) -->
+    <div class="flex items-center justify-between pb-4 border-b border-white/10" style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+      <div class="flex items-center gap-2" style="display: flex; align-items: center; gap: 0.5rem;">
+        <span class="w-2 h-2 rounded-full bg-[#C6F24D] animate-pulse" style="width: 8px; height: 8px; border-radius: 50%; background: #C6F24D;"></span>
+        <span class="text-xs font-mono font-semibold uppercase tracking-widest text-zinc-400" style="font-size: 0.75rem; letter-spacing: 0.1em; color: #A1A1AA; font-family: monospace;">Navigation</span>
+      </div>
+      <button id="nav-menu-close" aria-label="Close Navigation Menu" class="w-9 h-9 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 active:scale-90 flex items-center justify-center text-zinc-400 hover:text-white transition-all cursor-pointer text-base" style="width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.05); color: #A1A1AA; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+        ✕
+      </button>
+    </div>
+
+    <!-- Clean, Bold Numbered Navigation Links -->
+    <nav class="flex flex-col py-3" style="display: flex; flex-direction: column; padding: 0.75rem 0;">
+      <a href="#proof" class="nav-overlay-item group flex items-center gap-4 py-3 text-lg md:text-xl font-bold text-white hover:text-[#C6F24D] transition-colors no-underline border-b border-white/5" style="display: flex; align-items: center; gap: 1rem; padding: 0.75rem 0; font-size: 1.15rem; font-weight: 700; color: #FFFFFF; text-decoration: none; border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+        <span class="text-xs font-mono text-zinc-500 group-hover:text-[#C6F24D] transition-colors" style="font-size: 0.75rem; color: #71717A; font-family: monospace;">[01]</span>
+        <span class="tracking-tight">Portfolio</span>
+        <span class="ml-auto text-xs text-zinc-600 group-hover:text-[#C6F24D] transition-transform duration-200 group-hover:translate-x-1" style="margin-left: auto; color: #52525B;">→</span>
+      </a>
+      <a href="#proof" class="nav-overlay-item group flex items-center gap-4 py-3 text-lg md:text-xl font-bold text-white hover:text-[#C6F24D] transition-colors no-underline border-b border-white/5" style="display: flex; align-items: center; gap: 1rem; padding: 0.75rem 0; font-size: 1.15rem; font-weight: 700; color: #FFFFFF; text-decoration: none; border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+        <span class="text-xs font-mono text-zinc-500 group-hover:text-[#C6F24D] transition-colors" style="font-size: 0.75rem; color: #71717A; font-family: monospace;">[02]</span>
+        <span class="tracking-tight">Case Studies</span>
+        <span class="ml-auto text-xs text-zinc-600 group-hover:text-[#C6F24D] transition-transform duration-200 group-hover:translate-x-1" style="margin-left: auto; color: #52525B;">→</span>
+      </a>
+      <a href="#capabilities" class="nav-overlay-item group flex items-center gap-4 py-3 text-lg md:text-xl font-bold text-white hover:text-[#C6F24D] transition-colors no-underline border-b border-white/5" style="display: flex; align-items: center; gap: 1rem; padding: 0.75rem 0; font-size: 1.15rem; font-weight: 700; color: #FFFFFF; text-decoration: none; border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+        <span class="text-xs font-mono text-zinc-500 group-hover:text-[#C6F24D] transition-colors" style="font-size: 0.75rem; color: #71717A; font-family: monospace;">[03]</span>
+        <span class="tracking-tight">Services</span>
+        <span class="ml-auto text-xs text-zinc-600 group-hover:text-[#C6F24D] transition-transform duration-200 group-hover:translate-x-1" style="margin-left: auto; color: #52525B;">→</span>
+      </a>
+      <a href="#advantages" class="nav-overlay-item group flex items-center gap-4 py-3 text-lg md:text-xl font-bold text-white hover:text-[#C6F24D] transition-colors no-underline border-b border-white/5" style="display: flex; align-items: center; gap: 1rem; padding: 0.75rem 0; font-size: 1.15rem; font-weight: 700; color: #FFFFFF; text-decoration: none; border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+        <span class="text-xs font-mono text-zinc-500 group-hover:text-[#C6F24D] transition-colors" style="font-size: 0.75rem; color: #71717A; font-family: monospace;">[04]</span>
+        <span class="tracking-tight">About Us</span>
+        <span class="ml-auto text-xs text-zinc-600 group-hover:text-[#C6F24D] transition-transform duration-200 group-hover:translate-x-1" style="margin-left: auto; color: #52525B;">→</span>
       </a>
     </nav>
+
+    <!-- Bottom Action Trigger: Primary CTA button [ Let's Talk / Book Sprint → ] -->
+    <div class="pt-4" style="padding-top: 1rem;">
+      <a href="#contact" class="nav-overlay-cta flex items-center justify-center gap-2 w-full py-3.5 px-6 rounded-full bg-[#C6F24D] hover:bg-[#D4FF5E] text-[#09090B] font-extrabold text-sm tracking-tight transition-all active:scale-[0.98] shadow-[0_4px_20px_rgba(198,242,77,0.35)] no-underline" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; padding: 0.85rem 1.5rem; border-radius: 9999px; background: #C6F24D; color: #09090B; font-weight: 800; font-size: 0.875rem; text-decoration: none; box-sizing: border-box;">
+        <span>Let's Talk / Book Sprint</span>
+        <span aria-hidden="true">→</span>
+      </a>
+      
+      <!-- Direct Contact Row -->
+      <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs text-zinc-400" style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid rgba(255, 255, 255, 0.05); display: flex; align-items: center; justify-content: space-between; font-size: 0.75rem; color: #A1A1AA;">
+        <span class="text-zinc-500" style="color: #71717A;">Direct studio:</span>
+        <a href="mailto:hello@craftingwebdesigns.com" class="text-zinc-300 hover:text-white transition-colors underline font-medium" style="color: #D4D4D8; text-decoration: underline;">hello@craftingwebdesigns.com</a>
+      </div>
+    </div>
   </div>
 
   <!-- Main Hero Section -->
   <main>
-    <section class="hero-section pt-20" id="hero" style="padding-top: 80px !important;">
+    <section class="hero-section" id="hero" style="padding-top: clamp(6.5rem, 13vh, 8.5rem) !important;">
       <!-- Interactive WebGL Liquid Refraction Background Canvas (Full-Bleed Layer, z-index: 0) -->
       <canvas id="webgl-canvas" class="hero-canvas"></canvas>
 
@@ -2476,6 +2572,80 @@
       </div>
     </div>
   </div>
+
+  <!-- Header Navigation Overlay Toggle Controller -->
+  <script>
+    (function initHeaderNav() {
+      function setup() {
+        var trigger = document.getElementById('nav-menu-trigger');
+        var closeBtn = document.getElementById('nav-menu-close');
+        var panel = document.getElementById('nav-overlay-panel');
+        var backdrop = document.getElementById('nav-overlay-backdrop');
+
+        if (!trigger || !panel) return;
+
+        function openNav() {
+          panel.classList.add('is-open');
+          if (backdrop) backdrop.classList.add('is-open');
+          trigger.setAttribute('aria-expanded', 'true');
+          if (window.innerWidth < 768) {
+            document.body.style.overflow = 'hidden';
+          }
+        }
+
+        function closeNav() {
+          panel.classList.remove('is-open');
+          if (backdrop) backdrop.classList.remove('is-open');
+          trigger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        }
+
+        trigger.addEventListener('click', function(e) {
+          e.stopPropagation();
+          if (panel.classList.contains('is-open')) {
+            closeNav();
+          } else {
+            openNav();
+          }
+        });
+
+        if (closeBtn) {
+          closeBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            closeNav();
+          });
+        }
+
+        if (backdrop) {
+          backdrop.addEventListener('click', closeNav);
+        }
+
+        document.addEventListener('click', function(e) {
+          if (panel.classList.contains('is-open') && !panel.contains(e.target) && !trigger.contains(e.target)) {
+            closeNav();
+          }
+        });
+
+        panel.querySelectorAll('a').forEach(function(link) {
+          link.addEventListener('click', function() {
+            closeNav();
+          });
+        });
+
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && panel.classList.contains('is-open')) {
+            closeNav();
+          }
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setup);
+      } else {
+        setup();
+      }
+    })();
+  </script>
 
   <!-- JavaScript Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
