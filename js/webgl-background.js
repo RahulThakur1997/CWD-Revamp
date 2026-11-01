@@ -18,7 +18,8 @@ class WebGLRefractiveBackground {
       return;
     }
 
-    this.dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    this.dpr = Math.min(window.devicePixelRatio || 1, isMobile ? 1.0 : 1.5);
     this.time = 0;
     this.isRunning = false;
 
@@ -45,25 +46,41 @@ class WebGLRefractiveBackground {
   }
 
   init() {
-    this.gl = this.canvas.getContext('webgl', {
-      powerPreference: 'high-performance',
-      alpha: false,
-      antialias: false,
-      depth: false,
-      stencil: false
-    });
+    try {
+      const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+      this.gl = this.canvas.getContext('webgl', {
+        powerPreference: isMobile ? 'default' : 'high-performance',
+        alpha: true,
+        antialias: false,
+        depth: false,
+        stencil: false,
+        preserveDrawingBuffer: false
+      }) || this.canvas.getContext('experimental-webgl');
 
-    if (!this.gl) {
-      console.warn('WebGL not supported. Initializing Canvas2D fallback.');
-      this.initCanvasFallback();
-      return;
+      if (!this.gl) {
+        console.warn('WebGL not supported. Initializing Canvas2D fallback.');
+        this.initCanvasFallback();
+        return;
+      }
+
+      // Handle context lost gracefully without black screen freeze
+      this.canvas.addEventListener('webglcontextlost', (e) => {
+        e.preventDefault();
+        console.warn('Hero WebGL background context lost. Recovering with fallback.');
+        this.isRunning = false;
+        if (this.animFrameId) cancelAnimationFrame(this.animFrameId);
+        try { this.initCanvasFallback(); } catch (_) {}
+      }, false);
+
+      this.initShaders();
+      this.initBuffers();
+      this.bindEvents();
+      this.resize();
+      this.start();
+    } catch (err) {
+      console.warn('Hero WebGL background init error, falling back:', err);
+      try { this.initCanvasFallback(); } catch (_) {}
     }
-
-    this.initShaders();
-    this.initBuffers();
-    this.bindEvents();
-    this.resize();
-    this.start();
   }
 
   initShaders() {

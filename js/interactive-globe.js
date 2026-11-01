@@ -20,11 +20,20 @@
     const canvas = document.getElementById('interactive-globe-canvas');
     if (!canvas) return;
 
-    // Check if Three.js is loaded
-    if (typeof THREE !== 'undefined') {
-      initThreeJSGlobe(canvas);
-    } else {
-      initCanvasFallbackGlobe(canvas);
+    try {
+      // Check if Three.js is loaded
+      if (typeof THREE !== 'undefined') {
+        initThreeJSGlobe(canvas);
+      } else {
+        initCanvasFallbackGlobe(canvas);
+      }
+    } catch (err) {
+      console.warn('Three.js globe initialization failed, falling back:', err);
+      try {
+        initCanvasFallbackGlobe(canvas);
+      } catch (e) {
+        console.warn('Canvas fallback failed:', e);
+      }
     }
   }
 
@@ -49,27 +58,37 @@
   // THREE.JS REAL COLORFUL 3D EARTH GLOBE
   // =========================================================================
   function initThreeJSGlobe(canvas) {
-    const container = canvas.parentElement;
-    let width = container.clientWidth || 680;
-    let height = container.clientHeight || 560;
+    try {
+      const container = canvas.parentElement;
+      let width = container.clientWidth || 680;
+      let height = container.clientHeight || 560;
 
-    // 1. Scene, Camera, Renderer
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-    const isMobile = width < 768 || window.innerWidth < 768;
-    camera.position.z = isMobile ? 290 : 295;
+      // 1. Scene, Camera, Renderer
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+      const isMobile = width < 768 || window.innerWidth < 768;
+      camera.position.z = isMobile ? 290 : 295;
 
-    const renderer = new THREE.WebGLRenderer({
-      canvas: canvas,
-      antialias: true,
-      alpha: true,
-      powerPreference: 'high-performance'
-    });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-    renderer.setSize(width, height);
-    if (renderer.outputEncoding !== undefined) {
-      renderer.outputEncoding = THREE.sRGBEncoding;
-    }
+      const renderer = new THREE.WebGLRenderer({
+        canvas: canvas,
+        antialias: !isMobile,
+        alpha: true,
+        powerPreference: isMobile ? 'default' : 'high-performance',
+        precision: isMobile ? 'mediump' : 'highp'
+      });
+      // Cap pixel ratio to prevent mobile GPU crashes / black screen freeze
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile ? 1.0 : 1.5));
+      renderer.setSize(width, height);
+      if (renderer.outputEncoding !== undefined) {
+        renderer.outputEncoding = THREE.sRGBEncoding;
+      }
+
+      // Handle context lost gracefully
+      canvas.addEventListener('webglcontextlost', function(e) {
+        e.preventDefault();
+        console.warn('Interactive globe WebGL context lost.');
+        try { initCanvasFallbackGlobe(canvas); } catch (_) {}
+      }, false);
 
     // 2. Main Globe Group (Complete, unclipped spherical composition centered in viewport)
     const globeGroup = new THREE.Group();
@@ -390,7 +409,11 @@
     }
 
     animate();
+  } catch (err) {
+    console.warn('Three.js globe runtime failure, falling back to 2D canvas:', err);
+    initCanvasFallbackGlobe(canvas);
   }
+}
 
   // =========================================================================
   // HIGH-RESOLUTION PROCEDURAL TEXTURE GENERATOR

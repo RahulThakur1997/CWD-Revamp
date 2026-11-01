@@ -44,6 +44,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 13. Floating Header Mobile Dropdown Menu Controller
   initMobileMenu();
+
+  // 14. Disable GSAP ScrollTrigger pinning and sticky page locks on mobile (< 768px)
+  if (typeof ScrollTrigger !== 'undefined') {
+    ScrollTrigger.matchMedia({
+      "(max-width: 767px)": function() {
+        // Kill pinning so sections scroll naturally down the page
+        ScrollTrigger.getAll().forEach(t => t.kill(false));
+      }
+    });
+  }
 });
 
 /* --------------------------------------------------------------------------
