@@ -7226,13 +7226,13 @@ img {
   top: 0 !important;
   left: 0 !important;
   right: 0 !important;
-  height: 520px !important;
-  max-height: 55vh !important;
+  height: 380px !important;
+  max-height: 42vh !important;
   background: radial-gradient(
-    ellipse 60% 50% at 50% 45%,
-    rgba(9, 9, 11, 0.85) 0%,
-    rgba(9, 9, 11, 0.4) 55%,
-    transparent 100%
+    ellipse 65% 55% at 50% 36%,
+    rgba(9, 9, 11, 0.8) 0%,
+    rgba(9, 9, 11, 0.35) 45%,
+    transparent 78%
   ) !important;
   pointer-events: none !important;
   z-index: 1 !important;
@@ -7245,13 +7245,14 @@ img {
 
 .marquee-viewport {
   position: relative !important;
-  z-index: 20 !important;
+  z-index: 25 !important;
   width: 100% !important;
   overflow: hidden !important;
   display: flex !important;
   flex-direction: column !important;
   background: transparent !important;
   box-shadow: none !important;
+  opacity: 1 !important;
   pointer-events: auto !important;
 }
 
@@ -7493,26 +7494,29 @@ img {
    TARGETED MOBILE POLISH: FOOTER, METRICS GRID, SERVICES & PROJECTOR FIXES
    ========================================================================== */
 
-/* 1. FOOTER TYPOGRAPHY: NO CUT-OFF ON ALL MOBILE DEVICES */
+/* 1. FOOTER TYPOGRAPHY: SPLIT 2-LINE DISPLAY (NO CUT-OFF ON ANY DEVICE) */
 .footer-brand-banner {
   width: 100% !important;
   overflow: hidden !important;
   text-align: center !important;
-  padding: 3.5rem 1rem 2rem 1rem !important;
+  padding: 3.5rem 1rem 2.5rem 1rem !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
-.footer-brand-title {
-  font-size: clamp(1.5rem, 6.2vw, 5.5rem) !important;
-  white-space: nowrap !important;
-  letter-spacing: -0.03em !important;
-  line-height: 1 !important;
-  font-weight: 900 !important;
-  text-transform: uppercase !important;
-  color: #C6F24D !important;
-  text-align: center !important;
-  margin: 0 auto !important;
+.footer-brand-banner span {
   display: block !important;
-  width: 100% !important;
+  line-height: 0.92 !important;
+  letter-spacing: -0.04em !important;
+  text-transform: uppercase !important;
+}
+
+.footer-brand-banner span:first-child {
+  color: #FFFFFF !important;
+}
+
+.footer-brand-banner span:last-child {
+  color: #C6F24D !important;
+  text-shadow: 0 0 40px rgba(198, 242, 77, 0.25) !important;
 }
 
 /* 2. KEYSTONE CARD & PROOF METRICS 2-COLUMN GRID (ELIMINATE TEXT RUN-IN) */
@@ -7659,5 +7663,373 @@ img {
   .projector-narrative-subtext {
     font-size: 0.95rem !important;
     margin-bottom: 1.5rem !important;
+  }
+}
+
+/* ==========================================================================
+   FLOATING STICKY HEADER (Design Monks Style)
+   ========================================================================== */
+.site-header.floating-header-wrap {
+  position: fixed !important;
+  top: 1rem !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 999 !important;
+  padding: 0 1rem !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  pointer-events: none !important;
+}
+
+.floating-header-pill {
+  pointer-events: auto !important;
+  max-width: 56rem !important; /* max-w-4xl = 896px */
+  margin: 0 auto !important;
+  padding: 0.65rem 1.25rem !important;
+  border-radius: 9999px !important;
+  background: rgba(9, 9, 11, 0.85) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.85), 0 0 1px 1px rgba(255, 255, 255, 0.05) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 1.5rem !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.header-brand-group {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  text-decoration: none !important;
+  flex-shrink: 0 !important;
+}
+
+.header-logo-frame {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  background: #09090B !important;
+  border: 1px solid rgba(198, 242, 77, 0.35) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  box-shadow: 0 0 12px rgba(198, 242, 77, 0.25) !important;
+}
+
+.header-logo-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+.header-brand-name {
+  font-size: 0.9375rem !important;
+  font-weight: 700 !important;
+  color: #FFFFFF !important;
+  letter-spacing: -0.02em !important;
+  white-space: nowrap !important;
+  transition: color 0.25s ease !important;
+}
+
+.header-brand-group:hover .header-brand-name {
+  color: #C6F24D !important;
+}
+
+/* Nav Links (Desktop) */
+.header-nav-links {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.75rem !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.header-nav-link {
+  font-size: 0.75rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  font-weight: 600 !important;
+  color: #D4D4D8 !important;
+  text-decoration: none !important;
+  position: relative !important;
+  transition: color 0.2s ease !important;
+}
+
+.header-nav-link:hover {
+  color: #FFFFFF !important;
+}
+
+/* Action Group */
+.header-action-group {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  flex-shrink: 0 !important;
+}
+
+.header-cta-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  padding: 0.5rem 1.15rem !important;
+  border-radius: 9999px !important;
+  background: #C6F24D !important;
+  color: #09090B !important;
+  font-size: 0.8125rem !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.01em !important;
+  text-decoration: none !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease !important;
+  box-shadow: 0 4px 14px rgba(198, 242, 77, 0.3) !important;
+  white-space: nowrap !important;
+}
+
+.header-cta-btn:hover {
+  transform: translateY(-1px) scale(1.02) !important;
+  box-shadow: 0 6px 20px rgba(198, 242, 77, 0.5) !important;
+  background: #D4FF5E !important;
+}
+
+.header-cta-arrow {
+  transition: transform 0.2s ease !important;
+}
+
+.header-cta-btn:hover .header-cta-arrow {
+  transform: translateX(3px) !important;
+}
+
+/* Mobile Toggle Hamburger Button */
+.header-mobile-toggle {
+  display: none !important;
+  pointer-events: auto !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 4px !important;
+  width: 34px !important;
+  height: 34px !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  transition: background 0.2s ease, border-color 0.2s ease !important;
+}
+
+.header-mobile-toggle:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+.hamburger-line {
+  display: block !important;
+  width: 14px !important;
+  height: 2px !important;
+  background: #FFFFFF !important;
+  border-radius: 2px !important;
+  transition: transform 0.25s ease, opacity 0.25s ease !important;
+}
+
+.header-mobile-toggle.is-open .line-1 {
+  transform: translateY(3px) rotate(45deg) !important;
+}
+
+.header-mobile-toggle.is-open .line-2 {
+  transform: translateY(-3px) rotate(-45deg) !important;
+}
+
+/* Mobile Dropdown Panel */
+.header-mobile-dropdown {
+  pointer-events: auto !important;
+  max-width: 22rem !important;
+  margin: 0.65rem auto 0 auto !important;
+  padding: 1rem 1.25rem !important;
+  background: rgba(14, 14, 18, 0.96) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 1.25rem !important;
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.9) !important;
+  display: none;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.25s ease, transform 0.25s ease !important;
+}
+
+.header-mobile-dropdown.is-open {
+  display: block !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.mobile-dropdown-links {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.4rem !important;
+}
+
+.mobile-dropdown-link {
+  display: block !important;
+  padding: 0.65rem 0.85rem !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  color: #E4E4E7 !important;
+  text-decoration: none !important;
+  border-radius: 0.5rem !important;
+  transition: background 0.2s ease, color 0.2s ease !important;
+}
+
+.mobile-dropdown-link:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #C6F24D !important;
+}
+
+.mobile-dropdown-cta-item {
+  margin-top: 0.5rem !important;
+  padding-top: 0.65rem !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.mobile-dropdown-cta-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0.75rem 1rem !important;
+  border-radius: 0.75rem !important;
+  background: #C6F24D !important;
+  color: #09090B !important;
+  font-weight: 800 !important;
+  font-size: 0.875rem !important;
+  text-decoration: none !important;
+}
+
+@media (max-width: 768px) {
+  .site-header.floating-header-wrap {
+    top: 0.65rem !important;
+    padding: 0 0.75rem !important;
+  }
+  .floating-header-pill {
+    padding: 0.5rem 0.85rem !important;
+    gap: 0.65rem !important;
+  }
+  .header-nav-links {
+    display: none !important;
+  }
+  .header-mobile-toggle {
+    display: flex !important;
+  }
+  .header-brand-name {
+    font-size: 0.825rem !important;
+  }
+  .header-logo-frame {
+    width: 28px !important;
+    height: 28px !important;
+  }
+  .header-cta-btn {
+    padding: 0.42rem 0.85rem !important;
+    font-size: 0.75rem !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .header-brand-name {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   MOBILE 3D GLOBE RESIZE & TOUCH SCROLL PASS-THROUGH (< 768px)
+   ========================================================================== */
+@media (max-width: 767px) {
+  .global-reach-section {
+    padding: 3.5rem 1rem 4rem 1rem !important;
+  }
+
+  .global-header {
+    margin-bottom: 1.75rem !important;
+  }
+
+  .global-headline {
+    font-size: clamp(1.75rem, 6vw, 2.25rem) !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .global-subheadline {
+    font-size: 0.875rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  /* 5 Regional Client Flag Badges Cluster Neatly Above Globe */
+  .global-locations-perimeter {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    margin: 0 auto 1.75rem auto !important;
+    max-width: 100% !important;
+  }
+
+  .global-location-card {
+    padding: 0.4rem 0.75rem !important;
+    gap: 0.5rem !important;
+    border-radius: 9999px !important;
+    background: rgba(18, 18, 22, 0.94) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  }
+
+  .location-flag-emoji {
+    font-size: 1.1rem !important;
+  }
+
+  .location-name {
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+  }
+
+  /* Constrain Globe Stage: w-[300px] h-[300px] max-w-[85vw] mx-auto overflow-visible */
+  .globe-stage-wrapper.full-globe-stage {
+    height: 300px !important;
+    min-height: 300px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 auto !important;
+    overflow: visible !important;
+  }
+
+  .globe-canvas-container.full-globe-canvas-wrap {
+    width: 300px !important;
+    height: 300px !important;
+    max-width: 85vw !important;
+    margin: 0 auto !important;
+    position: relative !important;
+    overflow: visible !important;
+  }
+
+  #interactive-globe-canvas.globe-canvas {
+    width: 300px !important;
+    height: 300px !important;
+    max-width: 85vw !important;
+    touch-action: pan-y !important;
+  }
+
+  .globe-hint-pill {
+    bottom: -15px !important;
+    padding: 0.35rem 0.75rem !important;
+    font-size: 0.7rem !important;
   }
 }

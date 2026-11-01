@@ -56,7 +56,8 @@
     // 1. Scene, Camera, Renderer
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-    camera.position.z = 295;
+    const isMobile = width < 768 || window.innerWidth < 768;
+    camera.position.z = isMobile ? 290 : 295;
 
     const renderer = new THREE.WebGLRenderer({
       canvas: canvas,
@@ -272,6 +273,9 @@
     let isDragging = false;
     let prevX = 0;
     let prevY = 0;
+    let startX = 0;
+    let startY = 0;
+    let isTouch = false;
     let velX = 0;
     let velY = 0;
     let isVisible = true;
@@ -279,16 +283,31 @@
 
     canvas.addEventListener('pointerdown', (e) => {
       isDragging = true;
+      isTouch = e.pointerType === 'touch';
+      startX = e.clientX;
+      startY = e.clientY;
       prevX = e.clientX;
       prevY = e.clientY;
       velX = 0;
       velY = 0;
-      canvas.setPointerCapture(e.pointerId);
+      try { canvas.setPointerCapture(e.pointerId); } catch (_) {}
       canvas.style.cursor = 'grabbing';
     });
 
     canvas.addEventListener('pointermove', (e) => {
       if (isDragging) {
+        // If user is on a touch device and swipes predominantly vertical, release capture to allow normal page scrolling
+        if (isTouch) {
+          const totalY = Math.abs(e.clientY - startY);
+          const totalX = Math.abs(e.clientX - startX);
+          if (totalY > 18 && totalY > totalX * 1.5) {
+            isDragging = false;
+            try { canvas.releasePointerCapture(e.pointerId); } catch (_) {}
+            canvas.style.cursor = 'grab';
+            return;
+          }
+        }
+
         const deltaX = e.clientX - prevX;
         const deltaY = e.clientY - prevY;
         prevX = e.clientX;
@@ -319,6 +338,8 @@
       width = container.clientWidth || 680;
       height = container.clientHeight || 560;
       camera.aspect = width / height;
+      const mobileActive = width < 768 || window.innerWidth < 768;
+      camera.position.z = mobileActive ? 290 : 295;
       camera.updateProjectionMatrix();
       renderer.setSize(width, height);
     }

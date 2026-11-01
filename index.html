@@ -68,17 +68,52 @@
   <div class="custom-cursor-dot" aria-hidden="true"></div>
   <div class="custom-cursor-ring" aria-hidden="true"></div>
 
-  <!-- Top Glassmorphism Navigation Bar -->
-  <header class="site-header">
-    <div class="nav-container-centered">
-      <div class="brand-badge-pill">
-        <a href="#" class="brand-link-centered" aria-label="Crafting Web Designs Homepage">
-          <div class="brand-logo-frame">
-            <img src="./assets/logo.png" alt="CWD Logo" class="brand-logo-img" onerror="handleImgError(this)">
-          </div>
-          <span class="brand-name">Crafting Web Designs</span>
+  <!-- Top Global Navigation (Design Monks Style Floating Sticky Header) -->
+  <header class="site-header floating-header-wrap" id="site-header">
+    <nav class="floating-header-pill" aria-label="Primary Navigation">
+      <!-- Left: Brand Logo & Title -->
+      <a href="#" class="header-brand-group" aria-label="Crafting Web Designs Homepage">
+        <div class="header-logo-frame">
+          <img src="./assets/logo.png" alt="CWD Logo" class="header-logo-img" onerror="handleImgError(this)">
+        </div>
+        <span class="header-brand-name">Crafting Web Designs</span>
+      </a>
+
+      <!-- Center: Clean Navigation Links (Hidden on small mobile, visible on md+) -->
+      <ul class="header-nav-links" id="desktop-nav-links">
+        <li><a href="#proof" class="header-nav-link">Portfolio</a></li>
+        <li><a href="#proof" class="header-nav-link">Case Studies</a></li>
+        <li><a href="#capabilities" class="header-nav-link">Services</a></li>
+        <li><a href="#advantages" class="header-nav-link">About Us</a></li>
+      </ul>
+
+      <!-- Right: Action Button & Mobile Menu Toggle -->
+      <div class="header-action-group">
+        <a href="#contact" class="header-cta-btn">
+          <span>Let's Talk</span>
+          <span class="header-cta-arrow" aria-hidden="true">→</span>
         </a>
+        <button class="header-mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-dropdown-menu">
+          <span class="hamburger-line line-1"></span>
+          <span class="hamburger-line line-2"></span>
+        </button>
       </div>
+    </nav>
+
+    <!-- Mobile Navigation Dropdown Menu -->
+    <div class="header-mobile-dropdown" id="mobile-dropdown-menu" aria-hidden="true">
+      <ul class="mobile-dropdown-links">
+        <li><a href="#proof" class="mobile-dropdown-link">Portfolio</a></li>
+        <li><a href="#proof" class="mobile-dropdown-link">Case Studies</a></li>
+        <li><a href="#capabilities" class="mobile-dropdown-link">Services</a></li>
+        <li><a href="#advantages" class="mobile-dropdown-link">About Us</a></li>
+        <li class="mobile-dropdown-cta-item">
+          <a href="#contact" class="mobile-dropdown-cta-btn">
+            <span>Book A Strategy Call</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </li>
+      </ul>
     </div>
   </header>
 
@@ -2408,9 +2443,13 @@
        SECTION 8: Massive Split-Color Brand Typography Footer (bandwidthproductions.com & invints.com Style)
        ======================================================================= -->
   <footer class="site-massive-footer" id="footer" aria-label="Crafting Web Designs Global Footer">
-    <!-- Fluid Full Brand Typography Banner -->
+    <!-- Fluid Full Brand Typography Banner (Stacked 2-Line Split for Zero Clipping & High Impact) -->
     <div class="footer-brand-banner w-full overflow-hidden text-center">
-      <h2 class="footer-brand-title">CRAFTING WEB DESIGNS</h2>
+      <h2 class="sr-only">Crafting Web Designs</h2>
+      <div class="text-center font-black uppercase tracking-tighter leading-[0.9] select-none" aria-hidden="true">
+        <span class="block text-white text-[clamp(2.5rem,10vw,8rem)] font-black tracking-tighter leading-[0.92]">CRAFTING WEB</span>
+        <span class="block text-[#C6F24D] text-[clamp(2.5rem,10vw,8rem)] font-black tracking-tighter leading-[0.92]">DESIGNS</span>
+      </div>
     </div>
 
     <div class="footer-core-shell">

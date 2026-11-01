@@ -41,6 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 12. Footer Interactive Utilities (Copy Email & Smooth Back-to-Top)
   initFooterUtilities();
+
+  // 13. Floating Header Mobile Dropdown Menu Controller
+  initMobileMenu();
 });
 
 /* --------------------------------------------------------------------------
@@ -608,6 +611,59 @@ function initFooterUtilities() {
       });
     });
   }
+}
+
+/* --------------------------------------------------------------------------
+   Floating Sticky Header Mobile Menu Controller
+   -------------------------------------------------------------------------- */
+function initMobileMenu() {
+  const toggleBtn = document.getElementById('mobile-menu-toggle');
+  const dropdown = document.getElementById('mobile-dropdown-menu');
+  if (!toggleBtn || !dropdown) return;
+
+  function toggleMenu(forceOpen) {
+    const isCurrentlyOpen = dropdown.classList.contains('is-open');
+    const willOpen = forceOpen !== undefined ? forceOpen : !isCurrentlyOpen;
+
+    if (willOpen) {
+      dropdown.classList.add('is-open');
+      toggleBtn.classList.add('is-open');
+      toggleBtn.setAttribute('aria-expanded', 'true');
+      dropdown.setAttribute('aria-hidden', 'false');
+    } else {
+      dropdown.classList.remove('is-open');
+      toggleBtn.classList.remove('is-open');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      dropdown.setAttribute('aria-hidden', 'true');
+    }
+  }
+
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMenu();
+  });
+
+  // Close when clicking any nav link in mobile dropdown
+  const mobileLinks = dropdown.querySelectorAll('a');
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      toggleMenu(false);
+    });
+  });
+
+  // Close when clicking anywhere outside
+  document.addEventListener('click', (e) => {
+    if (!dropdown.contains(e.target) && !toggleBtn.contains(e.target)) {
+      toggleMenu(false);
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      toggleMenu(false);
+    }
+  });
 }
 
 // Global Image Error Fallback Event Listener for Production
