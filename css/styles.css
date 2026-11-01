@@ -6313,28 +6313,38 @@ img {
 
 .funnel-line {
   display: block !important;
-  line-height: 1.14 !important;
+  line-height: 1.12 !important;
   letter-spacing: -0.035em !important;
+  font-family: inherit !important;
   font-weight: 900 !important;
+  color: #FFFFFF !important;
   text-wrap: balance !important;
 }
 
 .funnel-line-1 {
-  font-size: clamp(1.85rem, 5.2vw, 4.4rem) !important;
+  font-size: clamp(2rem, 5.2vw, 4.4rem) !important;
   color: #FFFFFF !important;
 }
 
 .funnel-line-2 {
-  font-size: clamp(2.15rem, 6.2vw, 5.2rem) !important;
-  color: #C6F24D !important;
-  filter: drop-shadow(0 0 20px rgba(198, 242, 77, 0.35)) !important;
+  font-size: clamp(1.85rem, 4.6vw, 3.85rem) !important;
+  color: #FFFFFF !important;
+  margin-top: 4px !important;
 }
 
 .funnel-line-3 {
-  font-size: clamp(1.4rem, 4.2vw, 3.4rem) !important;
-  font-weight: 700 !important;
-  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: clamp(1.7rem, 4.1vw, 3.4rem) !important;
+  color: #FFFFFF !important;
   margin-top: 4px !important;
+}
+
+/* Glowing Electric Lime Brand Accent */
+.headline-accent-lime {
+  color: #C6F24D !important;
+  text-shadow: 0 0 24px rgba(198, 242, 77, 0.45), 0 0 45px rgba(198, 242, 77, 0.2) !important;
+  filter: drop-shadow(0 0 20px rgba(198, 242, 77, 0.45)) !important;
+  font-weight: 900 !important;
+  display: inline !important;
 }
 
 /* Primary CTA Button positioned directly beneath headline */
@@ -7216,13 +7226,13 @@ img {
     color: #FBBF24 !important;
   }
   .funnel-line-1 {
-    font-size: clamp(1.85rem, 7.8vw, 2.35rem) !important;
+    font-size: 2rem !important;
   }
   .funnel-line-2 {
-    font-size: clamp(2.15rem, 9.2vw, 2.75rem) !important;
+    font-size: 1.85rem !important;
   }
   .funnel-line-3 {
-    font-size: clamp(1.4rem, 6.2vw, 1.85rem) !important;
+    font-size: 1.7rem !important;
   }
 }
 

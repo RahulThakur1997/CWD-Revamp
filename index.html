@@ -272,18 +272,29 @@
         margin-top: 0 !important;
         margin-bottom: 20px !important;
       }
-      .hero-headline .funnel-line-1 {
-        font-size: clamp(1.85rem, 7.8vw, 2.35rem) !important;
-        line-height: 1.15 !important;
-      }
-      .hero-headline .funnel-line-2 {
-        font-size: clamp(2.15rem, 9.2vw, 2.75rem) !important;
+      .hero-headline .funnel-line {
+        font-family: inherit !important;
+        font-weight: 900 !important;
+        color: #FFFFFF !important;
         line-height: 1.12 !important;
       }
-      .hero-headline .funnel-line-3 {
-        font-size: clamp(1.4rem, 6.2vw, 1.85rem) !important;
-        line-height: 1.18 !important;
+      .hero-headline .funnel-line-1 {
+        font-size: clamp(1.95rem, 8vw, 2.5rem) !important;
+      }
+      .hero-headline .funnel-line-2 {
+        font-size: clamp(1.75rem, 7.2vw, 2.3rem) !important;
         margin-top: 4px !important;
+      }
+      .hero-headline .funnel-line-3 {
+        font-size: clamp(1.6rem, 6.6vw, 2.1rem) !important;
+        margin-top: 4px !important;
+      }
+      .headline-accent-lime {
+        color: #C6F24D !important;
+        text-shadow: 0 0 24px rgba(198, 242, 77, 0.45), 0 0 45px rgba(198, 242, 77, 0.2) !important;
+        filter: drop-shadow(0 0 20px rgba(198, 242, 77, 0.45)) !important;
+        font-weight: 900 !important;
+        display: inline !important;
       }
       .hero-cta-group {
         margin-top: 0 !important;
@@ -524,11 +535,17 @@
           </span>
         </div>
 
-        <!-- 3. Inverted Funnel Headline (Progressive Narrowing toward CTA) -->
-        <h1 class="hero-headline hero-inverted-funnel text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-center tracking-tight leading-[1.15] text-white mt-0 mb-5 md:mb-8" style="margin-top: 0; margin-bottom: 20px;">
-          <span class="funnel-line funnel-line-1 block text-white">We Build</span>
-          <span class="funnel-line funnel-line-2 block text-[#C6F24D] drop-shadow-[0_0_20px_rgba(198,242,77,0.35)]">High-Converting</span>
-          <span class="funnel-line funnel-line-3 block text-white text-2xl sm:text-3xl md:text-5xl font-bold text-zinc-200 mt-1">Websites in Days.</span>
+        <!-- 3. Inverted Funnel Headline (Restored Full Original Copy & Glow) -->
+        <h1 class="hero-headline hero-inverted-funnel text-center font-black tracking-tight leading-[1.12] mt-4 mb-6" style="margin-top: 0; margin-bottom: 20px;">
+          <span class="funnel-line funnel-line-1 block text-white text-[2rem] sm:text-[2.5rem] md:text-[3.25rem] lg:text-[4.25rem]">
+            We Build <span class="headline-accent-lime text-[#C6F24D] drop-shadow-[0_0_20px_rgba(198,242,77,0.45)]" style="color: #C6F24D; text-shadow: 0 0 24px rgba(198, 242, 77, 0.45), 0 0 45px rgba(198, 242, 77, 0.2);">High-Converting</span>
+          </span>
+          <span class="funnel-line funnel-line-2 block text-white text-[1.85rem] sm:text-[2.3rem] md:text-[2.95rem] lg:text-[3.8rem] mt-1 md:mt-1.5">
+            Websites Delivered
+          </span>
+          <span class="funnel-line funnel-line-3 block text-white text-[1.7rem] sm:text-[2.1rem] md:text-[2.65rem] lg:text-[3.4rem] mt-1 md:mt-1.5">
+            In Days, Not Weeks.
+          </span>
         </h1>
 
         <!-- Primary Centered CTA Button directly beneath headline -->
