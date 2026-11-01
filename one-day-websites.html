@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>One Day Websites for Local Businesses | Crafting Web Designs</title>
+  <meta name="title" content="One Day Websites for Local Businesses | Crafting Web Designs">
+  <meta name="description" content="Get a professional website for your local business in just one working day. Industry-ready designs tailored to your brand, services, and customers.">
+  <link rel="canonical" href="https://craftingwebdesigns.com/one-day-websites">
+
+  <!-- Open Graph / Social Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://craftingwebdesigns.com/one-day-websites">
+  <meta property="og:title" content="One Day Websites for Local Businesses | Crafting Web Designs">
+  <meta property="og:description" content="Get a professional website for your local business in just one working day. Industry-ready designs tailored to your brand, services, and customers.">
+  <meta property="og:image" content="./assets/mockups/keystone-roofing-1.png">
+
+  <!-- Brand Favicon Support -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/logo.png">
+  <link rel="icon" type="image/svg+xml" href="./assets/logo.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/logo.png">
+  <meta name="theme-color" content="#09090B">
+
+  <!-- Google Fonts: Syne (Headings), Inter (Body & UI), Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Production Image Fallback & Error Handling -->
+  <script>
+    function handleImgError(img, customFallback) {
+      if (!img || img.dataset.hasFailed) return;
+      img.dataset.hasFailed = "true";
+      img.onerror = null;
+      if (customFallback && typeof customFallback === 'string') {
+        img.src = customFallback;
+        return;
+      }
+      var alt = img.getAttribute('alt') || 'Crafting Web Designs';
+      var cleanAlt = alt.replace(/[<>&"]/g, '') || 'Crafting Web Designs';
+      var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 480 300" preserveAspectRatio="none">' +
+        '<rect width="100%" height="100%" fill="#121216"/>' +
+        '<rect x="0" y="0" width="100%" height="3" fill="#BFF747"/>' +
+        '<g transform="translate(240, 150)" text-anchor="middle">' +
+        '<circle cx="0" cy="-20" r="24" fill="#202025" stroke="rgba(191, 247, 71, 0.4)" stroke-width="1.5"/>' +
+        '<text y="24" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="13" font-weight="700">' + cleanAlt + '</text>' +
+        '<text y="42" fill="#71717A" font-family="system-ui, sans-serif" font-size="10" font-weight="600" letter-spacing="0.1em">CRAFTING WEB DESIGNS</text>' +
+        '</g>' +
+        '</svg>';
+      img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+    }
+  </script>
+
+  <!-- Tailwind CSS CDN Engine -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              lime: '#BFF747',
+              limeGlow: 'rgba(191, 247, 71, 0.4)',
+              dark: '#09090B',
+              surface: '#121216',
+              surfaceHover: '#18181F'
+            }
+          },
+          fontFamily: {
+            display: ['Syne', 'Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+            body: ['Inter', 'Plus Jakarta Sans', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Core Global Stylesheet -->
+  <link rel="stylesheet" href="./css/styles.css?v=3.5">
+  <!-- Dedicated One Day Websites Stylesheet -->
+  <link rel="stylesheet" href="./css/one-day-websites.css?v=1.0">
+
+  <style>
+    /* Critical Inline Layout Overrides */
+    body {
+      background-color: #09090B !important;
+      color: #FFFFFF !important;
+      font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      overflow-x: hidden;
+    }
+    .font-display {
+      font-family: 'Syne', 'Plus Jakarta Sans', system-ui, sans-serif !important;
+    }
+  </style>
+</head>
+<body class="bg-[#09090B] text-white selection:bg-[#BFF747] selection:text-black">
+
+  <!-- =======================================================================
+       GLOBAL FLOATING HEADER (Centered CWD Capsule Logo & Corner Menu Trigger)
+       ======================================================================= -->
+  <header class="site-header" id="site-header" style="position: absolute; top: 0; left: 0; right: 0; width: 100%; z-index: 50; pointer-events: none; padding: 1.5rem; box-sizing: border-box;">
+    <!-- Right-Side Menu Trigger (Preserved & Anchored to Top-Right Corner) -->
+    <button id="nav-menu-trigger" aria-label="Open Navigation Menu" aria-expanded="false" class="nav-menu-trigger-btn pointer-events-auto" style="position: absolute; top: 1.5rem; right: 1.5rem; z-index: 50; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.05); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);">
+      <div class="flex flex-col gap-1.5 items-center justify-center w-4 pointer-events-none" style="display: flex; flex-direction: column; gap: 5px; align-items: center; justify-content: center; width: 16px;">
+        <span class="w-4 h-0.5 bg-white rounded-full block" style="width: 16px; height: 1.5px; background: #FFFFFF; border-radius: 9999px;"></span>
+        <span class="w-4 h-0.5 bg-white rounded-full block" style="width: 16px; height: 1.5px; background: #FFFFFF; border-radius: 9999px;"></span>
+      </div>
+    </button>
+  </header>
+
+  <!-- Navigation Overlay Backdrop -->
+  <div id="nav-overlay-backdrop" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[98] opacity-0 pointer-events-none transition-opacity duration-250 ease-out" style="position: fixed; inset: 0; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(4px); z-index: 98; opacity: 0; pointer-events: none; transition: opacity 0.25s ease;" aria-hidden="true"></div>
+
+  <!-- Sliding / Dropdown Navigation Overlay (Preserved Menu Drawer with One Day Websites active) -->
+  <div id="nav-overlay-panel" class="nav-overlay-panel fixed z-[100] opacity-0 pointer-events-none scale-95 transition-all duration-250 ease-out bg-[#09090B]/95 backdrop-blur-2xl border border-white/10 shadow-2xl" role="dialog" aria-modal="true" aria-label="Site Navigation">
+    
+    <!-- Top Row: Label + Close Button (✕) -->
+    <div class="flex items-center justify-between pb-4 border-b border-white/10">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-[#BFF747] animate-pulse"></span>
+        <span class="text-xs font-mono font-semibold uppercase tracking-widest text-zinc-400">Navigation</span>
+      </div>
+      <button id="nav-menu-close" aria-label="Close Navigation Menu" class="w-9 h-9 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 active:scale-90 flex items-center justify-center text-zinc-400 hover:text-white transition-all cursor-pointer text-base">
+        ✕
+      </button>
+    </div>
+
+    <!-- Clean, Bold Navigation Links -->
+    <nav class="flex flex-col py-3">
+      <a href="./#proof" class="nav-overlay-item group flex items-center gap-4 py-2.5 text-base md:text-lg font-bold text-white hover:text-[#BFF747] transition-colors no-underline border-b border-white/5">
+        <span class="text-xs font-mono text-zinc-500 group-hover:text-[#BFF747] transition-colors">[01]</span>
+        <span class="tracking-tight">Portfolio</span>
+        <span class="ml-auto text-xs text-zinc-600 group-hover:text-[#BFF747] transition-transform duration-200 group-hover:translate-x-1">→</span>
+      </a>
+      <a href="./#proof" class="nav-overlay-item group flex items-center gap-4 py-2.5 text-base md:text-lg font-bold text-white hover:text-[#BFF747] transition-colors no-underline border-b border-white/5">
+        <span class="text-xs font-mono text-zinc-500 group-hover:text-[#BFF747] transition-colors">[02]</span>
+        <span class="tracking-tight">Case Studies</span>
+        <span class="ml-auto text-xs text-zinc-600 group-hover:text-[#BFF747] transition-transform duration-200 group-hover:translate-x-1">→</span>
+      </a>
+      <a href="./#capabilities" class="nav-overlay-item group flex items-center gap-4 py-2.5 text-base md:text-lg font-bold text-white hover:text-[#BFF747] transition-colors no-underline border-b border-white/5">
+        <span class="text-xs font-mono text-zinc-500 group-hover:text-[#BFF747] transition-colors">[03]</span>
+        <span class="tracking-tight">All Services</span>
+        <span class="ml-auto text-xs text-zinc-600 group-hover:text-[#BFF747] transition-transform duration-200 group-hover:translate-x-1">→</span>
+      </a>
+      <!-- Active Sub-link: One Day Websites -->
+      <a href="#hero" class="nav-overlay-item nav-overlay-subitem group flex items-center gap-3 py-2 pl-6 text-sm md:text-base font-bold text-[#BFF747] hover:text-white transition-colors no-underline border-b border-white/5 bg-white/[0.03]">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#BFF747] animate-pulse"></span>
+        <span class="tracking-tight">One Day Websites</span>
+        <span class="text-[10px] font-mono uppercase tracking-wider bg-[#BFF747]/20 text-[#BFF747] border border-[#BFF747]/30 px-2 py-0.5 rounded-full ml-auto">Active</span>
+      </a>
+      <a href="#how-it-works" class="nav-overlay-item group flex items-center gap-4 py-2.5 text-base md:text-lg font-bold text-white hover:text-[#BFF747] transition-colors no-underline border-b border-white/5">
+        <span class="text-xs font-mono text-zinc-500 group-hover:text-[#BFF747] transition-colors">[04]</span>
+        <span class="tracking-tight">How It Works</span>
+        <span class="ml-auto text-xs text-zinc-600 group-hover:text-[#BFF747] transition-transform duration-200 group-hover:translate-x-1">→</span>
+      </a>
+      <a href="#examples" class="nav-overlay-item group flex items-center gap-4 py-2.5 text-base md:text-lg font-bold text-white hover:text-[#BFF747] transition-colors no-underline border-b border-white/5">
+        <span class="text-xs font-mono text-zinc-500 group-hover:text-[#BFF747] transition-colors">[05]</span>
+        <span class="tracking-tight">Real Website Examples</span>
+        <span class="ml-auto text-xs text-zinc-600 group-hover:text-[#BFF747] transition-transform duration-200 group-hover:translate-x-1">→</span>
+      </a>
+      <a href="#comparison" class="nav-overlay-item group flex items-center gap-4 py-2.5 text-base md:text-lg font-bold text-white hover:text-[#BFF747] transition-colors no-underline border-b border-white/5">
+        <span class="text-xs font-mono text-zinc-500 group-hover:text-[#BFF747] transition-colors">[06]</span>
+        <span class="tracking-tight">One Day vs Traditional</span>
+        <span class="ml-auto text-xs text-zinc-600 group-hover:text-[#BFF747] transition-transform duration-200 group-hover:translate-x-1">→</span>
+      </a>
+      <a href="#faq" class="nav-overlay-item group flex items-center gap-4 py-2.5 text-base md:text-lg font-bold text-white hover:text-[#BFF747] transition-colors no-underline border-b border-white/5">
+        <span class="text-xs font-mono text-zinc-500 group-hover:text-[#BFF747] transition-colors">[07]</span>
+        <span class="tracking-tight">FAQ</span>
+        <span class="ml-auto text-xs text-zinc-600 group-hover:text-[#BFF747] transition-transform duration-200 group-hover:translate-x-1">→</span>
+      </a>
+    </nav>
+
+    <!-- Bottom Action Trigger -->
+    <div class="pt-4">
+      <button data-open-modal="lead-modal" class="w-full py-3.5 px-6 rounded-full bg-[#BFF747] hover:bg-[#CFF96B] text-[#09090B] font-extrabold text-sm tracking-tight transition-all active:scale-[0.98] shadow-[0_4px_20px_rgba(191,247,71,0.35)] flex items-center justify-center gap-2 cursor-pointer">
+        <span>Get My One-Day Website</span>
+        <span aria-hidden="true">→</span>
+      </button>
+      
+      <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs text-zinc-400">
+        <span class="text-zinc-500">Direct studio:</span>
+        <a href="mailto:hello@craftingwebdesigns.com" class="text-zinc-300 hover:text-white transition-colors underline font-medium">hello@craftingwebdesigns.com</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- =======================================================================
+         SECTION 1: HERO SECTION (2-Column Desktop Layout & Choreographed Entrance)
+         ======================================================================= -->
+    <section class="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden" id="hero" aria-label="One Day Websites Hero">
+      <!-- Subtle Ambient Glows -->
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-[#BFF747]/10 rounded-full blur-[140px] pointer-events-none" aria-hidden="true"></div>
+      <div class="absolute top-1/3 right-10 w-80 h-80 bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" aria-hidden="true"></div>
+
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
+        
+        <!-- Centered CWD Capsule Logo Link (Directly matches homepage standard) -->
+        <div class="hero-capsule-logo-wrap flex justify-center items-center mb-10 hero-animate-eyebrow">
+          <a href="./" class="brand-capsule-pill inline-flex items-center gap-2.5 px-4 py-2 rounded-2xl bg-[#111115]/85 border border-white/12 backdrop-blur-xl transition-all duration-300 hover:border-white/25 hover:scale-[1.02] group no-underline" style="box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.6), inset 0 1px 1px 0 rgba(255, 255, 255, 0.18), 0 0 20px -2px rgba(191, 247, 71, 0.08);" aria-label="Crafting Web Designs Homepage">
+            <div class="brand-capsule-icon w-7 h-7 rounded-lg bg-black/60 border border-[rgba(191,247,71,0.25)] flex items-center justify-center relative shadow-[0_0_12px_rgba(191,247,71,0.15)] shrink-0 overflow-hidden" style="padding: 3px;">
+              <img src="./assets/logo.png" alt="CWD Logo" class="cwd-glow-logo w-full h-full object-contain" onerror="handleImgError(this)" style="filter: drop-shadow(0 0 6px rgba(191, 247, 71, 0.65)) drop-shadow(0 0 14px rgba(191, 247, 71, 0.35));">
+            </div>
+            <span class="brand-capsule-text text-sm font-semibold tracking-tight text-white/95 group-hover:text-white transition-colors whitespace-nowrap">Crafting Web Designs</span>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+          
+          <!-- Left Column: Copy & CTAs -->
+          <div class="lg:col-span-7 text-left">
+            
+            <!-- Eyebrow -->
+            <div class="hero-animate-eyebrow inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6 shadow-sm">
+              <span class="w-2 h-2 rounded-full bg-[#BFF747] animate-pulse" aria-hidden="true"></span>
+              <span class="text-xs font-mono font-bold tracking-widest text-[#BFF747] uppercase">ONE DAY WEBSITES</span>
+            </div>
+
+            <!-- Main Headline -->
+            <h1 class="hero-animate-title font-display text-4xl sm:text-5xl lg:text-[4.25rem] font-black text-white tracking-tight leading-[1.08] mb-6">
+              Your Business Website.<br>
+              Live in Just <span class="text-[#BFF747] drop-shadow-[0_0_24px_rgba(191,247,71,0.45)]">One Day.</span>
+            </h1>
+
+            <!-- Supporting Copy -->
+            <p class="hero-animate-copy text-zinc-300 text-base sm:text-lg lg:text-xl font-normal leading-relaxed max-w-2xl mb-8">
+              Skip the weeks of planning, endless revisions, and complicated development. Get a professional website built around your business using our industry-focused designs — ready to help turn visitors into customers.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="hero-animate-cta flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-6">
+              <button data-open-modal="lead-modal" class="btn-lime-primary text-base font-extrabold px-8 py-4 shadow-[0_0_30px_rgba(191,247,71,0.35)] cursor-pointer">
+                <span>Get My One-Day Website</span>
+                <span aria-hidden="true">→</span>
+              </button>
+              <a href="#how-it-works" class="btn-glass-secondary text-base font-semibold px-7 py-4 text-center">
+                <span>See How It Works</span>
+              </a>
+            </div>
+
+            <!-- Trust Microcopy (No invented star ratings or fake client counts) -->
+            <div class="hero-animate-cta flex items-center gap-2 text-xs font-medium text-zinc-400">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#BFF747]/80"></span>
+              <span>Built for local businesses. Designed for real inquiries.</span>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Visual Composition (Desktop transforming into Mobile-ready website) -->
+          <div class="lg:col-span-5 relative hero-animate-visual">
+            <div class="relative mx-auto max-w-[500px] lg:max-w-none">
+              
+              <!-- Glow Backdrop behind mockup -->
+              <div class="absolute -inset-4 bg-gradient-to-tr from-[#BFF747]/15 to-transparent rounded-3xl blur-2xl -z-10" aria-hidden="true"></div>
+
+              <!-- Desktop Mockup Browser Card -->
+              <div class="rounded-2xl border border-white/15 bg-[#121216] shadow-2xl overflow-hidden relative">
+                <!-- Browser Top Chrome Bar -->
+                <div class="px-4 py-3 bg-[#09090B]/90 border-b border-white/10 flex items-center justify-between">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+                  </div>
+                  <div class="px-3 py-0.5 rounded-md bg-white/5 border border-white/5 text-[11px] font-mono text-zinc-400">
+                    keystoneroofing.co.uk
+                  </div>
+                  <div class="text-[10px] font-mono font-bold text-[#BFF747] bg-[#BFF747]/10 px-2 py-0.5 rounded-full border border-[#BFF747]/20">
+                    LIVE
+                  </div>
+                </div>
+
+                <!-- Desktop Image Preview -->
+                <div class="aspect-[16/10] w-full overflow-hidden relative bg-[#18181F]">
+                  <img src="./assets/mockups/keystone-roofing-1.png" alt="Keystone Roofing Desktop Website Preview" class="w-full h-full object-cover object-top" onerror="handleImgError(this)">
+                  <!-- Subtle gradient vignette -->
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#09090B]/60 via-transparent to-transparent pointer-events-none"></div>
+                </div>
+              </div>
+
+              <!-- Overlapping Responsive Mobile Mockup Phone -->
+              <div class="absolute -bottom-8 -right-4 sm:-right-6 w-[170px] sm:w-[200px] rounded-3xl border-2 border-white/20 bg-[#09090B] shadow-[0_20px_50px_rgba(0,0,0,0.9)] overflow-hidden animate-phone-float">
+                <!-- Phone Top Speaker Pill -->
+                <div class="pt-2 pb-1.5 flex justify-center bg-black">
+                  <div class="w-12 h-2.5 bg-zinc-800 rounded-full"></div>
+                </div>
+                <!-- Phone Screen Preview -->
+                <div class="aspect-[9/18] w-full overflow-hidden bg-[#121216] relative">
+                  <img src="./assets/mockups/keystone-roofing-2.png" alt="Mobile-Ready Local Business Website View" class="w-full h-full object-cover object-top" onerror="handleImgError(this)">
+                  <!-- Mobile Live Badge -->
+                  <div class="absolute top-2 left-2 right-2 flex justify-center">
+                    <span class="bg-[#09090B]/90 backdrop-blur-md border border-[#BFF747]/30 text-[#BFF747] text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm">
+                      Mobile Responsive
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Floating Accent Feature Badge -->
+              <div class="absolute -top-4 -left-4 sm:-left-6 px-4 py-2.5 rounded-2xl bg-[#111115]/95 border border-white/15 backdrop-blur-xl shadow-xl flex items-center gap-3">
+                <div class="w-8 h-8 rounded-xl bg-[#BFF747]/20 border border-[#BFF747]/40 flex items-center justify-center text-[#BFF747] font-bold text-sm">
+                  ⚡
+                </div>
+                <div>
+                  <span class="block text-xs font-bold text-white tracking-tight">Turnaround Time</span>
+                  <span class="block text-[11px] font-semibold text-[#BFF747]">1 Working Day</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 2: THE PROBLEM — WHY WAIT WEEKS?
+         ======================================================================= -->
+    <section class="py-20 md:py-28 relative border-t border-white/5 bg-[#09090B]" id="problem" aria-label="Why Waiting Weeks Hurts Your Business">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        
+        <!-- Section Header -->
+        <div class="max-w-3xl mb-16 md:mb-20">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono uppercase tracking-widest text-zinc-400 mb-4">
+            The Traditional Trap
+          </div>
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight mb-5">
+            Your Business Can't Wait Weeks for a Website.
+          </h2>
+          <p class="text-zinc-400 text-base sm:text-lg leading-relaxed">
+            Every day without a professional online presence is another day potential customers may struggle to find you, trust you, or get in touch.
+          </p>
+        </div>
+
+        <!-- 3 Editorial Distinctive Problem Statements (Editorial Typography & Negative Space) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 relative">
+          
+          <!-- Problem 01 -->
+          <div class="relative pt-6 border-t border-white/10 group">
+            <span class="font-mono text-xs font-bold text-[#BFF747] tracking-widest uppercase block mb-3">01 / Friction</span>
+            <h3 class="font-display text-xl sm:text-2xl font-bold text-white tracking-tight mb-4 group-hover:text-[#BFF747] transition-colors">
+              Long Development Timelines
+            </h3>
+            <p class="text-zinc-400 text-sm sm:text-base leading-relaxed">
+              Traditional website projects can involve weeks of meetings, design discussions, and revisions before anything goes live. Meanwhile, your competitors are capturing local searches.
+            </p>
+          </div>
+
+          <!-- Problem 02 -->
+          <div class="relative pt-6 border-t border-white/10 group">
+            <span class="font-mono text-xs font-bold text-[#BFF747] tracking-widest uppercase block mb-3">02 / Fatigue</span>
+            <h3 class="font-display text-xl sm:text-2xl font-bold text-white tracking-tight mb-4 group-hover:text-[#BFF747] transition-colors">
+              Too Many Decisions
+            </h3>
+            <p class="text-zinc-400 text-sm sm:text-base leading-relaxed">
+              Choosing layouts, planning every section, and figuring out technical details can slow down busy business owners. You have a business to run — not a web design committee.
+            </p>
+          </div>
+
+          <!-- Problem 03 -->
+          <div class="relative pt-6 border-t border-white/10 group">
+            <span class="font-mono text-xs font-bold text-[#BFF747] tracking-widest uppercase block mb-3">03 / Lost Revenue</span>
+            <h3 class="font-display text-xl sm:text-2xl font-bold text-white tracking-tight mb-4 group-hover:text-[#BFF747] transition-colors">
+              Missed Opportunities
+            </h3>
+            <p class="text-zinc-400 text-sm sm:text-base leading-relaxed">
+              When people discover your business online, they need an easy way to understand your services and contact you immediately. An outdated or absent website leaves money on the table.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 3: THE SOLUTION — HOW ONE DAY IS POSSIBLE (Interactive Visual)
+         ======================================================================= -->
+    <section class="py-20 md:py-32 relative border-t border-white/5 bg-[#0D0D11]" id="solution" aria-label="How One Day Websites Work">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        
+        <!-- Header -->
+        <div class="text-center max-w-3xl mx-auto mb-14 md:mb-20">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#BFF747]/10 border border-[#BFF747]/20 text-xs font-mono font-bold uppercase tracking-wider text-[#BFF747] mb-4">
+            The Breakthrough Approach
+          </div>
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-5">
+            We've Already Done the Hard Part.
+          </h2>
+          <p class="text-zinc-300 text-base sm:text-lg leading-relaxed mb-4">
+            We've worked across local service industries and developed website design systems around what these businesses need most: clear services, strong credibility, and simple ways for customers to get in touch.
+          </p>
+          <p class="text-zinc-400 text-sm sm:text-base leading-relaxed">
+            We don't spend weeks reinventing the wheel. We start with a carefully developed, industry-specific website foundation, then tailor it to your business, branding, services, and location.
+          </p>
+        </div>
+
+        <!-- Interactive 3-Stage Evolution Showcase -->
+        <div class="rounded-3xl border border-white/10 bg-[#121216] p-6 sm:p-8 md:p-10 shadow-2xl relative">
+          
+          <!-- Stage Selector Tabs (Mouse, Touch, and Keyboard Accessible) -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8" role="tablist" aria-label="3-Stage Website Creation Process">
+            
+            <button class="stage-tab-btn is-active flex items-center gap-3 p-4 rounded-2xl border border-white/10 bg-white/5 text-left cursor-pointer" data-stage="1" role="tab" aria-selected="true" aria-controls="stage-view-1" id="tab-stage-1">
+              <span class="stage-number w-8 h-8 rounded-full bg-white/10 text-white font-mono font-bold text-xs flex items-center justify-center shrink-0">1</span>
+              <div>
+                <span class="block text-xs uppercase font-mono tracking-wider text-zinc-400">Step One</span>
+                <span class="stage-title font-bold text-sm text-white">Industry-Ready Foundation</span>
+              </div>
+            </button>
+
+            <button class="stage-tab-btn flex items-center gap-3 p-4 rounded-2xl border border-white/10 bg-white/5 text-left cursor-pointer" data-stage="2" role="tab" aria-selected="false" aria-controls="stage-view-2" id="tab-stage-2">
+              <span class="stage-number w-8 h-8 rounded-full bg-white/10 text-white font-mono font-bold text-xs flex items-center justify-center shrink-0">2</span>
+              <div>
+                <span class="block text-xs uppercase font-mono tracking-wider text-zinc-400">Step Two</span>
+                <span class="stage-title font-bold text-sm text-white">Your Brand &amp; Services</span>
+              </div>
+            </button>
+
+            <button class="stage-tab-btn flex items-center gap-3 p-4 rounded-2xl border border-white/10 bg-white/5 text-left cursor-pointer" data-stage="3" role="tab" aria-selected="false" aria-controls="stage-view-3" id="tab-stage-3">
+              <span class="stage-number w-8 h-8 rounded-full bg-white/10 text-white font-mono font-bold text-xs flex items-center justify-center shrink-0">3</span>
+              <div>
+                <span class="block text-xs uppercase font-mono tracking-wider text-zinc-400">Step Three</span>
+                <span class="stage-title font-bold text-sm text-white">Your Website</span>
+              </div>
+            </button>
+
+          </div>
+
+          <!-- Dynamic Visual Preview Area -->
+          <div class="relative min-h-[420px] sm:min-h-[480px] rounded-2xl border border-white/10 bg-[#09090B] overflow-hidden">
+            
+            <!-- STAGE 1: Industry-Ready Foundation -->
+            <div class="solution-stage-view is-active p-6 sm:p-10" id="stage-view-1" data-stage="1" role="tabpanel" aria-labelledby="tab-stage-1">
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center h-full">
+                <div class="lg:col-span-5 text-left">
+                  <span class="inline-block px-2.5 py-1 rounded bg-zinc-800 text-zinc-300 font-mono text-xs uppercase font-semibold mb-3">Foundation Stage</span>
+                  <h3 class="font-display text-2xl font-bold text-white mb-3">Pre-Engineered Structure &amp; UX</h3>
+                  <p class="text-zinc-400 text-sm leading-relaxed mb-5">
+                    We start from an established, battle-tested information architecture built specifically for local service businesses. Every headline slot, trust indicator, and contact funnel is positioned for real inquiries.
+                  </p>
+                  <ul class="space-y-2 text-xs text-zinc-300 font-medium">
+                    <li class="flex items-center gap-2"><span class="text-[#BFF747]">✓</span> Optimized service showcase hierarchy</li>
+                    <li class="flex items-center gap-2"><span class="text-[#BFF747]">✓</span> Tested lead conversion touchpoints</li>
+                    <li class="flex items-center gap-2"><span class="text-[#BFF747]">✓</span> Mobile-first grid foundation</li>
+                  </ul>
+                </div>
+                <div class="lg:col-span-7">
+                  <!-- Wireframe Representation -->
+                  <div class="rounded-xl border border-white/15 bg-[#121216] p-4 shadow-xl">
+                    <div class="flex items-center justify-between pb-3 border-b border-white/10 mb-4">
+                      <div class="flex items-center gap-1.5">
+                        <span class="w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+                      </div>
+                      <span class="text-[11px] font-mono text-zinc-500">architecture-blueprint.wireframe</span>
+                    </div>
+                    <div class="space-y-3 opacity-75">
+                      <div class="h-8 bg-zinc-800/80 rounded flex items-center justify-between px-3">
+                        <div class="w-20 h-3 bg-zinc-700 rounded"></div>
+                        <div class="w-32 h-3 bg-zinc-700 rounded"></div>
+                      </div>
+                      <div class="h-28 bg-zinc-800/50 rounded-lg p-3 flex flex-col justify-center gap-2">
+                        <div class="w-3/4 h-5 bg-zinc-700 rounded"></div>
+                        <div class="w-1/2 h-3 bg-zinc-700/60 rounded"></div>
+                        <div class="w-24 h-6 bg-[#BFF747]/30 border border-[#BFF747]/40 rounded mt-1"></div>
+                      </div>
+                      <div class="grid grid-cols-3 gap-2">
+                        <div class="h-16 bg-zinc-800/40 rounded p-2"></div>
+                        <div class="h-16 bg-zinc-800/40 rounded p-2"></div>
+                        <div class="h-16 bg-zinc-800/40 rounded p-2"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STAGE 2: Your Brand & Services -->
+            <div class="solution-stage-view p-6 sm:p-10" id="stage-view-2" data-stage="2" role="tabpanel" aria-labelledby="tab-stage-2" aria-hidden="true">
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center h-full">
+                <div class="lg:col-span-5 text-left">
+                  <span class="inline-block px-2.5 py-1 rounded bg-[#BFF747]/20 text-[#BFF747] font-mono text-xs uppercase font-semibold mb-3">Customization Stage</span>
+                  <h3 class="font-display text-2xl font-bold text-white mb-3">Personalized to Your Company</h3>
+                  <p class="text-zinc-400 text-sm leading-relaxed mb-5">
+                    We inject your business logo, custom brand color palette, exact service offerings, coverage areas, real team credentials, and project photos directly into the framework.
+                  </p>
+                  <ul class="space-y-2 text-xs text-zinc-300 font-medium">
+                    <li class="flex items-center gap-2"><span class="text-[#BFF747]">✓</span> Custom brand typography &amp; colors</li>
+                    <li class="flex items-center gap-2"><span class="text-[#BFF747]">✓</span> Real client photos &amp; service descriptions</li>
+                    <li class="flex items-center gap-2"><span class="text-[#BFF747]">✓</span> Local area coverage &amp; business hours</li>
+                  </ul>
+                </div>
+                <div class="lg:col-span-7">
+                  <!-- Mid-Stage Branding Mockup -->
+                  <div class="rounded-xl border border-[#BFF747]/30 bg-[#121216] p-4 shadow-xl relative overflow-hidden">
+                    <div class="flex items-center justify-between pb-3 border-b border-white/10 mb-4">
+                      <div class="flex items-center gap-2">
+                        <span class="w-6 h-6 rounded bg-[#BFF747] text-black font-extrabold text-[10px] flex items-center justify-center">K</span>
+                        <span class="text-xs font-bold text-white">Keystone Roofing</span>
+                      </div>
+                      <span class="text-[11px] font-mono text-[#BFF747] bg-[#BFF747]/10 px-2 py-0.5 rounded">Branding Injected</span>
+                    </div>
+                    <div class="space-y-3">
+                      <div class="h-28 rounded-lg overflow-hidden relative">
+                        <img src="./assets/mockups/keystone-roofing-1.png" alt="Keystone Roofing Personalization" class="w-full h-full object-cover object-top opacity-85" onerror="handleImgError(this)">
+                        <div class="absolute inset-0 bg-[#09090B]/40 flex items-center px-4">
+                          <span class="text-sm font-black text-white">Specialist Slate &amp; Flat Roofing</span>
+                        </div>
+                      </div>
+                      <div class="grid grid-cols-2 gap-2 text-xs">
+                        <div class="p-2.5 rounded bg-white/5 border border-white/5 text-zinc-300 font-medium">
+                          ✓ Emergency Roof Repairs
+                        </div>
+                        <div class="p-2.5 rounded bg-white/5 border border-white/5 text-zinc-300 font-medium">
+                          ✓ Free Inspection Quotes
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STAGE 3: Your Website (Live & Converting) -->
+            <div class="solution-stage-view p-6 sm:p-10" id="stage-view-3" data-stage="3" role="tabpanel" aria-labelledby="tab-stage-3" aria-hidden="true">
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center h-full">
+                <div class="lg:col-span-5 text-left">
+                  <span class="inline-block px-2.5 py-1 rounded bg-[#BFF747] text-black font-mono text-xs uppercase font-bold mb-3">Live Stage</span>
+                  <h3 class="font-display text-2xl font-bold text-white mb-3">Live, Responsive &amp; Ready</h3>
+                  <p class="text-zinc-400 text-sm leading-relaxed mb-5">
+                    Your website is complete with lead inquiry forms, click-to-call mobile buttons, fast image loading, and responsive layouts ready to turn local visitors into clients.
+                  </p>
+                  <button data-open-modal="lead-modal" class="btn-lime-primary text-xs font-bold px-5 py-2.5 cursor-pointer">
+                    <span>Start My Website Now →</span>
+                  </button>
+                </div>
+                <div class="lg:col-span-7">
+                  <!-- Finished Client Mockup Preview -->
+                  <div class="rounded-xl border border-white/20 bg-[#121216] shadow-2xl overflow-hidden">
+                    <div class="px-4 py-2 bg-[#09090B] border-b border-white/10 flex items-center justify-between">
+                      <span class="text-xs font-bold text-white flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-[#BFF747] animate-pulse"></span>
+                        keystoneroofing.co.uk
+                      </span>
+                      <span class="text-[10px] font-mono font-bold text-black bg-[#BFF747] px-2 py-0.5 rounded-full">
+                        COMPLETED IN 24H
+                      </span>
+                    </div>
+                    <div class="aspect-[16/10] overflow-hidden relative">
+                      <img src="./assets/mockups/keystone-roofing-1.png" alt="Complete Live Website Preview" class="w-full h-full object-cover" onerror="handleImgError(this)">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Supporting Statement -->
+          <div class="mt-8 pt-6 border-t border-white/10 text-center">
+            <p class="text-zinc-300 text-base font-semibold">
+              "Faster doesn't have to mean generic."
+            </p>
+            <p class="text-zinc-400 text-xs sm:text-sm mt-1 max-w-2xl mx-auto">
+              The underlying structural framework is proven and reusable, while the visual identity, copywriting, services, and photography are crafted exclusively for your business.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 4: BUILT FOR LOCAL BUSINESSES (Interactive Industry Showcase)
+         ======================================================================= -->
+    <section class="py-20 md:py-28 relative border-t border-white/5 bg-[#09090B]" id="industries" aria-label="Industries We Build For">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono uppercase tracking-widest text-[#BFF747] mb-4">
+            Proven Industry Systems
+          </div>
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
+            Your Industry. Your Brand. Your Website.
+          </h2>
+          <p class="text-zinc-400 text-base sm:text-lg leading-relaxed">
+            Whether you're fixing roofs, transforming gardens, or welcoming patients, your website should make it easy for local customers to choose you.
+          </p>
+        </div>
+
+        <!-- 6 Premium Industry Cards with Authentic Visuals & Features -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          
+          <!-- Industry 1: Roofing & Building Contractors -->
+          <article class="industry-showcase-card rounded-2xl border border-white/10 bg-[#121216] overflow-hidden flex flex-col group">
+            <div class="aspect-[16/10] overflow-hidden relative bg-[#18181F]">
+              <img src="./assets/mockups/keystone-roofing-1.png" alt="Roofing and Contractor Website Example" class="industry-card-img w-full h-full object-cover transition-transform duration-500 ease-out" loading="lazy" onerror="handleImgError(this)">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#121216] via-transparent to-transparent"></div>
+              <span class="absolute top-3 left-3 bg-[#09090B]/80 backdrop-blur-md border border-white/15 text-white text-[11px] font-bold px-2.5 py-1 rounded-full">
+                Contractors &amp; Trades
+              </span>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="font-display text-xl font-bold text-white mb-2 group-hover:text-[#BFF747] transition-colors">
+                  Roofing &amp; Building Contractors
+                </h3>
+                <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4">
+                  Service pages, project galleries, quote requests, and local coverage.
+                </p>
+              </div>
+              <div class="pt-4 border-t border-white/5 flex items-center justify-between text-xs text-zinc-400">
+                <span>Fast Lead Quotes</span>
+                <span class="text-[#BFF747] font-semibold">1-Day Ready →</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Industry 2: Plumbing & HVAC -->
+          <article class="industry-showcase-card rounded-2xl border border-white/10 bg-[#121216] overflow-hidden flex flex-col group">
+            <div class="aspect-[16/10] overflow-hidden relative bg-[#18181F]">
+              <img src="./assets/mockups/smash-industrial.png" alt="Plumbing and HVAC Website Example" class="industry-card-img w-full h-full object-cover transition-transform duration-500 ease-out" loading="lazy" onerror="handleImgError(this)">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#121216] via-transparent to-transparent"></div>
+              <span class="absolute top-3 left-3 bg-[#09090B]/80 backdrop-blur-md border border-white/15 text-white text-[11px] font-bold px-2.5 py-1 rounded-full">
+                Emergency &amp; Service
+              </span>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="font-display text-xl font-bold text-white mb-2 group-hover:text-[#BFF747] transition-colors">
+                  Plumbing &amp; HVAC
+                </h3>
+                <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4">
+                  Emergency call triggers, boiler installation forms, service radius maps, and verified reviews.
+                </p>
+              </div>
+              <div class="pt-4 border-t border-white/5 flex items-center justify-between text-xs text-zinc-400">
+                <span>Direct Call Focus</span>
+                <span class="text-[#BFF747] font-semibold">1-Day Ready →</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Industry 3: Landscaping & Garden Services -->
+          <article class="industry-showcase-card rounded-2xl border border-white/10 bg-[#121216] overflow-hidden flex flex-col group">
+            <div class="aspect-[16/10] overflow-hidden relative bg-[#18181F]">
+              <img src="./assets/mockups/ko-landscapes.png" alt="Landscaping and Garden Website Example" class="industry-card-img w-full h-full object-cover transition-transform duration-500 ease-out" loading="lazy" onerror="handleImgError(this)">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#121216] via-transparent to-transparent"></div>
+              <span class="absolute top-3 left-3 bg-[#09090B]/80 backdrop-blur-md border border-white/15 text-white text-[11px] font-bold px-2.5 py-1 rounded-full">
+                Outdoor &amp; Garden
+              </span>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="font-display text-xl font-bold text-white mb-2 group-hover:text-[#BFF747] transition-colors">
+                  Landscaping &amp; Garden Services
+                </h3>
+                <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4">
+                  Before-and-after galleries, service showcases, and estimate forms.
+                </p>
+              </div>
+              <div class="pt-4 border-t border-white/5 flex items-center justify-between text-xs text-zinc-400">
+                <span>Visual Portfolios</span>
+                <span class="text-[#BFF747] font-semibold">1-Day Ready →</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Industry 4: Dermatology & Aesthetic Clinics -->
+          <article class="industry-showcase-card rounded-2xl border border-white/10 bg-[#121216] overflow-hidden flex flex-col group">
+            <div class="aspect-[16/10] overflow-hidden relative bg-[#18181F]">
+              <img src="./assets/mockups/dr-shaheen.png" alt="Dermatology and Aesthetic Clinic Website Preview" class="industry-card-img w-full h-full object-cover transition-transform duration-500 ease-out" loading="lazy" onerror="handleImgError(this)">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#121216] via-transparent to-transparent"></div>
+              <span class="absolute top-3 left-3 bg-[#09090B]/80 backdrop-blur-md border border-white/15 text-white text-[11px] font-bold px-2.5 py-1 rounded-full">
+                Medical &amp; Aesthetics
+              </span>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="font-display text-xl font-bold text-white mb-2 group-hover:text-[#BFF747] transition-colors">
+                  Dermatology &amp; Aesthetic Clinics
+                </h3>
+                <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4">
+                  Treatment pages, doctor profiles, appointment requests, and clinic information.
+                </p>
+              </div>
+              <div class="pt-4 border-t border-white/5 flex items-center justify-between text-xs text-zinc-400">
+                <span>Practitioner Credibility</span>
+                <span class="text-[#BFF747] font-semibold">1-Day Ready →</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Industry 5: Chiropractic & Wellness Clinics -->
+          <article class="industry-showcase-card rounded-2xl border border-white/10 bg-[#121216] overflow-hidden flex flex-col group">
+            <div class="aspect-[16/10] overflow-hidden relative bg-[#18181F]">
+              <img src="./assets/mockups/anxiety-treatment.png" alt="Chiropractic and Wellness Website Preview" class="industry-card-img w-full h-full object-cover transition-transform duration-500 ease-out" loading="lazy" onerror="handleImgError(this)">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#121216] via-transparent to-transparent"></div>
+              <span class="absolute top-3 left-3 bg-[#09090B]/80 backdrop-blur-md border border-white/15 text-white text-[11px] font-bold px-2.5 py-1 rounded-full">
+                Health &amp; Wellness
+              </span>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="font-display text-xl font-bold text-white mb-2 group-hover:text-[#BFF747] transition-colors">
+                  Chiropractic &amp; Wellness Clinics
+                </h3>
+                <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4">
+                  Treatment information, practitioner credibility, and appointment booking requests.
+                </p>
+              </div>
+              <div class="pt-4 border-t border-white/5 flex items-center justify-between text-xs text-zinc-400">
+                <span>Patient Trust Architecture</span>
+                <span class="text-[#BFF747] font-semibold">1-Day Ready →</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Industry 6: Other Local Service Businesses -->
+          <article class="industry-showcase-card rounded-2xl border border-white/10 bg-[#121216] overflow-hidden flex flex-col group">
+            <div class="aspect-[16/10] overflow-hidden relative bg-[#18181F]">
+              <img src="./assets/mockups/wotta-carpets.png" alt="Local Commercial Service Website Preview" class="industry-card-img w-full h-full object-cover transition-transform duration-500 ease-out" loading="lazy" onerror="handleImgError(this)">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#121216] via-transparent to-transparent"></div>
+              <span class="absolute top-3 left-3 bg-[#09090B]/80 backdrop-blur-md border border-white/15 text-white text-[11px] font-bold px-2.5 py-1 rounded-full">
+                Local Services
+              </span>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="font-display text-xl font-bold text-white mb-2 group-hover:text-[#BFF747] transition-colors">
+                  Other Local Service Businesses
+                </h3>
+                <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4">
+                  Clear service offerings, pricing guidance, location targeting, and direct customer contact.
+                </p>
+              </div>
+              <div class="pt-4 border-t border-white/5 flex items-center justify-between text-xs text-zinc-400">
+                <span>Tailored Launch</span>
+                <span class="text-[#BFF747] font-semibold">1-Day Ready →</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 5: WHAT YOU GET (8 Core Features)
+         ======================================================================= -->
+    <section class="py-20 md:py-28 relative border-t border-white/5 bg-[#0D0D11]" id="features" aria-label="What is Included in One Day Websites">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono uppercase tracking-widest text-zinc-400 mb-4">
+            Scope &amp; Inclusions
+          </div>
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
+            Everything Your Business Website Needs.<br class="hidden sm:inline"> Nothing It Doesn't.
+          </h2>
+          <p class="text-zinc-400 text-base sm:text-lg">
+            A clear, focused scope delivering high conversion performance without unnecessary complexity.
+          </p>
+        </div>
+
+        <!-- 8 Core Feature Deliverables Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- 1. Professional, Branded Design -->
+          <div class="feature-box-card p-6 rounded-2xl border border-white/10 bg-[#121216]">
+            <div class="w-10 h-10 rounded-xl bg-[#BFF747]/10 border border-[#BFF747]/30 flex items-center justify-center text-[#BFF747] font-bold text-base mb-4">
+              🎨
+            </div>
+            <h3 class="font-bold text-white text-base mb-2">Professional, Branded Design</h3>
+            <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+              Your colors, logo, business details, and services integrated into an established website foundation.
+            </p>
+          </div>
+
+          <!-- 2. Mobile-First Experience -->
+          <div class="feature-box-card p-6 rounded-2xl border border-white/10 bg-[#121216]">
+            <div class="w-10 h-10 rounded-xl bg-[#BFF747]/10 border border-[#BFF747]/30 flex items-center justify-center text-[#BFF747] font-bold text-base mb-4">
+              📱
+            </div>
+            <h3 class="font-bold text-white text-base mb-2">Mobile-First Experience</h3>
+            <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+              Layouts that work smoothly on phones, tablets, and desktops for instant customer usability.
+            </p>
+          </div>
+
+          <!-- 3. Lead-Generation Features -->
+          <div class="feature-box-card p-6 rounded-2xl border border-white/10 bg-[#121216]">
+            <div class="w-10 h-10 rounded-xl bg-[#BFF747]/10 border border-[#BFF747]/30 flex items-center justify-center text-[#BFF747] font-bold text-base mb-4">
+              🎯
+            </div>
+            <h3 class="font-bold text-white text-base mb-2">Lead-Generation Features</h3>
+            <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+              Clear contact buttons, inquiry forms, and strategically placed calls to action driving inquiries.
+            </p>
+          </div>
+
+          <!-- 4. Industry-Specific Sections -->
+          <div class="feature-box-card p-6 rounded-2xl border border-white/10 bg-[#121216]">
+            <div class="w-10 h-10 rounded-xl bg-[#BFF747]/10 border border-[#BFF747]/30 flex items-center justify-center text-[#BFF747] font-bold text-base mb-4">
+              🏗️
+            </div>
+            <h3 class="font-bold text-white text-base mb-2">Industry-Specific Sections</h3>
+            <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+              Relevant services, project galleries, treatment information, or business credentials.
+            </p>
+          </div>
+
+          <!-- 5. Local SEO Foundations -->
+          <div class="feature-box-card p-6 rounded-2xl border border-white/10 bg-[#121216]">
+            <div class="w-10 h-10 rounded-xl bg-[#BFF747]/10 border border-[#BFF747]/30 flex items-center justify-center text-[#BFF747] font-bold text-base mb-4">
+              📍
+            </div>
+            <h3 class="font-bold text-white text-base mb-2">Local SEO Foundations</h3>
+            <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+              Clear page structure, metadata, mobile usability, and location-relevant content foundations.
+            </p>
+          </div>
+
+          <!-- 6. Simple Customer Contact -->
+          <div class="feature-box-card p-6 rounded-2xl border border-white/10 bg-[#121216]">
+            <div class="w-10 h-10 rounded-xl bg-[#BFF747]/10 border border-[#BFF747]/30 flex items-center justify-center text-[#BFF747] font-bold text-base mb-4">
+              📞
+            </div>
+            <h3 class="font-bold text-white text-base mb-2">Simple Customer Contact</h3>
+            <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+              Click-to-call, email, WhatsApp, or booking inquiry integrations where applicable.
+            </p>
+          </div>
+
+          <!-- 7. Fast, Accessible Experience -->
+          <div class="feature-box-card p-6 rounded-2xl border border-white/10 bg-[#121216]">
+            <div class="w-10 h-10 rounded-xl bg-[#BFF747]/10 border border-[#BFF747]/30 flex items-center justify-center text-[#BFF747] font-bold text-base mb-4">
+              ⚡
+            </div>
+            <h3 class="font-bold text-white text-base mb-2">Fast, Accessible Experience</h3>
+            <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+              Optimized images, sensible loading behavior, accessible controls, and clean responsive code.
+            </p>
+          </div>
+
+          <!-- 8. Easy Future Updates -->
+          <div class="feature-box-card p-6 rounded-2xl border border-white/10 bg-[#121216]">
+            <div class="w-10 h-10 rounded-xl bg-[#BFF747]/10 border border-[#BFF747]/30 flex items-center justify-center text-[#BFF747] font-bold text-base mb-4">
+              📈
+            </div>
+            <h3 class="font-bold text-white text-base mb-2">Easy Future Updates</h3>
+            <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+              A maintainable website structure that can be expanded as your business and service offerings grow.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 6: HOW IT WORKS (4-Stage Process Timeline)
+         ======================================================================= -->
+    <section class="py-20 md:py-28 relative border-t border-white/5 bg-[#09090B]" id="how-it-works" aria-label="Step by Step Process">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono uppercase tracking-widest text-[#BFF747] mb-4">
+            Streamlined Execution
+          </div>
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
+            From Business Details to Website.<br class="hidden sm:inline"> In One Working Day.
+          </h2>
+          <p class="text-zinc-400 text-base sm:text-lg">
+            A simple 4-step workflow designed to respect your time and get your business live without drag.
+          </p>
+        </div>
+
+        <!-- 4-Stage Horizontal on Desktop / Vertical on Mobile -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+          
+          <!-- Step 01 -->
+          <div class="process-step-pill p-6 rounded-2xl border border-white/10 bg-[#121216] relative flex flex-col justify-between">
+            <div>
+              <span class="w-8 h-8 rounded-full bg-[#BFF747]/10 border border-[#BFF747]/30 text-[#BFF747] font-mono font-bold text-xs flex items-center justify-center mb-4">
+                01
+              </span>
+              <h3 class="font-display text-lg font-bold text-white mb-2">Tell Us About Your Business</h3>
+              <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+                Share your business name, logo, services, location, contact details, and any photos you'd like us to use.
+              </p>
+            </div>
+            <div class="mt-6 pt-3 border-t border-white/5 text-[11px] font-mono text-zinc-500">
+              Intake Phase
+            </div>
+          </div>
+
+          <!-- Step 02 -->
+          <div class="process-step-pill p-6 rounded-2xl border border-white/10 bg-[#121216] relative flex flex-col justify-between">
+            <div>
+              <span class="w-8 h-8 rounded-full bg-[#BFF747]/10 border border-[#BFF747]/30 text-[#BFF747] font-mono font-bold text-xs flex items-center justify-center mb-4">
+                02
+              </span>
+              <h3 class="font-display text-lg font-bold text-white mb-2">We Build Your Website</h3>
+              <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+                We choose a suitable industry-ready foundation and customize the design, content, and calls to action around your business.
+              </p>
+            </div>
+            <div class="mt-6 pt-3 border-t border-white/5 text-[11px] font-mono text-zinc-500">
+              Build Day
+            </div>
+          </div>
+
+          <!-- Step 03 -->
+          <div class="process-step-pill p-6 rounded-2xl border border-white/10 bg-[#121216] relative flex flex-col justify-between">
+            <div>
+              <span class="w-8 h-8 rounded-full bg-[#BFF747]/10 border border-[#BFF747]/30 text-[#BFF747] font-mono font-bold text-xs flex items-center justify-center mb-4">
+                03
+              </span>
+              <h3 class="font-display text-lg font-bold text-white mb-2">You Review It</h3>
+              <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+                Take a look at your website, check your details, and share any final adjustments included in your package.
+              </p>
+            </div>
+            <div class="mt-6 pt-3 border-t border-white/5 text-[11px] font-mono text-zinc-500">
+              Review Phase
+            </div>
+          </div>
+
+          <!-- Step 04 -->
+          <div class="process-step-pill p-6 rounded-2xl border border-white/10 bg-[#121216] relative flex flex-col justify-between">
+            <div>
+              <span class="w-8 h-8 rounded-full bg-[#BFF747]/10 border border-[#BFF747]/30 text-[#BFF747] font-mono font-bold text-xs flex items-center justify-center mb-4">
+                04
+              </span>
+              <h3 class="font-display text-lg font-bold text-white mb-2">Get Ready to Launch</h3>
+              <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+                Once everything is approved and your domain and hosting are ready, we prepare your website to go live.
+              </p>
+            </div>
+            <div class="mt-6 pt-3 border-t border-white/5 text-[11px] font-mono text-zinc-500">
+              Launch Phase
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Important Clarification Callout Note -->
+        <div class="mt-10 p-5 rounded-2xl border border-white/10 bg-white/[0.02] max-w-4xl mx-auto flex items-start gap-3.5 text-left">
+          <span class="text-zinc-400 text-base shrink-0 mt-0.5">ℹ️</span>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            <strong class="text-zinc-200">Important clarification:</strong> One-day turnaround applies to eligible projects once all required business materials are received and the project is confirmed. Launch timing may depend on approvals, domain access, and third-party services.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 7: REAL WEBSITE EXAMPLES (Genuine Portfolio Showcase)
+         ======================================================================= -->
+    <section class="py-20 md:py-28 relative border-t border-white/5 bg-[#0D0D11]" id="examples" aria-label="Real Website Examples">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono uppercase tracking-widest text-[#BFF747] mb-4">
+            Proven Work
+          </div>
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
+            Built for Businesses Like Yours.
+          </h2>
+          <p class="text-zinc-400 text-base sm:text-lg">
+            See the kind of professional websites we create for local service businesses.
+          </p>
+        </div>
+
+        <!-- Real Portfolio Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          
+          <!-- Example 1: Keystone Roofing -->
+          <article class="rounded-2xl border border-white/10 bg-[#121216] overflow-hidden shadow-2xl group">
+            <div class="aspect-[16/10] overflow-hidden relative bg-[#18181F]">
+              <img src="./assets/mockups/keystone-roofing-1.png" alt="Keystone Roofing Website Project" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy" onerror="handleImgError(this)">
+            </div>
+            <div class="p-6 sm:p-7">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-mono uppercase font-bold text-[#BFF747] bg-[#BFF747]/10 px-2.5 py-0.5 rounded-full border border-[#BFF747]/20">
+                  Roofing &amp; Construction
+                </span>
+                <span class="text-xs text-zinc-400 font-medium">Verified Launch</span>
+              </div>
+              <h3 class="font-display text-2xl font-bold text-white mb-2">Keystone Roofing</h3>
+              <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4">
+                Complete local service architecture featuring emergency roof repair callouts, slate inspection request funnels, and verified trust badges.
+              </p>
+              <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+                <span class="text-xs text-zinc-300">Deliverables: Full UI, Funnel, Mobile Grid</span>
+                <button data-open-modal="lead-modal" data-industry="Roofing & Building Contractors" class="text-xs font-bold text-[#BFF747] hover:underline cursor-pointer">
+                  Request Similar Website →
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Example 2: KO Landscapes -->
+          <article class="rounded-2xl border border-white/10 bg-[#121216] overflow-hidden shadow-2xl group">
+            <div class="aspect-[16/10] overflow-hidden relative bg-[#18181F]">
+              <img src="./assets/mockups/ko-landscapes.png" alt="KO Landscapes Website Project" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy" onerror="handleImgError(this)">
+            </div>
+            <div class="p-6 sm:p-7">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-mono uppercase font-bold text-[#BFF747] bg-[#BFF747]/10 px-2.5 py-0.5 rounded-full border border-[#BFF747]/20">
+                  Landscaping &amp; Paving
+                </span>
+                <span class="text-xs text-zinc-400 font-medium">Verified Launch</span>
+              </div>
+              <h3 class="font-display text-2xl font-bold text-white mb-2">KO Landscapes</h3>
+              <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4">
+                Visual garden transformation portfolio with before-and-after project sliders, patio quotation forms, and regional coverage guides.
+              </p>
+              <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+                <span class="text-xs text-zinc-300">Deliverables: Portfolio Gallery, Quote Form</span>
+                <button data-open-modal="lead-modal" data-industry="Landscaping & Garden Services" class="text-xs font-bold text-[#BFF747] hover:underline cursor-pointer">
+                  Request Similar Website →
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Example 3: Dr. Shaheen Aesthetic Clinic -->
+          <article class="rounded-2xl border border-white/10 bg-[#121216] overflow-hidden shadow-2xl group">
+            <div class="aspect-[16/10] overflow-hidden relative bg-[#18181F]">
+              <img src="./assets/mockups/dr-shaheen.png" alt="Dr. Shaheen Clinic Website Project" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy" onerror="handleImgError(this)">
+            </div>
+            <div class="p-6 sm:p-7">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-mono uppercase font-bold text-[#BFF747] bg-[#BFF747]/10 px-2.5 py-0.5 rounded-full border border-[#BFF747]/20">
+                  Aesthetic Medicine &amp; Dermatology
+                </span>
+                <span class="text-xs text-zinc-400 font-medium">Verified Launch</span>
+              </div>
+              <h3 class="font-display text-2xl font-bold text-white mb-2">Dr. Shaheen Clinic</h3>
+              <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4">
+                Clinical credibility system showcasing specialized treatments, practitioner qualifications, and private consultation request forms.
+              </p>
+              <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+                <span class="text-xs text-zinc-300">Deliverables: Treatment Directory, Booking</span>
+                <button data-open-modal="lead-modal" data-industry="Dermatology & Aesthetic Clinics" class="text-xs font-bold text-[#BFF747] hover:underline cursor-pointer">
+                  Request Similar Website →
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Example 4: Smash Industrial -->
+          <article class="rounded-2xl border border-white/10 bg-[#121216] overflow-hidden shadow-2xl group">
+            <div class="aspect-[16/10] overflow-hidden relative bg-[#18181F]">
+              <img src="./assets/mockups/smash-industrial.png" alt="Smash Industrial Maintenance Website" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy" onerror="handleImgError(this)">
+            </div>
+            <div class="p-6 sm:p-7">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-mono uppercase font-bold text-[#BFF747] bg-[#BFF747]/10 px-2.5 py-0.5 rounded-full border border-[#BFF747]/20">
+                  Industrial Contracting
+                </span>
+                <span class="text-xs text-zinc-400 font-medium">Verified Launch</span>
+              </div>
+              <h3 class="font-display text-2xl font-bold text-white mb-2">Smash Industrial</h3>
+              <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4">
+                Heavy-duty commercial contracting hub with capability specifications, fleet equipment lists, and tender bid inquiry contact pathways.
+              </p>
+              <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+                <span class="text-xs text-zinc-300">Deliverables: B2B Specifications, RFQ Form</span>
+                <button data-open-modal="lead-modal" data-industry="Plumbing & HVAC" class="text-xs font-bold text-[#BFF747] hover:underline cursor-pointer">
+                  Request Similar Website →
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 8: ONE DAY VS TRADITIONAL (Clean 2-Column Comparison)
+         ======================================================================= -->
+    <section class="py-20 md:py-28 relative border-t border-white/5 bg-[#09090B]" id="comparison" aria-label="One Day Websites vs Traditional Development">
+      <div class="max-w-5xl mx-auto px-5 sm:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono uppercase tracking-widest text-[#BFF747] mb-4">
+            Comparison
+          </div>
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
+            A Smarter Way to Get Your Business Online.
+          </h2>
+          <p class="text-zinc-400 text-base sm:text-lg">
+            Understand how our industry foundation model delivers the exact website you need without unnecessary agency overhead.
+          </p>
+        </div>
+
+        <!-- 2-Column Comparison Table -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+          
+          <!-- Column 1: Traditional Custom Website -->
+          <div class="p-8 rounded-3xl border border-white/10 bg-[#121216] flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-mono uppercase tracking-wider text-zinc-400 font-bold block mb-2">Traditional Agency Route</span>
+              <h3 class="font-display text-2xl font-bold text-zinc-300 mb-6">Traditional Custom Website</h3>
+              
+              <ul class="space-y-4 text-sm text-zinc-400">
+                <li class="flex items-start gap-3">
+                  <span class="text-zinc-600 font-bold">✕</span>
+                  <span>Design starts from a blank canvas with repeated revisions</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-zinc-600 font-bold">✕</span>
+                  <span>More discovery meetings and micro layout decisions</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-zinc-600 font-bold">✕</span>
+                  <span>Longer development timelines stretching 6 to 12 weeks</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-zinc-600 font-bold">✕</span>
+                  <span>Multiple revision rounds before anything goes live</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-zinc-500 font-bold">•</span>
+                  <span>Better suited to complex web apps &amp; highly customized software</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-white/5 text-xs text-zinc-500">
+              High coordination overhead for straightforward business websites.
+            </div>
+          </div>
+
+          <!-- Column 2: One Day Websites (Highlighted with Lime Border & Glow) -->
+          <div class="comparison-card-highlight p-8 rounded-3xl flex flex-col justify-between relative overflow-hidden">
+            <!-- Lime accent banner -->
+            <div class="absolute top-0 right-0 bg-[#BFF747] text-black text-[10px] font-extrabold uppercase tracking-widest px-4 py-1 rounded-bl-xl">
+              RECOMMENDED
+            </div>
+
+            <div>
+              <span class="text-xs font-mono uppercase tracking-wider text-[#BFF747] font-bold block mb-2">Crafting Web Designs</span>
+              <h3 class="font-display text-2xl font-bold text-white mb-6">One Day Websites</h3>
+              
+              <ul class="space-y-4 text-sm text-zinc-200">
+                <li class="flex items-start gap-3">
+                  <span class="text-[#BFF747] font-bold">✓</span>
+                  <span>Starts with an industry-ready, conversion-tested foundation</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-[#BFF747] font-bold">✓</span>
+                  <span>Focused business information collection without meetings</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-[#BFF747] font-bold">✓</span>
+                  <span>Streamlined design and rapid 1-working-day development</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-[#BFF747] font-bold">✓</span>
+                  <span>Faster review and immediate launch preparation</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-[#BFF747] font-bold">✓</span>
+                  <span>Best suited to straightforward local service businesses</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-white/10">
+              <button data-open-modal="lead-modal" class="w-full btn-lime-primary text-sm font-extrabold py-3.5 cursor-pointer">
+                <span>Start My Website →</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Section Bottom Statement -->
+        <div class="text-center mt-12">
+          <p class="text-zinc-300 text-base sm:text-lg font-medium">
+            Get the website your business needs, without the unnecessary waiting.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 9: FAQ SECTION (Accessible Accordion)
+         ======================================================================= -->
+    <section class="py-20 md:py-28 relative border-t border-white/5 bg-[#0D0D11]" id="faq" aria-label="Frequently Asked Questions">
+      <div class="max-w-4xl mx-auto px-5 sm:px-8">
+        
+        <div class="text-center mb-16">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono uppercase tracking-widest text-[#BFF747] mb-4">
+            Clear Answers
+          </div>
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
+            Frequently Asked Questions
+          </h2>
+          <p class="text-zinc-400 text-base">
+            Everything you need to know about the One Day Websites service.
+          </p>
+        </div>
+
+        <!-- 8 Accessible Accordion Items -->
+        <div class="space-y-4">
+          
+          <!-- Q1 -->
+          <details class="faq-accordion-item rounded-2xl border border-white/10 bg-[#121216] p-6 text-left" open>
+            <summary class="font-display text-lg font-bold text-white flex items-center justify-between gap-4">
+              <span>Can you really build a website in one day?</span>
+              <span class="faq-chevron text-zinc-400 text-xl font-bold shrink-0">↓</span>
+            </summary>
+            <div class="mt-4 pt-4 border-t border-white/5 text-zinc-300 text-sm sm:text-base leading-relaxed">
+              Yes, for eligible projects. We use established, industry-specific website foundations and customize them with your business information. The one-day build begins once we have everything needed to start.
+            </div>
+          </details>
+
+          <!-- Q2 -->
+          <details class="faq-accordion-item rounded-2xl border border-white/10 bg-[#121216] p-6 text-left">
+            <summary class="font-display text-lg font-bold text-white flex items-center justify-between gap-4">
+              <span>Will my website look like everyone else's?</span>
+              <span class="faq-chevron text-zinc-400 text-xl font-bold shrink-0">↓</span>
+            </summary>
+            <div class="mt-4 pt-4 border-t border-white/5 text-zinc-300 text-sm sm:text-base leading-relaxed">
+              We tailor the branding, content, imagery, and relevant sections to your business. The underlying design system is established, but the final presentation reflects your company.
+            </div>
+          </details>
+
+          <!-- Q3 -->
+          <details class="faq-accordion-item rounded-2xl border border-white/10 bg-[#121216] p-6 text-left">
+            <summary class="font-display text-lg font-bold text-white flex items-center justify-between gap-4">
+              <span>What do you need from me?</span>
+              <span class="faq-chevron text-zinc-400 text-xl font-bold shrink-0">↓</span>
+            </summary>
+            <div class="mt-4 pt-4 border-t border-white/5 text-zinc-300 text-sm sm:text-base leading-relaxed">
+              Your business details, services, contact information, logo, and any relevant photos or branding materials. We'll guide you through the essentials.
+            </div>
+          </details>
+
+          <!-- Q4 -->
+          <details class="faq-accordion-item rounded-2xl border border-white/10 bg-[#121216] p-6 text-left">
+            <summary class="font-display text-lg font-bold text-white flex items-center justify-between gap-4">
+              <span>Can I request changes?</span>
+              <span class="faq-chevron text-zinc-400 text-xl font-bold shrink-0">↓</span>
+            </summary>
+            <div class="mt-4 pt-4 border-t border-white/5 text-zinc-300 text-sm sm:text-base leading-relaxed">
+              Yes. The number and scope of revisions depend on your selected package. We'll explain what's included before the project begins.
+            </div>
+          </details>
+
+          <!-- Q5 -->
+          <details class="faq-accordion-item rounded-2xl border border-white/10 bg-[#121216] p-6 text-left">
+            <summary class="font-display text-lg font-bold text-white flex items-center justify-between gap-4">
+              <span>Will my website work on mobile?</span>
+              <span class="faq-chevron text-zinc-400 text-xl font-bold shrink-0">↓</span>
+            </summary>
+            <div class="mt-4 pt-4 border-t border-white/5 text-zinc-300 text-sm sm:text-base leading-relaxed">
+              Yes. Responsive design is a core part of the service.
+            </div>
+          </details>
+
+          <!-- Q6 -->
+          <details class="faq-accordion-item rounded-2xl border border-white/10 bg-[#121216] p-6 text-left">
+            <summary class="font-display text-lg font-bold text-white flex items-center justify-between gap-4">
+              <span>Is hosting and a domain included?</span>
+              <span class="faq-chevron text-zinc-400 text-xl font-bold shrink-0">↓</span>
+            </summary>
+            <div class="mt-4 pt-4 border-t border-white/5 text-zinc-300 text-sm sm:text-base leading-relaxed">
+              Hosting and domain arrangements depend on the package. We'll confirm what's included before work starts.
+            </div>
+          </details>
+
+          <!-- Q7 -->
+          <details class="faq-accordion-item rounded-2xl border border-white/10 bg-[#121216] p-6 text-left">
+            <summary class="font-display text-lg font-bold text-white flex items-center justify-between gap-4">
+              <span>Can I add more pages later?</span>
+              <span class="faq-chevron text-zinc-400 text-xl font-bold shrink-0">↓</span>
+            </summary>
+            <div class="mt-4 pt-4 border-t border-white/5 text-zinc-300 text-sm sm:text-base leading-relaxed">
+              Yes. Your website can be expanded with additional pages and features as your business grows.
+            </div>
+          </details>
+
+          <!-- Q8 -->
+          <details class="faq-accordion-item rounded-2xl border border-white/10 bg-[#121216] p-6 text-left">
+            <summary class="font-display text-lg font-bold text-white flex items-center justify-between gap-4">
+              <span>Is this suitable for every type of business?</span>
+              <span class="faq-chevron text-zinc-400 text-xl font-bold shrink-0">↓</span>
+            </summary>
+            <div class="mt-4 pt-4 border-t border-white/5 text-zinc-300 text-sm sm:text-base leading-relaxed">
+              One Day Websites is designed primarily for straightforward local service business websites. Complex custom functionality, large content requirements, and specialized integrations may require a different project scope.
+            </div>
+          </details>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 10: FINAL CTA SECTION (Memorable High-Contrast Closing)
+         ======================================================================= -->
+    <section class="py-24 md:py-32 relative border-t border-white/5 bg-[#09090B] overflow-hidden" id="contact" aria-label="Ready to Launch Website">
+      <!-- Glow ambient background -->
+      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#BFF747]/15 rounded-full blur-[140px] pointer-events-none" aria-hidden="true"></div>
+
+      <div class="max-w-4xl mx-auto px-5 sm:px-8 text-center relative z-10">
+        
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#BFF747]/10 border border-[#BFF747]/25 text-xs font-mono font-bold tracking-widest text-[#BFF747] uppercase mb-6">
+          ✦ Get Your Website Live
+        </div>
+
+        <h2 class="font-display text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight mb-6">
+          Your New Website Could Be<br>
+          <span class="text-[#BFF747] drop-shadow-[0_0_30px_rgba(191,247,71,0.45)]">Ready Tomorrow.</span>
+        </h2>
+
+        <p class="text-zinc-300 text-base sm:text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
+          Tell us about your business. We'll help you find the right website foundation and get the process moving.
+        </p>
+
+        <!-- CTA Cluster -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+          <button data-open-modal="lead-modal" class="btn-lime-primary text-base font-extrabold px-9 py-4 shadow-[0_0_35px_rgba(191,247,71,0.4)] cursor-pointer w-full sm:w-auto">
+            <span>Get My One-Day Website</span>
+            <span aria-hidden="true">→</span>
+          </button>
+          <a href="mailto:hello@craftingwebdesigns.com" class="btn-glass-secondary text-base font-semibold px-8 py-4 w-full sm:w-auto text-center">
+            <span>Ask a Question</span>
+          </a>
+        </div>
+
+        <!-- Tasteful Reassurance (No fake delivery promises) -->
+        <p class="text-xs font-medium text-zinc-400">
+          Simple process. Clear scope. No unnecessary delays.
+        </p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =======================================================================
+       LEAD CAPTURE MODAL (Lead Form)
+       ======================================================================= -->
+  <div id="lead-modal-backdrop" aria-hidden="true"></div>
+
+  <div id="lead-modal-dialog" class="w-full max-w-xl mx-auto p-4 sm:p-6" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title">
+    <div class="rounded-3xl border border-white/15 bg-[#121216] p-6 sm:p-8 shadow-2xl relative text-left">
+      
+      <!-- Close Button -->
+      <button id="lead-modal-close" aria-label="Close Modal" class="absolute top-5 right-5 w-8 h-8 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white flex items-center justify-center text-sm cursor-pointer transition-colors">
+        ✕
+      </button>
+
+      <!-- Modal Header -->
+      <div class="mb-6">
+        <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-[#BFF747]/10 border border-[#BFF747]/20 text-[11px] font-mono font-bold text-[#BFF747] uppercase mb-2">
+          One Day Websites Intake
+        </div>
+        <h3 id="lead-modal-title" class="font-display text-2xl font-black text-white tracking-tight">
+          Request Your One-Day Website
+        </h3>
+        <p class="text-zinc-400 text-xs sm:text-sm mt-1">
+          Tell us about your business and we'll check eligibility and confirm your build slot.
+        </p>
+      </div>
+
+      <!-- Lead Capture Form -->
+      <form id="one-day-lead-form" class="space-y-4">
+        
+        <!-- 1. Business Name -->
+        <div>
+          <label for="lead-business" class="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-1.5">
+            Business Name <span class="text-[#BFF747]">*</span>
+          </label>
+          <input type="text" id="lead-business" name="business_name" required placeholder="e.g. Keystone Roofing Ltd" class="cwd-input">
+        </div>
+
+        <!-- 2. Your Name & Email (2 Cols on desktop) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="lead-name" class="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-1.5">
+              Your Name <span class="text-[#BFF747]">*</span>
+            </label>
+            <input type="text" id="lead-name" name="contact_name" required placeholder="e.g. John Smith" class="cwd-input">
+          </div>
+          <div>
+            <label for="lead-email" class="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-1.5">
+              Email Address <span class="text-[#BFF747]">*</span>
+            </label>
+            <input type="email" id="lead-email" name="contact_email" required placeholder="john@example.com" class="cwd-input">
+          </div>
+        </div>
+
+        <!-- 3. Phone / WhatsApp & Business Industry -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="lead-phone" class="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-1.5">
+              Phone / WhatsApp <span class="text-[#BFF747]">*</span>
+            </label>
+            <input type="tel" id="lead-phone" name="contact_phone" required placeholder="+44 7123 456789" class="cwd-input">
+          </div>
+          <div>
+            <label for="lead-industry" class="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-1.5">
+              Business Industry <span class="text-[#BFF747]">*</span>
+            </label>
+            <select id="lead-industry" name="business_industry" required class="cwd-input cwd-select">
+              <option value="" disabled selected>Select your industry</option>
+              <option value="Roofing & Building Contractors">Roofing & Building Contractors</option>
+              <option value="Plumbing & HVAC">Plumbing & HVAC</option>
+              <option value="Landscaping & Garden Services">Landscaping & Garden Services</option>
+              <option value="Dermatology & Aesthetic Clinics">Dermatology & Aesthetic Clinics</option>
+              <option value="Chiropractic & Wellness Clinics">Chiropractic & Wellness Clinics</option>
+              <option value="Other Local Service Businesses">Other Local Service Businesses</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- 4. Existing Website Dropdown -->
+        <div>
+          <label for="lead-existing-site" class="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-1.5">
+            Do you have an existing website? <span class="text-[#BFF747]">*</span>
+          </label>
+          <select id="lead-existing-site" name="has_existing_website" required class="cwd-input cwd-select">
+            <option value="No">No — this will be our first website</option>
+            <option value="Yes">Yes — we want to revamp an existing site</option>
+          </select>
+        </div>
+
+        <!-- 5. What do you need? (Textarea) -->
+        <div>
+          <label for="lead-notes" class="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-1.5">
+            What do you need? (Services, timeline, goals)
+          </label>
+          <textarea id="lead-notes" name="project_notes" rows="3" placeholder="Tell us briefly about the services you offer and any specific requirements..." class="cwd-input resize-none"></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="pt-2">
+          <button type="submit" class="w-full btn-lime-primary text-sm font-extrabold py-4 flex items-center justify-center gap-2 cursor-pointer">
+            <span>Request My One-Day Website</span>
+            <span aria-hidden="true">→</span>
+          </button>
+        </div>
+
+        <p class="text-[11px] text-zinc-500 text-center">
+          We reply within 2 working hours with foundation recommendations.
+        </p>
+
+      </form>
+
+      <!-- Submission Success Feedback State -->
+      <div id="lead-modal-success" class="hidden text-center py-8">
+        <div class="w-14 h-14 rounded-full bg-[#BFF747]/20 border border-[#BFF747]/40 text-[#BFF747] text-2xl flex items-center justify-center mx-auto mb-4">
+          ✓
+        </div>
+        <h4 class="font-display text-2xl font-bold text-white mb-2">Request Received!</h4>
+        <p class="text-zinc-300 text-sm max-w-md mx-auto leading-relaxed mb-6">
+          Thank you! We've received your business details and are checking the optimal industry foundation for your website. We'll be in touch shortly.
+        </p>
+        <button onclick="document.getElementById('lead-modal-close').click()" class="btn-glass-secondary text-xs font-bold px-6 py-2.5">
+          Close Window
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       MASSIVE FOOTER (Preserved Brand Typography Statement & Quad Grid)
+       ======================================================================= -->
+  <footer class="site-massive-footer" id="footer" aria-label="Crafting Web Designs Global Footer">
+    <!-- Brand Headline Statement -->
+    <div class="text-center font-black uppercase tracking-tighter leading-none my-12">
+      <span class="block text-white text-[clamp(2.5rem,9vw,7rem)]">CRAFTING WEB</span>
+      <span class="block text-[#BFF747] text-[clamp(2.5rem,9vw,7rem)]">DESIGNS</span>
+    </div>
+
+    <div class="footer-core-shell">
+      <!-- 4-Column High-Impact Content Grid -->
+      <div class="footer-grid-quad">
+        
+        <!-- Column 1: Direct Inquiries & Sprint Booking -->
+        <div class="footer-quad-col col-sprint-booking">
+          <div class="footer-col-eyebrow">
+            <span class="eyebrow-accent-dot"></span>
+            <span>Direct Studio Inquiries</span>
+          </div>
+          <div class="footer-copy-email-card" id="copy-email-card">
+            <span class="copy-card-label">Official Studio Email</span>
+            <div class="copy-email-interactive-row">
+              <span class="email-address-text" id="email-address-text">hello@craftingwebdesigns.com</span>
+              <button class="copy-action-btn" id="copy-email-btn" aria-label="Copy studio email address to clipboard">
+                <span class="copy-icon-label" id="copy-feedback-label">COPY</span>
+              </button>
+            </div>
+          </div>
+          <div class="footer-sprint-trigger-wrap">
+            <button data-open-modal="lead-modal" class="footer-sprint-btn group">
+              <span class="sprint-btn-glow" aria-hidden="true"></span>
+              <span class="sprint-btn-text">Request One-Day Website</span>
+              <span class="sprint-btn-arrow" aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Column 2: Navigation Links -->
+        <div class="footer-quad-col col-nav-directory">
+          <div class="footer-col-eyebrow">
+            <span class="eyebrow-accent-dot"></span>
+            <span>Navigation Directory</span>
+          </div>
+          <ul class="footer-nav-list" role="list">
+            <li><a href="./#proof" class="footer-nav-anchor"><span>Client Outcomes</span><span class="nav-arrow">↗</span></a></li>
+            <li><a href="./#capabilities" class="footer-nav-anchor"><span>Full Capabilities</span><span class="nav-arrow">↗</span></a></li>
+            <li><a href="#hero" class="footer-nav-anchor text-[#BFF747]"><span>One Day Websites</span><span class="nav-arrow">★</span></a></li>
+            <li><a href="./#advantages" class="footer-nav-anchor"><span>The CWD Advantage</span><span class="nav-arrow">↗</span></a></li>
+            <li><a href="./#process" class="footer-nav-anchor"><span>Rapid Process</span><span class="nav-arrow">↗</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Regional Hubs -->
+        <div class="footer-quad-col col-global-hubs">
+          <div class="footer-col-eyebrow">
+            <span class="eyebrow-accent-dot"></span>
+            <span>Worldwide Delivery</span>
+          </div>
+          <div class="footer-hubs-grid">
+            <div class="hub-item"><span class="hub-badge-flag">🇬🇧</span><div class="hub-info"><span class="hub-city">London</span><span class="hub-metric">UK &amp; Europe</span></div></div>
+            <div class="hub-item"><span class="hub-badge-flag">🇺🇸</span><div class="hub-info"><span class="hub-city">New York</span><span class="hub-metric">Americas</span></div></div>
+            <div class="hub-item"><span class="hub-badge-flag">🇦🇺</span><div class="hub-info"><span class="hub-city">Sydney</span><span class="hub-metric">Asia-Pacific</span></div></div>
+          </div>
+        </div>
+
+        <!-- Column 4: Studio Accreditation & Security -->
+        <div class="footer-quad-col col-studio-security">
+          <div class="footer-col-eyebrow">
+            <span class="eyebrow-accent-dot"></span>
+            <span>Studio Standards</span>
+          </div>
+          <div class="security-assurance-box">
+            <div class="assurance-row"><span class="assurance-icon">🛡️</span><span>Zero-Risk Live Previews</span></div>
+            <div class="assurance-row"><span class="assurance-icon">⚡</span><span>1-Working-Day Rapid Build</span></div>
+            <div class="assurance-row"><span class="assurance-icon">💻</span><span>100% Code Ownership</span></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar: Copyright & Back-to-Top -->
+      <div class="footer-bottom-bar">
+        <div class="footer-copyright-text">
+          <span>&copy; 2026 Crafting Web Designs (CWD). All rights reserved.</span>
+          <span class="footer-legal-tag">Built for High-Growth Local Leaders.</span>
+        </div>
+        <button class="footer-back-to-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Scroll back to top of page">
+          <span class="back-top-arrow">↑</span>
+          <span class="back-top-label">BACK TO TOP</span>
+        </button>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="./js/one-day-websites.js?v=1.0"></script>
+</body>
+</html>

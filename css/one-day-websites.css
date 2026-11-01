@@ -1,0 +1,335 @@
+/* ==========================================================================
+   Crafting Web Designs (CWD) - One Day Websites Service Page Stylesheet
+   Brand: Crafting Web Designs | Primary Accent: #BFF747 / #C6F24D
+   Typography: Syne (Headings) & Inter / Plus Jakarta Sans (Body & UI)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Typography Classes
+   -------------------------------------------------------------------------- */
+.font-display {
+  font-family: 'Syne', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+}
+
+.font-body {
+  font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+}
+
+/* --------------------------------------------------------------------------
+   Reduced Motion Preferences
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Hero Section Animations
+   -------------------------------------------------------------------------- */
+@keyframes heroRevealFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroMockupEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(32px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes phoneFloatSubtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.hero-animate-eyebrow {
+  animation: heroRevealFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+.hero-animate-title {
+  animation: heroRevealFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both;
+}
+
+.hero-animate-copy {
+  animation: heroRevealFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.34s both;
+}
+
+.hero-animate-cta {
+  animation: heroRevealFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.46s both;
+}
+
+.hero-animate-visual {
+  animation: heroMockupEntrance 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+}
+
+.animate-phone-float {
+  animation: phoneFloatSubtle 6s ease-in-out infinite;
+}
+
+/* --------------------------------------------------------------------------
+   Interactive Solution Stages Visual
+   -------------------------------------------------------------------------- */
+.stage-tab-btn {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stage-tab-btn.is-active {
+  background: rgba(191, 247, 71, 0.1) !important;
+  border-color: rgba(191, 247, 71, 0.35) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 0 20px -3px rgba(191, 247, 71, 0.2) !important;
+}
+
+.stage-tab-btn.is-active .stage-number {
+  background: #BFF747 !important;
+  color: #09090B !important;
+}
+
+.stage-tab-btn.is-active .stage-title {
+  color: #BFF747 !important;
+}
+
+/* Preview Screen Transitions */
+.solution-stage-view {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(0.98);
+  pointer-events: none;
+}
+
+.solution-stage-view.is-active {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Built for Local Businesses (Industry Cards)
+   -------------------------------------------------------------------------- */
+.industry-showcase-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.4s ease;
+}
+
+.industry-showcase-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(191, 247, 71, 0.35);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8), 0 0 25px -4px rgba(191, 247, 71, 0.12);
+}
+
+.industry-showcase-card:hover .industry-card-img {
+  transform: scale(1.05);
+}
+
+/* --------------------------------------------------------------------------
+   What You Get Feature Grid
+   -------------------------------------------------------------------------- */
+.feature-box-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, background 0.3s ease;
+}
+
+.feature-box-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(191, 247, 71, 0.3);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* --------------------------------------------------------------------------
+   How It Works Timeline
+   -------------------------------------------------------------------------- */
+.process-step-pill {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.process-step-pill:hover {
+  border-color: rgba(191, 247, 71, 0.3);
+  background: rgba(18, 18, 22, 0.95);
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   Comparison Table Styles
+   -------------------------------------------------------------------------- */
+.comparison-card-highlight {
+  position: relative;
+  background: linear-gradient(180deg, rgba(22, 24, 20, 0.9) 0%, rgba(13, 14, 12, 0.95) 100%) !important;
+  border: 1px solid rgba(191, 247, 71, 0.35) !important;
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.8), 0 0 35px -5px rgba(191, 247, 71, 0.15) !important;
+}
+
+/* --------------------------------------------------------------------------
+   FAQ Accordion Styles
+   -------------------------------------------------------------------------- */
+.faq-accordion-item {
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.faq-accordion-item[open] {
+  border-color: rgba(191, 247, 71, 0.3);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.faq-accordion-item summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.faq-accordion-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-chevron {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-accordion-item[open] .faq-chevron {
+  transform: rotate(180deg);
+  color: #BFF747;
+}
+
+/* --------------------------------------------------------------------------
+   Lead Capture Modal
+   -------------------------------------------------------------------------- */
+#lead-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+#lead-modal-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#lead-modal-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -46%) scale(0.95);
+  z-index: 1001;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+#lead-modal-dialog.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Custom form inputs */
+.cwd-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: #FFFFFF;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cwd-input:focus {
+  border-color: #BFF747;
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 0 3px rgba(191, 247, 71, 0.15);
+}
+
+.cwd-input::placeholder {
+  color: #71717A;
+}
+
+.cwd-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23A1A1AA' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+/* Buttons */
+.btn-lime-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #BFF747;
+  color: #09090B;
+  font-weight: 800;
+  font-size: 0.9375rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 25px rgba(191, 247, 71, 0.35);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-lime-primary:hover {
+  background: #CFF96B;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 35px rgba(191, 247, 71, 0.5);
+}
+
+.btn-lime-primary:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.btn-glass-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-glass-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
