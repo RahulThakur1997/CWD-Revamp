@@ -325,7 +325,9 @@ function initCardStackScroll() {
   function onScroll() {
     if (window.innerWidth <= 768) {
       cards.forEach((card) => {
-        card.style.transform = '';
+        card.style.transform = 'none';
+        card.style.position = 'relative';
+        card.style.top = 'auto';
       });
       return;
     }

@@ -76,9 +76,9 @@
         powerPreference: isMobile ? 'default' : 'high-performance',
         precision: isMobile ? 'mediump' : 'highp'
       });
-      // Cap pixel ratio to prevent mobile GPU crashes / black screen freeze
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile ? 1.0 : 1.5));
-      renderer.setSize(width, height);
+      // Cap WebGL pixel ratio to prevent mobile GPU context loss/crashing
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+      renderer.setSize(container.clientWidth || width, container.clientHeight || height);
       if (renderer.outputEncoding !== undefined) {
         renderer.outputEncoding = THREE.sRGBEncoding;
       }
@@ -301,6 +301,10 @@
     let time = 0;
 
     canvas.addEventListener('pointerdown', (e) => {
+      // Never capture pointer on mobile touch, so touchmove won't hijack browser scroll
+      if (e.pointerType !== 'touch') {
+        try { canvas.setPointerCapture(e.pointerId); } catch (_) {}
+      }
       isDragging = true;
       isTouch = e.pointerType === 'touch';
       startX = e.clientX;
@@ -309,58 +313,60 @@
       prevY = e.clientY;
       velX = 0;
       velY = 0;
-      try { canvas.setPointerCapture(e.pointerId); } catch (_) {}
       canvas.style.cursor = 'grabbing';
-    });
+    }, { passive: true });
 
     canvas.addEventListener('pointermove', (e) => {
-      if (isDragging) {
-        // If user is on a touch device and swipes predominantly vertical, release capture to allow normal page scrolling
-        if (isTouch) {
-          const totalY = Math.abs(e.clientY - startY);
-          const totalX = Math.abs(e.clientX - startX);
-          if (totalY > 18 && totalY > totalX * 1.5) {
-            isDragging = false;
-            try { canvas.releasePointerCapture(e.pointerId); } catch (_) {}
-            canvas.style.cursor = 'grab';
-            return;
-          }
+      if (!isDragging) return;
+
+      const deltaX = e.clientX - prevX;
+      const deltaY = e.clientY - prevY;
+
+      // On touch devices, if vertical movement dominates, cancel drag and allow native page scroll
+      if (isTouch) {
+        if (Math.abs(deltaY) > Math.abs(deltaX)) {
+          isDragging = false;
+          canvas.style.cursor = 'grab';
+          return;
         }
+      }
 
-        const deltaX = e.clientX - prevX;
-        const deltaY = e.clientY - prevY;
-        prevX = e.clientX;
-        prevY = e.clientY;
+      prevX = e.clientX;
+      prevY = e.clientY;
 
-        velY = deltaX * 0.0055;
-        velX = deltaY * 0.0055;
+      velY = deltaX * 0.0055;
+      velX = isTouch ? 0 : deltaY * 0.0055; // On mobile touch, rotate only horizontally
 
-        globeGroup.rotation.y += velY;
+      globeGroup.rotation.y += velY;
+      if (!isTouch) {
         globeGroup.rotation.x += velX;
         globeGroup.rotation.x = Math.max(-0.65, Math.min(0.65, globeGroup.rotation.x));
       }
-    });
+    }, { passive: true });
 
     function stopDrag(e) {
       if (isDragging) {
         isDragging = false;
         canvas.style.cursor = 'grab';
-        try { canvas.releasePointerCapture(e.pointerId); } catch (_) {}
+        if (e && e.pointerId && e.pointerType !== 'touch') {
+          try { canvas.releasePointerCapture(e.pointerId); } catch (_) {}
+        }
       }
     }
 
-    canvas.addEventListener('pointerup', stopDrag);
-    canvas.addEventListener('pointercancel', stopDrag);
+    canvas.addEventListener('pointerup', stopDrag, { passive: true });
+    canvas.addEventListener('pointercancel', stopDrag, { passive: true });
 
     // Resize Handler
     function onResize() {
-      width = container.clientWidth || 680;
-      height = container.clientHeight || 560;
+      width = container.clientWidth || (window.innerWidth < 768 ? 340 : 680);
+      height = container.clientHeight || (window.innerWidth < 768 ? 340 : 560);
       camera.aspect = width / height;
       const mobileActive = width < 768 || window.innerWidth < 768;
       camera.position.z = mobileActive ? 290 : 295;
       camera.updateProjectionMatrix();
-      renderer.setSize(width, height);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+      renderer.setSize(container.clientWidth || width, container.clientHeight || height);
     }
     window.addEventListener('resize', onResize, { passive: true });
 

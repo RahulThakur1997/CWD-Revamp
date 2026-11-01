@@ -56,11 +56,18 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   scroll-behavior: smooth;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  height: auto !important;
+  min-height: 100% !important;
 }
 
 body {
   position: relative;
-  min-height: 100vh;
+  min-height: 100% !important;
+  height: auto !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
   background-color: var(--bg-primary);
   color: var(--text-white);
   selection-background-color: var(--brand-lime);
@@ -1385,31 +1392,33 @@ img {
    ========================================================================== */
 
 .industry-stack-section {
-  background-color: #F8F9FA;
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
   padding: 6.5rem 1.5rem 9.5rem 1.5rem;
   position: relative;
   border-top: 1px solid #E5E7EB;
   border-bottom: 1px solid #E5E7EB;
   color: #111827;
+  overflow: visible !important;
 }
 
-.industry-stack-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 1200px;
-  height: 520px;
-  background: radial-gradient(ellipse at 50% 0%, rgba(198, 242, 77, 0.08), transparent 70%);
-  pointer-events: none;
+.industry-stack-section::before,
+.industry-stack-section::after,
+.stack-container::before,
+.stack-container::after,
+.stack-cards-deck::before,
+.stack-cards-deck::after {
+  display: none !important;
+  content: none !important;
+  background: none !important;
 }
 
 .stack-container {
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
+  background: #FFFFFF !important;
+  overflow: visible !important;
 }
 
 .stack-header-wrapper {
@@ -7527,6 +7536,8 @@ img {
   .stack-card-2,
   .stack-card-3,
   .stack-card-4,
+  [data-card-stack] > div,
+  [data-card-stack] > article,
   .why-pinned-column,
   [data-pin],
   .pin-spacer {
@@ -7539,13 +7550,19 @@ img {
     overflow: visible !important;
     transform: none !important;
     width: 100% !important;
+    opacity: 1 !important;
+    visibility: visible !important;
     box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.1) !important;
   }
 
-  .stack-cards-deck {
+  .stack-cards-deck,
+  [data-card-stack] {
     display: flex !important;
     flex-direction: column !important;
     gap: 0 !important;
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
+    overflow: visible !important;
   }
 }
 
@@ -8082,31 +8099,29 @@ img {
     font-weight: 600 !important;
   }
 
-  /* Constrain Globe Stage: w-[300px] h-[300px] max-w-[85vw] mx-auto overflow-visible */
-  .globe-stage-wrapper.full-globe-stage {
-    height: 300px !important;
-    min-height: 300px !important;
+  /* Constrain Globe Stage: strict isolated dimensions max-width: 340px, height: 340px, overflow: hidden */
+  .globe-stage-wrapper.full-globe-stage,
+  .globe-canvas-container.full-globe-canvas-wrap {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 340px !important;
+    height: 340px !important;
+    min-height: 340px !important;
+    margin: 0 auto !important;
+    overflow: hidden !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    margin: 0 auto !important;
-    overflow: visible !important;
-  }
-
-  .globe-canvas-container.full-globe-canvas-wrap {
-    width: 300px !important;
-    height: 300px !important;
-    max-width: 85vw !important;
-    margin: 0 auto !important;
-    position: relative !important;
-    overflow: visible !important;
   }
 
   #interactive-globe-canvas.globe-canvas {
-    width: 300px !important;
-    height: 300px !important;
-    max-width: 85vw !important;
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 340px !important;
+    max-height: 340px !important;
     touch-action: pan-y !important;
+    display: block !important;
   }
 
   .globe-hint-pill {
@@ -8114,4 +8129,13 @@ img {
     padding: 0.35rem 0.75rem !important;
     font-size: 0.7rem !important;
   }
+}
+
+/* 7. THREE.JS & CANVAS VIEWPORT GUARDS */
+/* Under no circumstances should the Three.js canvas or its wrapper have fixed positioning or 100vh blowout */
+.globe-canvas-container,
+#interactive-globe-canvas,
+.globe-stage-wrapper {
+  position: relative;
+  max-height: 100%;
 }

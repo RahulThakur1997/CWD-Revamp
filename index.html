@@ -76,6 +76,89 @@
 
   <!-- Critical Anti-Collision & Zero-FOUC Inline Overrides -->
   <style>
+    /* Global Viewport Overflow Audit: Smooth, Unbroken Scroll */
+    html, body {
+      overflow-x: hidden !important;
+      overflow-y: auto !important;
+      height: auto !important;
+      min-height: 100% !important;
+    }
+
+    /* Stacking Cards Container Isolation & Background Purity */
+    .industry-stack-section,
+    .stack-container,
+    .stack-cards-deck,
+    [data-card-stack] {
+      background: #FFFFFF !important;
+      background-color: #FFFFFF !important;
+      overflow: visible !important;
+      position: relative !important;
+    }
+
+    .industry-stack-section::before,
+    .industry-stack-section::after,
+    .stack-container::before,
+    .stack-container::after,
+    .stack-cards-deck::before,
+    .stack-cards-deck::after,
+    [data-card-stack]::before,
+    [data-card-stack]::after {
+      display: none !important;
+      content: none !important;
+      background: none !important;
+    }
+
+    /* Disable sticky card pinning and eliminate black clipping on mobile (< 768px) */
+    @media (max-width: 767px) {
+      .industry-stack-section,
+      .stack-container,
+      .stack-cards-deck,
+      [data-card-stack] {
+        background: #FFFFFF !important;
+        background-color: #FFFFFF !important;
+        overflow: visible !important;
+      }
+      .stack-card,
+      .stack-card-1,
+      .stack-card-2,
+      .stack-card-3,
+      .stack-card-4,
+      [data-card-stack] > div,
+      [data-card-stack] > article {
+        position: relative !important;
+        top: auto !important;
+        transform: none !important;
+        margin-bottom: 2rem !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        height: auto !important;
+        min-height: auto !important;
+      }
+      /* Constrain Globe Stage: strict isolated dimensions */
+      .globe-stage-wrapper.full-globe-stage,
+      .globe-canvas-container.full-globe-canvas-wrap {
+        position: relative !important;
+        width: 100% !important;
+        max-width: 340px !important;
+        height: 340px !important;
+        min-height: 340px !important;
+        margin: 0 auto !important;
+        overflow: hidden !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+      }
+      #interactive-globe-canvas.globe-canvas {
+        position: relative !important;
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 340px !important;
+        max-height: 340px !important;
+        touch-action: pan-y !important;
+        display: block !important;
+      }
+    }
+
     /* Absolutely Positioned Header Bar & Right-Side Menu Button */
     #site-header,
     .site-header {
@@ -905,7 +988,7 @@
         </div>
 
         <!-- Sticky Stacking Cards Deck -->
-        <div class="stack-cards-deck">
+        <div class="stack-cards-deck" data-card-stack>
 
           <!-- CARD 1: Keystone Roofing & Building -->
           <article class="stack-card stack-card-1"
