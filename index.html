@@ -198,10 +198,101 @@
       color: #FFFFFF !important;
     }
 
-    /* Hero Vertical Hierarchy Spacing */
+    /* Hero Vertical Hierarchy Spacing & Flow */
     .hero-section,
     #hero {
       padding-top: clamp(3.25rem, 6vh, 5rem) !important;
+    }
+
+    /* Mobile Hero Layout (< 768px): Strict Inverted Funnel & Tight Spacing */
+    @media (max-width: 767px) {
+      .hero-section,
+      #hero {
+        padding-top: 3.75rem !important;
+      }
+      .hero-capsule-logo-wrap {
+        margin-bottom: 14px !important;
+      }
+      .hero-rating-pill-top,
+      .micro-proof-bar {
+        display: inline-flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
+        padding: 0.35rem 0.75rem !important;
+        margin-top: 0 !important;
+        margin-bottom: 16px !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 9999px !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+        white-space: nowrap !important;
+        max-width: 95vw !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+      }
+      .proof-avatars {
+        display: flex !important;
+        align-items: center !important;
+        flex-shrink: 0 !important;
+      }
+      .proof-avatar-item {
+        width: 20px !important;
+        height: 20px !important;
+        margin-left: -6px !important;
+        border: 1px solid #000000 !important;
+        border-radius: 9999px !important;
+        flex-shrink: 0 !important;
+        overflow: hidden !important;
+      }
+      .proof-avatar-item:first-child {
+        margin-left: 0 !important;
+      }
+      .proof-rating-stars {
+        font-size: 10px !important;
+        color: #FBBF24 !important;
+        letter-spacing: -0.05em !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        flex-shrink: 0 !important;
+        filter: none !important;
+      }
+      .proof-rating-caption {
+        font-size: 11px !important;
+        font-weight: 500 !important;
+        color: #D4D4D8 !important;
+        white-space: nowrap !important;
+        line-height: 1 !important;
+      }
+      .proof-rating-caption strong {
+        color: #FFFFFF !important;
+        font-weight: 700 !important;
+      }
+      .hero-headline.hero-inverted-funnel {
+        margin-top: 0 !important;
+        margin-bottom: 20px !important;
+      }
+      .hero-headline .funnel-line-1 {
+        font-size: clamp(1.85rem, 7.8vw, 2.35rem) !important;
+        line-height: 1.15 !important;
+      }
+      .hero-headline .funnel-line-2 {
+        font-size: clamp(2.15rem, 9.2vw, 2.75rem) !important;
+        line-height: 1.12 !important;
+      }
+      .hero-headline .funnel-line-3 {
+        font-size: clamp(1.4rem, 6.2vw, 1.85rem) !important;
+        line-height: 1.18 !important;
+        margin-top: 4px !important;
+      }
+      .hero-cta-group {
+        margin-top: 0 !important;
+        margin-bottom: 28px !important;
+      }
+      .cta-primary-btn {
+        padding: 0.85rem 1.75rem !important;
+        font-size: 0.95rem !important;
+      }
     }
 
     /* Navigation Overlay Backdrop */
@@ -400,7 +491,7 @@
       <div class="hero-inner">
 
         <!-- 1. Centered CWD Capsule Logo (Elevated Glass Pill with Neon Glow & Rim Lighting) -->
-        <div class="hero-capsule-logo-wrap mb-5">
+        <div class="hero-capsule-logo-wrap mb-[14px] md:mb-5">
           <a href="#" class="brand-capsule-pill inline-flex items-center gap-2.5 px-4 py-2 rounded-2xl bg-[#111115]/85 border border-white/12 backdrop-blur-xl transition-all duration-300 hover:border-white/25 hover:scale-[1.02] group no-underline" style="background: rgba(17, 17, 21, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.12); box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.6), inset 0 1px 1px 0 rgba(255, 255, 255, 0.18), 0 0 20px -2px rgba(198, 242, 77, 0.08);" aria-label="Crafting Web Designs Homepage">
             <div class="brand-capsule-icon w-7 h-7 rounded-lg bg-black/60 border border-[rgba(198,242,77,0.25)] flex items-center justify-center relative shadow-[0_0_12px_rgba(198,242,77,0.15)] shrink-0 overflow-hidden" style="width: 28px; height: 28px; border-radius: 8px; background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(198, 242, 77, 0.25); display: flex; align-items: center; justify-content: center; position: relative; box-shadow: 0 0 12px rgba(198, 242, 77, 0.15); padding: 3px;">
               <img src="./assets/logo.png" alt="CWD Logo" class="cwd-glow-logo w-full h-full object-contain" onerror="handleImgError(this)" style="width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 6px rgba(198, 242, 77, 0.65)) drop-shadow(0 0 14px rgba(198, 242, 77, 0.35));">
@@ -409,31 +500,35 @@
           </a>
         </div>
 
-        <!-- 2. Rating Badge / Social Proof Pill (Placed directly beneath Capsule Logo) -->
-        <!-- Rating Pill / Social Proof Badge (Placed ABOVE the main headline) -->
-        <div class="micro-proof-bar hero-rating-pill-top">
-          <div class="proof-avatars" aria-label="Verified Client Founders">
-            <div class="proof-avatar-item" title="Vignesh - Verified Client">
-              <img src="./assets/avatars/vignesh.webp" alt="Vignesh" class="proof-avatar-img avatar-vignesh" loading="eager" decoding="async" onerror="handleImgError(this)">
+        <!-- 2. Compact Single-Line Rating Pill (Never wraps on mobile) -->
+        <div class="micro-proof-bar hero-rating-pill-top inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md shadow-sm mx-auto mb-4 md:mb-6 whitespace-nowrap" style="margin-top: 0; margin-bottom: 16px;">
+          <!-- Overlapping Client Avatars -->
+          <div class="proof-avatars flex items-center shrink-0" aria-label="Verified Client Founders">
+            <div class="proof-avatar-item w-5 h-5 rounded-full border border-black -ml-1.5 first:ml-0 overflow-hidden shrink-0" title="Vignesh - Verified Client">
+              <img src="./assets/avatars/vignesh.webp" alt="Vignesh" class="proof-avatar-img avatar-vignesh w-full h-full object-cover" loading="eager" decoding="async" onerror="handleImgError(this)">
             </div>
-            <div class="proof-avatar-item" title="Milano Joe - Verified Client">
-              <img src="./assets/avatars/milano-joe.webp" alt="Milano Joe" class="proof-avatar-img" loading="eager" decoding="async" onerror="handleImgError(this)">
+            <div class="proof-avatar-item w-5 h-5 rounded-full border border-black -ml-1.5 first:ml-0 overflow-hidden shrink-0" title="Milano Joe - Verified Client">
+              <img src="./assets/avatars/milano-joe.webp" alt="Milano Joe" class="proof-avatar-img w-full h-full object-cover" loading="eager" decoding="async" onerror="handleImgError(this)">
             </div>
-            <div class="proof-avatar-item" title="Tristan Bacon - Verified Client">
-              <img src="./assets/avatars/tristan-bacon.webp" alt="Tristan Bacon" class="proof-avatar-img" loading="eager" decoding="async" onerror="handleImgError(this)">
+            <div class="proof-avatar-item w-5 h-5 rounded-full border border-black -ml-1.5 first:ml-0 overflow-hidden shrink-0" title="Tristan Bacon - Verified Client">
+              <img src="./assets/avatars/tristan-bacon.webp" alt="Tristan Bacon" class="proof-avatar-img w-full h-full object-cover" loading="eager" decoding="async" onerror="handleImgError(this)">
             </div>
           </div>
-          <div class="proof-text-group">
-            <div class="proof-rating-stars">★★★★★</div>
-            <span class="proof-rating-caption"><strong>4.9/5 Rating</strong> across 50+ local business &amp; brand launches</span>
-          </div>
+          
+          <!-- Compact Gold Stars -->
+          <div class="proof-rating-stars text-[10px] text-amber-400 tracking-tighter shrink-0 flex items-center" aria-hidden="true">★★★★★</div>
+          
+          <!-- Shortened Single-Line Text -->
+          <span class="proof-rating-caption text-[11px] md:text-xs font-medium text-zinc-300 whitespace-nowrap">
+            <strong class="text-white font-bold">4.9/5</strong> (50+ Launches)
+          </span>
         </div>
 
-        <!-- Main Headline (Inverted Pyramid Optical Funnel directly targeting the CTA) -->
-        <h1 class="hero-headline hero-inverted-funnel">
-          <span class="funnel-line funnel-line-1">We Build <span class="headline-accent-lime">High-Converting</span></span>
-          <span class="funnel-line funnel-line-2">Websites Delivered</span>
-          <span class="funnel-line funnel-line-3">In Days, Not Weeks.</span>
+        <!-- 3. Inverted Funnel Headline (Progressive Narrowing toward CTA) -->
+        <h1 class="hero-headline hero-inverted-funnel text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-center tracking-tight leading-[1.15] text-white mt-0 mb-5 md:mb-8" style="margin-top: 0; margin-bottom: 20px;">
+          <span class="funnel-line funnel-line-1 block text-white">We Build</span>
+          <span class="funnel-line funnel-line-2 block text-[#C6F24D] drop-shadow-[0_0_20px_rgba(198,242,77,0.35)]">High-Converting</span>
+          <span class="funnel-line funnel-line-3 block text-white text-2xl sm:text-3xl md:text-5xl font-bold text-zinc-200 mt-1">Websites in Days.</span>
         </h1>
 
         <!-- Primary Centered CTA Button directly beneath headline -->
