@@ -57,7 +57,107 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Main Custom Styling -->
-  <link rel="stylesheet" href="./css/styles.css">
+    <!-- Tailwind CSS CDN Engine (Enables hidden md:flex, flex-none, snap-x, and modern responsive utilities) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              lime: '#C6F24D',
+              dark: '#09090B'
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Critical Anti-Collision & Zero-FOUC Inline Overrides -->
+  <style>
+    /* Fixed 64px Header Container */
+    #site-header {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      z-index: 999 !important;
+      height: 64px !important;
+      background: rgba(9, 9, 11, 0.92) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      box-sizing: border-box !important;
+    }
+    @media (max-width: 767px) {
+      #desktop-nav {
+        display: none !important;
+      }
+      #mobile-menu-toggle {
+        display: flex !important;
+      }
+    }
+    @media (min-width: 768px) {
+      #desktop-nav {
+        display: flex !important;
+        align-items: center !important;
+        gap: 1.5rem !important;
+      }
+      #mobile-menu-toggle {
+        display: none !important;
+      }
+      #mobile-dropdown-menu {
+        display: none !important;
+      }
+    }
+    /* Hero padding-top 80px */
+    .hero-section,
+    #hero {
+      padding-top: 80px !important;
+    }
+    /* Services Horizontal Carousel (Design in DC Style) */
+    .services-carousel-track {
+      display: flex !important;
+      gap: 1.25rem !important;
+      overflow-x: auto !important;
+      scroll-snap-type: x mandatory !important;
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
+      -webkit-overflow-scrolling: touch !important;
+    }
+    .services-carousel-track::-webkit-scrollbar {
+      display: none !important;
+    }
+    .service-card {
+      width: 85vw !important;
+      max-width: 340px !important;
+      height: 480px !important;
+      flex-shrink: 0 !important;
+      flex: none !important;
+      scroll-snap-align: center !important;
+      border-radius: 1.5rem !important;
+      overflow: hidden !important;
+      position: relative !important;
+      background: #121216 !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+    @media (min-width: 768px) {
+      .service-card {
+        width: 380px !important;
+        max-width: 380px !important;
+        height: 500px !important;
+      }
+    }
+  </style>
+
+  <!-- Main Custom Styling -->
+  <link rel="stylesheet" href="./css/styles.css?v=3.5">
 </head>
 <body>
 
@@ -68,58 +168,56 @@
   <div class="custom-cursor-dot" aria-hidden="true"></div>
   <div class="custom-cursor-ring" aria-hidden="true"></div>
 
-  <!-- Top Global Navigation (Design Monks Style Floating Sticky Header) -->
-  <header class="site-header floating-header-wrap" id="site-header">
-    <nav class="floating-header-pill" aria-label="Primary Navigation">
-      <!-- Left: Brand Logo & Title -->
-      <a href="#" class="header-brand-group" aria-label="Crafting Web Designs Homepage">
-        <div class="header-logo-frame">
-          <img src="./assets/logo.png" alt="CWD Logo" class="header-logo-img" onerror="handleImgError(this)">
-        </div>
-        <span class="header-brand-name">Crafting Web Designs</span>
-      </a>
-
-      <!-- Center: Clean Navigation Links (Hidden on small mobile, visible on md+) -->
-      <ul class="header-nav-links" id="desktop-nav-links">
-        <li><a href="#proof" class="header-nav-link">Portfolio</a></li>
-        <li><a href="#proof" class="header-nav-link">Case Studies</a></li>
-        <li><a href="#capabilities" class="header-nav-link">Services</a></li>
-        <li><a href="#advantages" class="header-nav-link">About Us</a></li>
-      </ul>
-
-      <!-- Right: Action Button & Mobile Menu Toggle -->
-      <div class="header-action-group">
-        <a href="#contact" class="header-cta-btn">
-          <span>Let's Talk</span>
-          <span class="header-cta-arrow" aria-hidden="true">→</span>
-        </a>
-        <button class="header-mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-dropdown-menu">
-          <span class="hamburger-line line-1"></span>
-          <span class="hamburger-line line-2"></span>
-        </button>
+  <!-- Top Global Navigation Bar (Clean Full-Width 64px Fixed Header) -->
+  <header class="fixed top-0 left-0 right-0 z-[999] h-16 bg-[#09090B]/90 backdrop-blur-md border-b border-white/10 px-4 md:px-8 flex items-center justify-between" id="site-header" style="position: fixed; top: 0; left: 0; right: 0; z-index: 999; height: 64px; background: rgba(9, 9, 11, 0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-left: 1.25rem; padding-right: 1.25rem; display: flex; align-items: center; justify-content: space-between;">
+    
+    <!-- Brand Mark (Left): CWD logo icon + "Crafting Web Designs" text -->
+    <a href="#" class="flex items-center gap-2.5 text-white no-underline shrink-0" aria-label="Crafting Web Designs Homepage" style="display: flex; align-items: center; gap: 0.65rem; text-decoration: none;">
+      <div class="w-8 h-8 rounded-full bg-[#09090B] border border-[#C6F24D]/35 flex items-center justify-center overflow-hidden shrink-0 shadow-[0_0_12px_rgba(198,242,77,0.25)]" style="width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; border: 1px solid rgba(198, 242, 77, 0.35); background: #09090B;">
+        <img src="./assets/logo.png" alt="CWD Logo" class="w-full h-full object-contain" onerror="handleImgError(this)" style="width: 100%; height: 100%; object-fit: contain;">
       </div>
+      <span class="font-bold text-sm tracking-tight text-white whitespace-nowrap" style="font-weight: 700; font-size: 0.875rem; color: #FFFFFF; white-space: nowrap;">Crafting Web Designs</span>
+    </a>
+
+    <!-- Desktop Navigation Links (Center): MUST HAVE hidden md:flex items-center gap-6 -->
+    <nav class="hidden md:flex items-center gap-6 desktop-nav-bar" id="desktop-nav" aria-label="Main Desktop Navigation">
+      <a href="#proof" class="text-xs uppercase tracking-wider font-semibold text-zinc-300 hover:text-white transition-colors no-underline">Portfolio</a>
+      <a href="#proof" class="text-xs uppercase tracking-wider font-semibold text-zinc-300 hover:text-white transition-colors no-underline">Case Studies</a>
+      <a href="#capabilities" class="text-xs uppercase tracking-wider font-semibold text-zinc-300 hover:text-white transition-colors no-underline">Services</a>
+      <a href="#advantages" class="text-xs uppercase tracking-wider font-semibold text-zinc-300 hover:text-white transition-colors no-underline">About Us</a>
     </nav>
 
-    <!-- Mobile Navigation Dropdown Menu -->
-    <div class="header-mobile-dropdown" id="mobile-dropdown-menu" aria-hidden="true">
-      <ul class="mobile-dropdown-links">
-        <li><a href="#proof" class="mobile-dropdown-link">Portfolio</a></li>
-        <li><a href="#proof" class="mobile-dropdown-link">Case Studies</a></li>
-        <li><a href="#capabilities" class="mobile-dropdown-link">Services</a></li>
-        <li><a href="#advantages" class="mobile-dropdown-link">About Us</a></li>
-        <li class="mobile-dropdown-cta-item">
-          <a href="#contact" class="mobile-dropdown-cta-btn">
-            <span>Book A Strategy Call</span>
-            <span aria-hidden="true">→</span>
-          </a>
-        </li>
-      </ul>
+    <!-- Action Button (Right): [ Let's Talk → ] (small, compact button, visible on all screens) -->
+    <div class="flex items-center gap-2.5 shrink-0" style="display: flex; align-items: center; gap: 0.65rem;">
+      <a href="#contact" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#C6F24D] hover:bg-[#D4FF5E] text-[#09090B] text-xs font-extrabold tracking-tight transition-all duration-200 no-underline shadow-[0_2px_10px_rgba(198,242,77,0.3)] shrink-0" style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.9rem; border-radius: 9999px; background: #C6F24D; color: #09090B; font-size: 0.75rem; font-weight: 800; text-decoration: none;">
+        <span>Let's Talk</span>
+        <span aria-hidden="true">→</span>
+      </a>
+      <!-- Hamburger Toggle for Mobile (Off-Canvas Menu, strictly hidden below 64px header when toggled) -->
+      <button class="md:hidden flex flex-col justify-center items-center gap-1 w-8 h-8 rounded-lg bg-white/5 border border-white/10 text-white p-1 cursor-pointer" id="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" style="display: none; width: 32px; height: 32px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 8px; cursor: pointer;">
+        <span class="w-4 h-0.5 bg-white block transition-transform"></span>
+        <span class="w-4 h-0.5 bg-white block transition-transform"></span>
+      </button>
     </div>
   </header>
 
+  <!-- Mobile Dropdown Drawer (Positioned fixed below the 64px navbar, COMPLETELY HIDDEN by default) -->
+  <div class="fixed top-16 left-0 right-0 bg-[#09090B]/98 backdrop-blur-2xl border-b border-white/10 px-6 py-5 z-[998] shadow-2xl transition-all hidden" id="mobile-dropdown-menu" style="display: none !important; position: fixed; top: 64px; left: 0; right: 0; z-index: 998; background: rgba(9, 9, 11, 0.98); border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding: 1.25rem 1.5rem;">
+    <nav class="flex flex-col gap-3" style="display: flex; flex-direction: column; gap: 0.75rem;">
+      <a href="#proof" class="mobile-nav-link py-2 text-sm font-semibold text-zinc-200 hover:text-[#C6F24D] border-b border-white/5 transition-colors no-underline block">Portfolio</a>
+      <a href="#proof" class="mobile-nav-link py-2 text-sm font-semibold text-zinc-200 hover:text-[#C6F24D] border-b border-white/5 transition-colors no-underline block">Case Studies</a>
+      <a href="#capabilities" class="mobile-nav-link py-2 text-sm font-semibold text-zinc-200 hover:text-[#C6F24D] border-b border-white/5 transition-colors no-underline block">Services</a>
+      <a href="#advantages" class="mobile-nav-link py-2 text-sm font-semibold text-zinc-200 hover:text-[#C6F24D] border-b border-white/5 transition-colors no-underline block">About Us</a>
+      <a href="#contact" class="mobile-nav-link mt-2 flex items-center justify-between py-2.5 px-4 rounded-xl bg-[#C6F24D] text-[#09090B] font-bold text-xs no-underline">
+        <span>Book A Strategy Call</span>
+        <span>→</span>
+      </a>
+    </nav>
+  </div>
+
   <!-- Main Hero Section -->
   <main>
-    <section class="hero-section" id="hero">
+    <section class="hero-section pt-20" id="hero" style="padding-top: 80px !important;">
       <!-- Interactive WebGL Liquid Refraction Background Canvas (Full-Bleed Layer, z-index: 0) -->
       <canvas id="webgl-canvas" class="hero-canvas"></canvas>
 
@@ -807,379 +905,167 @@
          SECTION 1: Horizontal Services Showcase ("Beyond Just Websites")
          Inspired by Design in DC: Infinite Horizontal Marquee Carousel with Slide-up Frosted Drawer
          ===================================================================== -->
-    <section class="services-carousel-section" id="capabilities" aria-label="End-to-End Capabilities Built to Convert">
-      <div class="services-header-container">
-        <div class="services-pill-tag">
-          <span class="services-pill-dot" aria-hidden="true"></span>
+    <section class="services-carousel-section py-20 bg-[#09090B] relative overflow-hidden" id="capabilities" aria-label="End-to-End Capabilities Built to Convert">
+      <div class="services-header-container max-w-4xl mx-auto text-center px-4 mb-10">
+        <div class="services-pill-tag inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[#C6F24D] text-xs font-bold uppercase tracking-wider mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#C6F24D] animate-pulse" aria-hidden="true"></span>
           <span>Full-Stack Digital Growth</span>
         </div>
-        <h2 class="services-headline">
+        <h2 class="services-headline text-3xl md:text-5xl font-black text-white tracking-tight mb-4">
           End-to-End Capabilities Built to Convert
         </h2>
-        <p class="services-subheadline">
+        <p class="services-subheadline text-zinc-400 text-sm md:text-base max-w-2xl mx-auto">
           A complete suite of design, search, and acquisition systems engineered to turn attention into revenue.
         </p>
       </div>
 
-      <!-- Infinite Horizontal Carousel Viewport with Edge Feathering -->
-      <div class="services-carousel-viewport overflow-x-auto snap-x snap-mandatory flex gap-4 px-4" aria-hidden="true">
-        <div class="services-carousel-track">
-          
-          <!-- GROUP 1 (6 Core Services) -->
-          <div class="services-carousel-group">
-            <!-- Service Card: Local Business Websites -->
-            <article class="service-card" data-service="local-biz">
-              <div class="service-image-container">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Local clinic professional holding phone displaying live booking site" class="service-image-bg" loading="lazy" onerror="handleImgError(this, './assets/services/local-biz.svg')">
-                <div class="service-scrim-gradient"></div>
-                <!-- Service Title rendered DIRECTLY INSIDE the image container at the very top -->
-                <div class="service-title-overlay">
-                  <h3 class="service-title-text">Local Business Websites</h3>
-                </div>
-              </div>
-              <!-- Sliding Hover Drawer with 100% white text & lime checkmarks -->
-              <div class="service-drawer">
-                <div class="service-drawer-header">
-                  <span class="drawer-pill">Key Deliverables</span>
-                  <span class="drawer-arrow">↗</span>
-                </div>
-                <ul class="service-deliverables-list">
-                  <li><span class="check-icon">✓</span><span>Mobile-First Booking Flows</span></li>
-                  <li><span class="check-icon">✓</span><span>1-Tap Click-to-Call Triggers</span></li>
-                  <li><span class="check-icon">✓</span><span>Local Schema Architecture</span></li>
-                  <li><span class="check-icon">✓</span><span>Sub-Second Load Speeds</span></li>
-                </ul>
-                <a href="#contact" class="service-drawer-btn">
-                  <span>Explore Service Sprint</span>
-                  <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </article>
-
-            <!-- Service Card: B2B Website Building -->
-            <article class="service-card" data-service="b2b-web">
-              <div class="service-image-container">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Creative team collaborating around laptop showcasing modern architectural web platform" class="service-image-bg" loading="lazy" onerror="handleImgError(this, './assets/services/b2b-web.svg')">
-                <div class="service-scrim-gradient"></div>
-                <!-- Service Title rendered DIRECTLY INSIDE the image container at the very top -->
-                <div class="service-title-overlay">
-                  <h3 class="service-title-text">B2B Website Building</h3>
-                </div>
-              </div>
-              <!-- Sliding Hover Drawer with 100% white text & lime checkmarks -->
-              <div class="service-drawer">
-                <div class="service-drawer-header">
-                  <span class="drawer-pill">Key Deliverables</span>
-                  <span class="drawer-arrow">↗</span>
-                </div>
-                <ul class="service-deliverables-list">
-                  <li><span class="check-icon">✓</span><span>Interactive Product Showcases</span></li>
-                  <li><span class="check-icon">✓</span><span>CRM & Lead Pipeline Funnels</span></li>
-                  <li><span class="check-icon">✓</span><span>Custom Design Systems</span></li>
-                  <li><span class="check-icon">✓</span><span>High-Security Cloud Hosting</span></li>
-                </ul>
-                <a href="#contact" class="service-drawer-btn">
-                  <span>Explore Service Sprint</span>
-                  <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </article>
-
-            <!-- Service Card: High-Rank Search SEO -->
-            <article class="service-card" data-service="seo">
-              <div class="service-image-container">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="High-fashion editorial portrait with clean colorful search interface overlay" class="service-image-bg" loading="lazy" onerror="handleImgError(this, './assets/services/seo.svg')">
-                <div class="service-scrim-gradient"></div>
-                <!-- Service Title rendered DIRECTLY INSIDE the image container at the very top -->
-                <div class="service-title-overlay">
-                  <h3 class="service-title-text">High-Rank Search SEO</h3>
-                </div>
-              </div>
-              <!-- Sliding Hover Drawer with 100% white text & lime checkmarks -->
-              <div class="service-drawer">
-                <div class="service-drawer-header">
-                  <span class="drawer-pill">Key Deliverables</span>
-                  <span class="drawer-arrow">↗</span>
-                </div>
-                <ul class="service-deliverables-list">
-                  <li><span class="check-icon">✓</span><span>Keyword Revenue Mapping</span></li>
-                  <li><span class="check-icon">✓</span><span>Structured JSON-LD Schema</span></li>
-                  <li><span class="check-icon">✓</span><span>Topical Authority Silos</span></li>
-                  <li><span class="check-icon">✓</span><span>Core Web Vitals 100/100</span></li>
-                </ul>
-                <a href="#contact" class="service-drawer-btn">
-                  <span>Explore Service Sprint</span>
-                  <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </article>
-
-            <!-- Service Card: Google Business Optimization -->
-            <article class="service-card" data-service="gmb">
-              <div class="service-image-container">
-                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80" alt="Vibrant local storefront and cafe scene representing prime physical location presence" class="service-image-bg" loading="lazy" onerror="handleImgError(this, './assets/services/google-maps.svg')">
-                <div class="service-scrim-gradient"></div>
-                <!-- Service Title rendered DIRECTLY INSIDE the image container at the very top -->
-                <div class="service-title-overlay">
-                  <h3 class="service-title-text">Google Business Optimization</h3>
-                </div>
-              </div>
-              <!-- Sliding Hover Drawer with 100% white text & lime checkmarks -->
-              <div class="service-drawer">
-                <div class="service-drawer-header">
-                  <span class="drawer-pill">Key Deliverables</span>
-                  <span class="drawer-arrow">↗</span>
-                </div>
-                <ul class="service-deliverables-list">
-                  <li><span class="check-icon">✓</span><span>Google 3-Pack Rank Dominance</span></li>
-                  <li><span class="check-icon">✓</span><span>Geo-Targeted Local Citations</span></li>
-                  <li><span class="check-icon">✓</span><span>Review Velocity Architecture</span></li>
-                  <li><span class="check-icon">✓</span><span>Direct Call-Tracking Funnel</span></li>
-                </ul>
-                <a href="#contact" class="service-drawer-btn">
-                  <span>Explore Service Sprint</span>
-                  <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </article>
-
-            <!-- Service Card: 24-Hour Rapid Website Launches -->
-            <article class="service-card" data-service="rapid-launch">
-              <div class="service-image-container">
-                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80" alt="Fast-paced agency sprint workspace with modern laptops and countdown metrics" class="service-image-bg" loading="lazy" onerror="handleImgError(this, './assets/services/rapid-sprint.svg')">
-                <div class="service-scrim-gradient"></div>
-                <!-- Service Title rendered DIRECTLY INSIDE the image container at the very top -->
-                <div class="service-title-overlay">
-                  <h3 class="service-title-text">24-Hour Rapid Website Launches</h3>
-                </div>
-              </div>
-              <!-- Sliding Hover Drawer with 100% white text & lime checkmarks -->
-              <div class="service-drawer">
-                <div class="service-drawer-header">
-                  <span class="drawer-pill">Key Deliverables</span>
-                  <span class="drawer-arrow">↗</span>
-                </div>
-                <ul class="service-deliverables-list">
-                  <li><span class="check-icon">✓</span><span>Overnight Prototype Turnaround</span></li>
-                  <li><span class="check-icon">✓</span><span>0% Deposit Required Upfront</span></li>
-                  <li><span class="check-icon">✓</span><span>Full Responsive Code Ownership</span></li>
-                  <li><span class="check-icon">✓</span><span>Production Domain Deployment</span></li>
-                </ul>
-                <a href="#contact" class="service-drawer-btn">
-                  <span>Explore Service Sprint</span>
-                  <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </article>
-
-            <!-- Service Card: AI & Voice-Enabled Web Systems -->
-            <article class="service-card" data-service="ai-voice">
-              <div class="service-image-container">
-                <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&w=800&q=80" alt="Futuristic modern interaction with intelligent AI assistant visual interface" class="service-image-bg" loading="lazy" onerror="handleImgError(this, './assets/services/ai-voice.svg')">
-                <div class="service-scrim-gradient"></div>
-                <!-- Service Title rendered DIRECTLY INSIDE the image container at the very top -->
-                <div class="service-title-overlay">
-                  <h3 class="service-title-text">AI & Voice-Enabled Web Systems</h3>
-                </div>
-              </div>
-              <!-- Sliding Hover Drawer with 100% white text & lime checkmarks -->
-              <div class="service-drawer">
-                <div class="service-drawer-header">
-                  <span class="drawer-pill">Key Deliverables</span>
-                  <span class="drawer-arrow">↗</span>
-                </div>
-                <ul class="service-deliverables-list">
-                  <li><span class="check-icon">✓</span><span>Autonomous Voice Call Booking</span></li>
-                  <li><span class="check-icon">✓</span><span>Intelligent Client Triage Agents</span></li>
-                  <li><span class="check-icon">✓</span><span>Instant Lead Notification Hooks</span></li>
-                  <li><span class="check-icon">✓</span><span>Custom LLM Knowledge Bases</span></li>
-                </ul>
-                <a href="#contact" class="service-drawer-btn">
-                  <span>Explore Service Sprint</span>
-                  <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </article>
+      <!-- Touch Scroll Track (Design in DC horizontal carousel: w-[85vw] max-w-[340px] h-[480px] shrink-0 rounded-3xl snap-center) -->
+      <div class="services-carousel-track flex gap-5 overflow-x-auto snap-x snap-mandatory px-6 py-4 scrollbar-none" style="display: flex; gap: 1.25rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: 1rem 1.5rem; scrollbar-width: none; -webkit-overflow-scrolling: touch;">
+        
+        <!-- Card 1: Local Business Websites -->
+        <article class="service-card w-[85vw] max-w-[340px] md:w-[380px] h-[480px] shrink-0 rounded-3xl overflow-hidden relative flex-none snap-center group border border-white/10 shadow-2xl bg-[#121216]">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Local clinic professional holding phone displaying live booking site" class="service-card-image absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy" onerror="handleImgError(this, './assets/services/local-biz.svg')">
+          <div class="service-title-overlay absolute top-0 left-0 right-0 pt-6 pb-12 px-4 text-center z-10 bg-gradient-to-b from-[#09090B]/95 via-[#09090B]/60 to-transparent">
+            <h3 class="service-title-text text-xl font-bold text-white tracking-tight drop-shadow-md">Local Business Websites</h3>
           </div>
-
-          <!-- GROUP 2 (Duplicate for Seamless Infinite Loop) -->
-          <div class="services-carousel-group" aria-hidden="true">
-            <!-- Service Card: Local Business Websites -->
-            <article class="service-card" data-service="local-biz">
-              <div class="service-image-container">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Local clinic professional holding phone displaying live booking site" class="service-image-bg" loading="lazy" onerror="handleImgError(this, './assets/services/local-biz.svg')">
-                <div class="service-scrim-gradient"></div>
-                <!-- Service Title rendered DIRECTLY INSIDE the image container at the very top -->
-                <div class="service-title-overlay">
-                  <h3 class="service-title-text">Local Business Websites</h3>
-                </div>
-              </div>
-              <!-- Sliding Hover Drawer with 100% white text & lime checkmarks -->
-              <div class="service-drawer">
-                <div class="service-drawer-header">
-                  <span class="drawer-pill">Key Deliverables</span>
-                  <span class="drawer-arrow">↗</span>
-                </div>
-                <ul class="service-deliverables-list">
-                  <li><span class="check-icon">✓</span><span>Mobile-First Booking Flows</span></li>
-                  <li><span class="check-icon">✓</span><span>1-Tap Click-to-Call Triggers</span></li>
-                  <li><span class="check-icon">✓</span><span>Local Schema Architecture</span></li>
-                  <li><span class="check-icon">✓</span><span>Sub-Second Load Speeds</span></li>
-                </ul>
-                <a href="#contact" class="service-drawer-btn">
-                  <span>Explore Service Sprint</span>
-                  <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </article>
-
-            <!-- Service Card: B2B Website Building -->
-            <article class="service-card" data-service="b2b-web">
-              <div class="service-image-container">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Creative team collaborating around laptop showcasing modern architectural web platform" class="service-image-bg" loading="lazy" onerror="handleImgError(this, './assets/services/b2b-web.svg')">
-                <div class="service-scrim-gradient"></div>
-                <!-- Service Title rendered DIRECTLY INSIDE the image container at the very top -->
-                <div class="service-title-overlay">
-                  <h3 class="service-title-text">B2B Website Building</h3>
-                </div>
-              </div>
-              <!-- Sliding Hover Drawer with 100% white text & lime checkmarks -->
-              <div class="service-drawer">
-                <div class="service-drawer-header">
-                  <span class="drawer-pill">Key Deliverables</span>
-                  <span class="drawer-arrow">↗</span>
-                </div>
-                <ul class="service-deliverables-list">
-                  <li><span class="check-icon">✓</span><span>Interactive Product Showcases</span></li>
-                  <li><span class="check-icon">✓</span><span>CRM & Lead Pipeline Funnels</span></li>
-                  <li><span class="check-icon">✓</span><span>Custom Design Systems</span></li>
-                  <li><span class="check-icon">✓</span><span>High-Security Cloud Hosting</span></li>
-                </ul>
-                <a href="#contact" class="service-drawer-btn">
-                  <span>Explore Service Sprint</span>
-                  <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </article>
-
-            <!-- Service Card: High-Rank Search SEO -->
-            <article class="service-card" data-service="seo">
-              <div class="service-image-container">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="High-fashion editorial portrait with clean colorful search interface overlay" class="service-image-bg" loading="lazy" onerror="handleImgError(this, './assets/services/seo.svg')">
-                <div class="service-scrim-gradient"></div>
-                <!-- Service Title rendered DIRECTLY INSIDE the image container at the very top -->
-                <div class="service-title-overlay">
-                  <h3 class="service-title-text">High-Rank Search SEO</h3>
-                </div>
-              </div>
-              <!-- Sliding Hover Drawer with 100% white text & lime checkmarks -->
-              <div class="service-drawer">
-                <div class="service-drawer-header">
-                  <span class="drawer-pill">Key Deliverables</span>
-                  <span class="drawer-arrow">↗</span>
-                </div>
-                <ul class="service-deliverables-list">
-                  <li><span class="check-icon">✓</span><span>Keyword Revenue Mapping</span></li>
-                  <li><span class="check-icon">✓</span><span>Structured JSON-LD Schema</span></li>
-                  <li><span class="check-icon">✓</span><span>Topical Authority Silos</span></li>
-                  <li><span class="check-icon">✓</span><span>Core Web Vitals 100/100</span></li>
-                </ul>
-                <a href="#contact" class="service-drawer-btn">
-                  <span>Explore Service Sprint</span>
-                  <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </article>
-
-            <!-- Service Card: Google Business Optimization -->
-            <article class="service-card" data-service="gmb">
-              <div class="service-image-container">
-                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80" alt="Vibrant local storefront and cafe scene representing prime physical location presence" class="service-image-bg" loading="lazy" onerror="handleImgError(this, './assets/services/google-maps.svg')">
-                <div class="service-scrim-gradient"></div>
-                <!-- Service Title rendered DIRECTLY INSIDE the image container at the very top -->
-                <div class="service-title-overlay">
-                  <h3 class="service-title-text">Google Business Optimization</h3>
-                </div>
-              </div>
-              <!-- Sliding Hover Drawer with 100% white text & lime checkmarks -->
-              <div class="service-drawer">
-                <div class="service-drawer-header">
-                  <span class="drawer-pill">Key Deliverables</span>
-                  <span class="drawer-arrow">↗</span>
-                </div>
-                <ul class="service-deliverables-list">
-                  <li><span class="check-icon">✓</span><span>Google 3-Pack Rank Dominance</span></li>
-                  <li><span class="check-icon">✓</span><span>Geo-Targeted Local Citations</span></li>
-                  <li><span class="check-icon">✓</span><span>Review Velocity Architecture</span></li>
-                  <li><span class="check-icon">✓</span><span>Direct Call-Tracking Funnel</span></li>
-                </ul>
-                <a href="#contact" class="service-drawer-btn">
-                  <span>Explore Service Sprint</span>
-                  <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </article>
-
-            <!-- Service Card: 24-Hour Rapid Website Launches -->
-            <article class="service-card" data-service="rapid-launch">
-              <div class="service-image-container">
-                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80" alt="Fast-paced agency sprint workspace with modern laptops and countdown metrics" class="service-image-bg" loading="lazy" onerror="handleImgError(this, './assets/services/rapid-sprint.svg')">
-                <div class="service-scrim-gradient"></div>
-                <!-- Service Title rendered DIRECTLY INSIDE the image container at the very top -->
-                <div class="service-title-overlay">
-                  <h3 class="service-title-text">24-Hour Rapid Website Launches</h3>
-                </div>
-              </div>
-              <!-- Sliding Hover Drawer with 100% white text & lime checkmarks -->
-              <div class="service-drawer">
-                <div class="service-drawer-header">
-                  <span class="drawer-pill">Key Deliverables</span>
-                  <span class="drawer-arrow">↗</span>
-                </div>
-                <ul class="service-deliverables-list">
-                  <li><span class="check-icon">✓</span><span>Overnight Prototype Turnaround</span></li>
-                  <li><span class="check-icon">✓</span><span>0% Deposit Required Upfront</span></li>
-                  <li><span class="check-icon">✓</span><span>Full Responsive Code Ownership</span></li>
-                  <li><span class="check-icon">✓</span><span>Production Domain Deployment</span></li>
-                </ul>
-                <a href="#contact" class="service-drawer-btn">
-                  <span>Explore Service Sprint</span>
-                  <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </article>
-
-            <!-- Service Card: AI & Voice-Enabled Web Systems -->
-            <article class="service-card" data-service="ai-voice">
-              <div class="service-image-container">
-                <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&w=800&q=80" alt="Futuristic modern interaction with intelligent AI assistant visual interface" class="service-image-bg" loading="lazy" onerror="handleImgError(this, './assets/services/ai-voice.svg')">
-                <div class="service-scrim-gradient"></div>
-                <!-- Service Title rendered DIRECTLY INSIDE the image container at the very top -->
-                <div class="service-title-overlay">
-                  <h3 class="service-title-text">AI & Voice-Enabled Web Systems</h3>
-                </div>
-              </div>
-              <!-- Sliding Hover Drawer with 100% white text & lime checkmarks -->
-              <div class="service-drawer">
-                <div class="service-drawer-header">
-                  <span class="drawer-pill">Key Deliverables</span>
-                  <span class="drawer-arrow">↗</span>
-                </div>
-                <ul class="service-deliverables-list">
-                  <li><span class="check-icon">✓</span><span>Autonomous Voice Call Booking</span></li>
-                  <li><span class="check-icon">✓</span><span>Intelligent Client Triage Agents</span></li>
-                  <li><span class="check-icon">✓</span><span>Instant Lead Notification Hooks</span></li>
-                  <li><span class="check-icon">✓</span><span>Custom LLM Knowledge Bases</span></li>
-                </ul>
-                <a href="#contact" class="service-drawer-btn">
-                  <span>Explore Service Sprint</span>
-                  <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </article>
+          <div class="service-drawer absolute bottom-0 left-0 right-0 p-5 bg-[#09090B]/85 backdrop-blur-xl border-t border-white/10 rounded-b-3xl z-10 transition-transform duration-300">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-[#C6F24D] bg-[#C6F24D]/10 px-2.5 py-0.5 rounded-full border border-[#C6F24D]/25">Key Deliverables</span>
+              <span class="text-[#C6F24D] text-xs font-bold">↗</span>
+            </div>
+            <ul class="space-y-1.5 mb-4 text-xs text-zinc-200">
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Mobile-First Booking Flows</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>1-Tap Click-to-Call Triggers</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Local Schema Architecture</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Sub-Second Load Speeds</span></li>
+            </ul>
+            <a href="#contact" class="flex items-center justify-between w-full py-2 px-3.5 rounded-xl bg-white/10 hover:bg-[#C6F24D] text-white hover:text-black font-semibold text-xs transition-colors duration-200 no-underline">
+              <span>Explore Service Sprint</span>
+              <span>→</span>
+            </a>
           </div>
+        </article>
 
-        </div>
+        <!-- Card 2: B2B Website Building -->
+        <article class="service-card w-[85vw] max-w-[340px] md:w-[380px] h-[480px] shrink-0 rounded-3xl overflow-hidden relative flex-none snap-center group border border-white/10 shadow-2xl bg-[#121216]">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Creative team collaborating around laptop showcasing modern architectural web platform" class="service-card-image absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy" onerror="handleImgError(this, './assets/services/b2b-web.svg')">
+          <div class="service-title-overlay absolute top-0 left-0 right-0 pt-6 pb-12 px-4 text-center z-10 bg-gradient-to-b from-[#09090B]/95 via-[#09090B]/60 to-transparent">
+            <h3 class="service-title-text text-xl font-bold text-white tracking-tight drop-shadow-md">B2B Website Building</h3>
+          </div>
+          <div class="service-drawer absolute bottom-0 left-0 right-0 p-5 bg-[#09090B]/85 backdrop-blur-xl border-t border-white/10 rounded-b-3xl z-10 transition-transform duration-300">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-[#C6F24D] bg-[#C6F24D]/10 px-2.5 py-0.5 rounded-full border border-[#C6F24D]/25">Key Deliverables</span>
+              <span class="text-[#C6F24D] text-xs font-bold">↗</span>
+            </div>
+            <ul class="space-y-1.5 mb-4 text-xs text-zinc-200">
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Interactive Product Showcases</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>CRM & Lead Pipeline Funnels</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Custom Design Systems</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>High-Security Cloud Hosting</span></li>
+            </ul>
+            <a href="#contact" class="flex items-center justify-between w-full py-2 px-3.5 rounded-xl bg-white/10 hover:bg-[#C6F24D] text-white hover:text-black font-semibold text-xs transition-colors duration-200 no-underline">
+              <span>Explore Service Sprint</span>
+              <span>→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 3: High-Rank Search SEO -->
+        <article class="service-card w-[85vw] max-w-[340px] md:w-[380px] h-[480px] shrink-0 rounded-3xl overflow-hidden relative flex-none snap-center group border border-white/10 shadow-2xl bg-[#121216]">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Analytics dashboard showing top organic Google ranking performance curve" class="service-card-image absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy" onerror="handleImgError(this, './assets/services/seo.svg')">
+          <div class="service-title-overlay absolute top-0 left-0 right-0 pt-6 pb-12 px-4 text-center z-10 bg-gradient-to-b from-[#09090B]/95 via-[#09090B]/60 to-transparent">
+            <h3 class="service-title-text text-xl font-bold text-white tracking-tight drop-shadow-md">High-Rank Search SEO</h3>
+          </div>
+          <div class="service-drawer absolute bottom-0 left-0 right-0 p-5 bg-[#09090B]/85 backdrop-blur-xl border-t border-white/10 rounded-b-3xl z-10 transition-transform duration-300">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-[#C6F24D] bg-[#C6F24D]/10 px-2.5 py-0.5 rounded-full border border-[#C6F24D]/25">Key Deliverables</span>
+              <span class="text-[#C6F24D] text-xs font-bold">↗</span>
+            </div>
+            <ul class="space-y-1.5 mb-4 text-xs text-zinc-200">
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Keyword Intent Mapping</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Core Web Vitals 100/100</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Automated XML & Schema Sitemaps</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Geo-Targeted Landing Pages</span></li>
+            </ul>
+            <a href="#contact" class="flex items-center justify-between w-full py-2 px-3.5 rounded-xl bg-white/10 hover:bg-[#C6F24D] text-white hover:text-black font-semibold text-xs transition-colors duration-200 no-underline">
+              <span>Explore Service Sprint</span>
+              <span>→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 4: Google Business Profile Pack -->
+        <article class="service-card w-[85vw] max-w-[340px] md:w-[380px] h-[480px] shrink-0 rounded-3xl overflow-hidden relative flex-none snap-center group border border-white/10 shadow-2xl bg-[#121216]">
+          <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80" alt="Business storefront owner updating Google Business verification status on mobile tablet" class="service-card-image absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy" onerror="handleImgError(this, './assets/services/gbp.svg')">
+          <div class="service-title-overlay absolute top-0 left-0 right-0 pt-6 pb-12 px-4 text-center z-10 bg-gradient-to-b from-[#09090B]/95 via-[#09090B]/60 to-transparent">
+            <h3 class="service-title-text text-xl font-bold text-white tracking-tight drop-shadow-md">Google Business Profile Pack</h3>
+          </div>
+          <div class="service-drawer absolute bottom-0 left-0 right-0 p-5 bg-[#09090B]/85 backdrop-blur-xl border-t border-white/10 rounded-b-3xl z-10 transition-transform duration-300">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-[#C6F24D] bg-[#C6F24D]/10 px-2.5 py-0.5 rounded-full border border-[#C6F24D]/25">Key Deliverables</span>
+              <span class="text-[#C6F24D] text-xs font-bold">↗</span>
+            </div>
+            <ul class="space-y-1.5 mb-4 text-xs text-zinc-200">
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Automated Review Request Funnels</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Local 3-Pack Map Optimization</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Category & Citation Synchronization</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>High-Res Visual Photo Uploads</span></li>
+            </ul>
+            <a href="#contact" class="flex items-center justify-between w-full py-2 px-3.5 rounded-xl bg-white/10 hover:bg-[#C6F24D] text-white hover:text-black font-semibold text-xs transition-colors duration-200 no-underline">
+              <span>Explore Service Sprint</span>
+              <span>→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 5: Paid Acquisition Funnels -->
+        <article class="service-card w-[85vw] max-w-[340px] md:w-[380px] h-[480px] shrink-0 rounded-3xl overflow-hidden relative flex-none snap-center group border border-white/10 shadow-2xl bg-[#121216]">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="High performance sales conversion dashboard showing real time revenue and booking transactions" class="service-card-image absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy" onerror="handleImgError(this, './assets/services/funnels.svg')">
+          <div class="service-title-overlay absolute top-0 left-0 right-0 pt-6 pb-12 px-4 text-center z-10 bg-gradient-to-b from-[#09090B]/95 via-[#09090B]/60 to-transparent">
+            <h3 class="service-title-text text-xl font-bold text-white tracking-tight drop-shadow-md">Paid Acquisition Funnels</h3>
+          </div>
+          <div class="service-drawer absolute bottom-0 left-0 right-0 p-5 bg-[#09090B]/85 backdrop-blur-xl border-t border-white/10 rounded-b-3xl z-10 transition-transform duration-300">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-[#C6F24D] bg-[#C6F24D]/10 px-2.5 py-0.5 rounded-full border border-[#C6F24D]/25">Key Deliverables</span>
+              <span class="text-[#C6F24D] text-xs font-bold">↗</span>
+            </div>
+            <ul class="space-y-1.5 mb-4 text-xs text-zinc-200">
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>A/B Tested Landing Variants</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Meta & Google Ad Pixel Attribution</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Frictionless Lead Capture Forms</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>48-Hour Rapid Creative Sprints</span></li>
+            </ul>
+            <a href="#contact" class="flex items-center justify-between w-full py-2 px-3.5 rounded-xl bg-white/10 hover:bg-[#C6F24D] text-white hover:text-black font-semibold text-xs transition-colors duration-200 no-underline">
+              <span>Explore Service Sprint</span>
+              <span>→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 6: Autonomous AI Booking Agents -->
+        <article class="service-card w-[85vw] max-w-[340px] md:w-[380px] h-[480px] shrink-0 rounded-3xl overflow-hidden relative flex-none snap-center group border border-white/10 shadow-2xl bg-[#121216]">
+          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="Abstract neural network node sphere representing automated 24/7 AI conversational scheduling" class="service-card-image absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy" onerror="handleImgError(this, './assets/services/ai-voice.svg')">
+          <div class="service-title-overlay absolute top-0 left-0 right-0 pt-6 pb-12 px-4 text-center z-10 bg-gradient-to-b from-[#09090B]/95 via-[#09090B]/60 to-transparent">
+            <h3 class="service-title-text text-xl font-bold text-white tracking-tight drop-shadow-md">Autonomous AI Booking Agents</h3>
+          </div>
+          <div class="service-drawer absolute bottom-0 left-0 right-0 p-5 bg-[#09090B]/85 backdrop-blur-xl border-t border-white/10 rounded-b-3xl z-10 transition-transform duration-300">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-[#C6F24D] bg-[#C6F24D]/10 px-2.5 py-0.5 rounded-full border border-[#C6F24D]/25">Key Deliverables</span>
+              <span class="text-[#C6F24D] text-xs font-bold">↗</span>
+            </div>
+            <ul class="space-y-1.5 mb-4 text-xs text-zinc-200">
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Autonomous Voice Call Booking</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Intelligent Client Triage Agents</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Instant Lead Notification Hooks</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Custom LLM Knowledge Bases</span></li>
+            </ul>
+            <a href="#contact" class="flex items-center justify-between w-full py-2 px-3.5 rounded-xl bg-white/10 hover:bg-[#C6F24D] text-white hover:text-black font-semibold text-xs transition-colors duration-200 no-underline">
+              <span>Explore Service Sprint</span>
+              <span>→</span>
+            </a>
+          </div>
+        </article>
+
       </div>
     </section>
 
@@ -2443,13 +2329,10 @@
        SECTION 8: Massive Split-Color Brand Typography Footer (bandwidthproductions.com & invints.com Style)
        ======================================================================= -->
   <footer class="site-massive-footer" id="footer" aria-label="Crafting Web Designs Global Footer">
-    <!-- Fluid Full Brand Typography Banner (Stacked 2-Line Split for Zero Clipping & High Impact) -->
-    <div class="footer-brand-banner w-full overflow-hidden text-center">
-      <h2 class="sr-only">Crafting Web Designs</h2>
-      <div class="text-center font-black uppercase tracking-tighter leading-[0.9] select-none" aria-hidden="true">
-        <span class="block text-white text-[clamp(2.5rem,10vw,8rem)] font-black tracking-tighter leading-[0.92]">CRAFTING WEB</span>
-        <span class="block text-[#C6F24D] text-[clamp(2.5rem,10vw,8rem)] font-black tracking-tighter leading-[0.92]">DESIGNS</span>
-      </div>
+    <!-- Brand Headline Statement (Displayed Exactly Once, Zero Duplication) -->
+    <div class="text-center font-black uppercase tracking-tighter leading-none my-12">
+      <span class="block text-white text-[clamp(2.5rem,9vw,7rem)]">CRAFTING WEB</span>
+      <span class="block text-[#C6F24D] text-[clamp(2.5rem,9vw,7rem)]">DESIGNS</span>
     </div>
 
     <div class="footer-core-shell">

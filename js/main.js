@@ -622,16 +622,20 @@ function initMobileMenu() {
   if (!toggleBtn || !dropdown) return;
 
   function toggleMenu(forceOpen) {
-    const isCurrentlyOpen = dropdown.classList.contains('is-open');
+    const isCurrentlyOpen = dropdown.classList.contains('is-open') || dropdown.style.display === 'block';
     const willOpen = forceOpen !== undefined ? forceOpen : !isCurrentlyOpen;
 
     if (willOpen) {
       dropdown.classList.add('is-open');
+      dropdown.classList.remove('hidden');
+      dropdown.style.setProperty('display', 'block', 'important');
       toggleBtn.classList.add('is-open');
       toggleBtn.setAttribute('aria-expanded', 'true');
       dropdown.setAttribute('aria-hidden', 'false');
     } else {
       dropdown.classList.remove('is-open');
+      dropdown.classList.add('hidden');
+      dropdown.style.setProperty('display', 'none', 'important');
       toggleBtn.classList.remove('is-open');
       toggleBtn.setAttribute('aria-expanded', 'false');
       dropdown.setAttribute('aria-hidden', 'true');
