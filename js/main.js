@@ -80,6 +80,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // 15. Initialize Photorealistic Rotating Earth Video Controller
+  initEarthVideo();
 });
 
 /* --------------------------------------------------------------------------
@@ -765,4 +768,40 @@ window.addEventListener('error', function(e) {
     }
   }
 }, true);
+
+/* --------------------------------------------------------------------------
+   15. Photorealistic Rotating Earth Video Controller (Viewport Optimization & A11y)
+   -------------------------------------------------------------------------- */
+function initEarthVideo() {
+  const video = document.getElementById('earth-rotating-video');
+  if (!video) return;
+
+  // Respect reduced-motion accessibility preference
+  const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) {
+    video.pause();
+    return;
+  }
+
+  // Optimization: Pause playback when outside viewport to save mobile CPU/GPU & battery
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const playPromise = video.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(() => {
+              // Autoplay policy or media loading catch
+            });
+          }
+        } else {
+          video.pause();
+        }
+      });
+    }, { threshold: 0.1 });
+
+    observer.observe(video);
+  }
+}
+
 
