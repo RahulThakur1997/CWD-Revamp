@@ -1,0 +1,665 @@
+/* ==========================================================================
+   CRAFTING WEB DESIGNS — EDITORIAL CASE STUDY SYSTEM (REUSABLE ARCHITECTURE)
+   Client: Vignesh Wadarajan (and extensible for Awaken Films, Keystone, etc.)
+   ========================================================================== */
+
+:root {
+  --cs-lime: #BFF747;
+  --cs-lime-glow: rgba(191, 247, 71, 0.35);
+  --cs-black: #000000;
+  --cs-obsidian: #09090B;
+  --cs-surface-dark: #111115;
+  --cs-surface-light: #F5F5F3;
+  --cs-white: #FFFFFF;
+  --cs-font-syne: 'Syne', system-ui, -apple-system, sans-serif;
+  --cs-font-inter: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* --------------------------------------------------------------------------
+   Base & Resets for Case Study Template
+   -------------------------------------------------------------------------- */
+.cs-page {
+  background-color: var(--cs-obsidian);
+  color: var(--cs-white);
+  font-family: var(--cs-font-inter);
+  overflow-x: hidden;
+  position: relative;
+  selection-background-color: var(--cs-lime);
+  selection-color: var(--cs-black);
+}
+
+.cs-page ::selection {
+  background: var(--cs-lime) !important;
+  color: #000000 !important;
+}
+
+/* Syne Typography Helper */
+.font-syne {
+  font-family: var(--cs-font-syne) !important;
+}
+
+/* Inter Typography Helper */
+.font-inter {
+  font-family: var(--cs-font-inter) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Atmospheric Ambient Lighting
+   -------------------------------------------------------------------------- */
+.cs-ambient-glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1200px;
+  height: 600px;
+  background: radial-gradient(circle at 50% 0%, rgba(191, 247, 71, 0.12) 0%, rgba(191, 247, 71, 0.03) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Hero Section
+   -------------------------------------------------------------------------- */
+.cs-hero-section {
+  position: relative;
+  background-color: var(--cs-obsidian);
+  padding-top: clamp(6.5rem, 12vh, 9.5rem);
+  padding-bottom: clamp(4rem, 8vw, 6.5rem);
+  overflow: hidden;
+}
+
+.cs-eyebrow-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background: rgba(191, 247, 71, 0.08);
+  border: 1px solid rgba(191, 247, 71, 0.25);
+  font-family: monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--cs-lime);
+  text-transform: uppercase;
+}
+
+.cs-eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cs-lime);
+  box-shadow: 0 0 8px var(--cs-lime);
+}
+
+.cs-hero-headline {
+  font-family: var(--cs-font-syne);
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  color: var(--cs-white);
+  margin-top: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.cs-hero-headline .highlight-lime {
+  color: var(--cs-lime);
+  text-shadow: 0 0 30px rgba(191, 247, 71, 0.25);
+}
+
+.cs-hero-lead {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  line-height: 1.6;
+  color: #A1A1AA;
+  max-width: 44rem;
+  font-weight: 400;
+}
+
+/* Metadata Strip */
+.cs-metadata-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  padding: 2rem 0;
+  margin-top: 2.5rem;
+  margin-bottom: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (min-width: 768px) {
+  .cs-metadata-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+}
+
+.cs-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.cs-meta-label {
+  font-family: monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #71717A;
+  text-transform: uppercase;
+}
+
+.cs-meta-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--cs-white);
+  line-height: 1.35;
+}
+
+/* Large Hero Showcase Mockup */
+.cs-hero-mockup-frame {
+  position: relative;
+  width: 100%;
+  border-radius: clamp(1rem, 2vw, 2rem);
+  overflow: hidden;
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 35px 80px -15px rgba(0, 0, 0, 0.95), 0 0 1px 1px rgba(255, 255, 255, 0.08);
+}
+
+.cs-hero-mockup-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cs-hero-mockup-frame:hover .cs-hero-mockup-img {
+  transform: scale(1.015);
+}
+
+/* --------------------------------------------------------------------------
+   Introduction Section — Meet Vignesh (White Background)
+   -------------------------------------------------------------------------- */
+.cs-intro-section {
+  background-color: var(--cs-white);
+  color: #09090B;
+  padding: clamp(5rem, 9vw, 8rem) 0;
+  position: relative;
+}
+
+.cs-intro-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: monospace;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: #09090B;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.cs-intro-eyebrow .marker-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #09090B;
+}
+
+.cs-intro-heading {
+  font-family: var(--cs-font-syne);
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #09090B;
+}
+
+.cs-intro-body {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #3F3F46;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cs-intro-body p {
+  margin: 0;
+}
+
+.cs-client-portrait-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 2rem;
+  padding: 1.25rem;
+  border-radius: 1.25rem;
+  background: #F4F4F5;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.cs-client-portrait-img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #E4E4E7;
+  flex-shrink: 0;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.cs-client-portrait-info h4 {
+  font-family: var(--cs-font-syne);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #09090B;
+  margin: 0 0 0.2rem 0;
+}
+
+.cs-client-portrait-info p {
+  font-size: 0.85rem;
+  color: #71717A;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   How Collaboration Started (Dark Section)
+   -------------------------------------------------------------------------- */
+.cs-story-section {
+  background-color: #050507;
+  color: var(--cs-white);
+  padding: clamp(5rem, 9vw, 8rem) 0;
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cs-story-quote-mark {
+  font-family: var(--cs-font-syne);
+  font-size: clamp(4rem, 8vw, 7rem);
+  line-height: 0.8;
+  color: rgba(191, 247, 71, 0.2);
+  margin-bottom: 0.5rem;
+  user-select: none;
+}
+
+.cs-story-heading {
+  font-family: var(--cs-font-syne);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--cs-white);
+  margin-top: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.cs-story-heading .highlight-lime {
+  color: var(--cs-lime);
+}
+
+.cs-story-body {
+  font-size: 1.125rem;
+  line-height: 1.85;
+  color: #D4D4D8;
+  max-width: 44rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   The Work — Three Core Deliverables
+   -------------------------------------------------------------------------- */
+.cs-deliverables-section {
+  background-color: var(--cs-surface-dark);
+  color: var(--cs-white);
+  padding: clamp(5rem, 9vw, 8.5rem) 0;
+  position: relative;
+}
+
+.cs-deliverables-header {
+  margin-bottom: clamp(3rem, 6vw, 4.5rem);
+}
+
+.cs-deliverables-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.cs-deliverable-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  padding: clamp(2rem, 4vw, 3rem) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .cs-deliverable-row {
+    grid-template-columns: 80px 1.2fr 1.8fr;
+    gap: 2.5rem;
+    align-items: start;
+    padding: clamp(2.5rem, 4vw, 3.25rem) 1rem;
+    margin: 0 -1rem;
+    border-radius: 1rem;
+  }
+  .cs-deliverable-row:hover {
+    background: rgba(255, 255, 255, 0.025);
+  }
+}
+
+.cs-deliverable-num {
+  font-family: monospace;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 800;
+  color: #52525B;
+  transition: color 0.3s ease, transform 0.3s ease;
+  line-height: 1;
+}
+
+.cs-deliverable-row:hover .cs-deliverable-num {
+  color: var(--cs-lime);
+  transform: translateX(3px);
+}
+
+.cs-deliverable-title {
+  font-family: var(--cs-font-syne);
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--cs-white);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+}
+
+.cs-deliverable-row:hover .cs-deliverable-title {
+  transform: translateX(6px);
+  color: #FFFFFF;
+}
+
+.cs-deliverable-desc {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #A1A1AA;
+}
+
+/* --------------------------------------------------------------------------
+   Website Showcase — Let Design Speak (Light Neutral #F5F5F3)
+   -------------------------------------------------------------------------- */
+.cs-showcase-section {
+  background-color: var(--cs-surface-light);
+  color: #09090B;
+  padding: clamp(5rem, 9vw, 8.5rem) 0;
+  position: relative;
+}
+
+.cs-browser-frame {
+  background: #FFFFFF;
+  border-radius: clamp(0.75rem, 1.5vw, 1.5rem);
+  overflow: hidden;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.12), 0 0 1px 1px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.cs-browser-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.25rem;
+  background: #FAFAFA;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.cs-browser-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cs-browser-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.cs-browser-dot.red { background: #FF5F56; }
+.cs-browser-dot.yellow { background: #FFBD2E; }
+.cs-browser-dot.green { background: #27C93F; }
+
+.cs-browser-url-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 1rem;
+  border-radius: 9999px;
+  background: #EFEFEF;
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #52525B;
+}
+
+.cs-browser-body img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Mobile Showcase Mockup Frame */
+.cs-mobile-frame {
+  max-width: 380px;
+  margin: 0 auto;
+  background: #09090B;
+  border-radius: 2.5rem;
+  padding: 10px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 1px 1px rgba(0,0,0,0.1);
+  border: 4px solid #27272A;
+}
+
+.cs-mobile-inner {
+  border-radius: 2rem;
+  overflow: hidden;
+  position: relative;
+  background: #000000;
+}
+
+.cs-mobile-inner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Project Outcome Section
+   -------------------------------------------------------------------------- */
+.cs-outcome-section {
+  background-color: var(--cs-obsidian);
+  color: var(--cs-white);
+  padding: clamp(5rem, 9vw, 8.5rem) 0;
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cs-highlights-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 3.5rem;
+}
+
+@media (min-width: 768px) {
+  .cs-highlights-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+.cs-highlight-card {
+  padding: 2rem;
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cs-highlight-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(191, 247, 71, 0.3);
+  transform: translateY(-3px);
+}
+
+.cs-highlight-title {
+  font-family: var(--cs-font-syne);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--cs-white);
+  letter-spacing: -0.01em;
+}
+
+.cs-highlight-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #A1A1AA;
+  margin: 0;
+}
+
+/* Buttons */
+.cs-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.95rem 2rem;
+  border-radius: 9999px;
+  background: var(--cs-lime);
+  color: #000000;
+  font-family: var(--cs-font-inter);
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 6px 24px rgba(191, 247, 71, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cs-btn-primary:hover {
+  background: #D4FF5E;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(191, 247, 71, 0.5);
+}
+
+.cs-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.95rem 2rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--cs-white);
+  font-family: var(--cs-font-inter);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cs-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  color: #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   Next Project / Portfolio Navigation Transition Section
+   -------------------------------------------------------------------------- */
+.cs-next-section {
+  background-color: #000000;
+  color: var(--cs-white);
+  padding: clamp(6rem, 11vw, 9.5rem) 0;
+  position: relative;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.cs-next-section .cs-ambient-glow {
+  bottom: 0;
+  top: auto;
+  transform: translateX(-50%) rotate(180deg);
+}
+
+.cs-next-heading {
+  font-family: var(--cs-font-syne);
+  font-size: clamp(2.4rem, 5.5vw, 4.25rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  color: var(--cs-white);
+  margin-bottom: 1.25rem;
+}
+
+.cs-next-lead {
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  line-height: 1.65;
+  color: #A1A1AA;
+  max-width: 36rem;
+  margin: 0 auto 2.5rem auto;
+}
+
+.cs-actions-wrap {
+  display: flex;
+  flex-direction: column;
+  sm-flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .cs-actions-wrap {
+    flex-direction: row;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Scroll Animations
+   -------------------------------------------------------------------------- */
+.cs-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cs-reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

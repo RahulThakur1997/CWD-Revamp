@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Vignesh Wadarajan Website Redesign & SEO Case Study | Crafting Web Designs</title>
+  <meta name="title" content="Vignesh Wadarajan Website Redesign & SEO Case Study | Crafting Web Designs">
+  <meta name="description" content="Explore how Crafting Web Designs redesigned Vignesh Wadarajan's WordPress website and supported his blogging and SEO efforts.">
+  <link rel="canonical" href="https://craftingwebdesigns.com/case-studies/vignesh-wadarajan">
+
+  <!-- Open Graph / Social Meta -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://craftingwebdesigns.com/case-studies/vignesh-wadarajan">
+  <meta property="og:title" content="Vignesh Wadarajan Website Redesign & SEO Case Study | Crafting Web Designs">
+  <meta property="og:description" content="Explore how Crafting Web Designs redesigned Vignesh Wadarajan's WordPress website and supported his blogging and SEO efforts.">
+  <meta property="og:image" content="../../assets/case-studies/vignesh-wadarajan/hero-vignesh-laptop.png">
+
+  <!-- Twitter Meta -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://craftingwebdesigns.com/case-studies/vignesh-wadarajan">
+  <meta property="twitter:title" content="Vignesh Wadarajan Website Redesign & SEO Case Study | Crafting Web Designs">
+  <meta property="twitter:description" content="Explore how Crafting Web Designs redesigned Vignesh Wadarajan's WordPress website and supported his blogging and SEO efforts.">
+  <meta property="twitter:image" content="../../assets/case-studies/vignesh-wadarajan/hero-vignesh-laptop.png">
+
+  <!-- Brand Favicon Support -->
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/logo.png">
+  <link rel="icon" type="image/svg+xml" href="../../assets/logo.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/logo.png">
+  <meta name="theme-color" content="#09090B">
+
+  <!-- Google Fonts: Syne (Headings), Inter (Body & UI), Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Image Error Fallback Script -->
+  <script>
+    function handleImgError(img, customFallback) {
+      if (!img || img.dataset.hasFailed) return;
+      img.dataset.hasFailed = "true";
+      img.onerror = null;
+      if (customFallback && typeof customFallback === 'string') {
+        img.src = customFallback;
+        return;
+      }
+      var alt = img.getAttribute('alt') || 'Crafting Web Designs';
+      var cleanAlt = alt.replace(/[<>&"]/g, '') || 'Crafting Web Designs';
+      var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 480 300" preserveAspectRatio="none">' +
+        '<rect width="100%" height="100%" fill="#121216"/>' +
+        '<rect x="0" y="0" width="100%" height="3" fill="#BFF747"/>' +
+        '<g transform="translate(240, 150)" text-anchor="middle">' +
+        '<circle cx="0" cy="-20" r="24" fill="#202025" stroke="rgba(191, 247, 71, 0.4)" stroke-width="1.5"/>' +
+        '<text y="24" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="13" font-weight="700">' + cleanAlt + '</text>' +
+        '<text y="42" fill="#71717A" font-family="system-ui, sans-serif" font-size="10" font-weight="600" letter-spacing="0.1em">CRAFTING WEB DESIGNS</text>' +
+        '</g>' +
+        '</svg>';
+      img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+    }
+  </script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              lime: '#BFF747',
+              limeGlow: 'rgba(191, 247, 71, 0.35)',
+              dark: '#09090B',
+              obsidian: '#050507',
+              surface: '#111115'
+            }
+          },
+          fontFamily: {
+            syne: ['Syne', 'system-ui', 'sans-serif'],
+            inter: ['Inter', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Core Global Stylesheet & Case Study Stylesheet -->
+  <link rel="stylesheet" href="../../css/styles.css?v=3.6">
+  <link rel="stylesheet" href="../../css/case-study.css?v=1.0">
+</head>
+<body class="cs-page">
+
+  <!-- Top Atmospheric Lime Glow -->
+  <div class="cs-ambient-glow" aria-hidden="true"></div>
+
+  <!-- =======================================================================
+       GLOBAL SITE HEADER (Centered CWD Capsule Logo & Corner Menu Trigger)
+       ======================================================================= -->
+  <header class="site-header" id="site-header" style="position: absolute; top: 0; left: 0; right: 0; width: 100%; z-index: 50; pointer-events: none; padding: 1.5rem; box-sizing: border-box;">
+    
+    <!-- Centered CWD Capsule Logo Pill -->
+    <div class="hero-capsule-logo-wrap pointer-events-auto">
+      <a href="../../" class="brand-capsule-pill" aria-label="Crafting Web Designs - Back to Homepage">
+        <span class="brand-capsule-icon">
+          <img src="../../assets/logo.png" alt="CWD Logo" class="cwd-glow-logo" onerror="handleImgError(this)">
+        </span>
+        <span class="brand-capsule-text font-syne">Crafting Web Designs</span>
+      </a>
+    </div>
+
+    <!-- Right-Side Menu Trigger (Preserved & Anchored to Top-Right Corner) -->
+    <button id="nav-menu-trigger" aria-label="Toggle Navigation Menu" aria-expanded="false" class="nav-menu-trigger-btn pointer-events-auto">
+      <div class="nav-trigger-icon pointer-events-none" aria-hidden="true">
+        <span class="nav-bar nav-bar-1"></span>
+        <span class="nav-bar nav-bar-2"></span>
+      </div>
+    </button>
+  </header>
+
+  <!-- Navigation Overlay Backdrop -->
+  <div id="nav-overlay-backdrop" class="nav-overlay-backdrop" aria-hidden="true"></div>
+
+  <!-- Dropdown Navigation Menu Panel -->
+  <div id="nav-overlay-panel" class="nav-overlay-panel" role="dialog" aria-modal="true" aria-label="Site Navigation">
+    
+    <!-- Top Row: Label + Close Button (✕) -->
+    <div class="nav-panel-header">
+      <div class="nav-panel-tag">
+        <span class="nav-tag-dot" aria-hidden="true"></span>
+        <span class="nav-tag-text">Navigation</span>
+      </div>
+      <button id="nav-menu-close" aria-label="Close Navigation Menu" class="nav-close-btn">
+        ✕
+      </button>
+    </div>
+
+    <!-- Numbered Navigation Menu Items with Nested Dropdowns -->
+    <nav class="nav-menu-list">
+      
+      <!-- 1. SERVICES (Dropdown Accordion) -->
+      <div class="nav-menu-item nav-has-submenu">
+        <button type="button" class="nav-submenu-trigger" aria-expanded="false" aria-controls="submenu-services">
+          <div class="nav-item-left">
+            <span class="nav-item-index">[01]</span>
+            <span class="nav-item-title">Services</span>
+          </div>
+          <span class="nav-submenu-chevron" aria-hidden="true">▼</span>
+        </button>
+        <div id="submenu-services" class="nav-submenu-list" role="group" aria-label="Services Submenu">
+          <a href="../../one-day-websites/" class="nav-sub-link">
+            <span class="nav-sub-dot" aria-hidden="true"></span>
+            <span>One Day Websites</span>
+            <span class="nav-sub-badge">NEW</span>
+          </a>
+          <a href="../../#services" class="nav-sub-link">
+            <span class="nav-sub-dot" aria-hidden="true"></span>
+            <span>High-Converting Landing Pages</span>
+          </a>
+          <a href="../../#services" class="nav-sub-link">
+            <span class="nav-sub-dot" aria-hidden="true"></span>
+            <span>Bespoke Web Development</span>
+          </a>
+          <a href="../../#services" class="nav-sub-link">
+            <span class="nav-sub-dot" aria-hidden="true"></span>
+            <span>Speed & Funnel Architecture</span>
+          </a>
+          <a href="../../#services" class="nav-sub-link nav-sub-link-all">
+            <span>Explore All Capabilities</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 2. PORTFOLIO (Dropdown Accordion) -->
+      <div class="nav-menu-item nav-has-submenu">
+        <button type="button" class="nav-submenu-trigger" aria-expanded="false" aria-controls="submenu-portfolio">
+          <div class="nav-item-left">
+            <span class="nav-item-index">[02]</span>
+            <span class="nav-item-title">Portfolio</span>
+          </div>
+          <span class="nav-submenu-chevron" aria-hidden="true">▼</span>
+        </button>
+        <div id="submenu-portfolio" class="nav-submenu-list" role="group" aria-label="Portfolio Submenu">
+          <a href="../../#hero" class="nav-sub-link">
+            <span class="nav-sub-dot" aria-hidden="true"></span>
+            <span>Live Client Mockups</span>
+          </a>
+          <a href="../../#proof" class="nav-sub-link">
+            <span class="nav-sub-dot" aria-hidden="true"></span>
+            <span>Recent Builds & Proof</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 3. CASE STUDIES (Dropdown Accordion - Active Group) -->
+      <div class="nav-menu-item nav-has-submenu is-active">
+        <button type="button" class="nav-submenu-trigger" aria-expanded="true" aria-controls="submenu-cases">
+          <div class="nav-item-left">
+            <span class="nav-item-index">[03]</span>
+            <span class="nav-item-title">Case Studies</span>
+          </div>
+          <span class="nav-submenu-chevron" aria-hidden="true">▼</span>
+        </button>
+        <div id="submenu-cases" class="nav-submenu-list" role="group" aria-label="Case Studies Submenu">
+          <a href="./" class="nav-sub-link text-[#BFF747] font-semibold">
+            <span class="nav-sub-dot" style="background: #BFF747; box-shadow: 0 0 6px #BFF747;" aria-hidden="true"></span>
+            <span>Vignesh Wadarajan</span>
+            <span class="nav-sub-badge">ACTIVE</span>
+          </a>
+          <a href="../../#cwd-case-studies" class="nav-sub-link">
+            <span class="nav-sub-dot" aria-hidden="true"></span>
+            <span>Keystone Roofing & Building</span>
+          </a>
+          <a href="../../#cwd-case-studies" class="nav-sub-link">
+            <span class="nav-sub-dot" aria-hidden="true"></span>
+            <span>Dr. Shaheen / Derm MD</span>
+          </a>
+          <a href="../../#cwd-case-studies" class="nav-sub-link">
+            <span class="nav-sub-dot" aria-hidden="true"></span>
+            <span>Killett's Landscaping</span>
+          </a>
+          <a href="../../#cwd-case-studies" class="nav-sub-link">
+            <span class="nav-sub-dot" aria-hidden="true"></span>
+            <span>Wotta Carpets</span>
+          </a>
+          <a href="../../#cwd-case-studies" class="nav-sub-link nav-sub-link-all">
+            <span>View All Client Wins</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 4. ABOUT US (Direct Link) -->
+      <div class="nav-menu-item">
+        <a href="../../#advantages" class="nav-direct-link">
+          <div class="nav-item-left">
+            <span class="nav-item-index">[04]</span>
+            <span class="nav-item-title">About Us</span>
+          </div>
+          <span class="nav-direct-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <!-- 5. CONTACT US (Direct Link) -->
+      <div class="nav-menu-item">
+        <a href="../../#contact" class="nav-direct-link">
+          <div class="nav-item-left">
+            <span class="nav-item-index">[05]</span>
+            <span class="nav-item-title">Contact Us</span>
+          </div>
+          <span class="nav-direct-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+    </nav>
+
+    <!-- Bottom Action CTA -->
+    <div class="nav-panel-footer">
+      <a href="../../#contact" class="nav-panel-cta-btn">
+        <span>Get Your Website Today</span>
+        <span aria-hidden="true">→</span>
+      </a>
+      <div class="nav-panel-contact-info">
+        <span>Direct studio:</span>
+        <a href="mailto:hello@craftingwebdesigns.com">hello@craftingwebdesigns.com</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- =======================================================================
+       1. HERO SECTION — BOLD EDITORIAL INTRODUCTION (Black Background)
+       ======================================================================= -->
+  <section class="cs-hero-section">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Eyebrow Tag -->
+      <div class="cs-reveal">
+        <div class="cs-eyebrow-tag">
+          <span class="cs-eyebrow-dot" aria-hidden="true"></span>
+          <span>SELECTED WORK / 001</span>
+        </div>
+      </div>
+
+      <!-- Main Headline -->
+      <div class="cs-reveal">
+        <h1 class="cs-hero-headline">
+          A Stronger <span class="highlight-lime">Digital Presence</span> for Vignesh Wadarajan.
+        </h1>
+      </div>
+
+      <!-- Supporting Text -->
+      <div class="cs-reveal">
+        <p class="cs-hero-lead font-inter">
+          A refreshed WordPress experience built to bring Vignesh's personal brand, educational content, and digital expertise together.
+        </p>
+      </div>
+
+      <!-- Project Metadata Strip -->
+      <div class="cs-metadata-grid cs-reveal">
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">CLIENT</span>
+          <span class="cs-meta-value font-syne">Vignesh Wadarajan</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">INDUSTRY</span>
+          <span class="cs-meta-value">Personal Brand &amp; Digital Marketing</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">SERVICES</span>
+          <span class="cs-meta-value">Website Redesign / WordPress / Blogging / SEO</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">PLATFORM</span>
+          <span class="cs-meta-value">WordPress</span>
+        </div>
+      </div>
+
+      <!-- Hero Visual: Supplied Exact Vignesh Wadarajan Laptop & Desk Environment Mockup -->
+      <div class="cs-reveal">
+        <div class="cs-hero-mockup-frame">
+          <img 
+            src="../../assets/case-studies/vignesh-wadarajan/hero-vignesh-laptop.png" 
+            alt="Vignesh Wadarajan Redesigned WordPress Website Showcase on Laptop with Burgundy Branding"
+            class="cs-hero-mockup-img"
+            loading="eager"
+            onerror="handleImgError(this)">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       2. PROJECT INTRODUCTION — MEET VIGNESH (White Background)
+       ======================================================================= -->
+  <section class="cs-intro-section" id="the-client">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        
+        <!-- Left Column: Eyebrow + Oversized Heading + Client Card -->
+        <div class="lg:col-span-5 cs-reveal">
+          <div class="cs-intro-eyebrow">
+            <span class="marker-dot" aria-hidden="true"></span>
+            <span>THE CLIENT</span>
+          </div>
+          
+          <h2 class="cs-intro-heading">
+            A Personal Brand Built Around Digital Knowledge.
+          </h2>
+
+          <!-- Client Portrait Info Pill -->
+          <div class="cs-client-portrait-card">
+            <img 
+              src="../../assets/case-studies/vignesh-wadarajan/vignesh-portrait.webp" 
+              alt="Vignesh Wadarajan Portrait" 
+              class="cs-client-portrait-img"
+              loading="lazy"
+              onerror="handleImgError(this)">
+            <div class="cs-client-portrait-info">
+              <h4>Vignesh Wadarajan</h4>
+              <p>Digital Creator &amp; Online Entrepreneur</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Editorial Body Context -->
+        <div class="lg:col-span-7 cs-intro-body font-inter cs-reveal">
+          <p>
+            Vignesh Wadarajan is a digital creator and online entrepreneur sharing insights into blogging, affiliate marketing, eCommerce, and building an income online.
+          </p>
+          <p>
+            Through educational articles, tutorials, and practical guides, his website helps aspiring entrepreneurs explore opportunities in the digital world.
+          </p>
+          <p>
+            As his content and personal brand evolved, the website needed a more cohesive presentation—one that brought his identity, expertise, and educational resources together.
+          </p>
+
+          <!-- Subtle Divider & Client Logo Badge -->
+          <div class="pt-8 mt-2 border-t border-black/10 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <span class="text-xs font-mono font-bold uppercase tracking-widest text-zinc-500">Official Brandmark</span>
+              <img src="../../assets/case-studies/vignesh-wadarajan/vignesh-logo.png" alt="VW Logo" class="h-6 object-contain" onerror="this.style.display='none'">
+            </div>
+            <a href="https://thisisvignesh.com/" target="_blank" rel="noopener noreferrer" class="text-xs font-mono font-bold uppercase tracking-wider text-black hover:underline flex items-center gap-1">
+              <span>thisisvignesh.com</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       3. HOW THE COLLABORATION STARTED (Dark Storytelling Section)
+       ======================================================================= -->
+  <section class="cs-story-section">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-4xl cs-reveal">
+        
+        <div class="cs-eyebrow-tag mb-4">
+          <span class="cs-eyebrow-dot" aria-hidden="true"></span>
+          <span>THE BEGINNING</span>
+        </div>
+
+        <div class="cs-story-quote-mark" aria-hidden="true">“</div>
+
+        <h2 class="cs-story-heading">
+          It Started With a <span class="highlight-lime">LinkedIn Conversation</span>.
+        </h2>
+
+        <div class="cs-story-body font-inter">
+          <p>
+            Our collaboration began after connecting with Vignesh on LinkedIn.
+          </p>
+          <p>
+            What started as a conversation about his online presence developed into an opportunity to refresh his website and improve how visitors experienced his content.
+          </p>
+          <p>
+            The objective was simple: create a more polished home for his personal brand while supporting his ongoing blogging and SEO efforts.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       4. THE WORK — THREE CORE DELIVERABLES (Dark Surface Section)
+       ======================================================================= -->
+  <section class="cs-deliverables-section" id="the-work">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="cs-deliverables-header cs-reveal">
+        <div class="cs-eyebrow-tag mb-4">
+          <span class="cs-eyebrow-dot" aria-hidden="true"></span>
+          <span>THE WORK / CORE DELIVERABLES</span>
+        </div>
+        <h2 class="font-syne text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+          What We Brought to the Project.
+        </h2>
+      </div>
+
+      <div class="cs-deliverables-list">
+        
+        <!-- Deliverable 01 -->
+        <div class="cs-deliverable-row cs-reveal">
+          <div class="cs-deliverable-num">01</div>
+          <div class="cs-deliverable-title">
+            WordPress Website Redesign
+          </div>
+          <div class="cs-deliverable-desc font-inter">
+            We redesigned Vignesh's website using WordPress, recreating and customizing a template to better reflect his personal brand. The refreshed design brought together a bold visual identity, clearer navigation, prominent calls to action, and a more engaging homepage experience.
+          </div>
+        </div>
+
+        <!-- Deliverable 02 -->
+        <div class="cs-deliverable-row cs-reveal">
+          <div class="cs-deliverable-num">02</div>
+          <div class="cs-deliverable-title">
+            A Better Content Experience
+          </div>
+          <div class="cs-deliverable-desc font-inter">
+            We improved how visitors navigate and explore the website's educational content. The structure places greater emphasis on readability and content discovery, making it easier to explore topics such as blogging, affiliate marketing, and eCommerce.
+          </div>
+        </div>
+
+        <!-- Deliverable 03 -->
+        <div class="cs-deliverable-row cs-reveal">
+          <div class="cs-deliverable-num">03</div>
+          <div class="cs-deliverable-title">
+            Blogging &amp; SEO Support
+          </div>
+          <div class="cs-deliverable-desc font-inter">
+            Beyond the redesign, we supported the website's content efforts through blogging and SEO work. Our focus was on strengthening content organization, supporting search visibility, and creating a more structured foundation for future publishing.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       5. WEBSITE SHOWCASE — LET THE DESIGN SPEAK (Light Neutral #F5F5F3)
+       ======================================================================= -->
+  <section class="cs-showcase-section" id="showcase">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="max-w-3xl mb-12 lg:mb-16 cs-reveal">
+        <div class="inline-flex items-center gap-2 font-mono text-xs font-bold tracking-widest text-zinc-600 uppercase mb-3">
+          <span class="w-2 h-2 rounded-full bg-zinc-900"></span>
+          <span>WEBSITE SHOWCASE</span>
+        </div>
+        <h2 class="font-syne text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-zinc-900 mb-4">
+          A Digital Home That Feels Like Vignesh.
+        </h2>
+        <p class="font-inter text-lg text-zinc-600 leading-relaxed">
+          Bold personal branding, clearer content pathways, and a more cohesive WordPress experience—designed to put the creator and his content front and center.
+        </p>
+      </div>
+
+      <!-- Showcase Visual 1: Large Full-Width Desktop Browser Frame -->
+      <div class="cs-browser-frame mb-12 cs-reveal">
+        <div class="cs-browser-header">
+          <div class="cs-browser-dots" aria-hidden="true">
+            <span class="cs-browser-dot red"></span>
+            <span class="cs-browser-dot yellow"></span>
+            <span class="cs-browser-dot green"></span>
+          </div>
+          <div class="cs-browser-url-pill">
+            <svg class="w-3.5 h-3.5 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+            <span>https://thisisvignesh.com/</span>
+          </div>
+          <div class="w-12"></div>
+        </div>
+        <div class="cs-browser-body">
+          <img 
+            src="../../assets/case-studies/vignesh-wadarajan/live-desktop-home.jpg" 
+            alt="Vignesh Wadarajan Homepage Live Desktop Showcase"
+            loading="lazy"
+            onerror="handleImgError(this)">
+        </div>
+      </div>
+
+      <!-- Showcase Visual 2: Editorial Split with Mobile Layout Showcase -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-8 border-t border-zinc-200">
+        
+        <div class="lg:col-span-5 order-2 lg:order-1 cs-reveal">
+          <div class="cs-mobile-frame">
+            <div class="cs-mobile-inner">
+              <img 
+                src="../../assets/case-studies/vignesh-wadarajan/live-mobile-home.jpg" 
+                alt="Vignesh Wadarajan Mobile Website Design"
+                loading="lazy"
+                onerror="handleImgError(this)">
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 order-1 lg:order-2 cs-reveal">
+          <div class="space-y-6 max-w-xl">
+            <span class="font-mono text-xs font-bold uppercase tracking-widest text-zinc-500">Responsive Architecture</span>
+            <h3 class="font-syne text-2xl sm:text-3xl font-extrabold text-zinc-900">
+              Mobile-First Readability for Growing Readers.
+            </h3>
+            <p class="font-inter text-zinc-600 leading-relaxed">
+              With a substantial portion of his audience accessing educational guides and affiliate reviews on mobile devices, every element—from typography hierarchy to tap-friendly navigation—was tailored for frictionless reading and engagement.
+            </p>
+            <div class="grid grid-cols-2 gap-4 pt-4">
+              <div class="p-4 rounded-xl bg-white border border-zinc-200 shadow-sm">
+                <span class="block font-syne text-xl font-bold text-zinc-900 mb-1">Instant Touch</span>
+                <span class="text-xs text-zinc-500 font-inter">Optimized tap targets and swift mobile drawer navigation.</span>
+              </div>
+              <div class="p-4 rounded-xl bg-white border border-zinc-200 shadow-sm">
+                <span class="block font-syne text-xl font-bold text-zinc-900 mb-1">Clean Columns</span>
+                <span class="text-xs text-zinc-500 font-inter">Single-column editorial flow for tutorials and monetization guides.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       6. PROJECT OUTCOME (Dark Section)
+       ======================================================================= -->
+  <section class="cs-outcome-section" id="outcome">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl cs-reveal">
+        <div class="cs-eyebrow-tag mb-4">
+          <span class="cs-eyebrow-dot" aria-hidden="true"></span>
+          <span>THE OUTCOME</span>
+        </div>
+        
+        <h2 class="font-syne text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-6">
+          A More Cohesive Platform for a Growing Personal Brand.
+        </h2>
+
+        <p class="font-inter text-lg text-zinc-400 leading-relaxed mb-4">
+          The project brought Vignesh's visual identity, website design, and educational content into a more unified experience.
+        </p>
+        <p class="font-inter text-lg text-zinc-400 leading-relaxed">
+          With a refreshed WordPress website and clearer content organization, he had a stronger platform for showcasing his expertise, publishing articles, and connecting with his audience.
+        </p>
+      </div>
+
+      <!-- Three Minimal Outcome Highlights -->
+      <div class="cs-highlights-grid cs-reveal">
+        
+        <div class="cs-highlight-card">
+          <div class="w-8 h-8 rounded-lg bg-[#BFF747]/10 flex items-center justify-center text-[#BFF747] font-mono text-sm font-bold mb-2">
+            01
+          </div>
+          <h3 class="cs-highlight-title">Refreshed Brand Experience</h3>
+          <p class="cs-highlight-text font-inter">
+            A more polished website presentation aligned with his personal identity.
+          </p>
+        </div>
+
+        <div class="cs-highlight-card">
+          <div class="w-8 h-8 rounded-lg bg-[#BFF747]/10 flex items-center justify-center text-[#BFF747] font-mono text-sm font-bold mb-2">
+            02
+          </div>
+          <h3 class="cs-highlight-title">Clearer Content Navigation</h3>
+          <p class="cs-highlight-text font-inter">
+            A more organized experience for visitors exploring his educational resources.
+          </p>
+        </div>
+
+        <div class="cs-highlight-card">
+          <div class="w-8 h-8 rounded-lg bg-[#BFF747]/10 flex items-center justify-center text-[#BFF747] font-mono text-sm font-bold mb-2">
+            03
+          </div>
+          <h3 class="cs-highlight-title">Blogging &amp; SEO Foundation</h3>
+          <p class="cs-highlight-text font-inter">
+            A structured platform supporting ongoing content publishing and search visibility efforts.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Live Site External CTA Button -->
+      <div class="pt-2 cs-reveal">
+        <a 
+          href="https://thisisvignesh.com/" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="cs-btn-primary">
+          <span>VIEW LIVE WEBSITE</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       7. NEXT PROJECT / PORTFOLIO NAVIGATION TRANSITION SECTION
+       ======================================================================= -->
+  <section class="cs-next-section">
+    <div class="cs-ambient-glow" aria-hidden="true"></div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 cs-reveal">
+      
+      <div class="cs-eyebrow-tag mb-4">
+        <span class="cs-eyebrow-dot" aria-hidden="true"></span>
+        <span>WHAT'S NEXT</span>
+      </div>
+
+      <h2 class="cs-next-heading">
+        Great Websites Are Built With Purpose.
+      </h2>
+
+      <p class="cs-next-lead font-inter">
+        From personal brands to ambitious businesses, we create digital experiences designed around the people they serve.
+      </p>
+
+      <div class="cs-actions-wrap">
+        <a href="../../#contact" class="cs-btn-primary">
+          <span>LET'S BUILD YOURS</span>
+          <span aria-hidden="true">→</span>
+        </a>
+        <a href="../../#cwd-case-studies" class="cs-btn-secondary">
+          <span>BACK TO SELECTED WORK</span>
+          <span aria-hidden="true">←</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       GLOBAL FOOTER (CWD Studio Standards & Accreditation)
+       ======================================================================= -->
+  <footer class="site-footer bg-[#09090B] border-t border-white/10" id="site-footer" style="padding-top: 5rem; padding-bottom: 3rem;">
+    <div class="footer-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Top Grid: 4 Balanced Columns -->
+      <div class="footer-quad-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-white/10">
+        
+        <!-- Column 1: Studio Identity & High-Performance Mission -->
+        <div class="footer-quad-col col-brand-identity">
+          <a href="../../" class="footer-brand-title block mb-4 text-white text-xl font-bold font-syne no-underline">
+            CRAFTING WEB DESIGNS
+          </a>
+          <p class="footer-brand-bio text-zinc-400 text-sm leading-relaxed mb-6 font-inter">
+            High-converting digital architecture and bespoke web design for ambitious brands and creators worldwide. Delivered in days, engineered to convert.
+          </p>
+          <div class="footer-studio-badge inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-zinc-400 font-mono">
+            <span class="w-2 h-2 rounded-full bg-[#BFF747]"></span>
+            <span>Independent UK Studio • Global Operations</span>
+          </div>
+        </div>
+
+        <!-- Column 2: Navigation Directory -->
+        <div class="footer-quad-col col-directory">
+          <div class="footer-col-eyebrow text-xs font-mono font-bold uppercase tracking-widest text-zinc-400 mb-4 flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#BFF747]"></span>
+            <span>Navigation Directory</span>
+          </div>
+          <ul class="footer-nav-list space-y-2.5 text-sm font-inter" role="list">
+            <li><a href="../../#cwd-case-studies" class="text-zinc-400 hover:text-white transition-colors flex items-center justify-between"><span>Client Outcomes</span><span>↗</span></a></li>
+            <li><a href="../../#services" class="text-zinc-400 hover:text-white transition-colors flex items-center justify-between"><span>Full Capabilities</span><span>↗</span></a></li>
+            <li><a href="../../one-day-websites/" class="text-zinc-400 hover:text-white transition-colors flex items-center justify-between"><span>One Day Websites</span><span class="text-[#BFF747]">★</span></a></li>
+            <li><a href="../../#advantages" class="text-zinc-400 hover:text-white transition-colors flex items-center justify-between"><span>The CWD Advantage</span><span>↗</span></a></li>
+            <li><a href="../../#process" class="text-zinc-400 hover:text-white transition-colors flex items-center justify-between"><span>Rapid Process</span><span>↗</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Regional Hubs -->
+        <div class="footer-quad-col col-global-hubs">
+          <div class="footer-col-eyebrow text-xs font-mono font-bold uppercase tracking-widest text-zinc-400 mb-4 flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#BFF747]"></span>
+            <span>Worldwide Delivery</span>
+          </div>
+          <div class="footer-hubs-grid space-y-3 font-inter text-sm">
+            <div class="hub-item flex items-center gap-3 p-2 rounded-lg bg-white/5 border border-white/5">
+              <span class="text-lg">🇬🇧</span>
+              <div class="hub-info"><span class="font-bold text-white block text-xs">London</span><span class="text-zinc-400 text-xs">UK &amp; Europe</span></div>
+            </div>
+            <div class="hub-item flex items-center gap-3 p-2 rounded-lg bg-white/5 border border-white/5">
+              <span class="text-lg">🇺🇸</span>
+              <div class="hub-info"><span class="font-bold text-white block text-xs">New York</span><span class="text-zinc-400 text-xs">Americas</span></div>
+            </div>
+            <div class="hub-item flex items-center gap-3 p-2 rounded-lg bg-white/5 border border-white/5">
+              <span class="text-lg">🇦🇺</span>
+              <div class="hub-info"><span class="font-bold text-white block text-xs">Sydney</span><span class="text-zinc-400 text-xs">Asia-Pacific</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 4: Studio Standards & Assurance -->
+        <div class="footer-quad-col col-studio-security">
+          <div class="footer-col-eyebrow text-xs font-mono font-bold uppercase tracking-widest text-zinc-400 mb-4 flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#BFF747]"></span>
+            <span>Studio Standards</span>
+          </div>
+          <div class="security-assurance-box space-y-2.5 font-inter text-xs">
+            <div class="flex items-center gap-2.5 p-2 rounded-lg bg-white/5 border border-white/5 text-zinc-300">
+              <span>🛡️</span>
+              <span>Zero-Risk Client Previews</span>
+            </div>
+            <div class="flex items-center gap-2.5 p-2 rounded-lg bg-white/5 border border-white/5 text-zinc-300">
+              <span>⚡</span>
+              <span>Rapid Production Sprints</span>
+            </div>
+            <div class="flex items-center gap-2.5 p-2 rounded-lg bg-white/5 border border-white/5 text-zinc-300">
+              <span>💻</span>
+              <span>100% Code &amp; Asset Ownership</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar: Copyright & Back-to-Top -->
+      <div class="footer-bottom-bar pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-400 font-inter">
+        <div class="footer-copyright-text flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-center sm:text-left">
+          <span>&copy; 2026 Crafting Web Designs (CWD). All rights reserved.</span>
+          <span class="text-zinc-600 hidden sm:inline">•</span>
+          <span class="text-zinc-500">Built for High-Growth Brands &amp; Creators.</span>
+        </div>
+        <button class="footer-back-to-top-btn inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-zinc-300 hover:text-white transition-colors cursor-pointer text-xs font-mono" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Scroll back to top of page">
+          <span>↑</span>
+          <span>BACK TO TOP</span>
+        </button>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts: GSAP Core, ScrollTrigger & Dedicated Case Study Controller -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="../../js/case-study.js?v=1.0"></script>
+</body>
+</html>
