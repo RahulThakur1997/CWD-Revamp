@@ -588,282 +588,7 @@
     }
   
 
-/* ==========================================================================
-   CWD DESKTOP SCROLL ANIMATIONS ARCHITECTURE (min-width: 1024px)
-   Strictly isolated: Desktop (1024px+) vs Mobile/Tablet (< 1024px)
-   ========================================================================== */
-
-/* --------------------------------------------------------------------------
-   CHANGE 1: CASE-STUDY STACKING (Design Monks standard)
-   -------------------------------------------------------------------------- */
-.cwd-case-studies {
-  position: relative;
-  isolation: isolate;
-  background: #FFFFFF !important;
-}
-
-.cwd-case-studies__stack {
-  position: relative;
-  overflow: visible;
-}
-
-.cwd-case-card {
-  position: relative;
-  transform-origin: center top;
-  backface-visibility: hidden;
-}
-
-.cwd-case-card:nth-child(1) { --card-index: 0; }
-.cwd-case-card:nth-child(2) { --card-index: 1; }
-.cwd-case-card:nth-child(3) { --card-index: 2; }
-.cwd-case-card:nth-child(4) { --card-index: 3; }
-
-@media (min-width: 1024px) {
-  .cwd-case-studies__stack {
-    padding-bottom: 12vh;
-    overflow: visible;
-  }
-
-  .cwd-case-card {
-    position: sticky !important;
-    top: calc(80px + var(--card-index, 0) * 22px) !important;
-    z-index: calc(10 + var(--card-index, 0)) !important;
-    margin-bottom: 25vh;
-    will-change: transform, opacity;
-    box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.05), 0 24px 50px -10px rgba(0, 0, 0, 0.14) !important;
-  }
-
-  .cwd-case-card:last-child {
-    margin-bottom: 0 !important;
-  }
-}
-
-@media (max-width: 1023px) {
-  .cwd-case-studies,
-  .cwd-case-studies__stack {
-    position: relative !important;
-    height: auto !important;
-    min-height: 0 !important;
-    overflow: visible !important;
-    padding-bottom: 0 !important;
-  }
-
-  .cwd-case-card {
-    position: relative !important;
-    top: auto !important;
-    bottom: auto !important;
-    transform: none !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    margin-bottom: 1.5rem !important;
-    z-index: auto !important;
-    will-change: auto !important;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   CHANGE 2: FULL-STACK DIGITAL GROWTH (Horizontal Services Scroll)
-   -------------------------------------------------------------------------- */
-.cwd-services {
-  position: relative;
-  width: 100%;
-  background-color: #09090B !important;
-  color: #FFFFFF !important;
-}
-
-.cwd-services__viewport {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.cwd-services__track {
-  display: flex;
-  gap: 24px;
-  width: max-content;
-}
-
-.cwd-services__track > * {
-  flex-shrink: 0;
-}
-
-@media (min-width: 1024px) {
-  .cwd-services {
-    padding: 0 !important;
-  }
-
-  .cwd-services__viewport {
-    height: 100vh;
-    min-height: 640px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: hidden;
-    padding: 2.5rem 0;
-    box-sizing: border-box;
-  }
-
-  .cwd-services__track {
-    overflow: visible;
-    touch-action: auto;
-    padding-left: clamp(2rem, 5vw, 5rem);
-    padding-right: clamp(2rem, 5vw, 5rem);
-    will-change: transform;
-  }
-}
-
-@media (max-width: 1023px) {
-  .cwd-services,
-  .cwd-services__viewport {
-    position: relative !important;
-    height: auto !important;
-    min-height: 0 !important;
-    overflow: visible !important;
-    padding-top: 3.5rem;
-    padding-bottom: 3.5rem;
-  }
-
-  .cwd-services__track {
-    display: flex;
-    width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    overscroll-behavior-x: contain;
-    -webkit-overflow-scrolling: touch;
-    touch-action: pan-x pan-y;
-    padding-bottom: 1.5rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-
-  .cwd-services__track::-webkit-scrollbar {
-    display: none;
-  }
-
-  .cwd-services__track > * {
-    flex: 0 0 min(85vw, 340px);
-    scroll-snap-align: start;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   CHANGE 3: ENGINEERED FOR RESULTS / CWD ADVANTAGE (Synchronized Preview)
-   -------------------------------------------------------------------------- */
-.cwd-advantage {
-  position: relative;
-  background-color: #FFFFFF !important;
-  color: #111827 !important;
-}
-
-.cwd-advantage__grid {
-  display: grid;
-  gap: 48px;
-}
-
-.cwd-advantage__preview {
-  position: relative;
-  overflow: hidden;
-  border-radius: 24px;
-  background: #09090B;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.12);
-  isolation: isolate;
-}
-
-.cwd-advantage__slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.cwd-advantage__slide.is-active {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-
-.cwd-advantage__slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-@media (min-width: 1024px) {
-  .cwd-advantage__grid {
-    display: grid !important;
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr) !important;
-    align-items: start !important;
-    gap: 3.5rem !important;
-  }
-
-  .cwd-advantage__visual {
-    position: sticky !important;
-    top: clamp(80px, 15vh, 140px) !important;
-    align-self: start !important;
-    display: block !important;
-    height: min(65vh, 580px) !important;
-    min-height: 480px !important;
-  }
-
-  .cwd-advantage__preview {
-    width: 100% !important;
-    height: 100% !important;
-  }
-
-  .cwd-advantage__step {
-    min-height: 52vh !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    transition: opacity 0.4s ease, transform 0.3s ease !important;
-    margin-bottom: 3.5rem !important;
-    opacity: 0.4 !important;
-  }
-
-  .cwd-advantage__step.is-active {
-    opacity: 1 !important;
-    transform: translateX(4px) !important;
-  }
-}
-
-@media (max-width: 1023px) {
-  .cwd-advantage__grid {
-    display: block !important;
-  }
-
-  .cwd-advantage__visual {
-    display: none !important;
-  }
-
-  .cwd-advantage__step {
-    position: relative !important;
-    min-height: 0 !important;
-    margin-bottom: 2rem !important;
-    opacity: 1 !important;
-    transform: none !important;
-  }
-
-  .cwd-advantage__preview {
-    position: relative !important;
-    height: auto !important;
-    min-height: 0 !important;
-  }
-
-  .cwd-advantage__slide {
-    position: relative !important;
-    inset: auto !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-}
-
-  </style>
+</style>
 
   <!-- Main Custom Styling -->
   <link rel="stylesheet" href="./css/styles.css?v=3.5">
@@ -1863,7 +1588,7 @@
         <div class="cwd-advantage__grid why-split-layout">
           
           <!-- LEFT COLUMN: Pinned Dynamic Graphic Container -->
-          <div class="cwd-advantage__visual why-pinned-column cwd-pinned-graphic hidden lg:block">
+          <div class="cwd-advantage__visual why-pinned-column cwd-pinned-graphic hidden md:block">
             <div class="cwd-advantage__preview why-graphic-card cwd-graphic-card" id="why-graphic-card">
               
               <!-- State 1: Zero-Risk Prototype (Awaken Films High-Fidelity Custom Brand Preview) -->
@@ -2184,7 +1909,7 @@
               </div>
             
               <!-- Mobile Inline Visual Preview: Live Interactive Prototype -->
-              <div class="why-card-mobile-preview lg:hidden mt-6 pt-4 border-t border-zinc-200/80">
+              <div class="why-card-mobile-preview md:hidden mt-6 pt-4 border-t border-zinc-200/80">
                 <div class="mobile-preview-box rounded-xl overflow-hidden border border-zinc-200 bg-zinc-950 p-2 shadow-sm">
                   <div class="flex items-center justify-between px-2 py-1.5 mb-2 bg-zinc-900 rounded-lg text-xs">
                     <span class="text-zinc-400 font-mono text-[10px]">awakenfilms.cwd.design/live-prototype</span>
@@ -2222,7 +1947,7 @@
               </div>
             
               <!-- Mobile Inline Visual Preview: Sprint Delivery Velocity -->
-              <div class="why-card-mobile-preview lg:hidden mt-6 pt-4 border-t border-zinc-200/80">
+              <div class="why-card-mobile-preview md:hidden mt-6 pt-4 border-t border-zinc-200/80">
                 <div class="sprint-velocity-card bg-zinc-950 border border-zinc-800 rounded-xl p-4 shadow-sm text-white">
                   <div class="flex items-center justify-between pb-3 border-b border-zinc-800/80 mb-3">
                     <div class="flex items-center gap-2">
@@ -2273,7 +1998,7 @@
               </div>
             
               <!-- Mobile Inline Visual Preview: Authentic Client Communication Thread -->
-              <div class="why-card-mobile-preview lg:hidden mt-6 pt-4 border-t border-zinc-200/80">
+              <div class="why-card-mobile-preview md:hidden mt-6 pt-4 border-t border-zinc-200/80">
                 <div class="rounded-xl overflow-hidden shadow-md border border-zinc-800 bg-zinc-950">
                   <div class="bg-zinc-900 px-3 py-2 border-b border-zinc-800 flex items-center justify-between text-xs">
                     <div class="flex items-center gap-1.5">
@@ -2317,7 +2042,7 @@
               </div>
             
               <!-- Mobile Inline Visual Preview: Flexible Escrow Payments -->
-              <div class="why-card-mobile-preview lg:hidden mt-6 pt-4 border-t border-zinc-200/80">
+              <div class="why-card-mobile-preview md:hidden mt-6 pt-4 border-t border-zinc-200/80">
                 <div class="mobile-preview-box rounded-xl overflow-hidden border border-zinc-200 bg-zinc-950 p-3 shadow-sm text-white">
                   <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-[11px] text-emerald-300 font-semibold mb-3">
                     <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> 0% Upfront Deposit • Pay Only When 100% Satisfied
@@ -2362,7 +2087,7 @@
               </div>
             
               <!-- Mobile Inline Visual Preview: Cloud Care & Server Uptime Badge -->
-              <div class="why-card-mobile-preview lg:hidden mt-6 pt-4 border-t border-zinc-200/80">
+              <div class="why-card-mobile-preview md:hidden mt-6 pt-4 border-t border-zinc-200/80">
                 <div class="server-uptime-card bg-zinc-950 border border-zinc-800 rounded-xl p-4 shadow-sm text-white">
                   <div class="flex items-center justify-between pb-3 border-b border-zinc-800/80 mb-3">
                     <div class="flex items-center gap-2">

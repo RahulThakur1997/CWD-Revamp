@@ -793,222 +793,221 @@ function initDesktopScrollAnimations() {
     ignoreMobileResize: true
   });
 
-  // Respect reduced-motion accessibility preference
   const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReducedMotion) return;
 
-  const cwdMM = gsap.matchMedia();
+  const mm = gsap.matchMedia();
 
-  // --------------------------------------------------------------------------
-  // DESKTOP ONLY: 1024px and above (min-width: 1024px)
-  // --------------------------------------------------------------------------
-  cwdMM.add("(min-width: 1024px)", () => {
-    // ------------------------------------------------------------------------
-    // CHANGE 1: PROVEN CLIENT OUTCOMES - STACKING CASE-STUDY CARDS
-    // Native CSS sticky stacking with GSAP ScrollTrigger progressive depth scaling
-    // Layers: 0.98, 0.96, 0.94 scale decrement as subsequent cards dock
-    // ------------------------------------------------------------------------
-    const stack = document.querySelector(".cwd-case-studies__stack, .stack-cards-deck");
-    if (stack) {
-      const cards = gsap.utils.toArray(".cwd-case-card, .stack-card", stack);
+  // =========================================================================
+  // DESKTOP: min-width: 768px
+  // =========================================================================
+  mm.add("(min-width: 768px)", () => {
 
+    // -----------------------------------------------------------------------
+    // 1. PROVEN CLIENTS / CASE STUDIES: TRUE GSAP CARD STACKING
+    // -----------------------------------------------------------------------
+    const cards = gsap.utils.toArray('.stack-card');
+    const stackDeck = document.querySelector('.stack-cards-deck');
+
+    if (cards.length > 1 && stackDeck) {
       cards.forEach((card, index) => {
-        card.style.setProperty("--card-index", index);
-      });
-
-      // Subtle progressive depth scaling: previous cards remain visible and scale down
-      cards.forEach((card, i) => {
-        if (i === cards.length - 1) return;
-
-        for (let j = i + 1; j < cards.length; j++) {
-          const incomingCard = cards[j];
-          const depth = j - i;
-          const targetScale = Math.max(0.92, 1 - depth * 0.02); // 0.98, 0.96, 0.94
-          const targetOpacity = Math.max(0.85, 1 - depth * 0.04);
-
-          gsap.to(card, {
-            scale: targetScale,
-            opacity: targetOpacity,
-            ease: "power1.out",
-            scrollTrigger: {
-              trigger: incomingCard,
-              start: "top 80%",
-              end: () => `top ${80 + j * 22}px`,
-              scrub: true,
-              invalidateOnRefresh: true
-            }
+        if (index < cards.length - 1) {
+          // Pin each card in place at top top+=80
+          ScrollTrigger.create({
+            trigger: card,
+            start: "top top+=80",
+            endTrigger: stackDeck,
+            end: "bottom bottom-=80",
+            pin: true,
+            pinSpacing: false,
+            scrub: true,
+            invalidateOnRefresh: true,
           });
+
+          // As next card scrolls up, this card scales down & dims
+          const nextCard = cards[index + 1];
+          if (nextCard) {
+            gsap.to(card, {
+              scale: 0.94 - (cards.length - 1 - index) * 0.02,
+              opacity: 0.75,
+              ease: "none",
+              scrollTrigger: {
+                trigger: nextCard,
+                start: "top bottom",
+                end: "top top+=80",
+                scrub: true,
+                invalidateOnRefresh: true,
+              }
+            });
+          }
         }
       });
     }
 
-    // ------------------------------------------------------------------------
-    // CHANGE 2: FULL-STACK DIGITAL GROWTH - HORIZONTAL SERVICES SCROLL
-    // Pinned 100vh viewport with smooth scrubbed horizontal translation
-    // ------------------------------------------------------------------------
-    const servicesSection = document.querySelector("#cwd-services, .cwd-services, #capabilities");
-    if (servicesSection) {
-      const viewport = servicesSection.querySelector(".cwd-services__viewport") || servicesSection;
-      const track = servicesSection.querySelector(".cwd-services__track, .services-track, .services-carousel-track");
+    // -----------------------------------------------------------------------
+    // 2. SERVICES CAROUSEL: PINNED HORIZONTAL SCROLL FROM LEFT TO RIGHT
+    // -----------------------------------------------------------------------
+    const servicesSection = document.querySelector('.services-carousel-section, #cwd-services');
+    const servicesTrack = document.querySelector('.services-carousel-track, .services-track');
 
-      if (viewport && track) {
-        // Measure horizontal distance dynamically
-        const getDistance = () => Math.max(0, track.scrollWidth - viewport.clientWidth);
+    if (servicesSection && servicesTrack) {
+      const getScrollDistance = () => servicesTrack.scrollWidth - window.innerWidth + 120;
 
-        if (getDistance() > 0) {
-          gsap.to(track, {
-            x: () => -getDistance(),
-            ease: "none",
-            scrollTrigger: {
-              trigger: servicesSection,
-              start: "top top",
-              end: () => `+=${getDistance()}`,
-              scrub: 1,
-              pin: viewport,
-              pinSpacing: true,
-              invalidateOnRefresh: true,
-              anticipatePin: 1
-            }
-          });
+      gsap.fromTo(servicesTrack,
+        { x: 0 },
+        {
+          x: () => -Math.max(0, getScrollDistance()),
+        ease: "none",
+        scrollTrigger: {
+          trigger: servicesSection,
+          start: "top top",
+          end: () => "+=" + Math.max(500, getScrollDistance()),
+          pin: true,
+          pinSpacing: true,
+          scrub: 1,
+          invalidateOnRefresh: true,
+          anticipatePin: 1
         }
-      }
+      });
     }
 
-    // ------------------------------------------------------------------------
-    // CHANGE 3: ENGINEERED FOR RESULTS / CWD ADVANTAGE - SYNCHRONIZED PREVIEW
-    // Left visual container is CSS sticky; GSAP crossfades visual with right-side steps
-    // ------------------------------------------------------------------------
-    const advantageSection = document.querySelector("#cwd-advantage, .cwd-advantage, #advantages");
-    if (advantageSection) {
-      const steps = gsap.utils.toArray(".cwd-advantage__step, .why-value-card", advantageSection);
-      const slides = gsap.utils.toArray(".cwd-advantage__slide, .graphic-pane", advantageSection);
+    // -----------------------------------------------------------------------
+    // 3. CWD ADVANTAGE: PINNED PREVIEW & TEXT FOCUS SWAP
+    // -----------------------------------------------------------------------
+    const advantageSection = document.querySelector('.why-us-section, #cwd-advantage');
+    const visualColumn = document.querySelector('.why-pinned-column, .cwd-advantage__visual');
+    const steps = gsap.utils.toArray('.why-value-card');
+    const panes = gsap.utils.toArray('.graphic-pane');
 
-      if (steps.length && steps.length === slides.length) {
-        let activeIndex = 0;
+    if (advantageSection && visualColumn && steps.length && panes.length) {
+      // Pin left visual preview box throughout scrolling steps
+      ScrollTrigger.create({
+        trigger: advantageSection,
+        start: "top top+=90",
+        endTrigger: steps[steps.length - 1],
+        end: "bottom center+=120",
+        pin: visualColumn,
+        pinSpacing: false,
+        invalidateOnRefresh: true,
+      });
 
-        // Ensure Slide 1 is visible immediately as section enters!
-        gsap.set(slides, { autoAlpha: 0, scale: 0.97 });
-        gsap.set(slides[0], { autoAlpha: 1, scale: 1 });
+      let activeIndex = -1;
 
-        steps.forEach((s, i) => s.classList.toggle("is-active", i === 0));
+      function activateStep(idx) {
+        if (idx === activeIndex) return;
+        activeIndex = idx;
 
-        const showSlide = (index) => {
-          if (index === activeIndex) return;
-
-          const previous = slides[activeIndex];
-          const next = slides[index];
-
-          gsap.killTweensOf([previous, next]);
-
-          // Previous slide fades out smoothly with subtle scale
-          gsap.to(previous, {
-            autoAlpha: 0,
-            scale: 0.97,
-            duration: 0.45,
+        steps.forEach((step, i) => {
+          const isActive = (i === idx);
+          step.classList.toggle('is-active', isActive);
+          gsap.to(step, {
+            opacity: isActive ? 1 : 0.2,
+            x: isActive ? 8 : 0,
+            duration: 0.35,
             ease: "power2.out"
           });
+        });
 
-          // Next slide crossfades in smoothly
-          gsap.fromTo(
-            next,
-            { autoAlpha: 0, scale: 0.97 },
-            { autoAlpha: 1, scale: 1, duration: 0.5, ease: "power2.out" }
-          );
-
-          // Active heading prominent (opacity: 1), inactive headings fade (opacity: 0.4)
-          steps.forEach((step, i) => {
-            step.classList.toggle("is-active", i === index);
+        panes.forEach((pane, i) => {
+          const isActive = (i === idx);
+          pane.classList.toggle('is-active', isActive);
+          gsap.to(pane, {
+            autoAlpha: isActive ? 1 : 0,
+            scale: isActive ? 1 : 0.96,
+            duration: 0.4,
+            ease: "power2.out"
           });
-
-          activeIndex = index;
-        };
-
-        // ScrollTrigger on each right-hand step card
-        steps.forEach((step, index) => {
-          ScrollTrigger.create({
-            trigger: step,
-            start: "top 55%",
-            end: "bottom 45%",
-            onEnter: () => showSlide(index),
-            onEnterBack: () => showSlide(index)
-          });
-
-          step.addEventListener("click", () => showSlide(index));
         });
       }
+
+      // Initial active state: Step 1
+      activateStep(0);
+
+      steps.forEach((step, i) => {
+        ScrollTrigger.create({
+          trigger: step,
+          start: "top 60%",
+          end: "bottom 40%",
+          onEnter: () => activateStep(i),
+          onEnterBack: () => activateStep(i),
+        });
+
+        step.addEventListener('click', () => activateStep(i));
+      });
     }
 
-    // Cleanup callback when leaving desktop breakpoint (> 1023px -> < 1024px)
+    // Cleanup when leaving desktop breakpoint
     return () => {
-      const stack = document.querySelector(".cwd-case-studies__stack, .stack-cards-deck");
-      if (stack) {
-        const cards = gsap.utils.toArray(".cwd-case-card, .stack-card", stack);
-        cards.forEach(card => {
-          card.style.removeProperty("--card-index");
-          card.style.transform = '';
-          card.style.opacity = '';
-        });
-      }
+      const cards = document.querySelectorAll('.stack-card');
+      cards.forEach(card => {
+        card.style.transform = '';
+        card.style.opacity = '';
+      });
 
-      const servicesTrack = document.querySelector(".cwd-services__track, .services-track, .services-carousel-track");
+      const servicesTrack = document.querySelector('.services-carousel-track, .services-track');
       if (servicesTrack) {
         servicesTrack.style.transform = '';
       }
 
-      const advantageSection = document.querySelector("#cwd-advantage, .cwd-advantage, #advantages");
-      if (advantageSection) {
-        const slides = gsap.utils.toArray(".cwd-advantage__slide, .graphic-pane", advantageSection);
-        const steps = gsap.utils.toArray(".cwd-advantage__step, .why-value-card", advantageSection);
-        gsap.killTweensOf(slides);
-        slides.forEach(slide => {
-          slide.style.opacity = '';
-          slide.style.transform = '';
-          slide.style.visibility = '';
-        });
-        steps.forEach(step => step.classList.remove("is-active"));
-      }
+      const steps = document.querySelectorAll('.why-value-card');
+      steps.forEach(step => {
+        step.style.opacity = '';
+        step.style.transform = '';
+        step.classList.remove('is-active');
+      });
+
+      const panes = document.querySelectorAll('.graphic-pane');
+      panes.forEach(pane => {
+        pane.style.opacity = '';
+        pane.style.transform = '';
+        pane.style.visibility = '';
+        pane.classList.remove('is-active');
+      });
     };
   });
 
-  // --------------------------------------------------------------------------
-  // MOBILE / TABLET ONLY: Below 1024px (max-width: 1023px)
-  // Preserves 100% natural document flow, native horizontal swipe for services,
-  // zero pinning, zero sticky cards, zero scroll-jacking.
-  // --------------------------------------------------------------------------
-  cwdMM.add("(max-width: 1023px)", () => {
-    // Reset all inline styles and transforms on case study cards
-    const cards = document.querySelectorAll(".cwd-case-card, .stack-card, .industry-card");
-    cards.forEach(card => {
-      card.style.transform = '';
-      card.style.position = '';
-      card.style.top = '';
-      card.style.opacity = '';
-      card.style.removeProperty("--card-index");
+  // =========================================================================
+  // MOBILE ONLY: max-width: 767px
+  // 100% natural linear flow, zero pinning, zero scroll-jacking
+  // =========================================================================
+  mm.add("(max-width: 767px)", () => {
+    // Kill all pinning and snap triggers
+    ScrollTrigger.getAll().forEach(t => {
+      if (t.vars && (t.vars.pin || t.vars.snap)) {
+        t.kill(false);
+      }
     });
 
-    // Reset services track transform
-    const servicesTrack = document.querySelector(".cwd-services__track, .services-track, .services-carousel-track");
+    const cards = document.querySelectorAll('.stack-card, .industry-card');
+    cards.forEach(card => {
+      card.style.position = '';
+      card.style.top = '';
+      card.style.transform = '';
+      card.style.opacity = '';
+    });
+
+    const servicesTrack = document.querySelector('.services-carousel-track, .services-track');
     if (servicesTrack) {
       servicesTrack.style.transform = '';
     }
 
-    // Reset advantage slides and step highlights
-    const slides = document.querySelectorAll(".cwd-advantage__slide, .graphic-pane");
-    slides.forEach(slide => {
-      slide.style.opacity = '';
-      slide.style.transform = '';
-      slide.style.visibility = '';
-    });
-
-    const steps = document.querySelectorAll(".cwd-advantage__step, .why-value-card");
+    const steps = document.querySelectorAll('.why-value-card');
     steps.forEach(step => {
       step.style.opacity = '';
       step.style.transform = '';
-      step.classList.remove("is-active");
+      step.classList.remove('is-active');
+    });
+
+    const panes = document.querySelectorAll('.graphic-pane');
+    panes.forEach(pane => {
+      pane.style.opacity = '';
+      pane.style.transform = '';
+      pane.style.visibility = '';
+      pane.classList.remove('is-active');
     });
   });
 
-  // Refresh ScrollTrigger once window/assets fully loaded to ensure precise dimensions
+  // Refresh ScrollTrigger once window is loaded to ensure accurate measurements
   window.addEventListener('load', () => {
     ScrollTrigger.refresh();
   }, { once: true });
