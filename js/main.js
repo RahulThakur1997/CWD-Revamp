@@ -812,110 +812,197 @@ function initDesktopScrollAnimations() {
     ignoreMobileResize: true
   });
 
-  ScrollTrigger.matchMedia({
-    // Desktop only (min-width: 768px)
-    "(min-width: 768px)": function() {
-      // 1. RESTORE CARD STACKING EFFECT ON DESKTOP (Industry Wins / Case Studies)
-      const cards = gsap.utils.toArray('.stack-card');
-      const stackContainer = document.querySelector('.stack-card-container, .stack-cards-deck, #proof');
-      if (cards.length && stackContainer) {
-        cards.forEach((card, index) => {
-          if (index < cards.length - 1) {
-            ScrollTrigger.create({
-              trigger: card,
-              start: "top top+=100",
-              endTrigger: stackContainer,
-              end: "bottom bottom",
-              pin: true,
-              pinSpacing: false,
-              scrub: true,
-              invalidateOnRefresh: true,
-            });
+  // Reduced motion accessibility safeguard
+  const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) return;
 
-            if (cards[index + 1]) {
-              gsap.to(card, {
-                scale: 0.94 - (cards.length - 1 - index) * 0.02,
-                opacity: 0.7,
-                scrollTrigger: {
-                  trigger: cards[index + 1],
-                  start: "top top+=200",
-                  end: "top top+=100",
-                  scrub: true,
-                }
-              });
-            }
-          }
-        });
-      }
+  const cwdMM = gsap.matchMedia();
 
-      // 2. RESTORE HORIZONTAL SCROLL ON SERVICES CAROUSEL (DESKTOP ONLY)
-      const servicesTrack = document.querySelector('.services-track, .services-carousel-track');
-      const servicesSection = document.querySelector('.services-section, .services-carousel-section, #capabilities');
-      if (servicesTrack && servicesSection) {
-        const getScrollDistance = () => -(servicesTrack.scrollWidth - window.innerWidth + 120);
-        gsap.to(servicesTrack, {
-          x: getScrollDistance,
+  // --------------------------------------------------------------------------
+  // DESKTOP ONLY (min-width: 768px)
+  // --------------------------------------------------------------------------
+  cwdMM.add("(min-width: 768px)", () => {
+    // ------------------------------------------------------------------------
+    // ISSUE 1: CASE-STUDY STACKING (Design Monks standard)
+    // ------------------------------------------------------------------------
+    const stack = document.querySelector(".cwd-case-studies__stack, .stack-cards-deck");
+    if (stack) {
+      const cards = gsap.utils.toArray(".cwd-case-card, .stack-card", stack);
+
+      cards.forEach((card, index) => {
+        card.style.setProperty("--card-index", index);
+      });
+
+      cards.forEach((card, index) => {
+        if (index === cards.length - 1) return;
+        const nextCard = cards[index + 1];
+
+        gsap.to(card, {
+          scale: 0.975 - index * 0.02,
+          opacity: 0.92,
           ease: "none",
           scrollTrigger: {
-            trigger: servicesSection,
-            start: "top top",
-            end: () => "+=" + Math.max(300, Math.abs(getScrollDistance())),
-            pin: true,
-            scrub: 1,
-            invalidateOnRefresh: true,
-            anticipatePin: 1
+            trigger: nextCard,
+            start: "top 85%",
+            end: () => `top ${80 + (index + 1) * 20}px`,
+            scrub: true,
+            invalidateOnRefresh: true
           }
         });
-      }
+      });
+    }
 
-      // 3. RESTORE CWD ADVANTAGE PINNED IMAGE SWAP ("Why Teams Hire Us")
-      const steps = gsap.utils.toArray('.why-value-card, .cwd-step-item');
-      const panes = gsap.utils.toArray('.graphic-pane');
+    // ------------------------------------------------------------------------
+    // ISSUE 2: HORIZONTAL SERVICES CAROUSEL & VIEWPORT PINNING
+    // ------------------------------------------------------------------------
+    const servicesSection = document.querySelector("#cwd-services, .cwd-services, #capabilities");
+    if (servicesSection) {
+      const viewport = servicesSection.querySelector(".cwd-services__viewport") || servicesSection;
+      const track = servicesSection.querySelector(".cwd-services__track, .services-track, .services-carousel-track");
 
-      function activateStep(idx) {
-        steps.forEach((step, i) => {
-          step.classList.toggle('is-active', i === idx);
-        });
-        panes.forEach((pane, i) => {
-          pane.classList.toggle('is-active', i === idx);
-        });
-      }
+      if (viewport && track) {
+        const getDistance = () => Math.max(0, track.scrollWidth - viewport.clientWidth);
 
-      if (steps.length) {
-        steps.forEach((step, i) => {
-          ScrollTrigger.create({
-            trigger: step,
-            start: "top center",
-            end: "bottom center",
-            onEnter: () => activateStep(i),
-            onEnterBack: () => activateStep(i),
+        if (getDistance() > 0) {
+          gsap.to(track, {
+            x: () => -getDistance(),
+            ease: "none",
+            scrollTrigger: {
+              trigger: servicesSection,
+              start: "top top",
+              end: () => `+=${getDistance()}`,
+              scrub: 1,
+              pin: viewport,
+              pinSpacing: true,
+              invalidateOnRefresh: true,
+              anticipatePin: 1
+            }
           });
-
-          step.addEventListener('click', () => activateStep(i));
-        });
-      }
-    },
-
-    // Mobile: completely disarmed (max-width: 767px)
-    "(max-width: 767px)": function() {
-      // Kill any leftover pinning/snapping
-      ScrollTrigger.getAll().forEach(t => {
-        if (t.vars && (t.vars.pin || t.vars.snap)) t.kill(false);
-      });
-
-      // Ensure natural linear document flow
-      const cards = document.querySelectorAll('.stack-card, .industry-card');
-      cards.forEach(card => {
-        card.style.transform = '';
-        card.style.position = '';
-        card.style.top = '';
-        card.style.opacity = '';
-      });
-
-      const servicesTrack = document.querySelector('.services-track, .services-carousel-track');
-      if (servicesTrack) {
-        servicesTrack.style.transform = '';
+        }
       }
     }
+
+    // ------------------------------------------------------------------------
+    // ISSUE 3: CWD ADVANTAGE / SYNCHRONIZED PREVIEW (Dream Agency Style)
+    // ------------------------------------------------------------------------
+    const advantageSection = document.querySelector("#cwd-advantage, .cwd-advantage, #advantages");
+    if (advantageSection) {
+      const steps = gsap.utils.toArray(".cwd-advantage__step, .why-value-card", advantageSection);
+      const slides = gsap.utils.toArray(".cwd-advantage__slide, .graphic-pane", advantageSection);
+
+      if (steps.length && steps.length === slides.length) {
+        let activeIndex = 0;
+
+        gsap.set(slides, {
+          autoAlpha: 0,
+          scale: 1.035
+        });
+
+        gsap.set(slides[0], {
+          autoAlpha: 1,
+          scale: 1
+        });
+
+        const showSlide = (index) => {
+          if (index === activeIndex) return;
+
+          const previous = slides[activeIndex];
+          const next = slides[index];
+
+          gsap.killTweensOf([previous, next]);
+
+          gsap.to(previous, {
+            autoAlpha: 0,
+            scale: 0.985,
+            duration: 0.35,
+            ease: "power2.out"
+          });
+
+          gsap.fromTo(
+            next,
+            {
+              autoAlpha: 0,
+              scale: 1.035
+            },
+            {
+              autoAlpha: 1,
+              scale: 1,
+              duration: 0.5,
+              ease: "power2.out"
+            }
+          );
+
+          steps.forEach((step, i) => {
+            step.classList.toggle("is-active", i === index);
+          });
+
+          activeIndex = index;
+        };
+
+        steps[0].classList.add("is-active");
+
+        steps.forEach((step, index) => {
+          ScrollTrigger.create({
+            trigger: step,
+            start: "top 55%",
+            end: "bottom 45%",
+            onEnter: () => showSlide(index),
+            onEnterBack: () => showSlide(index)
+          });
+
+          step.addEventListener("click", () => showSlide(index));
+        });
+      }
+    }
+
+    // Cleanup when leaving desktop breakpoint
+    return () => {
+      const stack = document.querySelector(".cwd-case-studies__stack, .stack-cards-deck");
+      if (stack) {
+        const cards = gsap.utils.toArray(".cwd-case-card, .stack-card", stack);
+        cards.forEach(card => {
+          card.style.removeProperty("--card-index");
+        });
+      }
+
+      const advantageSection = document.querySelector("#cwd-advantage, .cwd-advantage, #advantages");
+      if (advantageSection) {
+        const slides = gsap.utils.toArray(".cwd-advantage__slide, .graphic-pane", advantageSection);
+        const steps = gsap.utils.toArray(".cwd-advantage__step, .why-value-card", advantageSection);
+        gsap.killTweensOf(slides);
+        steps.forEach(step => step.classList.remove("is-active"));
+      }
+    };
   });
+
+  // --------------------------------------------------------------------------
+  // MOBILE SAFEGUARD (max-width: 767px) - 100% Pure Linear Flow
+  // --------------------------------------------------------------------------
+  cwdMM.add("(max-width: 767px)", () => {
+    // Reset all inline styles and transforms on cards and track
+    const cards = document.querySelectorAll(".cwd-case-card, .stack-card, .industry-card");
+    cards.forEach(card => {
+      card.style.transform = '';
+      card.style.position = '';
+      card.style.top = '';
+      card.style.opacity = '';
+    });
+
+    const servicesTrack = document.querySelector(".cwd-services__track, .services-track, .services-carousel-track");
+    if (servicesTrack) {
+      servicesTrack.style.transform = '';
+    }
+
+    const slides = document.querySelectorAll(".cwd-advantage__slide, .graphic-pane");
+    slides.forEach(slide => {
+      slide.style.opacity = '';
+      slide.style.transform = '';
+      slide.style.visibility = '';
+    });
+  });
+
+  // Refresh ScrollTrigger once window/assets fully loaded to ensure precise dimensions
+  window.addEventListener('load', () => {
+    ScrollTrigger.refresh();
+  }, { once: true });
 }

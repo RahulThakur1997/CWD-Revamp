@@ -586,6 +586,257 @@
         height: 500px !important;
       }
     }
+  
+/* ==========================================================================
+   CWD SECTION REPAIRS: CASE STUDIES, SERVICES, ADVANTAGE
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   ISSUE 1: CASE STUDIES STACKING (Design Monks standard)
+   -------------------------------------------------------------------------- */
+.cwd-case-studies {
+  position: relative;
+  isolation: isolate;
+  background: #FFFFFF !important;
+}
+
+.cwd-case-studies__stack {
+  position: relative;
+  overflow: visible;
+}
+
+.cwd-case-card {
+  position: relative;
+  transform-origin: center top;
+  backface-visibility: hidden;
+}
+
+.cwd-case-card:nth-child(1) { --card-index: 0; }
+.cwd-case-card:nth-child(2) { --card-index: 1; }
+.cwd-case-card:nth-child(3) { --card-index: 2; }
+.cwd-case-card:nth-child(4) { --card-index: 3; }
+
+@media (min-width: 768px) {
+  .cwd-case-studies__stack {
+    padding-bottom: 20vh;
+    overflow: visible;
+  }
+
+  .cwd-case-card {
+    position: sticky;
+    top: calc(80px + var(--card-index, 0) * 20px);
+    z-index: calc(10 + var(--card-index, 0));
+    margin-bottom: 28vh;
+    will-change: transform, opacity;
+  }
+
+  .cwd-case-card:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .cwd-case-studies,
+  .cwd-case-studies__stack {
+    position: relative !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+  }
+
+  .cwd-case-card {
+    position: relative !important;
+    top: auto !important;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    margin-bottom: 1.5rem !important;
+    z-index: auto !important;
+    will-change: auto !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   ISSUE 2: SERVICES CAROUSEL & HORIZONTAL TRACK
+   -------------------------------------------------------------------------- */
+.cwd-services {
+  position: relative;
+  width: 100%;
+  background: #09090B !important;
+}
+
+.cwd-services__viewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.cwd-services__track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+}
+
+.cwd-services__track > * {
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .cwd-services__viewport {
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .cwd-services__track {
+    overflow: visible;
+    touch-action: auto;
+    padding-left: clamp(2rem, 6vw, 6rem);
+    padding-right: clamp(2rem, 6vw, 6rem);
+  }
+}
+
+@media (max-width: 767px) {
+  .cwd-services,
+  .cwd-services__viewport {
+    position: relative !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .cwd-services__track {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x pan-y;
+    padding-bottom: 16px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .cwd-services__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cwd-services__track > * {
+    flex: 0 0 min(85vw, 340px);
+    scroll-snap-align: start;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   ISSUE 3: CWD ADVANTAGE / SYNCHRONIZED PREVIEW
+   -------------------------------------------------------------------------- */
+.cwd-advantage {
+  position: relative;
+}
+
+.cwd-advantage__grid {
+  display: grid;
+  gap: 48px;
+}
+
+.cwd-advantage__preview {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #101010;
+  isolation: isolate;
+}
+
+.cwd-advantage__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.cwd-advantage__slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.cwd-advantage__slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media (min-width: 768px) {
+  .cwd-advantage__grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: start;
+  }
+
+  .cwd-advantage__visual {
+    position: sticky;
+    top: clamp(80px, 15vh, 140px);
+    align-self: start;
+    display: block !important;
+  }
+
+  .cwd-advantage__preview {
+    width: 100%;
+    height: min(65vh, 560px);
+    min-height: 480px;
+  }
+
+  .cwd-advantage__step {
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+    margin-bottom: 2.5rem;
+  }
+
+  .cwd-advantage__step:not(.is-active) {
+    opacity: 0.6;
+  }
+}
+
+@media (max-width: 767px) {
+  .cwd-advantage__grid {
+    display: block;
+  }
+
+  .cwd-advantage__visual {
+    display: none !important;
+  }
+
+  .cwd-advantage__step {
+    position: relative;
+    min-height: 0;
+    margin-bottom: 32px;
+    opacity: 1 !important;
+  }
+
+  .cwd-advantage__preview {
+    position: relative;
+    height: auto;
+    min-height: 0;
+  }
+
+  .cwd-advantage__slide {
+    position: relative;
+    inset: auto;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
   </style>
 
   <!-- Main Custom Styling -->
@@ -1050,8 +1301,9 @@
          SECTION 2: Sticky Overlapping "Card Stacking" Showcase ("Industry Wins")
          Design Monks standard: Progressive top offsets (90px / 130px / 170px / 210px)
          ===================================================================== -->
-    <section class="industry-stack-section" id="proof" aria-label="Proven Client Outcomes Across Industries">
-      <div class="stack-container">
+    <section id="cwd-case-studies" class="cwd-case-studies industry-stack-section" aria-label="Proven Client Outcomes Across Industries">
+      <div id="proof" class="sr-only"></div>
+      <div class="cwd-case-studies__intro stack-container">
         
         <!-- Section Header -->
         <div class="stack-header-wrapper">
@@ -1065,10 +1317,10 @@
         </div>
 
         <!-- Sticky Stacking Cards Deck -->
-        <div class="stack-cards-deck stack-card-container" data-card-stack>
+        <div class="cwd-case-studies__stack stack-cards-deck stack-card-container" data-card-stack>
 
           <!-- CARD 1: Keystone Roofing & Building -->
-          <article class="industry-card stack-card stack-card-1"
+          <article class="cwd-case-card industry-card stack-card stack-card-1" style="--card-index: 0;"
                    data-card
                    data-title="Keystone Roofing & Building"
                    data-category="Residential & Commercial Trade"
@@ -1145,7 +1397,7 @@
           </article>
 
           <!-- CARD 2: Aesthetic Clinic & Dermatology -->
-          <article class="industry-card stack-card stack-card-2"
+          <article class="cwd-case-card industry-card stack-card stack-card-2" style="--card-index: 1;"
                    data-card
                    data-title="Aesthetic Clinic & Dermatology"
                    data-category="Clinical Aesthetics"
@@ -1222,7 +1474,7 @@
           </article>
 
           <!-- CARD 3: Killett's Landscaping & Renovations -->
-          <article class="industry-card stack-card stack-card-3"
+          <article class="cwd-case-card industry-card stack-card stack-card-3" style="--card-index: 2;"
                    data-card
                    data-title="Killett's Landscaping & Renovations"
                    data-category="Outdoor & Property Renovations"
@@ -1299,7 +1551,7 @@
           </article>
 
           <!-- CARD 4: Wotta Carpets -->
-          <article class="industry-card stack-card stack-card-4"
+          <article class="cwd-case-card industry-card stack-card stack-card-4" style="--card-index: 3;"
                    data-card
                    data-title="Wotta Carpets"
                    data-category="Specialist Flooring Services"
@@ -1392,8 +1644,10 @@
          SECTION 1: Horizontal Services Showcase ("Beyond Just Websites")
          Inspired by Design in DC: Infinite Horizontal Marquee Carousel with Slide-up Frosted Drawer
          ===================================================================== -->
-    <section class="services-section services-carousel-section py-20 bg-[#09090B] relative overflow-hidden" id="capabilities" aria-label="End-to-End Capabilities Built to Convert">
-      <div class="services-header-container max-w-4xl mx-auto text-center px-4 mb-10">
+    <section id="cwd-services" class="cwd-services services-section services-carousel-section bg-[#09090B] relative" aria-label="End-to-End Capabilities Built to Convert">
+      <div id="capabilities" class="sr-only"></div>
+      <div class="cwd-services__viewport">
+      <div class="cwd-services__intro services-header-container max-w-4xl mx-auto text-center px-4 mb-10">
         <div class="services-pill-tag inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[#C6F24D] text-xs font-bold uppercase tracking-wider mb-4">
           <span class="w-1.5 h-1.5 rounded-full bg-[#C6F24D] animate-pulse" aria-hidden="true"></span>
           <span>Full-Stack Digital Growth</span>
@@ -1407,7 +1661,7 @@
       </div>
 
       <!-- Touch Scroll Track (Design in DC horizontal carousel: w-[85vw] max-w-[340px] h-[480px] shrink-0 rounded-3xl snap-center) -->
-      <div class="services-track services-carousel-track flex gap-5 overflow-x-auto snap-x snap-mandatory px-6 py-4 scrollbar-none">
+      <div class="cwd-services__track services-track services-carousel-track flex gap-5">
         
         <!-- Card 1: Local Business Websites -->
         <article class="service-card w-[85vw] max-w-[340px] md:w-[380px] h-[480px] shrink-0 rounded-3xl overflow-hidden relative flex-none snap-center group border border-white/10 shadow-2xl bg-[#121216]">
@@ -1554,13 +1808,15 @@
         </article>
 
       </div>
+      </div>
     </section>
 
     <!-- =====================================================================
          SECTION 2: Sticky Pinned "Why Teams Choose Us" Section
          Design Dream Mechanics + Design Monks High-Fidelity Interactive Visuals
          ===================================================================== -->
-    <section class="why-us-section" id="advantages" aria-label="Why Teams Choose Crafting Web Designs">
+    <section id="cwd-advantage" class="cwd-advantage why-us-section" aria-label="Why Teams Choose Crafting Web Designs">
+      <div id="advantages" class="sr-only"></div>
       <div class="why-us-container">
         
         <!-- Section Header -->
@@ -1578,14 +1834,14 @@
         </div>
 
         <!-- 2-Column Sticky Split Layout -->
-        <div class="why-split-layout">
+        <div class="cwd-advantage__grid why-split-layout">
           
           <!-- LEFT COLUMN: Pinned Dynamic Graphic Container -->
-          <div class="why-pinned-column cwd-pinned-graphic hidden md:block">
-            <div class="why-graphic-card cwd-graphic-card" id="why-graphic-card">
+          <div class="cwd-advantage__visual why-pinned-column cwd-pinned-graphic hidden md:block">
+            <div class="cwd-advantage__preview why-graphic-card cwd-graphic-card" id="why-graphic-card">
               
               <!-- State 1: Zero-Risk Prototype (Awaken Films High-Fidelity Custom Brand Preview) -->
-              <div class="graphic-pane is-active" data-pane="1">
+              <div class="cwd-advantage__slide graphic-pane is-active" data-pane="1">
                 <div class="graphic-pane-header">
                   <div class="browser-dots">
                     <span class="b-dot b-dot-red"></span>
@@ -1621,7 +1877,7 @@
               </div>
 
               <!-- State 2: Sprint Turnaround -->
-              <div class="graphic-pane" data-pane="2">
+              <div class="cwd-advantage__slide graphic-pane" data-pane="2">
                 <div class="graphic-pane-header">
                   <div class="browser-dots">
                     <span class="b-dot b-dot-red"></span>
@@ -1676,7 +1932,7 @@
               </div>
 
               <!-- State 3: Unlimited Revisions (Authentic Slack Communication Thread) -->
-              <div class="graphic-pane" data-pane="3">
+              <div class="cwd-advantage__slide graphic-pane" data-pane="3">
                 <div class="graphic-pane-header">
                   <div class="browser-dots">
                     <span class="b-dot b-dot-red"></span>
@@ -1711,7 +1967,7 @@
               </div>
 
               <!-- State 4: Flexible Payment Plans -->
-              <div class="graphic-pane" data-pane="4">
+              <div class="cwd-advantage__slide graphic-pane" data-pane="4">
                 <div class="graphic-pane-header">
                   <div class="browser-dots">
                     <span class="b-dot b-dot-red"></span>
@@ -1803,7 +2059,7 @@
               </div>
 
               <!-- State 5: Lifetime Partnership -->
-              <div class="graphic-pane" data-pane="5">
+              <div class="cwd-advantage__slide graphic-pane" data-pane="5">
                 <div class="graphic-pane-header">
                   <div class="browser-dots">
                     <span class="b-dot b-dot-red"></span>
@@ -1878,10 +2134,10 @@
           </div>
 
           <!-- RIGHT COLUMN: Scrolling Content Track (5 Points) -->
-          <div class="why-scroll-column">
+          <div class="cwd-advantage__steps why-scroll-column">
             
             <!-- Point 01: Confidence First -->
-            <article class="why-value-card cwd-step-item is-active" data-index="1">
+            <article class="cwd-advantage__step why-value-card cwd-step-item is-active" data-index="1">
               <div class="why-card-badge">
                 <span class="badge-num">01</span>
                 <span class="badge-divider">•</span>
@@ -1919,7 +2175,7 @@
               </div></article>
 
             <!-- Point 02: Sprint Velocity -->
-            <article class="why-value-card cwd-step-item" data-index="2">
+            <article class="cwd-advantage__step why-value-card cwd-step-item" data-index="2">
               <div class="why-card-badge">
                 <span class="badge-num">02</span>
                 <span class="badge-divider">•</span>
@@ -1970,7 +2226,7 @@
               </div></article>
 
             <!-- Point 03: Perfection Guaranteed -->
-            <article class="why-value-card cwd-step-item" data-index="3">
+            <article class="cwd-advantage__step why-value-card cwd-step-item" data-index="3">
               <div class="why-card-badge">
                 <span class="badge-num">03</span>
                 <span class="badge-divider">•</span>
@@ -2014,7 +2270,7 @@
 
             
             <!-- Point 04: Zero Capital Risk -->
-            <article class="why-value-card cwd-step-item" data-index="4">
+            <article class="cwd-advantage__step why-value-card cwd-step-item" data-index="4">
               <div class="why-card-badge">
                 <span class="badge-num">04</span>
                 <span class="badge-divider">•</span>
@@ -2059,7 +2315,7 @@
             </article>
 
             <!-- Point 05: Ongoing Partnership -->
-            <article class="why-value-card cwd-step-item" data-index="5">
+            <article class="cwd-advantage__step why-value-card cwd-step-item" data-index="5">
               <div class="why-card-badge">
                 <span class="badge-num">05</span>
                 <span class="badge-divider">•</span>
@@ -3131,145 +3387,6 @@
     <!-- GSAP Core & ScrollTrigger CDN (Required for Desktop Scroll Interactions) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script>
-    /* ==========================================================================
-       DESKTOP SCROLL ANIMATIONS CONTROLLER (GSAP ScrollTrigger - Desktop Only: min-width 768px)
-       Strictly isolates desktop animations from mobile linear document flow
-       ========================================================================== */
-    (function initCwdDesktopAnimations() {
-      if (window.__cwdDesktopAnimationsInit) return;
-
-      function setup() {
-        if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-        if (window.__cwdDesktopAnimationsInit) return;
-        window.__cwdDesktopAnimationsInit = true;
-
-        gsap.registerPlugin(ScrollTrigger);
-
-        ScrollTrigger.config({
-          autoRefreshEvents: "visibilitychange,DOMContentLoaded,load",
-          ignoreMobileResize: true
-        });
-
-        ScrollTrigger.matchMedia({
-          // ------------------------------------------------------------------
-          // DESKTOP ONLY (min-width: 768px)
-          // ------------------------------------------------------------------
-          "(min-width: 768px)": function() {
-            // 1. RESTORE CARD STACKING EFFECT ON DESKTOP (Industry Wins / Case Studies)
-            const cards = gsap.utils.toArray('.stack-card');
-            const stackContainer = document.querySelector('.stack-card-container, .stack-cards-deck, #proof');
-            if (cards.length && stackContainer) {
-              cards.forEach((card, index) => {
-                if (index < cards.length - 1) {
-                  ScrollTrigger.create({
-                    trigger: card,
-                    start: "top top+=100",
-                    endTrigger: stackContainer,
-                    end: "bottom bottom",
-                    pin: true,
-                    pinSpacing: false,
-                    scrub: true,
-                    invalidateOnRefresh: true,
-                  });
-
-                  if (cards[index + 1]) {
-                    gsap.to(card, {
-                      scale: 0.94 - (cards.length - 1 - index) * 0.02,
-                      opacity: 0.7,
-                      scrollTrigger: {
-                        trigger: cards[index + 1],
-                        start: "top top+=200",
-                        end: "top top+=100",
-                        scrub: true,
-                      }
-                    });
-                  }
-                }
-              });
-            }
-
-            // 2. RESTORE HORIZONTAL SCROLL ON SERVICES CAROUSEL (DESKTOP ONLY)
-            const servicesTrack = document.querySelector('.services-track, .services-carousel-track');
-            const servicesSection = document.querySelector('.services-section, .services-carousel-section, #capabilities');
-            if (servicesTrack && servicesSection) {
-              const getScrollDistance = () => -(servicesTrack.scrollWidth - window.innerWidth + 120);
-              gsap.to(servicesTrack, {
-                x: getScrollDistance,
-                ease: "none",
-                scrollTrigger: {
-                  trigger: servicesSection,
-                  start: "top top",
-                  end: () => "+=" + Math.max(300, Math.abs(getScrollDistance())),
-                  pin: true,
-                  scrub: 1,
-                  invalidateOnRefresh: true,
-                  anticipatePin: 1
-                }
-              });
-            }
-
-            // 3. RESTORE CWD ADVANTAGE PINNED IMAGE SWAP ("Why Teams Hire Us")
-            const steps = gsap.utils.toArray('.why-value-card, .cwd-step-item');
-            const panes = gsap.utils.toArray('.graphic-pane');
-
-            function activateStep(idx) {
-              steps.forEach((step, i) => {
-                step.classList.toggle('is-active', i === idx);
-              });
-              panes.forEach((pane, i) => {
-                pane.classList.toggle('is-active', i === idx);
-              });
-            }
-
-            if (steps.length) {
-              steps.forEach((step, i) => {
-                ScrollTrigger.create({
-                  trigger: step,
-                  start: "top center",
-                  end: "bottom center",
-                  onEnter: () => activateStep(i),
-                  onEnterBack: () => activateStep(i),
-                });
-
-                step.addEventListener('click', () => activateStep(i));
-              });
-            }
-          },
-
-          // ------------------------------------------------------------------
-          // MOBILE SAFEGUARD (max-width: 767px) - Pure Linear Flow Without Hijacking
-          // ------------------------------------------------------------------
-          "(max-width: 767px)": function() {
-            // Kill any leftover pinning or snapping immediately
-            ScrollTrigger.getAll().forEach(t => {
-              if (t.vars && (t.vars.pin || t.vars.snap)) t.kill(false);
-            });
-
-            // Re-enforce natural linear flow and clear transforms
-            const cards = document.querySelectorAll('.stack-card, .industry-card');
-            cards.forEach(card => {
-              card.style.transform = '';
-              card.style.position = '';
-              card.style.top = '';
-              card.style.opacity = '';
-            });
-
-            const servicesTrack = document.querySelector('.services-track, .services-carousel-track');
-            if (servicesTrack) {
-              servicesTrack.style.transform = '';
-            }
-          }
-        });
-      }
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', setup);
-      } else {
-        setup();
-      }
-    })();
-  </script>
   <script src="./js/main.js"></script>
 </body>
 </html>

@@ -8271,3 +8271,253 @@ img {
     animation: none !important;
   }
 }
+
+/* ==========================================================================
+   CWD SECTION REPAIRS: CASE STUDIES, SERVICES, ADVANTAGE
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   ISSUE 1: CASE STUDIES STACKING (Design Monks standard)
+   -------------------------------------------------------------------------- */
+.cwd-case-studies {
+  position: relative;
+  isolation: isolate;
+  background: #FFFFFF !important;
+}
+
+.cwd-case-studies__stack {
+  position: relative;
+  overflow: visible;
+}
+
+.cwd-case-card {
+  position: relative;
+  transform-origin: center top;
+  backface-visibility: hidden;
+}
+
+.cwd-case-card:nth-child(1) { --card-index: 0; }
+.cwd-case-card:nth-child(2) { --card-index: 1; }
+.cwd-case-card:nth-child(3) { --card-index: 2; }
+.cwd-case-card:nth-child(4) { --card-index: 3; }
+
+@media (min-width: 768px) {
+  .cwd-case-studies__stack {
+    padding-bottom: 20vh;
+    overflow: visible;
+  }
+
+  .cwd-case-card {
+    position: sticky;
+    top: calc(80px + var(--card-index, 0) * 20px);
+    z-index: calc(10 + var(--card-index, 0));
+    margin-bottom: 28vh;
+    will-change: transform, opacity;
+  }
+
+  .cwd-case-card:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .cwd-case-studies,
+  .cwd-case-studies__stack {
+    position: relative !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+  }
+
+  .cwd-case-card {
+    position: relative !important;
+    top: auto !important;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    margin-bottom: 1.5rem !important;
+    z-index: auto !important;
+    will-change: auto !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   ISSUE 2: SERVICES CAROUSEL & HORIZONTAL TRACK
+   -------------------------------------------------------------------------- */
+.cwd-services {
+  position: relative;
+  width: 100%;
+  background: #09090B !important;
+}
+
+.cwd-services__viewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.cwd-services__track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+}
+
+.cwd-services__track > * {
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .cwd-services__viewport {
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .cwd-services__track {
+    overflow: visible;
+    touch-action: auto;
+    padding-left: clamp(2rem, 6vw, 6rem);
+    padding-right: clamp(2rem, 6vw, 6rem);
+  }
+}
+
+@media (max-width: 767px) {
+  .cwd-services,
+  .cwd-services__viewport {
+    position: relative !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .cwd-services__track {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x pan-y;
+    padding-bottom: 16px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .cwd-services__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cwd-services__track > * {
+    flex: 0 0 min(85vw, 340px);
+    scroll-snap-align: start;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   ISSUE 3: CWD ADVANTAGE / SYNCHRONIZED PREVIEW
+   -------------------------------------------------------------------------- */
+.cwd-advantage {
+  position: relative;
+}
+
+.cwd-advantage__grid {
+  display: grid;
+  gap: 48px;
+}
+
+.cwd-advantage__preview {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #101010;
+  isolation: isolate;
+}
+
+.cwd-advantage__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.cwd-advantage__slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.cwd-advantage__slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media (min-width: 768px) {
+  .cwd-advantage__grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: start;
+  }
+
+  .cwd-advantage__visual {
+    position: sticky;
+    top: clamp(80px, 15vh, 140px);
+    align-self: start;
+    display: block !important;
+  }
+
+  .cwd-advantage__preview {
+    width: 100%;
+    height: min(65vh, 560px);
+    min-height: 480px;
+  }
+
+  .cwd-advantage__step {
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+    margin-bottom: 2.5rem;
+  }
+
+  .cwd-advantage__step:not(.is-active) {
+    opacity: 0.6;
+  }
+}
+
+@media (max-width: 767px) {
+  .cwd-advantage__grid {
+    display: block;
+  }
+
+  .cwd-advantage__visual {
+    display: none !important;
+  }
+
+  .cwd-advantage__step {
+    position: relative;
+    min-height: 0;
+    margin-bottom: 32px;
+    opacity: 1 !important;
+  }
+
+  .cwd-advantage__preview {
+    position: relative;
+    height: auto;
+    min-height: 0;
+  }
+
+  .cwd-advantage__slide {
+    position: relative;
+    inset: auto;
+    opacity: 1;
+    visibility: visible;
+  }
+}
