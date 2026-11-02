@@ -4,29 +4,10 @@
  */
 
 // --------------------------------------------------------------------------
-// 0. CRITICAL MOBILE ENGINE SAFEGUARD: Disable ScrollTrigger Pinning on Mobile (< 768px)
+// CRAFTING WEB DESIGNS - RESPONSIVE INTERACTION CONTROLLER
 // --------------------------------------------------------------------------
-function disarmMobileScrollTrigger() {
-  if (window.innerWidth < 768) {
-    // Disable all pinning on mobile completely
-    if (typeof ScrollTrigger !== 'undefined') {
-      ScrollTrigger.config({ autoRefreshEvents: "visibilitychange,DOMContentLoaded,load" });
-      ScrollTrigger.config({ ignoreMobileResize: true });
-      // Kill any pinning or snapping triggers
-      ScrollTrigger.getAll().forEach(trigger => {
-        if (trigger.vars && (trigger.vars.pin || trigger.vars.snap)) {
-          trigger.kill(false);
-        }
-      });
-    }
-  }
-}
-disarmMobileScrollTrigger();
-window.addEventListener('resize', disarmMobileScrollTrigger, { passive: true });
-window.addEventListener('orientationchange', disarmMobileScrollTrigger, { passive: true });
 
 document.addEventListener('DOMContentLoaded', () => {
-  disarmMobileScrollTrigger();
 
   // 1. Initialize WebGL Refractive Background
   if (window.WebGLRefractiveBackground) {
@@ -812,18 +793,20 @@ function initDesktopScrollAnimations() {
     ignoreMobileResize: true
   });
 
-  // Reduced motion accessibility safeguard
+  // Respect reduced-motion accessibility preference
   const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReducedMotion) return;
 
   const cwdMM = gsap.matchMedia();
 
   // --------------------------------------------------------------------------
-  // DESKTOP ONLY (min-width: 768px)
+  // DESKTOP ONLY: 1024px and above (min-width: 1024px)
   // --------------------------------------------------------------------------
-  cwdMM.add("(min-width: 768px)", () => {
+  cwdMM.add("(min-width: 1024px)", () => {
     // ------------------------------------------------------------------------
-    // ISSUE 1: CASE-STUDY STACKING (Design Monks standard)
+    // CHANGE 1: PROVEN CLIENT OUTCOMES - STACKING CASE-STUDY CARDS
+    // Native CSS sticky stacking with GSAP ScrollTrigger progressive depth scaling
+    // Layers: 0.98, 0.96, 0.94 scale decrement as subsequent cards dock
     // ------------------------------------------------------------------------
     const stack = document.querySelector(".cwd-case-studies__stack, .stack-cards-deck");
     if (stack) {
@@ -833,27 +816,35 @@ function initDesktopScrollAnimations() {
         card.style.setProperty("--card-index", index);
       });
 
-      cards.forEach((card, index) => {
-        if (index === cards.length - 1) return;
-        const nextCard = cards[index + 1];
+      // Subtle progressive depth scaling: previous cards remain visible and scale down
+      cards.forEach((card, i) => {
+        if (i === cards.length - 1) return;
 
-        gsap.to(card, {
-          scale: 0.975 - index * 0.02,
-          opacity: 0.92,
-          ease: "none",
-          scrollTrigger: {
-            trigger: nextCard,
-            start: "top 85%",
-            end: () => `top ${80 + (index + 1) * 20}px`,
-            scrub: true,
-            invalidateOnRefresh: true
-          }
-        });
+        for (let j = i + 1; j < cards.length; j++) {
+          const incomingCard = cards[j];
+          const depth = j - i;
+          const targetScale = Math.max(0.92, 1 - depth * 0.02); // 0.98, 0.96, 0.94
+          const targetOpacity = Math.max(0.85, 1 - depth * 0.04);
+
+          gsap.to(card, {
+            scale: targetScale,
+            opacity: targetOpacity,
+            ease: "power1.out",
+            scrollTrigger: {
+              trigger: incomingCard,
+              start: "top 80%",
+              end: () => `top ${80 + j * 22}px`,
+              scrub: true,
+              invalidateOnRefresh: true
+            }
+          });
+        }
       });
     }
 
     // ------------------------------------------------------------------------
-    // ISSUE 2: HORIZONTAL SERVICES CAROUSEL & VIEWPORT PINNING
+    // CHANGE 2: FULL-STACK DIGITAL GROWTH - HORIZONTAL SERVICES SCROLL
+    // Pinned 100vh viewport with smooth scrubbed horizontal translation
     // ------------------------------------------------------------------------
     const servicesSection = document.querySelector("#cwd-services, .cwd-services, #capabilities");
     if (servicesSection) {
@@ -861,6 +852,7 @@ function initDesktopScrollAnimations() {
       const track = servicesSection.querySelector(".cwd-services__track, .services-track, .services-carousel-track");
 
       if (viewport && track) {
+        // Measure horizontal distance dynamically
         const getDistance = () => Math.max(0, track.scrollWidth - viewport.clientWidth);
 
         if (getDistance() > 0) {
@@ -883,7 +875,8 @@ function initDesktopScrollAnimations() {
     }
 
     // ------------------------------------------------------------------------
-    // ISSUE 3: CWD ADVANTAGE / SYNCHRONIZED PREVIEW (Dream Agency Style)
+    // CHANGE 3: ENGINEERED FOR RESULTS / CWD ADVANTAGE - SYNCHRONIZED PREVIEW
+    // Left visual container is CSS sticky; GSAP crossfades visual with right-side steps
     // ------------------------------------------------------------------------
     const advantageSection = document.querySelector("#cwd-advantage, .cwd-advantage, #advantages");
     if (advantageSection) {
@@ -893,15 +886,11 @@ function initDesktopScrollAnimations() {
       if (steps.length && steps.length === slides.length) {
         let activeIndex = 0;
 
-        gsap.set(slides, {
-          autoAlpha: 0,
-          scale: 1.035
-        });
+        // Ensure Slide 1 is visible immediately as section enters!
+        gsap.set(slides, { autoAlpha: 0, scale: 0.97 });
+        gsap.set(slides[0], { autoAlpha: 1, scale: 1 });
 
-        gsap.set(slides[0], {
-          autoAlpha: 1,
-          scale: 1
-        });
+        steps.forEach((s, i) => s.classList.toggle("is-active", i === 0));
 
         const showSlide = (index) => {
           if (index === activeIndex) return;
@@ -911,27 +900,22 @@ function initDesktopScrollAnimations() {
 
           gsap.killTweensOf([previous, next]);
 
+          // Previous slide fades out smoothly with subtle scale
           gsap.to(previous, {
             autoAlpha: 0,
-            scale: 0.985,
-            duration: 0.35,
+            scale: 0.97,
+            duration: 0.45,
             ease: "power2.out"
           });
 
+          // Next slide crossfades in smoothly
           gsap.fromTo(
             next,
-            {
-              autoAlpha: 0,
-              scale: 1.035
-            },
-            {
-              autoAlpha: 1,
-              scale: 1,
-              duration: 0.5,
-              ease: "power2.out"
-            }
+            { autoAlpha: 0, scale: 0.97 },
+            { autoAlpha: 1, scale: 1, duration: 0.5, ease: "power2.out" }
           );
 
+          // Active heading prominent (opacity: 1), inactive headings fade (opacity: 0.4)
           steps.forEach((step, i) => {
             step.classList.toggle("is-active", i === index);
           });
@@ -939,8 +923,7 @@ function initDesktopScrollAnimations() {
           activeIndex = index;
         };
 
-        steps[0].classList.add("is-active");
-
+        // ScrollTrigger on each right-hand step card
         steps.forEach((step, index) => {
           ScrollTrigger.create({
             trigger: step,
@@ -955,14 +938,21 @@ function initDesktopScrollAnimations() {
       }
     }
 
-    // Cleanup when leaving desktop breakpoint
+    // Cleanup callback when leaving desktop breakpoint (> 1023px -> < 1024px)
     return () => {
       const stack = document.querySelector(".cwd-case-studies__stack, .stack-cards-deck");
       if (stack) {
         const cards = gsap.utils.toArray(".cwd-case-card, .stack-card", stack);
         cards.forEach(card => {
           card.style.removeProperty("--card-index");
+          card.style.transform = '';
+          card.style.opacity = '';
         });
+      }
+
+      const servicesTrack = document.querySelector(".cwd-services__track, .services-track, .services-carousel-track");
+      if (servicesTrack) {
+        servicesTrack.style.transform = '';
       }
 
       const advantageSection = document.querySelector("#cwd-advantage, .cwd-advantage, #advantages");
@@ -970,34 +960,51 @@ function initDesktopScrollAnimations() {
         const slides = gsap.utils.toArray(".cwd-advantage__slide, .graphic-pane", advantageSection);
         const steps = gsap.utils.toArray(".cwd-advantage__step, .why-value-card", advantageSection);
         gsap.killTweensOf(slides);
+        slides.forEach(slide => {
+          slide.style.opacity = '';
+          slide.style.transform = '';
+          slide.style.visibility = '';
+        });
         steps.forEach(step => step.classList.remove("is-active"));
       }
     };
   });
 
   // --------------------------------------------------------------------------
-  // MOBILE SAFEGUARD (max-width: 767px) - 100% Pure Linear Flow
+  // MOBILE / TABLET ONLY: Below 1024px (max-width: 1023px)
+  // Preserves 100% natural document flow, native horizontal swipe for services,
+  // zero pinning, zero sticky cards, zero scroll-jacking.
   // --------------------------------------------------------------------------
-  cwdMM.add("(max-width: 767px)", () => {
-    // Reset all inline styles and transforms on cards and track
+  cwdMM.add("(max-width: 1023px)", () => {
+    // Reset all inline styles and transforms on case study cards
     const cards = document.querySelectorAll(".cwd-case-card, .stack-card, .industry-card");
     cards.forEach(card => {
       card.style.transform = '';
       card.style.position = '';
       card.style.top = '';
       card.style.opacity = '';
+      card.style.removeProperty("--card-index");
     });
 
+    // Reset services track transform
     const servicesTrack = document.querySelector(".cwd-services__track, .services-track, .services-carousel-track");
     if (servicesTrack) {
       servicesTrack.style.transform = '';
     }
 
+    // Reset advantage slides and step highlights
     const slides = document.querySelectorAll(".cwd-advantage__slide, .graphic-pane");
     slides.forEach(slide => {
       slide.style.opacity = '';
       slide.style.transform = '';
       slide.style.visibility = '';
+    });
+
+    const steps = document.querySelectorAll(".cwd-advantage__step, .why-value-card");
+    steps.forEach(step => {
+      step.style.opacity = '';
+      step.style.transform = '';
+      step.classList.remove("is-active");
     });
   });
 
