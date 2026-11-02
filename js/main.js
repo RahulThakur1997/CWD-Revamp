@@ -50,7 +50,10 @@ function initApp() {
   // 13. Floating Header Mobile Dropdown Menu Controller
   initMobileMenu();
 
-  // 14. Initialize Photorealistic Rotating Earth Video Controller
+  // 14. Smooth Anchor Link Scrolling with Fixed Header Offset
+  initSmoothScrolling();
+
+  // 15. Initialize Photorealistic Rotating Earth Video Controller
   initEarthVideo();
 }
 
@@ -722,6 +725,7 @@ function initMobileMenu() {
     if (backdrop) backdrop.classList.add('is-open');
     trigger.classList.add('is-active');
     trigger.setAttribute('aria-expanded', 'true');
+    trigger.setAttribute('aria-label', 'Close Navigation Menu');
     if (window.innerWidth < 768) {
       document.body.style.overflow = 'hidden';
     }
@@ -732,9 +736,11 @@ function initMobileMenu() {
     if (backdrop) backdrop.classList.remove('is-open');
     trigger.classList.remove('is-active');
     trigger.setAttribute('aria-expanded', 'false');
+    trigger.setAttribute('aria-label', 'Toggle Navigation Menu');
     document.body.style.overflow = '';
   }
 
+  // Toggle button click / touch
   trigger.addEventListener('click', (e) => {
     e.stopPropagation();
     if (panel.classList.contains('is-open')) {
@@ -752,7 +758,9 @@ function initMobileMenu() {
   }
 
   if (backdrop) {
-    backdrop.addEventListener('click', closeMenu);
+    backdrop.addEventListener('click', () => {
+      closeMenu();
+    });
   }
 
   // Handle Nested Submenu Dropdowns / Accordions (Services, Portfolio, Case Studies)
@@ -792,18 +800,85 @@ function initMobileMenu() {
     }
   });
 
-  // Close on nav link click (smooth navigation to target anchor)
-  panel.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      closeMenu();
-    });
-  });
-
   // Close on Escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && panel.classList.contains('is-open')) {
       closeMenu();
     }
+  });
+
+  // Close menu and smooth-scroll on link click
+  const allNavLinks = panel.querySelectorAll('a');
+  allNavLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (!href) return;
+
+      // Check if it is an in-page anchor link (e.g. #cwd-advantage, #advantages, #proof, #cwd-services, etc.)
+      if (href.startsWith('#') || href.includes('#')) {
+        const hashIndex = href.indexOf('#');
+        const hash = href.substring(hashIndex);
+        const targetId = hash.substring(1);
+        const targetElement = document.getElementById(targetId) || document.querySelector(hash);
+
+        if (targetElement) {
+          e.preventDefault();
+          closeMenu();
+
+          // Smooth scroll with fixed header offset
+          const header = document.querySelector('.site-header');
+          const headerOffset = header ? header.offsetHeight + 18 : 80;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: Math.max(0, offsetPosition),
+            behavior: 'smooth'
+          });
+
+          if (history.pushState) {
+            history.pushState(null, '', hash);
+          }
+          return;
+        }
+      }
+
+      // External or other page link: close menu immediately
+      closeMenu();
+    });
+  });
+}
+
+/* --------------------------------------------------------------------------
+   Smooth Anchor Link Scrolling with Fixed Header Offset
+   -------------------------------------------------------------------------- */
+function initSmoothScrolling() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    if (anchor.closest('#nav-overlay-panel')) return; // handled specifically in menu controller
+
+    anchor.addEventListener('click', (e) => {
+      const href = anchor.getAttribute('href');
+      if (!href || href === '#' || href === '#!') return;
+
+      const targetId = href.substring(1);
+      const target = document.getElementById(targetId) || document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        const header = document.querySelector('.site-header');
+        const headerOffset = header ? header.offsetHeight + 18 : 80;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: Math.max(0, offsetPosition),
+          behavior: 'smooth'
+        });
+
+        if (history.pushState) {
+          history.pushState(null, '', href);
+        }
+      }
+    });
   });
 }
 

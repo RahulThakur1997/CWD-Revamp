@@ -241,26 +241,48 @@
       border: none !important;
     }
 
+    #site-header,
+    .site-header {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      z-index: 110 !important;
+      pointer-events: none !important;
+      padding: 1.25rem 1.5rem !important;
+      box-sizing: border-box !important;
+      background: transparent !important;
+    }
+
     #nav-menu-trigger,
     .nav-menu-trigger-btn {
-      position: absolute !important;
-      top: 1.5rem !important;
-      right: 1.5rem !important;
-      z-index: 50 !important;
-      width: 40px !important;
-      height: 40px !important;
+      position: fixed !important;
+      top: 1.25rem !important;
+      right: 1.25rem !important;
+      z-index: 120 !important;
+      width: 44px !important;
+      height: 44px !important;
       border-radius: 9999px !important;
-      border: 1px solid rgba(255, 255, 255, 0.1) !important;
-      background: rgba(255, 255, 255, 0.05) !important;
+      border: 1px solid rgba(255, 255, 255, 0.15) !important;
+      background: rgba(18, 18, 22, 0.85) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
       cursor: pointer !important;
       pointer-events: auto !important;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      touch-action: manipulation !important;
+      -webkit-tap-highlight-color: transparent !important;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
 
     @media (min-width: 768px) {
+      #site-header,
+      .site-header {
+        padding: 1.5rem 2.5rem !important;
+      }
       #nav-menu-trigger,
       .nav-menu-trigger-btn {
         top: 1.5rem !important;
@@ -270,8 +292,8 @@
 
     #nav-menu-trigger:hover,
     .nav-menu-trigger-btn:hover {
-      background: rgba(255, 255, 255, 0.12) !important;
-      border-color: rgba(255, 255, 255, 0.2) !important;
+      background: rgba(255, 255, 255, 0.14) !important;
+      border-color: rgba(198, 242, 77, 0.5) !important;
       transform: scale(1.05) !important;
     }
 
@@ -616,9 +638,9 @@
   <div class="custom-cursor-dot" aria-hidden="true"></div>
   <div class="custom-cursor-ring" aria-hidden="true"></div>
 
-  <!-- Top Site Header with Anchored Corner Menu Trigger (Absolute Positioning: Never shifts center stack) -->
-  <header class="site-header" id="site-header" style="position: absolute; top: 0; left: 0; right: 0; width: 100%; z-index: 50; pointer-events: none; padding: 1.5rem; box-sizing: border-box;">
-    <!-- Right-Side Menu Trigger (Preserved & Anchored to Top-Right Corner) -->
+  <!-- Top Site Header with Fixed Corner Menu Trigger -->
+  <header class="site-header" id="site-header">
+    <!-- Right-Side Menu Trigger (Fixed Elevated Corner Trigger) -->
     <button id="nav-menu-trigger" aria-label="Toggle Navigation Menu" aria-expanded="false" class="nav-menu-trigger-btn pointer-events-auto">
       <div class="nav-trigger-icon pointer-events-none" aria-hidden="true">
         <span class="nav-bar nav-bar-1"></span>
@@ -740,12 +762,12 @@
         </div>
       </div>
 
-      <!-- 4. ABOUT US (Direct Link) -->
+      <!-- 4. CWD ADVANTAGE (Direct Link) -->
       <div class="nav-menu-item">
-        <a href="#advantages" class="nav-direct-link">
+        <a href="#cwd-advantage" class="nav-direct-link" id="nav-link-advantage" aria-label="The CWD Advantage">
           <div class="nav-item-left">
             <span class="nav-item-index">[04]</span>
-            <span class="nav-item-title">About Us</span>
+            <span class="nav-item-title">CWD Advantage</span>
           </div>
           <span class="nav-direct-arrow" aria-hidden="true">→</span>
         </a>
