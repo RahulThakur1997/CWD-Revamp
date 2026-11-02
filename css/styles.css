@@ -8191,3 +8191,18 @@ img {
   position: relative;
   max-height: 100%;
 }
+
+/* 8. COBE GLOBE CANVAS & RESPONSIVE SCROLL ISOLATION */
+#cobe-globe {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  contain: layout paint size;
+}
+
+@media (max-width: 768px) {
+  #cobe-globe {
+    pointer-events: none !important;
+    touch-action: pan-y !important;
+  }
+}
