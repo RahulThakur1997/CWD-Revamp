@@ -301,6 +301,10 @@
     let time = 0;
 
     canvas.addEventListener('pointerdown', (e) => {
+      // On mobile / touch devices, completely bypass pointer drag so native page scroll is 100% uninterrupted
+      if (e.pointerType === 'touch' || window.innerWidth < 768) {
+        return;
+      }
       // Never capture pointer on mobile touch, so touchmove won't hijack browser scroll
       if (e.pointerType !== 'touch') {
         try { canvas.setPointerCapture(e.pointerId); } catch (_) {}

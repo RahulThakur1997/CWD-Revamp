@@ -11,6 +11,7 @@ function disarmMobileScrollTrigger() {
     // Disable all pinning on mobile completely
     if (typeof ScrollTrigger !== 'undefined') {
       ScrollTrigger.config({ autoRefreshEvents: "visibilitychange,DOMContentLoaded,load" });
+      ScrollTrigger.config({ ignoreMobileResize: true });
       // Kill any pinning triggers
       ScrollTrigger.getAll().forEach(trigger => {
         if (trigger.vars && trigger.vars.pin) {
@@ -71,8 +72,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // 14. Disable GSAP ScrollTrigger pinning and sticky page locks on mobile (< 768px)
   if (typeof ScrollTrigger !== 'undefined') {
     ScrollTrigger.config({ autoRefreshEvents: "visibilitychange,DOMContentLoaded,load" });
+    ScrollTrigger.config({ ignoreMobileResize: true });
     ScrollTrigger.matchMedia({
-      "(max-width: 767px)": function() {
+      "(max-width: 768px)": function() {
         // Kill pinning so sections scroll naturally down the page
         ScrollTrigger.getAll().forEach(t => t.kill(false));
       }
@@ -357,17 +359,26 @@ function initCardStackScroll() {
   if (!cards.length) return;
 
   const targetTops = [80, 125, 170, 215];
+  let isMobile = window.innerWidth < 768;
+
+  function resetMobileCards() {
+    cards.forEach((card) => {
+      card.style.transform = 'none';
+      card.style.position = 'relative';
+      card.style.top = 'auto';
+    });
+  }
 
   function onScroll() {
     if (window.innerWidth < 768) {
-      cards.forEach((card) => {
-        card.style.transform = 'none';
-        card.style.position = 'relative';
-        card.style.top = 'auto';
-      });
+      if (!isMobile) {
+        resetMobileCards();
+        isMobile = true;
+      }
       return;
     }
 
+    isMobile = false;
     const vh = window.innerHeight;
 
     cards.forEach((card, i) => {
@@ -390,9 +401,25 @@ function initCardStackScroll() {
     });
   }
 
+  function onResize() {
+    if (window.innerWidth < 768) {
+      resetMobileCards();
+      isMobile = true;
+      return;
+    }
+    isMobile = false;
+    onScroll();
+  }
+
   window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll, { passive: true });
-  onScroll();
+  window.addEventListener('resize', onResize, { passive: true });
+  window.addEventListener('orientationchange', onResize, { passive: true });
+
+  if (window.innerWidth < 768) {
+    resetMobileCards();
+  } else {
+    onScroll();
+  }
 }
 
 /* --------------------------------------------------------------------------

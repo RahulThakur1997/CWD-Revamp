@@ -62,12 +62,18 @@ html {
   min-height: 100% !important;
 }
 
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: auto !important;
+  }
+}
+
 body {
   position: relative;
   min-height: 100% !important;
   height: auto !important;
+  min-height: 100dvh !important;
   overflow-x: hidden !important;
-  overflow-y: auto !important;
   background-color: var(--bg-primary);
   color: var(--text-white);
   selection-background-color: var(--brand-lime);
@@ -6561,11 +6567,32 @@ img {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05) !important;
 }
 
+/* Desktop Only Sticky Stacking Offsets & Hierarchy */
+@media (min-width: 769px) {
+  .stack-card-1 {
+    top: 80px !important;
+    z-index: 10 !important;
+    position: sticky !important;
+  }
+  .stack-card-2 {
+    top: 125px !important;
+    z-index: 20 !important;
+    position: sticky !important;
+  }
+  .stack-card-3 {
+    top: 170px !important;
+    z-index: 30 !important;
+    position: sticky !important;
+  }
+  .stack-card-4 {
+    top: 215px !important;
+    z-index: 40 !important;
+    position: sticky !important;
+  }
+}
+
 /* Card 1: Keystone (Rich Warm Butter Gold #FEE588) */
 .stack-card-1 {
-  top: 80px !important;
-  z-index: 10 !important;
-  position: sticky !important;
   display: flex !important;
   visibility: visible !important;
   opacity: 1 !important;
@@ -6597,9 +6624,6 @@ img {
 
 /* Card 2: Dr. Shaheen (Radiant Coral Blush #FEC5BB) */
 .stack-card-2 {
-  top: 125px !important;
-  z-index: 20 !important;
-  position: sticky !important;
   display: flex !important;
   visibility: visible !important;
   opacity: 1 !important;
@@ -6631,9 +6655,6 @@ img {
 
 /* Card 3: Killett's / Landscapes (Fresh Spring Sage Mint #99F6E4) */
 .stack-card-3 {
-  top: 170px !important;
-  z-index: 30 !important;
-  position: sticky !important;
   display: flex !important;
   visibility: visible !important;
   opacity: 1 !important;
@@ -6667,9 +6688,6 @@ img {
 
 /* Card 4: Wotta Carpets (Luminous Sky Cerulean #BAE6FD) */
 .stack-card-4 {
-  top: 215px !important;
-  z-index: 40 !important;
-  position: sticky !important;
   display: flex !important;
   visibility: visible !important;
   opacity: 1 !important;
@@ -8130,14 +8148,15 @@ img {
     font-weight: 600 !important;
   }
 
-  /* Constrain Globe Stage: strict isolated dimensions max-width: 340px, height: 340px, overflow: hidden */
+  /* Constrain Globe Stage: strict isolated dimensions max-width: 320px, height: 320px, overflow: hidden */
   .globe-stage-wrapper.full-globe-stage,
   .globe-canvas-container.full-globe-canvas-wrap {
     position: relative !important;
     width: 100% !important;
-    max-width: 340px !important;
-    height: 340px !important;
-    min-height: 340px !important;
+    max-width: 320px !important;
+    max-width: min(320px, 85vw) !important;
+    height: 320px !important;
+    min-height: 320px !important;
     margin: 0 auto !important;
     overflow: hidden !important;
     display: flex !important;
@@ -8149,9 +8168,11 @@ img {
     position: relative !important;
     width: 100% !important;
     height: 100% !important;
-    max-width: 340px !important;
-    max-height: 340px !important;
+    max-width: 320px !important;
+    max-width: min(320px, 85vw) !important;
+    max-height: 320px !important;
     touch-action: pan-y !important;
+    pointer-events: none !important;
     display: block !important;
   }
 
