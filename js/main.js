@@ -7,8 +7,7 @@
 // CRAFTING WEB DESIGNS - RESPONSIVE INTERACTION CONTROLLER
 // --------------------------------------------------------------------------
 
-document.addEventListener('DOMContentLoaded', () => {
-
+function initApp() {
   // 1. Initialize WebGL Refractive Background
   if (window.WebGLRefractiveBackground) {
     new window.WebGLRefractiveBackground('webgl-canvas');
@@ -53,7 +52,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 14. Initialize Photorealistic Rotating Earth Video Controller
   initEarthVideo();
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  // DOM is already ready (interactive or complete) - execute immediately
+  initApp();
+}
 
 /* --------------------------------------------------------------------------
    Custom Magnetic Cursor Engine
