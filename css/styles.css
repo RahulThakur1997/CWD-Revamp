@@ -116,19 +116,8 @@ img {
   overflow: hidden !important;
   z-index: 0 !important;
   pointer-events: none !important;
-  /* CSS Radial Mask: Center reading zone is transparent, flanks flourish with glowing WebGL grid */
-  mask-image: radial-gradient(
-    ellipse 62% 52% at 50% 36%,
-    transparent 30%,
-    rgba(0, 0, 0, 0.6) 62%,
-    black 92%
-  );
-  -webkit-mask-image: radial-gradient(
-    ellipse 62% 52% at 50% 36%,
-    transparent 30%,
-    rgba(0, 0, 0, 0.6) 62%,
-    black 92%
-  );
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
 }
 
 .hero-radial-veil {
@@ -943,6 +932,7 @@ img {
    Quick-View Lightbox Modal (Case Study Inspection)
    -------------------------------------------------------------------------- */
 .lightbox-modal {
+  display: none !important;
   position: fixed;
   top: 0;
   left: 0;
@@ -952,7 +942,6 @@ img {
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   z-index: 100;
-  display: flex;
   align-items: center;
   justify-content: center;
   padding: 2rem;
@@ -962,6 +951,7 @@ img {
 }
 
 .lightbox-modal.is-active {
+  display: flex !important;
   opacity: 1;
   pointer-events: auto;
 }
@@ -8326,19 +8316,26 @@ img {
     position: relative !important;
     height: auto !important;
     padding-bottom: 0 !important;
+    overflow: visible !important;
+    touch-action: pan-y !important;
   }
 
-  .stack-card {
+  .stack-card,
+  .stack-card-1,
+  .stack-card-2,
+  .stack-card-3,
+  .stack-card-4 {
     position: relative !important;
     top: auto !important;
     bottom: auto !important;
     transform: none !important;
+    will-change: auto !important;
     opacity: 1 !important;
     visibility: visible !important;
     margin-bottom: 1.5rem !important;
     min-height: auto !important;
     padding: 1.5rem !important;
-    z-index: auto !important;
+    z-index: 1 !important;
   }
 }
 

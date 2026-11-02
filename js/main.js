@@ -251,13 +251,15 @@ function initLightboxModal() {
 
   if (!modal || !cards.length) return;
 
+  const TRANSPARENT_PIXEL = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E";
+
   function openModal(card) {
     const title = card.getAttribute('data-title') || 'Client Website';
     const category = card.getAttribute('data-category') || 'Web Design';
     const metric = card.getAttribute('data-metric') || 'High-Converting';
     const imgSrc = card.getAttribute('data-image') || '';
 
-    if (modalImg) modalImg.src = imgSrc;
+    if (modalImg) modalImg.src = imgSrc || TRANSPARENT_PIXEL;
     if (modalTitle) modalTitle.textContent = title;
     if (modalCategory) modalCategory.textContent = category;
     if (modalMetric) modalMetric.textContent = metric;
@@ -269,17 +271,42 @@ function initLightboxModal() {
   function closeModal() {
     modal.classList.remove('is-active');
     document.body.style.overflow = '';
+    if (modalImg) modalImg.src = TRANSPARENT_PIXEL;
   }
 
-  // Marquee cards are non-clickable visual displays (no click popup/modal)
+  // Prevent swipe/scroll gestures from firing accidental click modals on mobile
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchMoved = false;
 
-  // Stack cards: clicking inspect button or mockup frame opens lightbox
+  document.addEventListener('touchstart', (e) => {
+    if (e.touches && e.touches.length) {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+      touchMoved = false;
+    }
+  }, { passive: true });
+
+  document.addEventListener('touchmove', (e) => {
+    if (e.touches && e.touches.length) {
+      const dx = Math.abs(e.touches[0].clientX - touchStartX);
+      const dy = Math.abs(e.touches[0].clientY - touchStartY);
+      if (dx > 8 || dy > 8) {
+        touchMoved = true;
+      }
+    }
+  }, { passive: true });
+
+  // Stack cards:
+  // On desktop: both inspect button and mockup frame open the preview lightbox.
+  // On mobile (< 768px): ONLY explicit inspect button opens lightbox (never mockup frame during vertical touch scroll).
   document.querySelectorAll('.stack-card').forEach((card) => {
     const inspectBtn = card.querySelector('.stack-card-inspect');
     const mockupFrame = card.querySelector('.stack-mockup-frame');
 
     if (inspectBtn) {
       inspectBtn.addEventListener('click', (e) => {
+        if (touchMoved) return;
         e.stopPropagation();
         openModal(card);
       });
@@ -287,6 +314,7 @@ function initLightboxModal() {
 
     if (mockupFrame) {
       mockupFrame.addEventListener('click', () => {
+        if (window.innerWidth < 768 || touchMoved) return;
         openModal(card);
       });
     }
@@ -301,6 +329,13 @@ function initLightboxModal() {
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal.classList.contains('is-active')) {
       closeModal();
+    }
+  });
+
+  // Safeguard: ensure body scroll is always restored if modal is closed
+  window.addEventListener('resize', () => {
+    if (!modal.classList.contains('is-active') && document.body.style.overflow === 'hidden') {
+      document.body.style.overflow = '';
     }
   });
 }

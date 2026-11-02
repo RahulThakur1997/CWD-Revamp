@@ -99,6 +99,8 @@
       position: relative !important;
       overflow-x: hidden !important;
       overflow-y: visible !important;
+      background-color: #09090B !important;
+      background: #09090B !important;
     }
 
     .hero-bg-grid,
@@ -110,6 +112,12 @@
       width: 100% !important;
       height: 100% !important;
       pointer-events: none !important;
+    }
+
+    .hero-canvas,
+    #webgl-canvas {
+      mask-image: none !important;
+      -webkit-mask-image: none !important;
     }
 
     /* Native vertical touch scrolling 100% uninhibited across all sections */
@@ -3170,7 +3178,7 @@
     <div class="lightbox-card">
       <button class="lightbox-close-btn" id="lightbox-close" aria-label="Close modal">✕</button>
       <div class="lightbox-image-container">
-        <img src="" alt="Selected Client Project Mockup" class="lightbox-image" id="lightbox-img" onerror="handleImgError(this)">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Selected Client Project Mockup" class="lightbox-image" id="lightbox-img">
       </div>
       <div class="lightbox-body">
         <div class="lightbox-title-group">

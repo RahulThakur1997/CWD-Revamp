@@ -316,6 +316,9 @@ class WebGLRefractiveBackground {
   bindEvents() {
     const onPointerMove = (e) => {
       const rect = this.canvas.getBoundingClientRect();
+      // If hero canvas is scrolled out of viewport, skip coordinate updates to avoid velocity spikes
+      if (rect.bottom < -80 || rect.top > window.innerHeight + 80) return;
+
       const rawX = e.clientX || (e.touches && e.touches[0] ? e.touches[0].clientX : window.innerWidth * 0.5);
       const rawY = e.clientY || (e.touches && e.touches[0] ? e.touches[0].clientY : window.innerHeight * 0.35);
 
@@ -329,6 +332,9 @@ class WebGLRefractiveBackground {
     };
 
     const onPointerDown = (e) => {
+      const rect = this.canvas.getBoundingClientRect();
+      if (rect.bottom < -80 || rect.top > window.innerHeight + 80) return;
+
       const rawX = e.clientX || (e.touches && e.touches[0] ? e.touches[0].clientX : window.innerWidth * 0.5);
       const rawY = e.clientY || (e.touches && e.touches[0] ? e.touches[0].clientY : window.innerHeight * 0.35);
 
