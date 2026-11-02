@@ -8272,7 +8272,6 @@ img {
   }
 }
 
-
 /* ==========================================================================
    DESKTOP SCROLL ANIMATIONS: PROVEN CLIENTS, SERVICES, ADVANTAGE
    Desktop: min-width 768px | Mobile: max-width 767px
@@ -8308,7 +8307,7 @@ img {
     justify-content: center;
     transform-origin: top center;
     will-change: transform, opacity;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.16), 0 12px 24px -6px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05), 0 25px 50px -12px rgba(0, 0, 0, 0.18);
   }
 
   .stack-card:last-child {
@@ -8354,14 +8353,12 @@ img {
 
 @media (min-width: 768px) {
   .services-carousel-section {
-    height: 100vh;
-    min-height: 640px;
-    max-height: 960px;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     overflow: hidden;
-    padding: 2rem 0;
+    padding: 3rem 0;
     box-sizing: border-box;
   }
 
@@ -8372,12 +8369,12 @@ img {
   .services-carousel-track {
     display: flex;
     gap: 24px;
-    animation: none !important;
     width: max-content;
     overflow: visible;
     padding-left: clamp(2rem, 5vw, 6rem);
     padding-right: clamp(2rem, 5vw, 6rem);
     will-change: transform;
+    animation: none !important;
   }
 
   .service-card {
@@ -8391,8 +8388,9 @@ img {
 @media (max-width: 767px) {
   .services-carousel-section {
     height: auto !important;
+    min-height: 0 !important;
     overflow: visible !important;
-    padding: 3.5rem 0 !important;
+    padding: 3rem 0 !important;
   }
 
   .services-carousel-track {
@@ -8430,6 +8428,7 @@ img {
   position: relative;
   background-color: #FFFFFF !important;
   color: #111827 !important;
+  padding: 5rem 0;
 }
 
 @media (min-width: 768px) {
@@ -8438,13 +8437,13 @@ img {
     grid-template-columns: 1.05fr 0.95fr !important;
     gap: 3.5rem !important;
     align-items: start !important;
+    margin-top: 3.5rem !important;
   }
 
   .why-pinned-column {
     display: block !important;
     position: relative;
-    top: clamp(80px, 15vh, 130px) !important;
-    height: min(65vh, 580px) !important;
+    height: min(65vh, 560px) !important;
     min-height: 480px !important;
     align-self: start !important;
   }
@@ -8454,7 +8453,7 @@ img {
     width: 100% !important;
     height: 100% !important;
     border-radius: 24px;
-    background: #09090B;
+    background: #09090B !important;
     border: 1px solid rgba(0, 0, 0, 0.08);
     overflow: hidden;
     box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.16);
@@ -8466,7 +8465,8 @@ img {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: opacity 0.4s ease, transform 0.4s ease;
+    background: #09090B !important;
+    isolation: isolate;
   }
 
   .graphic-pane.is-active {
@@ -8486,9 +8486,9 @@ img {
     flex-direction: column !important;
     justify-content: center !important;
     margin-bottom: 2.5rem !important;
-    opacity: 0.2 !important;
+    opacity: 0.15 !important;
     transform: translateX(0) !important;
-    transition: opacity 0.4s ease, transform 0.3s ease !important;
+    transition: opacity 0.35s ease, transform 0.35s ease !important;
     cursor: pointer;
   }
 
@@ -8501,6 +8501,7 @@ img {
 @media (max-width: 767px) {
   .why-split-layout {
     display: block !important;
+    margin-top: 1.5rem !important;
   }
 
   .why-pinned-column {

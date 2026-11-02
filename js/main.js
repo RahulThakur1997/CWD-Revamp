@@ -804,18 +804,21 @@ function initDesktopScrollAnimations() {
   mm.add("(min-width: 768px)", () => {
 
     // -----------------------------------------------------------------------
-    // 1. PROVEN CLIENTS / CASE STUDIES: TRUE GSAP CARD STACKING
+    // 1. PROVEN CLIENTS / CASE STUDIES: STAGGERED CASCADING STACKING
     // -----------------------------------------------------------------------
     const cards = gsap.utils.toArray('.stack-card');
     const stackDeck = document.querySelector('.stack-cards-deck');
+    const targetTops = [80, 115, 150, 185];
 
     if (cards.length > 1 && stackDeck) {
       cards.forEach((card, index) => {
+        const targetTop = targetTops[index] || (80 + index * 35);
+
         if (index < cards.length - 1) {
-          // Pin each card in place at top top+=80
+          // Pin card at its designated cascading top offset
           ScrollTrigger.create({
             trigger: card,
-            start: "top top+=80",
+            start: () => "top top+=" + targetTop,
             endTrigger: stackDeck,
             end: "bottom bottom-=80",
             pin: true,
@@ -824,17 +827,19 @@ function initDesktopScrollAnimations() {
             invalidateOnRefresh: true,
           });
 
-          // As next card scrolls up, this card scales down & dims
+          // As next card scrolls up to stack over it, this card scales down & dims
           const nextCard = cards[index + 1];
+          const nextTargetTop = targetTops[index + 1] || (80 + (index + 1) * 35);
+
           if (nextCard) {
             gsap.to(card, {
-              scale: 0.94 - (cards.length - 1 - index) * 0.02,
-              opacity: 0.75,
+              scale: 0.95 - (cards.length - 1 - index) * 0.02,
+              opacity: 0.8,
               ease: "none",
               scrollTrigger: {
                 trigger: nextCard,
                 start: "top bottom",
-                end: "top top+=80",
+                end: () => "top top+=" + nextTargetTop,
                 scrub: true,
                 invalidateOnRefresh: true,
               }
@@ -857,33 +862,34 @@ function initDesktopScrollAnimations() {
         { x: 0 },
         {
           x: () => -Math.max(0, getScrollDistance()),
-        ease: "none",
-        scrollTrigger: {
-          trigger: servicesSection,
-          start: "top top",
-          end: () => "+=" + Math.max(500, getScrollDistance()),
-          pin: true,
-          pinSpacing: true,
-          scrub: 1,
-          invalidateOnRefresh: true,
-          anticipatePin: 1
+          ease: "none",
+          scrollTrigger: {
+            trigger: servicesSection,
+            start: "top top",
+            end: () => "+=" + Math.max(400, getScrollDistance()),
+            pin: true,
+            pinSpacing: true,
+            scrub: 0.6,
+            invalidateOnRefresh: true,
+            anticipatePin: 1
+          }
         }
-      });
+      );
     }
 
     // -----------------------------------------------------------------------
-    // 3. CWD ADVANTAGE: PINNED PREVIEW & TEXT FOCUS SWAP
+    // 3. CWD ADVANTAGE: PINNED PREVIEW (NO HEADER COLLISION) & GHOST-FREE SWAP
     // -----------------------------------------------------------------------
-    const advantageSection = document.querySelector('.why-us-section, #cwd-advantage');
+    const advantageLayout = document.querySelector('.why-split-layout');
     const visualColumn = document.querySelector('.why-pinned-column, .cwd-advantage__visual');
     const steps = gsap.utils.toArray('.why-value-card');
     const panes = gsap.utils.toArray('.graphic-pane');
 
-    if (advantageSection && visualColumn && steps.length && panes.length) {
-      // Pin left visual preview box throughout scrolling steps
+    if (advantageLayout && visualColumn && steps.length && panes.length) {
+      // Pin left visual preview box ONLY within the 2-column split layout (never overlapping header!)
       ScrollTrigger.create({
-        trigger: advantageSection,
-        start: "top top+=90",
+        trigger: advantageLayout,
+        start: "top top+=110",
         endTrigger: steps[steps.length - 1],
         end: "bottom center+=120",
         pin: visualColumn,
@@ -897,26 +903,34 @@ function initDesktopScrollAnimations() {
         if (idx === activeIndex) return;
         activeIndex = idx;
 
+        // Animate right-side step cards: active gets full focus, inactive dim down
         steps.forEach((step, i) => {
           const isActive = (i === idx);
           step.classList.toggle('is-active', isActive);
           gsap.to(step, {
-            opacity: isActive ? 1 : 0.2,
+            opacity: isActive ? 1 : 0.15,
             x: isActive ? 8 : 0,
             duration: 0.35,
             ease: "power2.out"
           });
         });
 
+        // Kill any pending tweens on panes to prevent ghosting/overlapping
+        gsap.killTweensOf(panes);
+
         panes.forEach((pane, i) => {
-          const isActive = (i === idx);
-          pane.classList.toggle('is-active', isActive);
-          gsap.to(pane, {
-            autoAlpha: isActive ? 1 : 0,
-            scale: isActive ? 1 : 0.96,
-            duration: 0.4,
-            ease: "power2.out"
-          });
+          if (i === idx) {
+            pane.style.zIndex = '10';
+            pane.classList.add('is-active');
+            gsap.fromTo(pane,
+              { autoAlpha: 0, scale: 0.97 },
+              { autoAlpha: 1, scale: 1, duration: 0.35, ease: "power2.out" }
+            );
+          } else {
+            pane.style.zIndex = '1';
+            pane.classList.remove('is-active');
+            gsap.set(pane, { autoAlpha: 0, scale: 0.97 });
+          }
         });
       }
 
