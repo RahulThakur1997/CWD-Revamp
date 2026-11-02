@@ -82,6 +82,28 @@
       overflow-y: auto !important;
       height: auto !important;
       min-height: 100% !important;
+      touch-action: pan-y !important;
+    }
+
+    /* Native vertical touch scrolling 100% uninhibited across all sections */
+    main, section, .hero-section, .portfolio-marquee-section, .trusted-marquee-section, .industry-stack-section, .capabilities-section, .why-teams-section, .process-section, .global-reach-section, .reviews-section, .split-horizon-section {
+      touch-action: pan-y !important;
+    }
+
+    /* Clean Top-Left: Prevent stray cursor outlines at (0,0) before mouse movement & hide completely on mobile/touch */
+    .custom-cursor-dot,
+    .custom-cursor-ring {
+      opacity: 0;
+      transition: opacity 0.25s ease-out;
+    }
+    @media (max-width: 1024px), (pointer: coarse) {
+      .custom-cursor-dot,
+      .custom-cursor-ring {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+      }
     }
 
     /* Stacking Cards Container Isolation & Background Purity */
@@ -102,7 +124,13 @@
     .stack-cards-deck::before,
     .stack-cards-deck::after,
     [data-card-stack]::before,
-    [data-card-stack]::after {
+    [data-card-stack]::after,
+    .industry-card::before,
+    .industry-card::after,
+    [data-card]::before,
+    [data-card]::after,
+    .stack-card::before,
+    .stack-card::after {
       display: none !important;
       content: none !important;
       background: none !important;
@@ -118,6 +146,8 @@
         background-color: #FFFFFF !important;
         overflow: visible !important;
       }
+      .industry-card, 
+      [data-card], 
       .stack-card,
       .stack-card-1,
       .stack-card-2,
@@ -128,7 +158,8 @@
         position: relative !important;
         top: auto !important;
         transform: none !important;
-        margin-bottom: 2rem !important;
+        margin-bottom: 1.5rem !important;
+        box-shadow: 0 10px 25px -5px rgba(0,0,0,0.08) !important;
         opacity: 1 !important;
         visibility: visible !important;
         height: auto !important;
@@ -611,7 +642,7 @@
         <div class="hero-capsule-logo-wrap mb-[14px] md:mb-5">
           <a href="#" class="brand-capsule-pill inline-flex items-center gap-2.5 px-4 py-2 rounded-2xl bg-[#111115]/85 border border-white/12 backdrop-blur-xl transition-all duration-300 hover:border-white/25 hover:scale-[1.02] group no-underline" style="background: rgba(17, 17, 21, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.12); box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.6), inset 0 1px 1px 0 rgba(255, 255, 255, 0.18), 0 0 20px -2px rgba(198, 242, 77, 0.08);" aria-label="Crafting Web Designs Homepage">
             <div class="brand-capsule-icon w-7 h-7 rounded-lg bg-black/60 border border-[rgba(198,242,77,0.25)] flex items-center justify-center relative shadow-[0_0_12px_rgba(198,242,77,0.15)] shrink-0 overflow-hidden" style="width: 28px; height: 28px; border-radius: 8px; background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(198, 242, 77, 0.25); display: flex; align-items: center; justify-content: center; position: relative; box-shadow: 0 0 12px rgba(198, 242, 77, 0.15); padding: 3px;">
-              <img src="./assets/logo.png" alt="CWD Logo" class="cwd-glow-logo w-full h-full object-contain" onerror="handleImgError(this)" style="width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 6px rgba(198, 242, 77, 0.65)) drop-shadow(0 0 14px rgba(198, 242, 77, 0.35));">
+              <img src="./assets/logo.png" alt="CWD Logo" class="cwd-glow-logo w-full h-full object-contain" onerror="handleImgError(this, './assets/logo.svg')" style="width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 6px rgba(198, 242, 77, 0.65)) drop-shadow(0 0 14px rgba(198, 242, 77, 0.35));">
             </div>
             <span class="brand-capsule-text text-sm font-semibold tracking-tight text-white/95 group-hover:text-white transition-colors whitespace-nowrap" style="font-size: 0.875rem; font-weight: 600; color: rgba(255, 255, 255, 0.95); letter-spacing: -0.02em;">Crafting Web Designs</span>
           </a>
@@ -991,7 +1022,8 @@
         <div class="stack-cards-deck" data-card-stack>
 
           <!-- CARD 1: Keystone Roofing & Building -->
-          <article class="stack-card stack-card-1"
+          <article class="industry-card stack-card stack-card-1"
+                   data-card
                    data-title="Keystone Roofing & Building"
                    data-category="Residential & Commercial Trade"
                    data-metric="Complete UI & Funnel • 48 Hours"
@@ -1067,7 +1099,8 @@
           </article>
 
           <!-- CARD 2: Aesthetic Clinic & Dermatology -->
-          <article class="stack-card stack-card-2"
+          <article class="industry-card stack-card stack-card-2"
+                   data-card
                    data-title="Aesthetic Clinic & Dermatology"
                    data-category="Clinical Aesthetics"
                    data-metric="Booking Engine & Rebrand • 3 Days"
@@ -1143,7 +1176,8 @@
           </article>
 
           <!-- CARD 3: Killett's Landscaping & Renovations -->
-          <article class="stack-card stack-card-3"
+          <article class="industry-card stack-card stack-card-3"
+                   data-card
                    data-title="Killett's Landscaping & Renovations"
                    data-category="Outdoor & Property Renovations"
                    data-metric="Architecture & Lead Flow • 4 Days"
@@ -1219,7 +1253,8 @@
           </article>
 
           <!-- CARD 4: Wotta Carpets -->
-          <article class="stack-card stack-card-4"
+          <article class="industry-card stack-card stack-card-4"
+                   data-card
                    data-title="Wotta Carpets"
                    data-category="Specialist Flooring Services"
                    data-metric="High-Speed Mobile Funnel • 48 Hours"
@@ -2961,6 +2996,27 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="./js/webgl-background.js"></script>
   <script src="./js/interactive-globe.js"></script>
+  <!-- GSAP / ScrollTrigger Mobile Pinning Disarm Safeguard -->
+  <script>
+    (function() {
+      function disarmScrollTriggerPinning() {
+        if (window.innerWidth < 768) {
+          if (typeof ScrollTrigger !== 'undefined') {
+            ScrollTrigger.config({ autoRefreshEvents: "visibilitychange,DOMContentLoaded,load" });
+            ScrollTrigger.getAll().forEach(function(trigger) {
+              if (trigger.vars && trigger.vars.pin) {
+                trigger.kill(false);
+              }
+            });
+          }
+        }
+      }
+      disarmScrollTriggerPinning();
+      window.addEventListener('resize', disarmScrollTriggerPinning, { passive: true });
+      window.addEventListener('orientationchange', disarmScrollTriggerPinning, { passive: true });
+      document.addEventListener('DOMContentLoaded', disarmScrollTriggerPinning);
+    })();
+  </script>
   <script src="./js/main.js"></script>
 </body>
 </html>

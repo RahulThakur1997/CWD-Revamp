@@ -3,7 +3,30 @@
  * Awwwards / FWA Standard Interactive Interactions & Physics
  */
 
+// --------------------------------------------------------------------------
+// 0. CRITICAL MOBILE ENGINE SAFEGUARD: Disable ScrollTrigger Pinning on Mobile (< 768px)
+// --------------------------------------------------------------------------
+function disarmMobileScrollTrigger() {
+  if (window.innerWidth < 768) {
+    // Disable all pinning on mobile completely
+    if (typeof ScrollTrigger !== 'undefined') {
+      ScrollTrigger.config({ autoRefreshEvents: "visibilitychange,DOMContentLoaded,load" });
+      // Kill any pinning triggers
+      ScrollTrigger.getAll().forEach(trigger => {
+        if (trigger.vars && trigger.vars.pin) {
+          trigger.kill(false);
+        }
+      });
+    }
+  }
+}
+disarmMobileScrollTrigger();
+window.addEventListener('resize', disarmMobileScrollTrigger, { passive: true });
+window.addEventListener('orientationchange', disarmMobileScrollTrigger, { passive: true });
+
 document.addEventListener('DOMContentLoaded', () => {
+  disarmMobileScrollTrigger();
+
   // 1. Initialize WebGL Refractive Background
   if (window.WebGLRefractiveBackground) {
     new window.WebGLRefractiveBackground('webgl-canvas');
@@ -47,6 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 14. Disable GSAP ScrollTrigger pinning and sticky page locks on mobile (< 768px)
   if (typeof ScrollTrigger !== 'undefined') {
+    ScrollTrigger.config({ autoRefreshEvents: "visibilitychange,DOMContentLoaded,load" });
     ScrollTrigger.matchMedia({
       "(max-width: 767px)": function() {
         // Kill pinning so sections scroll naturally down the page
@@ -60,12 +84,24 @@ document.addEventListener('DOMContentLoaded', () => {
    Custom Magnetic Cursor Engine
    -------------------------------------------------------------------------- */
 function initCustomCursor() {
-  // Don't initialize on touch devices
-  if (window.matchMedia('(pointer: coarse)').matches) return;
+  // Don't initialize on touch devices or small screens
+  if (window.matchMedia('(pointer: coarse)').matches || window.innerWidth < 1024) {
+    const dot = document.querySelector('.custom-cursor-dot');
+    const ring = document.querySelector('.custom-cursor-ring');
+    if (dot) dot.style.display = 'none';
+    if (ring) ring.style.display = 'none';
+    return;
+  }
 
   const dot = document.querySelector('.custom-cursor-dot');
   const ring = document.querySelector('.custom-cursor-ring');
   if (!dot || !ring) return;
+
+  // Reveal cursor once user moves the mouse
+  window.addEventListener('mousemove', () => {
+    dot.style.opacity = '1';
+    ring.style.opacity = '1';
+  }, { once: true, passive: true });
 
   let mouseX = window.innerWidth * 0.5;
   let mouseY = window.innerHeight * 0.5;
@@ -317,13 +353,13 @@ function initHeaderScroll() {
    Sticky Card Stacking Progressive Depth Scaling (Design Monks standard)
    -------------------------------------------------------------------------- */
 function initCardStackScroll() {
-  const cards = document.querySelectorAll('.stack-card');
+  const cards = document.querySelectorAll('.industry-card, [data-card], .stack-card');
   if (!cards.length) return;
 
   const targetTops = [80, 125, 170, 215];
 
   function onScroll() {
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth < 768) {
       cards.forEach((card) => {
         card.style.transform = 'none';
         card.style.position = 'relative';

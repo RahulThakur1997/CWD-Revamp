@@ -1065,6 +1065,7 @@ img {
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
+  opacity: 0;
   transition: opacity 0.2s ease;
   box-shadow: 0 0 10px var(--brand-lime);
 }
@@ -1080,10 +1081,22 @@ img {
   pointer-events: none;
   z-index: 9998;
   transform: translate(-50%, -50%);
+  opacity: 0;
   transition: width 0.25s var(--ease-out-expo),
               height 0.25s var(--ease-out-expo),
               border-color 0.25s ease,
-              background-color 0.25s ease;
+              background-color 0.25s ease,
+              opacity 0.2s ease;
+}
+
+@media (max-width: 1024px), (pointer: coarse) {
+  .custom-cursor-dot,
+  .custom-cursor-ring {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
 }
 
 .custom-cursor-ring.is-hovering {
@@ -1407,7 +1420,15 @@ img {
 .stack-container::before,
 .stack-container::after,
 .stack-cards-deck::before,
-.stack-cards-deck::after {
+.stack-cards-deck::after,
+[data-card-stack]::before,
+[data-card-stack]::after,
+.industry-card::before,
+.industry-card::after,
+[data-card]::before,
+[data-card]::after,
+.stack-card::before,
+.stack-card::after {
   display: none !important;
   content: none !important;
   background: none !important;
@@ -2034,20 +2055,28 @@ img {
   .stack-headline {
     margin-bottom: 0;
   }
+  .industry-card,
+  [data-card],
   .stack-card {
     position: relative !important;
     top: auto !important;
     min-height: auto !important;
-    margin-bottom: 1.75rem !important;
+    margin-bottom: 1.5rem !important;
     border-radius: 20px;
     padding: 1.75rem 1.25rem;
     transform: none !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
   .stack-card-1,
   .stack-card-2,
   .stack-card-3,
   .stack-card-4 {
     top: auto !important;
+    position: relative !important;
+    transform: none !important;
+    margin-bottom: 1.5rem !important;
   }
   .stack-metrics-box {
     width: 100%;
@@ -7531,6 +7560,8 @@ img {
   }
 
   /* Kill all scroll-jacking, GSAP pinning, and sticky page locks on mobile (< 768px) */
+  .industry-card, 
+  [data-card], 
   .stack-card,
   .stack-card-1,
   .stack-card-2,
@@ -7543,16 +7574,16 @@ img {
   .pin-spacer {
     position: relative !important;
     top: auto !important;
-    margin-bottom: 2rem !important;
+    transform: none !important;
+    margin-bottom: 1.5rem !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08) !important;
     min-height: auto !important;
     height: auto !important;
     max-height: none !important;
     overflow: visible !important;
-    transform: none !important;
     width: 100% !important;
     opacity: 1 !important;
     visibility: visible !important;
-    box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.1) !important;
   }
 
   .stack-cards-deck,
