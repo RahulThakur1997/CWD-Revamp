@@ -850,35 +850,13 @@ function initDesktopScrollAnimations() {
     }
 
     // -----------------------------------------------------------------------
-    // 2. SERVICES CAROUSEL: PINNED HORIZONTAL SCROLL FROM LEFT TO RIGHT
+    // 2. SERVICES CAROUSEL: SMOOTH LEFT-TO-RIGHT DRIFT (NO SCROLL-TRAP / NO GAP)
     // -----------------------------------------------------------------------
-    const servicesSection = document.querySelector('.services-carousel-section, #cwd-services');
-    const servicesTrack = document.querySelector('.services-carousel-track, .services-track');
-
-    if (servicesSection && servicesTrack) {
-      const getScrollDistance = () => servicesTrack.scrollWidth - window.innerWidth + 120;
-
-      gsap.fromTo(servicesTrack,
-        { x: 0 },
-        {
-          x: () => -Math.max(0, getScrollDistance()),
-          ease: "none",
-          scrollTrigger: {
-            trigger: servicesSection,
-            start: "top top",
-            end: () => "+=" + Math.max(400, getScrollDistance()),
-            pin: true,
-            pinSpacing: true,
-            scrub: 0.6,
-            invalidateOnRefresh: true,
-            anticipatePin: 1
-          }
-        }
-      );
-    }
+    // The services carousel uses continuous hardware-accelerated left-to-right
+    // marquee drift with hover pause and zero vertical pin spacers.
 
     // -----------------------------------------------------------------------
-    // 3. CWD ADVANTAGE: PINNED PREVIEW (NO HEADER COLLISION) & GHOST-FREE SWAP
+    // 3. CWD ADVANTAGE: PINNED PREVIEW & SYNCHRONIZED HEADING-TO-IMAGE SWAP
     // -----------------------------------------------------------------------
     const advantageLayout = document.querySelector('.why-split-layout');
     const visualColumn = document.querySelector('.why-pinned-column, .cwd-advantage__visual');
@@ -886,12 +864,12 @@ function initDesktopScrollAnimations() {
     const panes = gsap.utils.toArray('.graphic-pane');
 
     if (advantageLayout && visualColumn && steps.length && panes.length) {
-      // Pin left visual preview box ONLY within the 2-column split layout (never overlapping header!)
+      // Pin visual column ONLY while scrolling through the steps (aligned with headings)
       ScrollTrigger.create({
         trigger: advantageLayout,
-        start: "top top+=110",
+        start: "top top+=90",
         endTrigger: steps[steps.length - 1],
-        end: "bottom center+=120",
+        end: "bottom top+=650",
         pin: visualColumn,
         pinSpacing: false,
         invalidateOnRefresh: true,
@@ -908,40 +886,45 @@ function initDesktopScrollAnimations() {
           const isActive = (i === idx);
           step.classList.toggle('is-active', isActive);
           gsap.to(step, {
-            opacity: isActive ? 1 : 0.15,
-            x: isActive ? 8 : 0,
-            duration: 0.35,
+            opacity: isActive ? 1 : 0.18,
+            x: isActive ? 6 : 0,
+            duration: 0.45,
             ease: "power2.out"
           });
         });
 
-        // Kill any pending tweens on panes to prevent ghosting/overlapping
-        gsap.killTweensOf(panes);
-
+        // Animate left-side panes: smooth, slow crossfade synchronized with heading
         panes.forEach((pane, i) => {
           if (i === idx) {
             pane.style.zIndex = '10';
             pane.classList.add('is-active');
+            gsap.killTweensOf(pane);
             gsap.fromTo(pane,
-              { autoAlpha: 0, scale: 0.97 },
-              { autoAlpha: 1, scale: 1, duration: 0.35, ease: "power2.out" }
+              { autoAlpha: 0, scale: 0.98 },
+              { autoAlpha: 1, scale: 1, duration: 0.5, ease: "power2.out" }
             );
           } else {
             pane.style.zIndex = '1';
             pane.classList.remove('is-active');
-            gsap.set(pane, { autoAlpha: 0, scale: 0.97 });
+            gsap.killTweensOf(pane);
+            gsap.to(pane, {
+              autoAlpha: 0,
+              scale: 0.98,
+              duration: 0.4,
+              ease: "power2.out"
+            });
           }
         });
       }
 
-      // Initial active state: Step 1
+      // Initial active state: Step 1 immediately active on landing
       activateStep(0);
 
       steps.forEach((step, i) => {
         ScrollTrigger.create({
           trigger: step,
-          start: "top 60%",
-          end: "bottom 40%",
+          start: "top 52%",
+          end: "bottom 52%",
           onEnter: () => activateStep(i),
           onEnterBack: () => activateStep(i),
         });

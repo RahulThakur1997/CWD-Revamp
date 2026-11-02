@@ -531,40 +531,42 @@
     }
 
     /* Services Horizontal Carousel (Design in DC Style) */
-    @media (min-width: 768px) {
-      .services-section,
-      .services-carousel-section {
-        width: 100% !important;
-        overflow: hidden !important;
-      }
-      .services-track,
-      .services-carousel-track {
-        display: flex !important;
-        width: max-content !important;
-        gap: 1.5rem !important;
-        overflow-x: visible !important;
-        scroll-snap-type: none !important;
-        flex-wrap: nowrap !important;
-        will-change: transform !important;
-        padding: 1.5rem 4rem !important;
-      }
+    .services-carousel-section {
+      width: 100% !important;
+      overflow: hidden !important;
+      position: relative !important;
+      background-color: #09090B !important;
+      padding: 5rem 0 6rem 0 !important;
+      min-height: auto !important;
+      height: auto !important;
     }
-    @media (max-width: 767px) {
-      .services-track,
-      .services-carousel-track {
-        display: flex !important;
-        gap: 1.25rem !important;
-        overflow-x: auto !important;
-        scroll-snap-type: x mandatory !important;
-        scrollbar-width: none !important;
-        -ms-overflow-style: none !important;
-        -webkit-overflow-scrolling: touch !important;
-        transform: none !important;
-      }
-      .services-track::-webkit-scrollbar,
-      .services-carousel-track::-webkit-scrollbar {
-        display: none !important;
-      }
+    .services-carousel-viewport {
+      width: 100% !important;
+      overflow: hidden !important;
+      position: relative !important;
+      mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%) !important;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%) !important;
+      padding: 1.5rem 0 !important;
+    }
+    .services-carousel-track {
+      display: flex !important;
+      width: max-content !important;
+      will-change: transform !important;
+      animation: servicesDriftRight 45s linear infinite !important;
+    }
+    .services-carousel-group {
+      display: flex !important;
+      gap: 1.5rem !important;
+      padding-right: 1.5rem !important;
+      flex-shrink: 0 !important;
+    }
+    .services-carousel-viewport:hover .services-carousel-track,
+    .services-carousel-track:hover {
+      animation-play-state: paused !important;
+    }
+    @keyframes servicesDriftRight {
+      0% { transform: translate3d(-50%, 0, 0); }
+      100% { transform: translate3d(0%, 0, 0); }
     }
     .service-card {
       width: 85vw !important;
@@ -1411,9 +1413,13 @@
       </div>
 
       <!-- Touch Scroll Track (Design in DC horizontal carousel: w-[85vw] max-w-[340px] h-[480px] shrink-0 rounded-3xl snap-center) -->
-      <div class="cwd-services__track services-track services-carousel-track flex gap-5">
-        
-        <!-- Card 1: Local Business Websites -->
+      <!-- Continuous Hardware-Accelerated Marquee Carousel (Left to Right) -->
+      <div class="services-carousel-viewport w-full overflow-hidden relative">
+        <div class="services-carousel-track flex w-max">
+          
+          <!-- Group 1: 6 Interactive Service Cards -->
+          <div class="services-carousel-group flex gap-6 pr-6">
+<!-- Card 1: Local Business Websites -->
         <article class="service-card w-[85vw] max-w-[340px] md:w-[380px] h-[480px] shrink-0 rounded-3xl overflow-hidden relative flex-none snap-center group border border-white/10 shadow-2xl bg-[#121216]">
           <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Local clinic professional holding phone displaying live booking site" class="service-card-image absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy" onerror="handleImgError(this, './assets/services/local-biz.svg')">
           <div class="service-title-overlay absolute top-0 left-0 right-0 pt-6 pb-12 px-4 text-center z-10 bg-gradient-to-b from-[#09090B]/95 via-[#09090B]/60 to-transparent">
@@ -1556,7 +1562,156 @@
             </a>
           </div>
         </article>
+          </div>
 
+          <!-- Group 2: Duplicate Set for Seamless Left-to-Right Infinite Marquee Loop -->
+          <div class="services-carousel-group flex gap-6 pr-6" aria-hidden="true">
+<!-- Card 1: Local Business Websites -->
+        <article class="service-card w-[85vw] max-w-[340px] md:w-[380px] h-[480px] shrink-0 rounded-3xl overflow-hidden relative flex-none snap-center group border border-white/10 shadow-2xl bg-[#121216]">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Local clinic professional holding phone displaying live booking site" class="service-card-image absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy" onerror="handleImgError(this, './assets/services/local-biz.svg')">
+          <div class="service-title-overlay absolute top-0 left-0 right-0 pt-6 pb-12 px-4 text-center z-10 bg-gradient-to-b from-[#09090B]/95 via-[#09090B]/60 to-transparent">
+            <h3 class="service-title-text text-xl font-bold text-white tracking-tight drop-shadow-md">Local Business Websites</h3>
+          </div>
+          <div class="service-drawer absolute bottom-0 left-0 right-0 p-5 bg-[#09090B]/85 backdrop-blur-xl border-t border-white/10 rounded-b-3xl z-10 transition-transform duration-300">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-[#C6F24D] bg-[#C6F24D]/10 px-2.5 py-0.5 rounded-full border border-[#C6F24D]/25">Key Deliverables</span>
+              <span class="text-[#C6F24D] text-xs font-bold">↗</span>
+            </div>
+            <ul class="space-y-1.5 mb-4 text-xs text-zinc-200">
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Mobile-First Booking Flows</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>1-Tap Click-to-Call Triggers</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Local Schema Architecture</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Sub-Second Load Speeds</span></li>
+            </ul>
+            <a href="#contact" class="flex items-center justify-between w-full py-2 px-3.5 rounded-xl bg-white/10 hover:bg-[#C6F24D] text-white hover:text-black font-semibold text-xs transition-colors duration-200 no-underline">
+              <span>Explore Service Sprint</span>
+              <span>→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 2: B2B Website Building -->
+        <article class="service-card w-[85vw] max-w-[340px] md:w-[380px] h-[480px] shrink-0 rounded-3xl overflow-hidden relative flex-none snap-center group border border-white/10 shadow-2xl bg-[#121216]">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Creative team collaborating around laptop showcasing modern architectural web platform" class="service-card-image absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy" onerror="handleImgError(this, './assets/services/b2b-web.svg')">
+          <div class="service-title-overlay absolute top-0 left-0 right-0 pt-6 pb-12 px-4 text-center z-10 bg-gradient-to-b from-[#09090B]/95 via-[#09090B]/60 to-transparent">
+            <h3 class="service-title-text text-xl font-bold text-white tracking-tight drop-shadow-md">B2B Website Building</h3>
+          </div>
+          <div class="service-drawer absolute bottom-0 left-0 right-0 p-5 bg-[#09090B]/85 backdrop-blur-xl border-t border-white/10 rounded-b-3xl z-10 transition-transform duration-300">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-[#C6F24D] bg-[#C6F24D]/10 px-2.5 py-0.5 rounded-full border border-[#C6F24D]/25">Key Deliverables</span>
+              <span class="text-[#C6F24D] text-xs font-bold">↗</span>
+            </div>
+            <ul class="space-y-1.5 mb-4 text-xs text-zinc-200">
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Interactive Product Showcases</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>CRM & Lead Pipeline Funnels</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Custom Design Systems</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>High-Security Cloud Hosting</span></li>
+            </ul>
+            <a href="#contact" class="flex items-center justify-between w-full py-2 px-3.5 rounded-xl bg-white/10 hover:bg-[#C6F24D] text-white hover:text-black font-semibold text-xs transition-colors duration-200 no-underline">
+              <span>Explore Service Sprint</span>
+              <span>→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 3: High-Rank Search SEO -->
+        <article class="service-card w-[85vw] max-w-[340px] md:w-[380px] h-[480px] shrink-0 rounded-3xl overflow-hidden relative flex-none snap-center group border border-white/10 shadow-2xl bg-[#121216]">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Analytics dashboard showing top organic Google ranking performance curve" class="service-card-image absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy" onerror="handleImgError(this, './assets/services/seo.svg')">
+          <div class="service-title-overlay absolute top-0 left-0 right-0 pt-6 pb-12 px-4 text-center z-10 bg-gradient-to-b from-[#09090B]/95 via-[#09090B]/60 to-transparent">
+            <h3 class="service-title-text text-xl font-bold text-white tracking-tight drop-shadow-md">High-Rank Search SEO</h3>
+          </div>
+          <div class="service-drawer absolute bottom-0 left-0 right-0 p-5 bg-[#09090B]/85 backdrop-blur-xl border-t border-white/10 rounded-b-3xl z-10 transition-transform duration-300">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-[#C6F24D] bg-[#C6F24D]/10 px-2.5 py-0.5 rounded-full border border-[#C6F24D]/25">Key Deliverables</span>
+              <span class="text-[#C6F24D] text-xs font-bold">↗</span>
+            </div>
+            <ul class="space-y-1.5 mb-4 text-xs text-zinc-200">
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Keyword Intent Mapping</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Core Web Vitals 100/100</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Automated XML & Schema Sitemaps</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Geo-Targeted Landing Pages</span></li>
+            </ul>
+            <a href="#contact" class="flex items-center justify-between w-full py-2 px-3.5 rounded-xl bg-white/10 hover:bg-[#C6F24D] text-white hover:text-black font-semibold text-xs transition-colors duration-200 no-underline">
+              <span>Explore Service Sprint</span>
+              <span>→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 4: Google Business Profile Pack -->
+        <article class="service-card w-[85vw] max-w-[340px] md:w-[380px] h-[480px] shrink-0 rounded-3xl overflow-hidden relative flex-none snap-center group border border-white/10 shadow-2xl bg-[#121216]">
+          <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80" alt="Business storefront owner updating Google Business verification status on mobile tablet" class="service-card-image absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy" onerror="handleImgError(this, './assets/services/gbp.svg')">
+          <div class="service-title-overlay absolute top-0 left-0 right-0 pt-6 pb-12 px-4 text-center z-10 bg-gradient-to-b from-[#09090B]/95 via-[#09090B]/60 to-transparent">
+            <h3 class="service-title-text text-xl font-bold text-white tracking-tight drop-shadow-md">Google Business Profile Pack</h3>
+          </div>
+          <div class="service-drawer absolute bottom-0 left-0 right-0 p-5 bg-[#09090B]/85 backdrop-blur-xl border-t border-white/10 rounded-b-3xl z-10 transition-transform duration-300">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-[#C6F24D] bg-[#C6F24D]/10 px-2.5 py-0.5 rounded-full border border-[#C6F24D]/25">Key Deliverables</span>
+              <span class="text-[#C6F24D] text-xs font-bold">↗</span>
+            </div>
+            <ul class="space-y-1.5 mb-4 text-xs text-zinc-200">
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Automated Review Request Funnels</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Local 3-Pack Map Optimization</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Category & Citation Synchronization</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>High-Res Visual Photo Uploads</span></li>
+            </ul>
+            <a href="#contact" class="flex items-center justify-between w-full py-2 px-3.5 rounded-xl bg-white/10 hover:bg-[#C6F24D] text-white hover:text-black font-semibold text-xs transition-colors duration-200 no-underline">
+              <span>Explore Service Sprint</span>
+              <span>→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 5: Paid Acquisition Funnels -->
+        <article class="service-card w-[85vw] max-w-[340px] md:w-[380px] h-[480px] shrink-0 rounded-3xl overflow-hidden relative flex-none snap-center group border border-white/10 shadow-2xl bg-[#121216]">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="High performance sales conversion dashboard showing real time revenue and booking transactions" class="service-card-image absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy" onerror="handleImgError(this, './assets/services/funnels.svg')">
+          <div class="service-title-overlay absolute top-0 left-0 right-0 pt-6 pb-12 px-4 text-center z-10 bg-gradient-to-b from-[#09090B]/95 via-[#09090B]/60 to-transparent">
+            <h3 class="service-title-text text-xl font-bold text-white tracking-tight drop-shadow-md">Paid Acquisition Funnels</h3>
+          </div>
+          <div class="service-drawer absolute bottom-0 left-0 right-0 p-5 bg-[#09090B]/85 backdrop-blur-xl border-t border-white/10 rounded-b-3xl z-10 transition-transform duration-300">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-[#C6F24D] bg-[#C6F24D]/10 px-2.5 py-0.5 rounded-full border border-[#C6F24D]/25">Key Deliverables</span>
+              <span class="text-[#C6F24D] text-xs font-bold">↗</span>
+            </div>
+            <ul class="space-y-1.5 mb-4 text-xs text-zinc-200">
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>A/B Tested Landing Variants</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Meta & Google Ad Pixel Attribution</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Frictionless Lead Capture Forms</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>48-Hour Rapid Creative Sprints</span></li>
+            </ul>
+            <a href="#contact" class="flex items-center justify-between w-full py-2 px-3.5 rounded-xl bg-white/10 hover:bg-[#C6F24D] text-white hover:text-black font-semibold text-xs transition-colors duration-200 no-underline">
+              <span>Explore Service Sprint</span>
+              <span>→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 6: Autonomous AI Booking Agents -->
+        <article class="service-card w-[85vw] max-w-[340px] md:w-[380px] h-[480px] shrink-0 rounded-3xl overflow-hidden relative flex-none snap-center group border border-white/10 shadow-2xl bg-[#121216]">
+          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="Abstract neural network node sphere representing automated 24/7 AI conversational scheduling" class="service-card-image absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy" onerror="handleImgError(this, './assets/services/ai-voice.svg')">
+          <div class="service-title-overlay absolute top-0 left-0 right-0 pt-6 pb-12 px-4 text-center z-10 bg-gradient-to-b from-[#09090B]/95 via-[#09090B]/60 to-transparent">
+            <h3 class="service-title-text text-xl font-bold text-white tracking-tight drop-shadow-md">Autonomous AI Booking Agents</h3>
+          </div>
+          <div class="service-drawer absolute bottom-0 left-0 right-0 p-5 bg-[#09090B]/85 backdrop-blur-xl border-t border-white/10 rounded-b-3xl z-10 transition-transform duration-300">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-[#C6F24D] bg-[#C6F24D]/10 px-2.5 py-0.5 rounded-full border border-[#C6F24D]/25">Key Deliverables</span>
+              <span class="text-[#C6F24D] text-xs font-bold">↗</span>
+            </div>
+            <ul class="space-y-1.5 mb-4 text-xs text-zinc-200">
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Autonomous Voice Call Booking</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Intelligent Client Triage Agents</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Instant Lead Notification Hooks</span></li>
+              <li class="flex items-center gap-2"><span class="text-[#C6F24D] font-bold text-xs">✓</span><span>Custom LLM Knowledge Bases</span></li>
+            </ul>
+            <a href="#contact" class="flex items-center justify-between w-full py-2 px-3.5 rounded-xl bg-white/10 hover:bg-[#C6F24D] text-white hover:text-black font-semibold text-xs transition-colors duration-200 no-underline">
+              <span>Explore Service Sprint</span>
+              <span>→</span>
+            </a>
+          </div>
+        </article>
+          </div>
+
+        </div>
       </div>
     </section>
 
@@ -1637,35 +1792,35 @@
                   <span class="live-status-pill status-lime">● Sprint Kickoff</span>
                 </div>
                 <div class="graphic-pane-body">
-                  <div class="sprint-velocity-card bg-zinc-950 border border-zinc-800 rounded-xl p-5 shadow-lg text-white">
-                    <div class="flex items-center justify-between pb-3 border-b border-zinc-800 mb-4">
+                  <div class="sprint-velocity-card bg-zinc-50 border border-zinc-200/80 rounded-2xl p-5 shadow-sm text-zinc-900">
+                    <div class="flex items-center justify-between pb-3 border-b border-zinc-200 mb-4">
                       <div>
-                        <span class="text-[10px] font-bold text-zinc-400 tracking-wider uppercase">GUARANTEED VELOCITY</span>
-                        <div class="text-xl font-extrabold text-white mt-0.5">Sprint Kickoff → 48-Hour Live Delivery</div>
+                        <span class="text-[10px] font-bold text-zinc-500 tracking-wider uppercase">GUARANTEED VELOCITY</span>
+                        <div class="text-xl font-extrabold text-zinc-900 mt-0.5">Sprint Kickoff → 48-Hour Live Delivery</div>
                       </div>
-                      <span class="text-xs font-semibold text-[#C6F24D] bg-[#C6F24D]/10 px-3 py-1 rounded-full border border-[#C6F24D]/30">Verified Sprint</span>
+                      <span class="text-xs font-semibold text-[#047857] bg-[#ECFDF5] px-3 py-1 rounded-full border border-[#A7F3D0]">Verified Sprint</span>
                     </div>
                     <div class="space-y-2.5 text-xs">
-                      <div class="p-3 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-between">
+                      <div class="p-3 rounded-xl bg-white border border-zinc-200/70 flex items-center justify-between shadow-xs">
                         <div>
-                          <strong class="block text-white text-sm">Sprint Kickoff &amp; Wireframe</strong>
-                          <span class="text-zinc-400 text-xs">Conversion architecture &amp; high-intent copy</span>
+                          <strong class="block text-zinc-900 text-sm">Sprint Kickoff &amp; Wireframe</strong>
+                          <span class="text-zinc-500 text-xs">Conversion architecture &amp; high-intent copy</span>
                         </div>
-                        <span class="text-[#C6F24D] font-bold text-xs">Day 01 ✓</span>
+                        <span class="text-[#047857] bg-[#ECFDF5] border border-[#A7F3D0] px-2 py-0.5 rounded-full font-bold text-xs">Day 01 ✓</span>
                       </div>
-                      <div class="p-3 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-between">
+                      <div class="p-3 rounded-xl bg-white border border-zinc-200/70 flex items-center justify-between shadow-xs">
                         <div>
-                          <strong class="block text-white text-sm">High-Fidelity Interactive UI</strong>
-                          <span class="text-zinc-400 text-xs">Fluid micro-interactions &amp; mobile polish</span>
+                          <strong class="block text-zinc-900 text-sm">High-Fidelity Interactive UI</strong>
+                          <span class="text-zinc-500 text-xs">Fluid micro-interactions &amp; mobile polish</span>
                         </div>
-                        <span class="text-[#C6F24D] font-bold text-xs">Day 02 ✓</span>
+                        <span class="text-[#047857] bg-[#ECFDF5] border border-[#A7F3D0] px-2 py-0.5 rounded-full font-bold text-xs">Day 02 ✓</span>
                       </div>
-                      <div class="p-3 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-between">
+                      <div class="p-3 rounded-xl bg-white border border-zinc-200/70 flex items-center justify-between shadow-xs">
                         <div>
-                          <strong class="block text-white text-sm">48-Hour Live Delivery &amp; Staging</strong>
-                          <span class="text-zinc-400 text-xs">Speed audit &amp; Core Web Vitals 99/100</span>
+                          <strong class="block text-zinc-900 text-sm">48-Hour Live Delivery &amp; Staging</strong>
+                          <span class="text-zinc-500 text-xs">Speed audit &amp; Core Web Vitals 99/100</span>
                         </div>
-                        <span class="text-[#C6F24D] font-bold text-xs">Ready For Launch ✓</span>
+                        <span class="text-[#047857] bg-[#ECFDF5] border border-[#A7F3D0] px-2 py-0.5 rounded-full font-bold text-xs">Ready For Launch ✓</span>
                       </div>
                     </div>
                   </div>

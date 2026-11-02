@@ -2489,7 +2489,7 @@ img {
   .cwd-pinned-graphic {
     display: block !important;
     position: relative;
-    top: 15% !important;
+    top: 0 !important;
     height: 560px !important;
   }
 }
@@ -8343,129 +8343,140 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   2. Full-Stack Digital Growth (Services Carousel)
+   2. Full-Stack Digital Growth (Services Horizontal Marquee Carousel)
    -------------------------------------------------------------------------- */
 .services-carousel-section {
-  position: relative;
+  position: relative !important;
   background-color: #09090B !important;
   color: #FFFFFF !important;
+  padding: 5rem 0 6rem 0 !important;
+  min-height: auto !important;
+  height: auto !important;
+  overflow: hidden !important;
 }
 
-@media (min-width: 768px) {
-  .services-carousel-section {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: hidden;
-    padding: 3rem 0;
-    box-sizing: border-box;
-  }
+.services-carousel-viewport {
+  width: 100% !important;
+  overflow: hidden !important;
+  position: relative !important;
+  mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%) !important;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%) !important;
+  padding: 1.5rem 0 !important;
+}
 
-  .services-header-container {
-    margin-bottom: 2rem !important;
-  }
+.services-carousel-track {
+  display: flex !important;
+  width: max-content !important;
+  will-change: transform !important;
+  animation: servicesDriftRight 45s linear infinite !important;
+}
 
-  .services-carousel-track {
-    display: flex;
-    gap: 24px;
-    width: max-content;
-    overflow: visible;
-    padding-left: clamp(2rem, 5vw, 6rem);
-    padding-right: clamp(2rem, 5vw, 6rem);
-    will-change: transform;
-    animation: none !important;
-  }
+.services-carousel-group {
+  display: flex !important;
+  gap: 1.5rem !important;
+  padding-right: 1.5rem !important;
+  flex-shrink: 0 !important;
+}
 
-  .service-card {
-    flex-shrink: 0;
-    width: 380px !important;
-    max-width: 380px !important;
-    height: 500px !important;
+.services-carousel-viewport:hover .services-carousel-track,
+.services-carousel-track:hover {
+  animation-play-state: paused !important;
+}
+
+@keyframes servicesDriftRight {
+  0% {
+    transform: translate3d(-50%, 0, 0);
   }
+  100% {
+    transform: translate3d(0%, 0, 0);
+  }
+}
+
+.service-card {
+  width: 360px !important;
+  min-width: 360px !important;
+  max-width: 360px !important;
+  height: 500px !important;
+  flex-shrink: 0 !important;
+  border-radius: 24px !important;
+  overflow: hidden !important;
+  position: relative !important;
+  background: #121216 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease !important;
+}
+
+.service-card:hover {
+  transform: translateY(-6px) scale(1.02) !important;
+  border-color: rgba(198, 242, 77, 0.8) !important;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5), 0 0 25px rgba(198, 242, 77, 0.25) !important;
 }
 
 @media (max-width: 767px) {
   .services-carousel-section {
-    height: auto !important;
-    min-height: 0 !important;
-    overflow: visible !important;
-    padding: 3rem 0 !important;
+    padding: 3.5rem 0 !important;
   }
-
-  .services-carousel-track {
-    display: flex !important;
-    width: 100% !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    scroll-snap-type: x mandatory !important;
-    overscroll-behavior-x: contain !important;
-    -webkit-overflow-scrolling: touch !important;
-    touch-action: pan-x pan-y !important;
-    gap: 16px !important;
-    padding-left: 1.5rem !important;
-    padding-right: 1.5rem !important;
-    padding-bottom: 1.5rem !important;
-    transform: none !important;
-    scrollbar-width: none !important;
-  }
-
-  .services-carousel-track::-webkit-scrollbar {
-    display: none !important;
-  }
-
   .service-card {
-    flex: 0 0 min(85vw, 340px) !important;
-    scroll-snap-align: center !important;
+    width: min(85vw, 340px) !important;
+    min-width: min(85vw, 340px) !important;
+    max-width: min(85vw, 340px) !important;
     height: 480px !important;
   }
 }
 
 /* --------------------------------------------------------------------------
-   3. The CWD Advantage / Why Choose Us (Pinned Preview & Text Focus Swap)
+   3. The CWD Advantage / Why Choose Us (Light Modern Mockup & Synchronized Swap)
    -------------------------------------------------------------------------- */
 .why-us-section {
-  position: relative;
+  position: relative !important;
   background-color: #FFFFFF !important;
   color: #111827 !important;
-  padding: 5rem 0;
+  padding: 6rem 0 !important;
 }
 
 @media (min-width: 768px) {
   .why-split-layout {
     display: grid !important;
-    grid-template-columns: 1.05fr 0.95fr !important;
+    grid-template-columns: 1fr 1fr !important;
     gap: 3.5rem !important;
     align-items: start !important;
     margin-top: 3.5rem !important;
+    position: relative !important;
   }
 
   .why-pinned-column {
     display: block !important;
     position: relative;
-    height: min(65vh, 560px) !important;
-    min-height: 480px !important;
+    height: 560px !important;
+    min-height: 560px !important;
     align-self: start !important;
+    top: 0 !important;
+    margin-top: 0 !important;
   }
 
   .why-graphic-card {
     position: relative !important;
     width: 100% !important;
     height: 100% !important;
-    border-radius: 24px;
-    background: #09090B !important;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    overflow: hidden;
-    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.16);
+    border-radius: 28px !important;
+    background: #FFFFFF !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    overflow: hidden !important;
+    box-shadow: 0 20px 45px -12px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.03) !important;
   }
 
   .graphic-pane {
     position: absolute !important;
     inset: 0 !important;
+    padding: 1.5rem !important;
+    display: flex !important;
+    flex-direction: column !important;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    background: #09090B !important;
+    background: #FFFFFF !important;
+    border-radius: 28px !important;
+    box-sizing: border-box !important;
     isolation: isolate;
   }
 
@@ -8473,28 +8484,79 @@ img {
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
+    z-index: 10 !important;
+  }
+
+  .graphic-pane-header {
+    height: 42px !important;
+    background: #F9FAFB !important;
+    border: 1px solid rgba(0, 0, 0, 0.06) !important;
+    border-radius: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 0 0.85rem !important;
+    gap: 0.75rem !important;
+    margin-bottom: 1rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  .browser-dots {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+  }
+
+  .b-dot {
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50% !important;
+  }
+  .b-dot-red { background: #F87171 !important; border: 1px solid #EF4444 !important; }
+  .b-dot-yellow { background: #FBBF24 !important; border: 1px solid #F59E0B !important; }
+  .b-dot-green { background: #34D399 !important; border: 1px solid #10B981 !important; }
+
+  .graphic-url-pill {
+    font-family: monospace !important;
+    font-size: 0.72rem !important;
+    color: #6B7280 !important;
+    background: #FFFFFF !important;
+    border: 1px solid rgba(0, 0, 0, 0.06) !important;
+    padding: 2px 10px !important;
+    border-radius: 9999px !important;
+    flex-grow: 1 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
   }
 
   .why-scroll-column {
     display: flex !important;
     flex-direction: column !important;
+    gap: 2rem !important;
   }
 
   .why-value-card {
-    min-height: 52vh !important;
+    min-height: 48vh !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
-    margin-bottom: 2.5rem !important;
-    opacity: 0.15 !important;
+    margin-bottom: 2rem !important;
+    border-radius: 24px !important;
+    background: #FFFFFF !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    padding: 2.75rem 2.5rem !important;
+    opacity: 0.18 !important;
     transform: translateX(0) !important;
-    transition: opacity 0.35s ease, transform 0.35s ease !important;
-    cursor: pointer;
+    transition: opacity 0.45s ease, transform 0.45s ease, border-color 0.45s ease, box-shadow 0.45s ease !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
+    cursor: pointer !important;
   }
 
   .why-value-card.is-active {
     opacity: 1 !important;
-    transform: translateX(8px) !important;
+    transform: translateX(6px) !important;
+    border-color: #111827 !important;
+    box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.08), 0 0 0 1px #111827 !important;
   }
 }
 
@@ -8514,6 +8576,8 @@ img {
     margin-bottom: 2rem !important;
     opacity: 1 !important;
     transform: none !important;
+    border-radius: 20px !important;
+    padding: 1.75rem 1.5rem !important;
   }
 
   .graphic-pane {
