@@ -54,10 +54,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // 8. Sticky Header Scroll Detection
   initHeaderScroll();
 
-  // 9. Sticky Card Stacking Depth & Perspective Controller
-  initCardStackScroll();
+  // 9. Initialize Desktop GSAP Scroll Animations Suite (Desktop Only: min-width 768px)
+  initDesktopScrollAnimations();
 
-  // 10. Sticky Pinned "Why Teams Choose Us" Dynamic Graphic Controller
+  // 10. Fallback Stacking & Advantage Graphic Controllers (active only if GSAP is unavailable)
+  initCardStackScroll();
   initWhyTeamsChooseUs();
 
   // 11. Interactive Projector Light Beam CTA Controller (invints.com Style)
@@ -69,19 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 13. Floating Header Mobile Dropdown Menu Controller
   initMobileMenu();
 
-  // 14. Disable GSAP ScrollTrigger pinning and sticky page locks on mobile (< 768px)
-  if (typeof ScrollTrigger !== 'undefined') {
-    ScrollTrigger.config({ autoRefreshEvents: "visibilitychange,DOMContentLoaded,load" });
-    ScrollTrigger.config({ ignoreMobileResize: true });
-    ScrollTrigger.matchMedia({
-      "(max-width: 768px)": function() {
-        // Kill pinning so sections scroll naturally down the page
-        ScrollTrigger.getAll().forEach(t => t.kill(false));
-      }
-    });
-  }
-
-  // 15. Initialize Photorealistic Rotating Earth Video Controller
+  // 14. Initialize Photorealistic Rotating Earth Video Controller
   initEarthVideo();
 });
 
@@ -358,6 +347,8 @@ function initHeaderScroll() {
    Sticky Card Stacking Progressive Depth Scaling (Design Monks standard)
    -------------------------------------------------------------------------- */
 function initCardStackScroll() {
+  // If GSAP ScrollTrigger is present, it handles desktop card stacking via matchMedia
+  if (typeof ScrollTrigger !== 'undefined') return;
   const cards = document.querySelectorAll('.industry-card, [data-card], .stack-card');
   if (!cards.length) return;
 
@@ -429,6 +420,8 @@ function initCardStackScroll() {
    Sticky Pinned "Why Teams Choose Us" Dynamic Graphic Controller
    -------------------------------------------------------------------------- */
 function initWhyTeamsChooseUs() {
+  // If GSAP ScrollTrigger is present, it handles desktop advantage swap via matchMedia
+  if (typeof ScrollTrigger !== 'undefined') return;
   const cards = document.querySelectorAll('.why-value-card');
   const panes = document.querySelectorAll('.graphic-pane');
   if (!cards.length || !panes.length) return;
@@ -805,3 +798,124 @@ function initEarthVideo() {
 }
 
 
+
+/* --------------------------------------------------------------------------
+   DESKTOP SCROLL ANIMATIONS CONTROLLER (GSAP ScrollTrigger - Desktop Only: min-width 768px)
+   -------------------------------------------------------------------------- */
+function initDesktopScrollAnimations() {
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  ScrollTrigger.config({
+    autoRefreshEvents: "visibilitychange,DOMContentLoaded,load",
+    ignoreMobileResize: true
+  });
+
+  ScrollTrigger.matchMedia({
+    // Desktop only (min-width: 768px)
+    "(min-width: 768px)": function() {
+      // 1. RESTORE CARD STACKING EFFECT ON DESKTOP (Industry Wins / Case Studies)
+      const cards = gsap.utils.toArray('.stack-card');
+      const stackContainer = document.querySelector('.stack-card-container, .stack-cards-deck, #proof');
+      if (cards.length && stackContainer) {
+        cards.forEach((card, index) => {
+          if (index < cards.length - 1) {
+            ScrollTrigger.create({
+              trigger: card,
+              start: "top top+=100",
+              endTrigger: stackContainer,
+              end: "bottom bottom",
+              pin: true,
+              pinSpacing: false,
+              scrub: true,
+              invalidateOnRefresh: true,
+            });
+
+            if (cards[index + 1]) {
+              gsap.to(card, {
+                scale: 0.94 - (cards.length - 1 - index) * 0.02,
+                opacity: 0.7,
+                scrollTrigger: {
+                  trigger: cards[index + 1],
+                  start: "top top+=200",
+                  end: "top top+=100",
+                  scrub: true,
+                }
+              });
+            }
+          }
+        });
+      }
+
+      // 2. RESTORE HORIZONTAL SCROLL ON SERVICES CAROUSEL (DESKTOP ONLY)
+      const servicesTrack = document.querySelector('.services-track, .services-carousel-track');
+      const servicesSection = document.querySelector('.services-section, .services-carousel-section, #capabilities');
+      if (servicesTrack && servicesSection) {
+        const getScrollDistance = () => -(servicesTrack.scrollWidth - window.innerWidth + 120);
+        gsap.to(servicesTrack, {
+          x: getScrollDistance,
+          ease: "none",
+          scrollTrigger: {
+            trigger: servicesSection,
+            start: "top top",
+            end: () => "+=" + Math.max(300, Math.abs(getScrollDistance())),
+            pin: true,
+            scrub: 1,
+            invalidateOnRefresh: true,
+            anticipatePin: 1
+          }
+        });
+      }
+
+      // 3. RESTORE CWD ADVANTAGE PINNED IMAGE SWAP ("Why Teams Hire Us")
+      const steps = gsap.utils.toArray('.why-value-card, .cwd-step-item');
+      const panes = gsap.utils.toArray('.graphic-pane');
+
+      function activateStep(idx) {
+        steps.forEach((step, i) => {
+          step.classList.toggle('is-active', i === idx);
+        });
+        panes.forEach((pane, i) => {
+          pane.classList.toggle('is-active', i === idx);
+        });
+      }
+
+      if (steps.length) {
+        steps.forEach((step, i) => {
+          ScrollTrigger.create({
+            trigger: step,
+            start: "top center",
+            end: "bottom center",
+            onEnter: () => activateStep(i),
+            onEnterBack: () => activateStep(i),
+          });
+
+          step.addEventListener('click', () => activateStep(i));
+        });
+      }
+    },
+
+    // Mobile: completely disarmed (max-width: 767px)
+    "(max-width: 767px)": function() {
+      // Kill any leftover pinning/snapping
+      ScrollTrigger.getAll().forEach(t => {
+        if (t.vars && (t.vars.pin || t.vars.snap)) t.kill(false);
+      });
+
+      // Ensure natural linear document flow
+      const cards = document.querySelectorAll('.stack-card, .industry-card');
+      cards.forEach(card => {
+        card.style.transform = '';
+        card.style.position = '';
+        card.style.top = '';
+        card.style.opacity = '';
+      });
+
+      const servicesTrack = document.querySelector('.services-track, .services-carousel-track');
+      if (servicesTrack) {
+        servicesTrack.style.transform = '';
+      }
+    }
+  });
+}

@@ -168,6 +168,7 @@
       /* Force all stacking cards to standard linear scrolling */
       .case-study-card,
       .industry-card,
+      [data-card],
       [data-card-stack] > *,
       .stack-card,
       .stack-card-1,
@@ -530,17 +531,40 @@
     }
 
     /* Services Horizontal Carousel (Design in DC Style) */
-    .services-carousel-track {
-      display: flex !important;
-      gap: 1.25rem !important;
-      overflow-x: auto !important;
-      scroll-snap-type: x mandatory !important;
-      scrollbar-width: none !important;
-      -ms-overflow-style: none !important;
-      -webkit-overflow-scrolling: touch !important;
+    @media (min-width: 768px) {
+      .services-section,
+      .services-carousel-section {
+        width: 100% !important;
+        overflow: hidden !important;
+      }
+      .services-track,
+      .services-carousel-track {
+        display: flex !important;
+        width: max-content !important;
+        gap: 1.5rem !important;
+        overflow-x: visible !important;
+        scroll-snap-type: none !important;
+        flex-wrap: nowrap !important;
+        will-change: transform !important;
+        padding: 1.5rem 4rem !important;
+      }
     }
-    .services-carousel-track::-webkit-scrollbar {
-      display: none !important;
+    @media (max-width: 767px) {
+      .services-track,
+      .services-carousel-track {
+        display: flex !important;
+        gap: 1.25rem !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+        -webkit-overflow-scrolling: touch !important;
+        transform: none !important;
+      }
+      .services-track::-webkit-scrollbar,
+      .services-carousel-track::-webkit-scrollbar {
+        display: none !important;
+      }
     }
     .service-card {
       width: 85vw !important;
@@ -1041,7 +1065,7 @@
         </div>
 
         <!-- Sticky Stacking Cards Deck -->
-        <div class="stack-cards-deck" data-card-stack>
+        <div class="stack-cards-deck stack-card-container" data-card-stack>
 
           <!-- CARD 1: Keystone Roofing & Building -->
           <article class="industry-card stack-card stack-card-1"
@@ -1368,7 +1392,7 @@
          SECTION 1: Horizontal Services Showcase ("Beyond Just Websites")
          Inspired by Design in DC: Infinite Horizontal Marquee Carousel with Slide-up Frosted Drawer
          ===================================================================== -->
-    <section class="services-carousel-section py-20 bg-[#09090B] relative overflow-hidden" id="capabilities" aria-label="End-to-End Capabilities Built to Convert">
+    <section class="services-section services-carousel-section py-20 bg-[#09090B] relative overflow-hidden" id="capabilities" aria-label="End-to-End Capabilities Built to Convert">
       <div class="services-header-container max-w-4xl mx-auto text-center px-4 mb-10">
         <div class="services-pill-tag inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[#C6F24D] text-xs font-bold uppercase tracking-wider mb-4">
           <span class="w-1.5 h-1.5 rounded-full bg-[#C6F24D] animate-pulse" aria-hidden="true"></span>
@@ -1383,7 +1407,7 @@
       </div>
 
       <!-- Touch Scroll Track (Design in DC horizontal carousel: w-[85vw] max-w-[340px] h-[480px] shrink-0 rounded-3xl snap-center) -->
-      <div class="services-carousel-track flex gap-5 overflow-x-auto snap-x snap-mandatory px-6 py-4 scrollbar-none" style="display: flex; gap: 1.25rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: 1rem 1.5rem; scrollbar-width: none; -webkit-overflow-scrolling: touch;">
+      <div class="services-track services-carousel-track flex gap-5 overflow-x-auto snap-x snap-mandatory px-6 py-4 scrollbar-none">
         
         <!-- Card 1: Local Business Websites -->
         <article class="service-card w-[85vw] max-w-[340px] md:w-[380px] h-[480px] shrink-0 rounded-3xl overflow-hidden relative flex-none snap-center group border border-white/10 shadow-2xl bg-[#121216]">
@@ -1557,8 +1581,8 @@
         <div class="why-split-layout">
           
           <!-- LEFT COLUMN: Pinned Dynamic Graphic Container -->
-          <div class="why-pinned-column hidden md:block">
-            <div class="why-graphic-card" id="why-graphic-card">
+          <div class="why-pinned-column cwd-pinned-graphic hidden md:block">
+            <div class="why-graphic-card cwd-graphic-card" id="why-graphic-card">
               
               <!-- State 1: Zero-Risk Prototype (Awaken Films High-Fidelity Custom Brand Preview) -->
               <div class="graphic-pane is-active" data-pane="1">
@@ -1857,7 +1881,7 @@
           <div class="why-scroll-column">
             
             <!-- Point 01: Confidence First -->
-            <article class="why-value-card is-active" data-index="1">
+            <article class="why-value-card cwd-step-item is-active" data-index="1">
               <div class="why-card-badge">
                 <span class="badge-num">01</span>
                 <span class="badge-divider">•</span>
@@ -1895,7 +1919,7 @@
               </div></article>
 
             <!-- Point 02: Sprint Velocity -->
-            <article class="why-value-card" data-index="2">
+            <article class="why-value-card cwd-step-item" data-index="2">
               <div class="why-card-badge">
                 <span class="badge-num">02</span>
                 <span class="badge-divider">•</span>
@@ -1946,7 +1970,7 @@
               </div></article>
 
             <!-- Point 03: Perfection Guaranteed -->
-            <article class="why-value-card" data-index="3">
+            <article class="why-value-card cwd-step-item" data-index="3">
               <div class="why-card-badge">
                 <span class="badge-num">03</span>
                 <span class="badge-divider">•</span>
@@ -1988,8 +2012,54 @@
                 </div>
               </div></article>
 
+            
+            <!-- Point 04: Zero Capital Risk -->
+            <article class="why-value-card cwd-step-item" data-index="4">
+              <div class="why-card-badge">
+                <span class="badge-num">04</span>
+                <span class="badge-divider">•</span>
+                <span class="badge-text">Zero Capital Risk</span>
+              </div>
+              <h3 class="why-card-title">Flexible Payment Plans &amp; 0% Deposit</h3>
+              <div class="why-point-row problem-row">
+                <span class="point-tag tag-problem">THE PROBLEM</span>
+                <p class="point-desc">Traditional agencies forcing 50% or 100% cash down before delivering any measurable work.</p>
+              </div>
+              <div class="why-point-row solution-row">
+                <span class="point-tag tag-solution">THE CWD SOLUTION</span>
+                <p class="point-desc">Split your investment into flexible milestone-based plans, or pay only once your site is approved, live, and converting.</p>
+              </div>
+              <div class="why-outcome-box">
+                <span class="outcome-sparkle">✦</span>
+                <span class="outcome-text"><strong>OUTCOME:</strong> Complete financial flexibility with zero upfront lock-in.</span>
+              </div>
+            
+              <!-- Mobile Inline Visual Preview: Flexible Escrow Payments -->
+              <div class="why-card-mobile-preview md:hidden mt-6 pt-4 border-t border-zinc-200/80">
+                <div class="mobile-preview-box rounded-xl overflow-hidden border border-zinc-200 bg-zinc-950 p-3 shadow-sm text-white">
+                  <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-[11px] text-emerald-300 font-semibold mb-3">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> 0% Upfront Deposit • Pay Only When 100% Satisfied
+                  </div>
+                  <div class="grid grid-cols-3 gap-2 text-center text-xs">
+                    <div class="p-2 rounded-lg bg-zinc-900 border border-zinc-800">
+                      <div class="text-[10px] text-zinc-400 uppercase">Phase 1</div>
+                      <div class="text-[#C6F24D] font-bold mt-0.5">$0.00 (Free)</div>
+                    </div>
+                    <div class="p-2 rounded-lg bg-zinc-900 border border-zinc-800">
+                      <div class="text-[10px] text-zinc-400 uppercase">Phase 2</div>
+                      <div class="text-white font-bold mt-0.5">50% Design OK</div>
+                    </div>
+                    <div class="p-2 rounded-lg bg-zinc-900 border border-zinc-800">
+                      <div class="text-[10px] text-zinc-400 uppercase">Phase 3</div>
+                      <div class="text-white font-bold mt-0.5">50% Launch</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
             <!-- Point 05: Ongoing Partnership -->
-            <article class="why-value-card" data-index="5">
+            <article class="why-value-card cwd-step-item" data-index="5">
               <div class="why-card-badge">
                 <span class="badge-num">05</span>
                 <span class="badge-divider">•</span>
@@ -3056,6 +3126,148 @@
       window.addEventListener('resize', disarmScrollTriggerPinning, { passive: true });
       window.addEventListener('orientationchange', disarmScrollTriggerPinning, { passive: true });
       document.addEventListener('DOMContentLoaded', disarmScrollTriggerPinning);
+    })();
+  </script>
+    <!-- GSAP Core & ScrollTrigger CDN (Required for Desktop Scroll Interactions) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    /* ==========================================================================
+       DESKTOP SCROLL ANIMATIONS CONTROLLER (GSAP ScrollTrigger - Desktop Only: min-width 768px)
+       Strictly isolates desktop animations from mobile linear document flow
+       ========================================================================== */
+    (function initCwdDesktopAnimations() {
+      if (window.__cwdDesktopAnimationsInit) return;
+
+      function setup() {
+        if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+        if (window.__cwdDesktopAnimationsInit) return;
+        window.__cwdDesktopAnimationsInit = true;
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        ScrollTrigger.config({
+          autoRefreshEvents: "visibilitychange,DOMContentLoaded,load",
+          ignoreMobileResize: true
+        });
+
+        ScrollTrigger.matchMedia({
+          // ------------------------------------------------------------------
+          // DESKTOP ONLY (min-width: 768px)
+          // ------------------------------------------------------------------
+          "(min-width: 768px)": function() {
+            // 1. RESTORE CARD STACKING EFFECT ON DESKTOP (Industry Wins / Case Studies)
+            const cards = gsap.utils.toArray('.stack-card');
+            const stackContainer = document.querySelector('.stack-card-container, .stack-cards-deck, #proof');
+            if (cards.length && stackContainer) {
+              cards.forEach((card, index) => {
+                if (index < cards.length - 1) {
+                  ScrollTrigger.create({
+                    trigger: card,
+                    start: "top top+=100",
+                    endTrigger: stackContainer,
+                    end: "bottom bottom",
+                    pin: true,
+                    pinSpacing: false,
+                    scrub: true,
+                    invalidateOnRefresh: true,
+                  });
+
+                  if (cards[index + 1]) {
+                    gsap.to(card, {
+                      scale: 0.94 - (cards.length - 1 - index) * 0.02,
+                      opacity: 0.7,
+                      scrollTrigger: {
+                        trigger: cards[index + 1],
+                        start: "top top+=200",
+                        end: "top top+=100",
+                        scrub: true,
+                      }
+                    });
+                  }
+                }
+              });
+            }
+
+            // 2. RESTORE HORIZONTAL SCROLL ON SERVICES CAROUSEL (DESKTOP ONLY)
+            const servicesTrack = document.querySelector('.services-track, .services-carousel-track');
+            const servicesSection = document.querySelector('.services-section, .services-carousel-section, #capabilities');
+            if (servicesTrack && servicesSection) {
+              const getScrollDistance = () => -(servicesTrack.scrollWidth - window.innerWidth + 120);
+              gsap.to(servicesTrack, {
+                x: getScrollDistance,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: servicesSection,
+                  start: "top top",
+                  end: () => "+=" + Math.max(300, Math.abs(getScrollDistance())),
+                  pin: true,
+                  scrub: 1,
+                  invalidateOnRefresh: true,
+                  anticipatePin: 1
+                }
+              });
+            }
+
+            // 3. RESTORE CWD ADVANTAGE PINNED IMAGE SWAP ("Why Teams Hire Us")
+            const steps = gsap.utils.toArray('.why-value-card, .cwd-step-item');
+            const panes = gsap.utils.toArray('.graphic-pane');
+
+            function activateStep(idx) {
+              steps.forEach((step, i) => {
+                step.classList.toggle('is-active', i === idx);
+              });
+              panes.forEach((pane, i) => {
+                pane.classList.toggle('is-active', i === idx);
+              });
+            }
+
+            if (steps.length) {
+              steps.forEach((step, i) => {
+                ScrollTrigger.create({
+                  trigger: step,
+                  start: "top center",
+                  end: "bottom center",
+                  onEnter: () => activateStep(i),
+                  onEnterBack: () => activateStep(i),
+                });
+
+                step.addEventListener('click', () => activateStep(i));
+              });
+            }
+          },
+
+          // ------------------------------------------------------------------
+          // MOBILE SAFEGUARD (max-width: 767px) - Pure Linear Flow Without Hijacking
+          // ------------------------------------------------------------------
+          "(max-width: 767px)": function() {
+            // Kill any leftover pinning or snapping immediately
+            ScrollTrigger.getAll().forEach(t => {
+              if (t.vars && (t.vars.pin || t.vars.snap)) t.kill(false);
+            });
+
+            // Re-enforce natural linear flow and clear transforms
+            const cards = document.querySelectorAll('.stack-card, .industry-card');
+            cards.forEach(card => {
+              card.style.transform = '';
+              card.style.position = '';
+              card.style.top = '';
+              card.style.opacity = '';
+            });
+
+            const servicesTrack = document.querySelector('.services-track, .services-carousel-track');
+            if (servicesTrack) {
+              servicesTrack.style.transform = '';
+            }
+          }
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setup);
+      } else {
+        setup();
+      }
     })();
   </script>
   <script src="./js/main.js"></script>

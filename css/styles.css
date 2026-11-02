@@ -2484,10 +2484,14 @@ img {
 }
 
 /* Left Column: Pinned Dynamic Graphic Container */
-.why-pinned-column {
-  position: sticky;
-  top: 110px;
-  height: 560px;
+@media (min-width: 768px) {
+  .why-pinned-column,
+  .cwd-pinned-graphic {
+    display: block !important;
+    position: sticky !important;
+    top: 15% !important;
+    height: 560px !important;
+  }
 }
 
 .why-graphic-card {
@@ -6582,27 +6586,31 @@ img {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05) !important;
 }
 
-/* Desktop Only Sticky Stacking Offsets & Hierarchy */
-@media (min-width: 769px) {
+/* Desktop Only Sticky Stacking Offsets & Hierarchy (Desktop GSAP Pinning Compatible) */
+@media (min-width: 768px) {
+  .stack-cards-deck,
+  .stack-card-container {
+    position: relative !important;
+  }
+  .stack-card {
+    position: relative;
+    will-change: transform, opacity;
+  }
   .stack-card-1 {
-    top: 80px !important;
+    top: 80px;
     z-index: 10 !important;
-    position: sticky !important;
   }
   .stack-card-2 {
-    top: 125px !important;
+    top: 100px;
     z-index: 20 !important;
-    position: sticky !important;
   }
   .stack-card-3 {
-    top: 170px !important;
+    top: 100px;
     z-index: 30 !important;
-    position: sticky !important;
   }
   .stack-card-4 {
-    top: 215px !important;
+    top: 100px;
     z-index: 40 !important;
-    position: sticky !important;
   }
 }
 
@@ -8020,33 +8028,62 @@ img {
 }
 
 /* ==========================================================================
-   SERVICES SECTION (DESIGN IN DC SPECIFICATION - HORIZONTAL TOUCH CAROUSEL)
+   SERVICES SECTION (DESIGN IN DC SPECIFICATION - HORIZONTAL SCROLL & TOUCH CAROUSEL)
    ========================================================================== */
-.services-carousel-section {
+.services-carousel-section,
+.services-section {
   padding: 5rem 0 !important;
   background: #09090B !important;
   position: relative !important;
   overflow: hidden !important;
 }
 
-.services-carousel-track {
-  display: flex !important;
-  gap: 1.25rem !important; /* gap-5 */
-  overflow-x: auto !important;
-  scroll-snap-type: x mandatory !important;
-  padding: 1rem 1.5rem !important; /* px-6 py-4 */
-  scrollbar-width: none !important;
-  -ms-overflow-style: none !important;
-  -webkit-overflow-scrolling: touch !important;
-  width: 100% !important;
-  mask-image: none !important;
-  -webkit-mask-image: none !important;
-  animation: none !important;
-  list-style: none !important;
+/* Desktop Horizontal GSAP Scrubbed Scroll */
+@media (min-width: 768px) {
+  .services-section,
+  .services-carousel-section {
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .services-track,
+  .services-carousel-track {
+    display: flex !important;
+    gap: 1.5rem !important;
+    width: max-content !important;
+    overflow-x: visible !important;
+    scroll-snap-type: none !important;
+    flex-wrap: nowrap !important;
+    will-change: transform !important;
+    padding: 1.5rem 4rem !important;
+    list-style: none !important;
+  }
 }
 
-.services-carousel-track::-webkit-scrollbar {
-  display: none !important;
+/* Mobile Native Horizontal Touch Carousel */
+@media (max-width: 767px) {
+  .services-track,
+  .services-carousel-track {
+    display: flex !important;
+    gap: 1.25rem !important; /* gap-5 */
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    padding: 1rem 1.5rem !important; /* px-6 py-4 */
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    -webkit-overflow-scrolling: touch !important;
+    width: 100% !important;
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+    animation: none !important;
+    list-style: none !important;
+    transform: none !important;
+  }
+
+  .services-track::-webkit-scrollbar,
+  .services-carousel-track::-webkit-scrollbar {
+    display: none !important;
+  }
 }
 
 .service-card {
