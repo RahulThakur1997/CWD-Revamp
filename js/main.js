@@ -701,7 +701,7 @@ function initFooterUtilities() {
 }
 
 /* --------------------------------------------------------------------------
-   Header Navigation Overlay Toggle Controller
+   Header Navigation Overlay Toggle Controller & Dropdown Submenus
    -------------------------------------------------------------------------- */
 function initMobileMenu() {
   const trigger = document.getElementById('nav-menu-trigger');
@@ -714,6 +714,7 @@ function initMobileMenu() {
   function openMenu() {
     panel.classList.add('is-open');
     if (backdrop) backdrop.classList.add('is-open');
+    trigger.classList.add('is-active');
     trigger.setAttribute('aria-expanded', 'true');
     if (window.innerWidth < 768) {
       document.body.style.overflow = 'hidden';
@@ -723,6 +724,7 @@ function initMobileMenu() {
   function closeMenu() {
     panel.classList.remove('is-open');
     if (backdrop) backdrop.classList.remove('is-open');
+    trigger.classList.remove('is-active');
     trigger.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   }
@@ -747,6 +749,36 @@ function initMobileMenu() {
     backdrop.addEventListener('click', closeMenu);
   }
 
+  // Handle Nested Submenu Dropdowns / Accordions (Services, Portfolio, Case Studies)
+  const submenuTriggers = panel.querySelectorAll('.nav-submenu-trigger');
+  submenuTriggers.forEach(subTrigger => {
+    subTrigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const parentItem = subTrigger.closest('.nav-has-submenu');
+      if (!parentItem) return;
+
+      const isCurrentlyOpen = parentItem.classList.contains('is-active');
+
+      // Close sibling submenus for clean accordion behavior
+      panel.querySelectorAll('.nav-has-submenu.is-active').forEach(item => {
+        if (item !== parentItem) {
+          item.classList.remove('is-active');
+          const itemBtn = item.querySelector('.nav-submenu-trigger');
+          if (itemBtn) itemBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      if (isCurrentlyOpen) {
+        parentItem.classList.remove('is-active');
+        subTrigger.setAttribute('aria-expanded', 'false');
+      } else {
+        parentItem.classList.add('is-active');
+        subTrigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
   // Close when clicking outside panel
   document.addEventListener('click', (e) => {
     if (panel.classList.contains('is-open') && !panel.contains(e.target) && !trigger.contains(e.target)) {
@@ -754,7 +786,7 @@ function initMobileMenu() {
     }
   });
 
-  // Close on nav link click
+  // Close on nav link click (smooth navigation to target anchor)
   panel.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       closeMenu();
