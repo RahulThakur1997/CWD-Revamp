@@ -77,27 +77,39 @@
   <!-- Critical Anti-Collision & Zero-FOUC Inline Overrides -->
   <style>
     /* Global Viewport Overflow Audit: Smooth, Unbroken Scroll */
-    html {
+    html, body {
       overflow-x: hidden !important;
       overflow-y: auto !important;
       height: auto !important;
       min-height: 100% !important;
-      touch-action: pan-y !important;
-    }
-
-    body {
-      overflow-x: hidden !important;
-      height: auto !important;
-      min-height: 100% !important;
-      min-height: 100dvh !important;
-      position: relative !important;
+      -webkit-overflow-scrolling: touch !important;
       touch-action: pan-y !important;
     }
 
     @media (max-width: 768px) {
-      html {
+      html, body {
         scroll-behavior: auto !important;
       }
+    }
+
+    /* Fix Hero Background Breaking on Scroll-Up */
+    .hero-section {
+      min-height: 100svh !important; /* small viewport height, ignores URL bar shifts */
+      min-height: -webkit-fill-available !important;
+      position: relative !important;
+      overflow-x: hidden !important;
+      overflow-y: visible !important;
+    }
+
+    .hero-bg-grid,
+    .hero-canvas,
+    #webgl-canvas,
+    .hero-radial-veil {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      pointer-events: none !important;
     }
 
     /* Native vertical touch scrolling 100% uninhibited across all sections */
@@ -151,18 +163,12 @@
       background: none !important;
     }
 
-    /* Disable sticky card pinning and eliminate black clipping on mobile (< 768px) */
-    @media (max-width: 768px) {
-      .industry-stack-section,
-      .stack-container,
-      .stack-cards-deck,
-      [data-card-stack] {
-        background: #FFFFFF !important;
-        background-color: #FFFFFF !important;
-        overflow: visible !important;
-      }
-      .industry-card, 
-      [data-card], 
+    /* Disable sticky card pinning and eliminate scroll trapping on mobile (< 768px) */
+    @media (max-width: 767px), (max-width: 768px) {
+      /* Force all stacking cards to standard linear scrolling */
+      .case-study-card,
+      .industry-card,
+      [data-card-stack] > *,
       .stack-card,
       .stack-card-1,
       .stack-card-2,
@@ -172,13 +178,29 @@
       [data-card-stack] > article {
         position: relative !important;
         top: auto !important;
+        bottom: auto !important;
         transform: none !important;
         margin-bottom: 1.5rem !important;
-        box-shadow: 0 10px 25px -5px rgba(0,0,0,0.08) !important;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08) !important;
         opacity: 1 !important;
         visibility: visible !important;
         height: auto !important;
         min-height: auto !important;
+      }
+      
+      /* Disable sticky parents and pin spacers */
+      .pin-spacer,
+      .stack-cards-deck,
+      [data-card-stack] {
+        height: auto !important;
+        padding: 0 !important;
+        position: relative !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0 !important;
+        background: #FFFFFF !important;
+        background-color: #FFFFFF !important;
+        overflow: visible !important;
       }
       /* Mobile Scroll Protection for Earth Video */
       .earth-video-wrapper,
@@ -3023,7 +3045,7 @@
               ignoreMobileResize: true
             });
             ScrollTrigger.getAll().forEach(function(trigger) {
-              if (trigger.vars && trigger.vars.pin) {
+              if (trigger.vars && (trigger.vars.pin || trigger.vars.snap)) {
                 trigger.kill(false);
               }
             });

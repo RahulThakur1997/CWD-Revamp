@@ -374,9 +374,18 @@ class WebGLRefractiveBackground {
   resize() {
     const parent = this.canvas.parentElement;
     const rect = parent ? parent.getBoundingClientRect() : { width: window.innerWidth, height: window.innerHeight };
-    this.width = Math.max(rect.width, window.innerWidth);
-    this.height = Math.max(rect.height, window.innerHeight * 0.85);
-    this.dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const newWidth = Math.max(rect.width, window.innerWidth);
+    const newHeight = Math.max(rect.height, window.innerHeight * 0.85);
+
+    // On mobile devices, ignore vertical-only resize events caused by dynamic address bar expansion/retraction
+    const isMobile = window.innerWidth < 768;
+    if (isMobile && this.width && Math.abs(newWidth - this.width) < 8 && this.height && Math.abs(newHeight - this.height) < 140) {
+      return;
+    }
+
+    this.width = newWidth;
+    this.height = newHeight;
+    this.dpr = Math.min(window.devicePixelRatio || 1, isMobile ? 1.0 : 1.5);
 
     this.canvas.width = Math.floor(this.width * this.dpr);
     this.canvas.height = Math.floor(this.height * this.dpr);

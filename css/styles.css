@@ -47,7 +47,7 @@
   padding: 0;
 }
 
-html {
+html, body {
   font-family: var(--font-sans);
   background-color: var(--bg-primary);
   color: var(--text-white);
@@ -55,15 +55,16 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  scroll-behavior: smooth;
   overflow-x: hidden !important;
   overflow-y: auto !important;
   height: auto !important;
   min-height: 100% !important;
+  -webkit-overflow-scrolling: touch !important;
+  touch-action: pan-y !important;
 }
 
 @media (max-width: 768px) {
-  html {
+  html, body {
     scroll-behavior: auto !important;
   }
 }
@@ -73,9 +74,6 @@ body {
   min-height: 100% !important;
   height: auto !important;
   min-height: 100dvh !important;
-  overflow-x: hidden !important;
-  background-color: var(--bg-primary);
-  color: var(--text-white);
   selection-background-color: var(--brand-lime);
   selection-color: var(--text-dark);
 }
@@ -370,7 +368,11 @@ img {
    Hero Section Main Container (Generous Breathing Room & Design Monks Balance)
    -------------------------------------------------------------------------- */
 .hero-section {
-  position: relative;
+  min-height: 100svh !important; /* small viewport height, ignores URL bar shifts */
+  min-height: -webkit-fill-available !important;
+  position: relative !important;
+  overflow-x: hidden !important;
+  overflow-y: visible !important;
   z-index: 5;
   padding-top: 5.5rem;
   padding-bottom: 0;
@@ -378,8 +380,15 @@ img {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  overflow: hidden;
   background-color: var(--bg-primary); /* Deep obsidian charcoal #09090B */
+}
+
+.hero-bg-grid {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
 .hero-inner {
@@ -1495,17 +1504,23 @@ img {
 }
 
 .stack-card {
-  position: sticky;
-  min-height: clamp(520px, 78vh, 620px);
+  position: relative;
   border-radius: 28px;
   padding: 2.75rem 3.25rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-bottom: clamp(140px, 28vh, 260px);
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
-  will-change: transform, top;
   transform-origin: top center;
+}
+
+@media (min-width: 769px) {
+  .stack-card {
+    position: sticky;
+    min-height: clamp(520px, 78vh, 620px);
+    margin-bottom: clamp(140px, 28vh, 260px);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    will-change: transform, top;
+  }
 }
 
 .stack-card:last-child {
@@ -7578,8 +7593,11 @@ img {
   }
 
   /* Kill all scroll-jacking, GSAP pinning, and sticky page locks on mobile (< 768px) */
+  /* Force all stacking cards to standard linear scrolling */
+  .case-study-card,
   .industry-card, 
   [data-card], 
+  [data-card-stack] > *,
   .stack-card,
   .stack-card-1,
   .stack-card-2,
@@ -7592,6 +7610,7 @@ img {
   .pin-spacer {
     position: relative !important;
     top: auto !important;
+    bottom: auto !important;
     transform: none !important;
     margin-bottom: 1.5rem !important;
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08) !important;
@@ -7604,11 +7623,16 @@ img {
     visibility: visible !important;
   }
 
+  /* Disable sticky parents and pin spacers */
+  .pin-spacer,
   .stack-cards-deck,
   [data-card-stack] {
     display: flex !important;
     flex-direction: column !important;
     gap: 0 !important;
+    height: auto !important;
+    padding: 0 !important;
+    position: relative !important;
     background: #FFFFFF !important;
     background-color: #FFFFFF !important;
     overflow: visible !important;

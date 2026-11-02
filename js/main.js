@@ -12,9 +12,9 @@ function disarmMobileScrollTrigger() {
     if (typeof ScrollTrigger !== 'undefined') {
       ScrollTrigger.config({ autoRefreshEvents: "visibilitychange,DOMContentLoaded,load" });
       ScrollTrigger.config({ ignoreMobileResize: true });
-      // Kill any pinning triggers
+      // Kill any pinning or snapping triggers
       ScrollTrigger.getAll().forEach(trigger => {
-        if (trigger.vars && trigger.vars.pin) {
+        if (trigger.vars && (trigger.vars.pin || trigger.vars.snap)) {
           trigger.kill(false);
         }
       });
