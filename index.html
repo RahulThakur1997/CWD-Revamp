@@ -199,6 +199,9 @@
       
       /* Disable sticky parents and pin spacers */
       .pin-spacer,
+      .stack-deck-runway {
+        display: none !important;
+      }
       .stack-cards-deck,
       [data-card-stack] {
         height: auto !important;
@@ -1387,6 +1390,9 @@
               </div>
             </div>
           </article>
+
+          <!-- Trailing scroll runway for complete 4-tier desktop stacking cascade -->
+          <div class="stack-deck-runway" aria-hidden="true"></div>
 
         </div>
 

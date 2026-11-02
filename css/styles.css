@@ -55,8 +55,8 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  overflow-x: hidden !important;
-  overflow-y: auto !important;
+  overflow-x: clip !important;
+  overflow-y: visible !important;
   height: auto !important;
   min-height: 100% !important;
   -webkit-overflow-scrolling: touch !important;
@@ -8282,32 +8282,61 @@ img {
 }
 
 @media (min-width: 768px) {
+  .industry-stack-section {
+    position: relative !important;
+    overflow: visible !important;
+  }
+
   .stack-cards-deck {
-    padding-bottom: 8rem;
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding-bottom: 0 !important;
+    overflow: visible !important;
+  }
+
+  .stack-deck-runway {
+    display: block !important;
+    height: 80vh !important;
+    pointer-events: none !important;
   }
 
   .stack-card {
-    position: relative;
-    min-height: clamp(520px, 75vh, 620px);
-    border-radius: 28px;
-    padding: 2.75rem 3.25rem;
-    margin-bottom: clamp(140px, 28vh, 260px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    transform-origin: top center;
-    will-change: transform, opacity;
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05), 0 25px 50px -12px rgba(0, 0, 0, 0.18);
+    position: sticky !important;
+    min-height: clamp(520px, 75vh, 620px) !important;
+    border-radius: 28px !important;
+    padding: 2.75rem 3.25rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    transform-origin: top center !important;
+    will-change: transform, opacity !important;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05), 0 25px 50px -12px rgba(0, 0, 0, 0.18) !important;
   }
 
-  .stack-card:last-child {
-    margin-bottom: 2rem;
+  .stack-card-1 {
+    top: 80px !important;
+    z-index: 10 !important;
+    margin-bottom: calc(clamp(140px, 28vh, 260px) + 135px) !important;
   }
 
-  .stack-card-1 { z-index: 10; }
-  .stack-card-2 { z-index: 20; }
-  .stack-card-3 { z-index: 30; }
-  .stack-card-4 { z-index: 40; }
+  .stack-card-2 {
+    top: 125px !important;
+    z-index: 20 !important;
+    margin-bottom: calc(clamp(140px, 28vh, 260px) + 90px) !important;
+  }
+
+  .stack-card-3 {
+    top: 170px !important;
+    z-index: 30 !important;
+    margin-bottom: calc(clamp(140px, 28vh, 260px) + 45px) !important;
+  }
+
+  .stack-card-4 {
+    top: 215px !important;
+    z-index: 40 !important;
+    margin-bottom: clamp(140px, 28vh, 260px) !important;
+  }
 }
 
 @media (max-width: 767px) {
@@ -8318,6 +8347,10 @@ img {
     padding-bottom: 0 !important;
     overflow: visible !important;
     touch-action: pan-y !important;
+  }
+
+  .stack-deck-runway {
+    display: none !important;
   }
 
   .stack-card,

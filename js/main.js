@@ -840,31 +840,17 @@ function initDesktopScrollAnimations() {
 
     // -----------------------------------------------------------------------
     // 1. PROVEN CLIENTS / CASE STUDIES: STAGGERED CASCADING STACKING
+    // Native CSS position: sticky handles physical docking for all cards (including Card 4).
+    // GSAP ScrollTrigger handles progressive scale & opacity depth cues as cards stack.
     // -----------------------------------------------------------------------
     const cards = gsap.utils.toArray('.stack-card');
-    const stackDeck = document.querySelector('.stack-cards-deck');
-    const targetTops = [80, 115, 150, 185];
+    const targetTops = [80, 125, 170, 215];
 
-    if (cards.length > 1 && stackDeck) {
+    if (cards.length > 1) {
       cards.forEach((card, index) => {
-        const targetTop = targetTops[index] || (80 + index * 35);
-
         if (index < cards.length - 1) {
-          // Pin card at its designated cascading top offset
-          ScrollTrigger.create({
-            trigger: card,
-            start: () => "top top+=" + targetTop,
-            endTrigger: stackDeck,
-            end: "bottom bottom-=80",
-            pin: true,
-            pinSpacing: false,
-            scrub: true,
-            invalidateOnRefresh: true,
-          });
-
-          // As next card scrolls up to stack over it, this card scales down & dims
           const nextCard = cards[index + 1];
-          const nextTargetTop = targetTops[index + 1] || (80 + (index + 1) * 35);
+          const nextTargetTop = targetTops[index + 1] || (80 + (index + 1) * 45);
 
           if (nextCard) {
             gsap.to(card, {
