@@ -316,6 +316,50 @@
   gap: 1.25rem;
 }
 
+/* Real LinkedIn Chat Frame */
+.cs-chat-frame {
+  background: #111115;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 1px 1px rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.cs-chat-frame:hover {
+  transform: translateY(-4px);
+  border-color: rgba(191, 247, 71, 0.3);
+}
+
+.cs-chat-frame-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.25rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cs-chat-img-wrap {
+  position: relative;
+  background: #FFFFFF;
+  padding: 0.5rem;
+}
+
+.cs-chat-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.75rem;
+  object-fit: cover;
+}
+
+.cs-chat-frame-footer {
+  padding: 0.85rem 1.25rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
 /* --------------------------------------------------------------------------
    The Work — Three Core Deliverables
    -------------------------------------------------------------------------- */
@@ -454,6 +498,47 @@
   height: auto;
   display: block;
   object-fit: cover;
+}
+
+/* Fullpage Screenshot Showcase Frame */
+.cs-fullpage-frame {
+  background: #FFFFFF;
+  border-radius: clamp(0.75rem, 1.5vw, 1.5rem);
+  overflow: hidden;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.12), 0 0 1px 1px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.cs-fullpage-scroll-container {
+  max-height: 640px;
+  overflow-y: auto;
+  background: #000000;
+  position: relative;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+}
+
+.cs-fullpage-scroll-container::-webkit-scrollbar {
+  width: 6px;
+}
+.cs-fullpage-scroll-container::-webkit-scrollbar-track {
+  background: #111115;
+}
+.cs-fullpage-scroll-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 9999px;
+}
+
+.cs-fullpage-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cs-fullpage-caption {
+  padding: 0.85rem 1.25rem;
+  background: #FAFAFA;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 /* Mobile Showcase Mockup Frame */
