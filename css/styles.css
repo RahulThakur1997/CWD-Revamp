@@ -8957,3 +8957,267 @@ img {
     visibility: visible !important;
   }
 }
+
+/* ==========================================================================
+   BULLETPROOF RESPONSIVE AUDIT FIX (1440px Desktop, 1024px Tablet, 768px, 390px Mobile)
+   Guarantees zero horizontal overflow, no clipped cards, and pristine responsive layout.
+   ========================================================================== */
+
+/* 1. Global Viewport Clamping & Box Sizing */
+html,
+body {
+  width: 100% !important;
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  overflow-x: clip !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Ensure all major landmark sections fit strictly within 100vw */
+main,
+section,
+header,
+footer,
+.hero-section,
+.portfolio-marquee-section,
+.trusted-marquee-section,
+.industry-stack-section,
+.cwd-case-studies,
+.capabilities-section,
+.services-carousel-section,
+.why-us-section,
+.process-tech-section,
+.global-reach-section,
+.reviews-showcase-section,
+.split-horizon-section {
+  width: 100% !important;
+  max-width: 100vw !important;
+  box-sizing: border-box !important;
+}
+
+/* 2. Portfolio / Case Studies Section (#cwd-case-studies) */
+.cwd-case-studies,
+.industry-stack-section {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+  overflow: hidden !important;
+}
+
+.stack-container {
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: clamp(1rem, 3.5vw, 2.5rem) !important;
+  padding-right: clamp(1rem, 3.5vw, 2.5rem) !important;
+  box-sizing: border-box !important;
+}
+
+.stack-card {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.stack-card-grid {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.stack-card-grid > * {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+.stack-mockup-column {
+  min-width: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.stack-mockup-frame {
+  max-width: 100% !important;
+}
+
+/* 1024px & Small Desktop/Tablet Breakpoint for Stack Cards */
+@media (max-width: 1024px) {
+  .stack-card {
+    padding: 2.25rem 2rem !important;
+  }
+  .stack-card-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .stack-mockup-column {
+    margin-top: 0.5rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .stack-card {
+    padding: 1.75rem 1.5rem !important;
+    border-radius: 20px !important;
+  }
+  .stack-card-grid {
+    gap: 1.5rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .stack-card {
+    padding: 1.35rem 1.15rem !important;
+    border-radius: 18px !important;
+  }
+  .stack-card-title {
+    font-size: 1.25rem !important;
+    line-height: 1.3 !important;
+  }
+}
+
+/* 3. Full-Stack Digital Growth Services Carousel (#cwd-services) */
+.services-carousel-section {
+  width: 100% !important;
+  max-width: 100vw !important;
+  overflow: hidden !important;
+  overflow-x: clip !important;
+  contain: paint !important;
+  box-sizing: border-box !important;
+}
+
+.services-carousel-viewport {
+  width: 100% !important;
+  max-width: 100vw !important;
+  overflow: hidden !important;
+  overflow-x: clip !important;
+  contain: paint !important;
+  box-sizing: border-box !important;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .service-card {
+    width: clamp(290px, 31vw, 340px) !important;
+    min-width: clamp(290px, 31vw, 340px) !important;
+    max-width: clamp(290px, 31vw, 340px) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .service-card {
+    width: min(84vw, 320px) !important;
+    min-width: min(84vw, 320px) !important;
+    max-width: min(84vw, 320px) !important;
+  }
+}
+
+/* 4. Process & Engineering Tech Section (#process) */
+.process-tech-section,
+.process-container,
+.process-tree-wrapper {
+  width: 100% !important;
+  max-width: 100vw !important;
+  overflow: hidden !important;
+  overflow-x: hidden !important;
+  box-sizing: border-box !important;
+}
+
+.process-tech-section::before {
+  max-width: 100vw !important;
+  overflow: hidden !important;
+}
+
+@media (max-width: 768px) {
+  .process-tech-section::before {
+    width: 100% !important;
+    max-width: 100vw !important;
+    left: 0 !important;
+    transform: none !important;
+  }
+}
+
+.tech-marquee-wrapper {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  overflow-x: clip !important;
+  contain: paint !important;
+  box-sizing: border-box !important;
+}
+
+.process-connector-svg-wrap {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+.process-cards-grid {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.process-cards-grid > * {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+.process-card {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+@media (max-width: 1024px) {
+  .process-cards-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+  .process-connector-svg-wrap {
+    display: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .process-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+  .process-card {
+    padding: 1.75rem 1.35rem !important;
+  }
+}
+
+/* 5. The CWD Advantage Section (#cwd-advantage) */
+.why-us-section {
+  width: 100% !important;
+  max-width: 100vw !important;
+  overflow: hidden !important;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .why-split-layout {
+    gap: 2rem !important;
+  }
+  .why-value-card {
+    padding: 2rem 1.75rem !important;
+  }
+}
+
+/* 6. Marquees (Hero & Reviews) Bounded Containment */
+.portfolio-marquee-section,
+.marquee-viewport,
+.trusted-marquee-section,
+.trusted-marquee-container,
+.reviews-showcase-section {
+  width: 100% !important;
+  max-width: 100vw !important;
+  overflow: hidden !important;
+  overflow-x: clip !important;
+  box-sizing: border-box !important;
+}
