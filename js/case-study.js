@@ -1,11 +1,12 @@
 /**
- * CRAFTING WEB DESIGNS — CASE STUDY CONTROLLER (REUSABLE ARCHITECTURE)
- * Controls navigation menu, nested submenus, and subtle scroll reveals.
+ * CRAFTING WEB DESIGNS — CASE STUDY CONTROLLER
+ * Controls navigation menu, nested submenus, scroll reveals, and lightbox modal.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   initCaseStudyNav();
   initCaseStudyScrollReveals();
+  initCaseStudyLightbox();
 });
 
 /* --------------------------------------------------------------------------
@@ -124,12 +125,12 @@ function initCaseStudyScrollReveals() {
     const revealElements = document.querySelectorAll('.cs-reveal');
     revealElements.forEach(el => {
       gsap.fromTo(el, 
-        { opacity: 0, y: 30 },
+        { opacity: 0, y: 24 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
-          ease: 'power3.out',
+          duration: 0.65,
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: el,
             start: 'top 88%',
@@ -149,10 +150,61 @@ function initCaseStudyScrollReveals() {
         }
       });
     }, {
-      rootMargin: '0px 0px -10% 0px',
+      rootMargin: '0px 0px -8% 0px',
       threshold: 0.1
     });
 
     document.querySelectorAll('.cs-reveal').forEach(el => observer.observe(el));
   }
+}
+
+/* --------------------------------------------------------------------------
+   Tap-To-Enlarge Lightbox Controller
+   -------------------------------------------------------------------------- */
+function initCaseStudyLightbox() {
+  const lightbox = document.getElementById('cs-lightbox');
+  const img = document.getElementById('cs-lightbox-img');
+  const title = document.getElementById('cs-lightbox-title');
+  const closeBtn = document.getElementById('cs-lightbox-close');
+
+  if (!lightbox || !img) return;
+
+  function openLightbox(src, altText) {
+    img.src = src;
+    img.alt = altText || 'Website Screenshot Preview';
+    if (title) title.textContent = altText || 'Website Screenshot Preview';
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('[data-lightbox]').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const src = trigger.getAttribute('data-lightbox');
+      const caption = trigger.getAttribute('data-caption');
+      if (src) openLightbox(src, caption);
+    });
+    trigger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const src = trigger.getAttribute('data-lightbox');
+        const caption = trigger.getAttribute('data-caption');
+        if (src) openLightbox(src, caption);
+      }
+    });
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox();
+  });
 }

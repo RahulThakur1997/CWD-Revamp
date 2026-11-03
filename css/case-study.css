@@ -1,31 +1,52 @@
 /* ==========================================================================
-   CRAFTING WEB DESIGNS — EDITORIAL CASE STUDY SYSTEM (REUSABLE ARCHITECTURE)
-   Client: Vignesh Wadarajan (and extensible for Awaken Films, Keystone, etc.)
+   CRAFTING WEB DESIGNS (CWD) — EDITORIAL CASE STUDY SYSTEM
+   Client: Vignesh Wadarajan
+   Design Language: Matches CWD Homepage & One Day Websites Standards
+   Primary Display: Syne / Plus Jakarta Sans | Body: Inter / Plus Jakarta Sans
+   Brand Colors: Primary Lime #BFF747 / #C6F24D | Dark #09090B | White #FFFFFF
    ========================================================================== */
 
 :root {
   --cs-lime: #BFF747;
+  --cs-lime-hover: #CFF96B;
   --cs-lime-glow: rgba(191, 247, 71, 0.35);
   --cs-black: #000000;
   --cs-obsidian: #09090B;
-  --cs-surface-dark: #111115;
-  --cs-surface-light: #F5F5F3;
+  --cs-surface-dark: #121216;
+  --cs-surface-hover: #18181F;
+  --cs-surface-light: #FFFFFF;
+  --cs-surface-neutral: #F8F9FA;
   --cs-white: #FFFFFF;
-  --cs-font-syne: 'Syne', system-ui, -apple-system, sans-serif;
-  --cs-font-inter: 'Inter', system-ui, -apple-system, sans-serif;
+  --cs-zinc-100: #F4F4F5;
+  --cs-zinc-200: #E4E4E7;
+  --cs-zinc-300: #D4D4D8;
+  --cs-zinc-400: #A1A1AA;
+  --cs-zinc-500: #71717A;
+  --cs-zinc-600: #52525B;
+  --cs-zinc-700: #3F3F46;
+  --cs-zinc-800: #27272A;
+  --cs-zinc-900: #18181B;
+
+  --cs-font-display: 'Syne', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --cs-font-body: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --cs-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --cs-ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --cs-ease-elastic: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* --------------------------------------------------------------------------
-   Base & Resets for Case Study Template
+   Base & Resets
    -------------------------------------------------------------------------- */
 .cs-page {
   background-color: var(--cs-obsidian);
   color: var(--cs-white);
-  font-family: var(--cs-font-inter);
-  overflow-x: hidden;
+  font-family: var(--cs-font-body);
+  overflow-x: clip !important;
   position: relative;
-  selection-background-color: var(--cs-lime);
-  selection-color: var(--cs-black);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
 }
 
 .cs-page ::selection {
@@ -33,18 +54,24 @@
   color: #000000 !important;
 }
 
-/* Syne Typography Helper */
-.font-syne {
-  font-family: var(--cs-font-syne) !important;
+/* Typography Utility Helpers matching CWD */
+.font-syne,
+.font-display {
+  font-family: var(--cs-font-display) !important;
+  letter-spacing: -0.035em !important;
 }
 
-/* Inter Typography Helper */
-.font-inter {
-  font-family: var(--cs-font-inter) !important;
+.font-inter,
+.font-body {
+  font-family: var(--cs-font-body) !important;
+}
+
+.font-mono {
+  font-family: var(--cs-font-mono) !important;
 }
 
 /* --------------------------------------------------------------------------
-   Atmospheric Ambient Lighting
+   Atmospheric Ambient Glow
    -------------------------------------------------------------------------- */
 .cs-ambient-glow {
   position: absolute;
@@ -60,7 +87,58 @@
 }
 
 /* --------------------------------------------------------------------------
-   Hero Section
+   Eyebrows & Section Pills (Matches CWD Homepage & One Day Websites)
+   -------------------------------------------------------------------------- */
+.cs-eyebrow-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-family: var(--cs-font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--cs-zinc-300);
+  text-transform: uppercase;
+}
+
+.cs-eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cs-lime);
+  box-shadow: 0 0 10px var(--cs-lime);
+}
+
+.cs-intro-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-family: var(--cs-font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--cs-zinc-800);
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.cs-intro-eyebrow .marker-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #09090B;
+}
+
+/* --------------------------------------------------------------------------
+   1. Hero Section
    -------------------------------------------------------------------------- */
 .cs-hero-section {
   position: relative;
@@ -70,35 +148,11 @@
   overflow: hidden;
 }
 
-.cs-eyebrow-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.85rem;
-  border-radius: 9999px;
-  background: rgba(191, 247, 71, 0.08);
-  border: 1px solid rgba(191, 247, 71, 0.25);
-  font-family: monospace;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  color: var(--cs-lime);
-  text-transform: uppercase;
-}
-
-.cs-eyebrow-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--cs-lime);
-  box-shadow: 0 0 8px var(--cs-lime);
-}
-
 .cs-hero-headline {
-  font-family: var(--cs-font-syne);
-  font-size: clamp(2.4rem, 6vw, 4.5rem);
-  font-weight: 800;
-  line-height: 1.05;
+  font-family: var(--cs-font-display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.1;
   letter-spacing: -0.035em;
   color: var(--cs-white);
   margin-top: 1.5rem;
@@ -107,18 +161,19 @@
 
 .cs-hero-headline .highlight-lime {
   color: var(--cs-lime);
-  text-shadow: 0 0 30px rgba(191, 247, 71, 0.25);
+  text-shadow: none;
 }
 
 .cs-hero-lead {
-  font-size: clamp(1.1rem, 2vw, 1.35rem);
-  line-height: 1.6;
-  color: #A1A1AA;
-  max-width: 44rem;
+  font-family: var(--cs-font-body);
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  line-height: 1.7;
+  color: var(--cs-zinc-400);
+  max-width: 46rem;
   font-weight: 400;
 }
 
-/* Metadata Strip */
+/* Project Metadata Strip */
 .cs-metadata-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -140,34 +195,36 @@
 .cs-meta-item {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.35rem;
 }
 
 .cs-meta-label {
-  font-family: monospace;
+  font-family: var(--cs-font-mono);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.14em;
-  color: #71717A;
+  color: var(--cs-zinc-500);
   text-transform: uppercase;
 }
 
 .cs-meta-value {
+  font-family: var(--cs-font-display);
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--cs-white);
   line-height: 1.35;
+  letter-spacing: -0.01em;
 }
 
-/* Large Hero Showcase Mockup */
+/* Hero Showcase Mockup Frame */
 .cs-hero-mockup-frame {
   position: relative;
   width: 100%;
-  border-radius: clamp(1rem, 2vw, 2rem);
+  border-radius: clamp(1.25rem, 2.5vw, 2rem);
   overflow: hidden;
   background: #000000;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 35px 80px -15px rgba(0, 0, 0, 0.95), 0 0 1px 1px rgba(255, 255, 255, 0.08);
+  box-shadow: 0 30px 80px -15px rgba(0, 0, 0, 0.95), 0 0 1px 1px rgba(255, 255, 255, 0.08);
 }
 
 .cs-hero-mockup-img {
@@ -175,130 +232,155 @@
   height: auto;
   display: block;
   object-fit: cover;
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.7s var(--cs-ease-out-expo);
 }
 
 .cs-hero-mockup-frame:hover .cs-hero-mockup-img {
-  transform: scale(1.015);
+  transform: scale(1.012);
 }
 
 /* --------------------------------------------------------------------------
-   Introduction Section — Meet Vignesh (White Background)
+   2. The Client Section — Meet Vignesh (Crisp White #FFFFFF Background)
    -------------------------------------------------------------------------- */
 .cs-intro-section {
-  background-color: var(--cs-white);
+  background-color: #FFFFFF;
   color: #09090B;
-  padding: clamp(5rem, 9vw, 8rem) 0;
+  padding: clamp(5rem, 8vw, 7.5rem) 0;
   position: relative;
-}
-
-.cs-intro-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: monospace;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.15em;
-  color: #09090B;
-  text-transform: uppercase;
-  margin-bottom: 1.25rem;
-}
-
-.cs-intro-eyebrow .marker-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #09090B;
+  border-top: 1px solid #E5E7EB;
+  border-bottom: 1px solid #E5E7EB;
 }
 
 .cs-intro-heading {
-  font-family: var(--cs-font-syne);
-  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
+  font-family: var(--cs-font-display);
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
   color: #09090B;
+  margin-bottom: 2rem;
 }
 
 .cs-intro-body {
-  font-size: 1.125rem;
-  line-height: 1.8;
+  font-family: var(--cs-font-body);
+  font-size: 1.0625rem;
+  line-height: 1.75;
   color: #3F3F46;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.25rem;
+  max-width: 44rem;
 }
 
 .cs-intro-body p {
   margin: 0;
 }
 
+/* Client Portrait Info Card */
 .cs-client-portrait-card {
   display: flex;
   align-items: center;
   gap: 1.25rem;
-  margin-top: 2rem;
-  padding: 1.25rem;
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.5rem;
   border-radius: 1.25rem;
   background: #F4F4F5;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid #E4E4E7;
 }
 
 .cs-client-portrait-img {
-  width: 72px;
-  height: 72px;
+  width: 68px;
+  height: 68px;
   border-radius: 50%;
   object-fit: cover;
   background: #E4E4E7;
   flex-shrink: 0;
   border: 2px solid #FFFFFF;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .cs-client-portrait-info h4 {
-  font-family: var(--cs-font-syne);
-  font-size: 1.1rem;
+  font-family: var(--cs-font-display);
+  font-size: 1.15rem;
   font-weight: 800;
+  letter-spacing: -0.02em;
   color: #09090B;
   margin: 0 0 0.2rem 0;
 }
 
 .cs-client-portrait-info p {
-  font-size: 0.85rem;
+  font-family: var(--cs-font-body);
+  font-size: 0.875rem;
   color: #71717A;
   margin: 0;
 }
 
+/* Compact Profile Links Row */
+.cs-profile-links-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid #E5E7EB;
+}
+
+.cs-profile-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1rem;
+  border-radius: 0.75rem;
+  background: #F4F4F5;
+  border: 1px solid #E4E4E7;
+  color: #18181B;
+  font-family: var(--cs-font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: all 0.2s var(--cs-ease-out-expo);
+}
+
+.cs-profile-link:hover {
+  background: #FFFFFF;
+  border-color: #BFF747;
+  color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(191, 247, 71, 0.25);
+}
+
+.cs-profile-link .link-arrow {
+  font-size: 0.85rem;
+  transition: transform 0.2s ease;
+}
+
+.cs-profile-link:hover .link-arrow {
+  transform: translate(2px, -2px);
+  color: #000000;
+}
+
 /* --------------------------------------------------------------------------
-   How Collaboration Started (Dark Section)
+   3. Collaboration Story Section (Dark Section)
    -------------------------------------------------------------------------- */
 .cs-story-section {
-  background-color: #050507;
+  background-color: #09090B;
   color: var(--cs-white);
-  padding: clamp(5rem, 9vw, 8rem) 0;
+  padding: clamp(5rem, 8vw, 7.5rem) 0;
   position: relative;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.cs-story-quote-mark {
-  font-family: var(--cs-font-syne);
-  font-size: clamp(4rem, 8vw, 7rem);
-  line-height: 0.8;
-  color: rgba(191, 247, 71, 0.2);
-  margin-bottom: 0.5rem;
-  user-select: none;
-}
-
 .cs-story-heading {
-  font-family: var(--cs-font-syne);
+  font-family: var(--cs-font-display);
   font-size: clamp(2rem, 4vw, 3.25rem);
-  font-weight: 800;
+  font-weight: 900;
   line-height: 1.15;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.035em;
   color: var(--cs-white);
-  margin-top: 0.75rem;
+  margin-top: 1rem;
   margin-bottom: 1.5rem;
 }
 
@@ -307,28 +389,28 @@
 }
 
 .cs-story-body {
-  font-size: 1.125rem;
-  line-height: 1.85;
-  color: #D4D4D8;
+  font-family: var(--cs-font-body);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--cs-zinc-300);
   max-width: 44rem;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
 }
 
-/* Real LinkedIn Chat Frame */
 .cs-chat-frame {
-  background: #111115;
+  background: #121216;
   border-radius: 1.5rem;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 1px 1px rgba(255, 255, 255, 0.05);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  transition: transform 0.3s var(--cs-ease-out-expo), border-color 0.3s ease;
 }
 
 .cs-chat-frame:hover {
   transform: translateY(-4px);
-  border-color: rgba(191, 247, 71, 0.3);
+  border-color: rgba(191, 247, 71, 0.4);
 }
 
 .cs-chat-frame-header {
@@ -361,13 +443,15 @@
 }
 
 /* --------------------------------------------------------------------------
-   The Work — Three Core Deliverables
+   4. The Work — Three Core Deliverables
    -------------------------------------------------------------------------- */
 .cs-deliverables-section {
-  background-color: var(--cs-surface-dark);
+  background-color: #050507;
   color: var(--cs-white);
-  padding: clamp(5rem, 9vw, 8.5rem) 0;
+  padding: clamp(5rem, 8vw, 8rem) 0;
   position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .cs-deliverables-header {
@@ -386,7 +470,7 @@
   gap: 1.25rem;
   padding: clamp(2rem, 4vw, 3rem) 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s var(--cs-ease-out-expo);
   box-sizing: border-box;
 }
 
@@ -395,8 +479,8 @@
     grid-template-columns: 80px 1.2fr 1.8fr;
     gap: 2.5rem;
     align-items: start;
-    padding: clamp(2.5rem, 4vw, 3.25rem) 1rem;
-    margin: 0 -1rem;
+    padding: clamp(2.5rem, 4vw, 3.25rem) 1.25rem;
+    margin: 0 -1.25rem;
     border-radius: 1rem;
   }
   .cs-deliverable-row:hover {
@@ -405,7 +489,7 @@
 }
 
 .cs-deliverable-num {
-  font-family: monospace;
+  font-family: var(--cs-font-mono);
   font-size: clamp(1.75rem, 3vw, 2.5rem);
   font-weight: 800;
   color: #52525B;
@@ -415,17 +499,17 @@
 
 .cs-deliverable-row:hover .cs-deliverable-num {
   color: var(--cs-lime);
-  transform: translateX(3px);
+  transform: translateX(4px);
 }
 
 .cs-deliverable-title {
-  font-family: var(--cs-font-syne);
+  font-family: var(--cs-font-display);
   font-size: clamp(1.35rem, 2.2vw, 1.85rem);
   font-weight: 800;
   line-height: 1.2;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   color: var(--cs-white);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+  transition: transform 0.3s var(--cs-ease-out-expo), color 0.3s ease;
 }
 
 .cs-deliverable-row:hover .cs-deliverable-title {
@@ -434,27 +518,52 @@
 }
 
 .cs-deliverable-desc {
+  font-family: var(--cs-font-body);
   font-size: 1.05rem;
   line-height: 1.75;
-  color: #A1A1AA;
+  color: var(--cs-zinc-400);
 }
 
 /* --------------------------------------------------------------------------
-   Website Showcase — Let Design Speak (Light Neutral #F5F5F3)
+   5. Website Showcase Section (Clean Showcase)
    -------------------------------------------------------------------------- */
 .cs-showcase-section {
-  background-color: var(--cs-surface-light);
+  background-color: #FFFFFF;
   color: #09090B;
-  padding: clamp(5rem, 9vw, 8.5rem) 0;
+  padding: clamp(5rem, 8vw, 8rem) 0;
   position: relative;
+  border-top: 1px solid #E5E7EB;
+  border-bottom: 1px solid #E5E7EB;
 }
 
-.cs-browser-frame {
+.cs-showcase-heading {
+  font-family: var(--cs-font-display);
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  color: #09090B;
+  margin-bottom: 1rem;
+}
+
+.cs-showcase-copy {
+  font-family: var(--cs-font-body);
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  line-height: 1.7;
+  color: #52525B;
+  max-width: 48rem;
+  font-weight: 400;
+}
+
+/* Primary Homepage Showcase Frame */
+.cs-showcase-main-frame {
   background: #FFFFFF;
-  border-radius: clamp(0.75rem, 1.5vw, 1.5rem);
+  border-radius: clamp(1rem, 2vw, 1.75rem);
   overflow: hidden;
   box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.12), 0 0 1px 1px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 3.5rem;
+  position: relative;
 }
 
 .cs-browser-header {
@@ -462,8 +571,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.85rem 1.25rem;
-  background: #FAFAFA;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  background: #F4F4F5;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .cs-browser-dots {
@@ -485,32 +594,96 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.25rem 1rem;
+  padding: 0.25rem 1.25rem;
   border-radius: 9999px;
-  background: #EFEFEF;
-  font-family: monospace;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  font-family: var(--cs-font-mono);
   font-size: 0.75rem;
   color: #52525B;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
-.cs-browser-body img {
+.cs-showcase-img-container {
+  position: relative;
+  background: #111115;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.cs-showcase-homepage-img {
   width: 100%;
   height: auto;
   display: block;
   object-fit: cover;
+  transition: transform 0.4s var(--cs-ease-out-expo);
 }
 
-/* Fullpage Screenshot Showcase Frame */
+.cs-showcase-img-container:hover .cs-showcase-homepage-img {
+  transform: scale(1.01);
+}
+
+.cs-showcase-zoom-hint {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  font-family: var(--cs-font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.cs-showcase-img-container:hover .cs-showcase-zoom-hint {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.cs-showcase-caption {
+  padding: 1rem 1.5rem;
+  background: #FAFAFA;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  sm-flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  sm-align-items: center;
+  gap: 0.5rem;
+  font-family: var(--cs-font-body);
+  font-size: 0.875rem;
+  color: #52525B;
+}
+
+@media (min-width: 640px) {
+  .cs-showcase-caption {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+/* Fullpage Scroll Frame */
 .cs-fullpage-frame {
   background: #FFFFFF;
-  border-radius: clamp(0.75rem, 1.5vw, 1.5rem);
+  border-radius: clamp(1rem, 2vw, 1.5rem);
   overflow: hidden;
-  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.12), 0 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.1), 0 0 1px 1px rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .cs-fullpage-scroll-container {
-  max-height: 640px;
+  max-height: 600px;
   overflow-y: auto;
   background: #000000;
   position: relative;
@@ -541,14 +714,14 @@
   border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-/* Mobile Showcase Mockup Frame */
+/* Mobile Showcase Frame */
 .cs-mobile-frame {
-  max-width: 380px;
+  max-width: 360px;
   margin: 0 auto;
   background: #09090B;
   border-radius: 2.5rem;
   padding: 10px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 1px 1px rgba(0,0,0,0.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 1px 1px rgba(0, 0, 0, 0.1);
   border: 4px solid #27272A;
 }
 
@@ -566,14 +739,33 @@
 }
 
 /* --------------------------------------------------------------------------
-   Project Outcome Section
+   6. Outcome Section (Dark Section)
    -------------------------------------------------------------------------- */
 .cs-outcome-section {
   background-color: var(--cs-obsidian);
   color: var(--cs-white);
-  padding: clamp(5rem, 9vw, 8.5rem) 0;
+  padding: clamp(5rem, 8vw, 8rem) 0;
   position: relative;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cs-outcome-heading {
+  font-family: var(--cs-font-display);
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  color: var(--cs-white);
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.cs-outcome-lead {
+  font-family: var(--cs-font-body);
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  line-height: 1.7;
+  color: var(--cs-zinc-400);
+  max-width: 46rem;
 }
 
 .cs-highlights-grid {
@@ -599,76 +791,91 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s var(--cs-ease-out-expo);
 }
 
 .cs-highlight-card:hover {
   background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(191, 247, 71, 0.3);
+  border-color: rgba(191, 247, 71, 0.35);
   transform: translateY(-3px);
 }
 
 .cs-highlight-title {
-  font-family: var(--cs-font-syne);
+  font-family: var(--cs-font-display);
   font-size: 1.25rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--cs-white);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
 .cs-highlight-text {
+  font-family: var(--cs-font-body);
   font-size: 0.95rem;
-  line-height: 1.6;
-  color: #A1A1AA;
+  line-height: 1.65;
+  color: var(--cs-zinc-400);
   margin: 0;
 }
 
-/* Buttons */
-.cs-btn-primary {
+/* --------------------------------------------------------------------------
+   Buttons (Matches CWD Homepage & One Day Websites Standards)
+   -------------------------------------------------------------------------- */
+.cs-btn-primary,
+.btn-lime-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.65rem;
-  padding: 0.95rem 2rem;
+  padding: 0.95rem 2.25rem;
   border-radius: 9999px;
   background: var(--cs-lime);
-  color: #000000;
-  font-family: var(--cs-font-inter);
+  color: #09090B;
+  font-family: var(--cs-font-body);
   font-weight: 800;
-  font-size: 0.9rem;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
+  font-size: 0.9375rem;
+  letter-spacing: 0.01em;
   text-decoration: none;
-  box-shadow: 0 6px 24px rgba(191, 247, 71, 0.35);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 25px rgba(191, 247, 71, 0.35);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
 }
 
-.cs-btn-primary:hover {
-  background: #D4FF5E;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(191, 247, 71, 0.5);
+.cs-btn-primary:hover,
+.btn-lime-primary:hover {
+  background: var(--cs-lime-hover);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 35px rgba(191, 247, 71, 0.55);
 }
 
-.cs-btn-secondary {
+.cs-btn-primary:active,
+.btn-lime-primary:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.cs-btn-secondary,
+.btn-glass-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.65rem;
-  padding: 0.95rem 2rem;
+  padding: 0.95rem 2.25rem;
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: var(--cs-white);
-  font-family: var(--cs-font-inter);
+  font-family: var(--cs-font-body);
   font-weight: 700;
-  font-size: 0.9rem;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
+  font-size: 0.9375rem;
+  letter-spacing: 0.01em;
   text-decoration: none;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.2s var(--cs-ease-out-expo);
+  cursor: pointer;
 }
 
-.cs-btn-secondary:hover {
+.cs-btn-secondary:hover,
+.btn-glass-secondary:hover {
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.3);
   transform: translateY(-2px);
@@ -676,12 +883,12 @@
 }
 
 /* --------------------------------------------------------------------------
-   Next Project / Portfolio Navigation Transition Section
+   7. Next Project Section
    -------------------------------------------------------------------------- */
 .cs-next-section {
-  background-color: #000000;
+  background-color: #050507;
   color: var(--cs-white);
-  padding: clamp(6rem, 11vw, 9.5rem) 0;
+  padding: clamp(6rem, 10vw, 9rem) 0;
   position: relative;
   text-align: center;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -695,27 +902,28 @@
 }
 
 .cs-next-heading {
-  font-family: var(--cs-font-syne);
+  font-family: var(--cs-font-display);
   font-size: clamp(2.4rem, 5.5vw, 4.25rem);
-  font-weight: 800;
+  font-weight: 900;
   line-height: 1.1;
   letter-spacing: -0.035em;
   color: var(--cs-white);
+  margin-top: 1rem;
   margin-bottom: 1.25rem;
 }
 
 .cs-next-lead {
-  font-size: clamp(1.1rem, 2vw, 1.25rem);
-  line-height: 1.65;
-  color: #A1A1AA;
-  max-width: 36rem;
+  font-family: var(--cs-font-body);
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  line-height: 1.7;
+  color: var(--cs-zinc-400);
+  max-width: 38rem;
   margin: 0 auto 2.5rem auto;
 }
 
 .cs-actions-wrap {
   display: flex;
   flex-direction: column;
-  sm-flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 1rem;
@@ -728,12 +936,99 @@
 }
 
 /* --------------------------------------------------------------------------
-   Scroll Animations
+   8. Lightbox Zoom Modal
+   -------------------------------------------------------------------------- */
+.cs-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.cs-lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.cs-lightbox-dialog {
+  position: relative;
+  max-width: 95vw;
+  max-height: 90vh;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background: #09090B;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+}
+
+.cs-lightbox-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.25rem;
+  background: #111115;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cs-lightbox-title {
+  font-family: var(--cs-font-display);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.cs-lightbox-close {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #FFFFFF;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s ease;
+}
+
+.cs-lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.cs-lightbox-body {
+  overflow: auto;
+  max-height: calc(90vh - 60px);
+  padding: 0.5rem;
+  background: #000000;
+}
+
+.cs-lightbox-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   9. Scroll Animations
    -------------------------------------------------------------------------- */
 .cs-reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(22px);
+  transition: opacity 0.6s var(--cs-ease-out-expo), transform 0.6s var(--cs-ease-out-expo);
 }
 
 .cs-reveal.is-revealed {
