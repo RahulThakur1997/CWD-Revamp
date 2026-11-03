@@ -1987,7 +1987,17 @@ img {
 /* Bottom Action Button */
 .stack-bottom-action {
   text-align: center;
-  margin-top: 5rem;
+  position: relative;
+  z-index: 50;
+  margin-top: 1rem !important;
+  margin-bottom: 3.5rem !important;
+}
+
+@media (max-width: 767px) {
+  .stack-bottom-action {
+    margin-top: 0.75rem !important;
+    margin-bottom: 3.25rem !important;
+  }
 }
 
 .explore-case-studies-btn {
@@ -7676,23 +7686,22 @@ img {
   box-sizing: border-box !important;
 }
 
-/* 3. SERVICES CAROUSEL ON MOBILE (SWIPE TOUCH CAROUSEL, NO SLIVERS) */
+/* 3. SERVICES CAROUSEL ON MOBILE (CONTINUOUS LEFT-TO-RIGHT MARQUEE) */
 @media (max-width: 767px) {
   .services-carousel-section {
-    padding: 3.5rem 0 4rem 0 !important;
+    padding: 3.5rem 0 4.5rem 0 !important;
     overflow: hidden !important;
+    overflow-x: clip !important;
   }
 
   .services-carousel-viewport {
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch !important;
-    scroll-snap-type: x mandatory !important;
+    overflow: hidden !important;
+    overflow-x: clip !important;
     display: flex !important;
     width: 100% !important;
-    padding: 1rem 1rem 1.5rem 1rem !important;
-    mask-image: none !important;
-    -webkit-mask-image: none !important;
-    scrollbar-width: none !important;
+    padding: 1rem 0 !important;
+    mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%) !important;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%) !important;
   }
 
   .services-carousel-viewport::-webkit-scrollbar {
@@ -7701,31 +7710,34 @@ img {
 
   .services-carousel-track {
     display: flex !important;
-    width: auto !important;
-    animation: none !important;
-    gap: 1rem !important;
+    width: max-content !important;
+    animation: servicesDriftRight 35s linear infinite !important;
+    will-change: transform !important;
+    overflow: visible !important;
+    list-style: none !important;
   }
 
   .services-carousel-group {
     display: flex !important;
-    gap: 1rem !important;
-    padding-right: 0 !important;
+    gap: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    flex-shrink: 0 !important;
   }
 
   .services-carousel-group[aria-hidden="true"] {
-    display: none !important;
+    display: flex !important;
   }
 
   .service-card {
-    width: 85vw !important;
-    max-width: 340px !important;
-    min-width: 0 !important;
-    height: auto !important;
-    aspect-ratio: 3 / 4 !important;
+    width: min(82vw, 310px) !important;
+    max-width: 310px !important;
+    min-width: 260px !important;
+    height: 440px !important;
     flex-shrink: 0 !important;
-    scroll-snap-align: center !important;
     border-radius: 20px !important;
     overflow: hidden !important;
+    position: relative !important;
+    background: #121216 !important;
   }
 
   .service-image-container {
@@ -8413,26 +8425,8 @@ img {
   }
 }
 
-/* Mobile Native Horizontal Touch Carousel */
+/* Mobile Continuous Marquee Scrollbar Reset */
 @media (max-width: 767px) {
-  .services-track,
-  .services-carousel-track {
-    display: flex !important;
-    gap: 1.25rem !important; /* gap-5 */
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory !important;
-    padding: 1rem 1.5rem !important; /* px-6 py-4 */
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
-    -webkit-overflow-scrolling: touch !important;
-    width: 100% !important;
-    mask-image: none !important;
-    -webkit-mask-image: none !important;
-    animation: none !important;
-    list-style: none !important;
-    transform: none !important;
-  }
-
   .services-track::-webkit-scrollbar,
   .services-carousel-track::-webkit-scrollbar {
     display: none !important;
@@ -8698,7 +8692,13 @@ img {
   .stack-card-4 {
     top: 215px !important;
     z-index: 40 !important;
-    margin-bottom: clamp(140px, 28vh, 260px) !important;
+    margin-bottom: clamp(40px, 8vh, 80px) !important;
+  }
+
+  .stack-deck-runway {
+    display: block !important;
+    height: clamp(200px, 28vh, 280px) !important;
+    pointer-events: none !important;
   }
 }
 
@@ -8707,7 +8707,7 @@ img {
   .stack-cards-deck {
     position: relative !important;
     height: auto !important;
-    padding-bottom: 0 !important;
+    padding-bottom: 1.5rem !important;
     overflow: visible !important;
     touch-action: pan-y !important;
   }
@@ -8728,10 +8728,14 @@ img {
     will-change: auto !important;
     opacity: 1 !important;
     visibility: visible !important;
-    margin-bottom: 1.5rem !important;
+    margin-bottom: 1.25rem !important;
     min-height: auto !important;
     padding: 1.5rem !important;
     z-index: 1 !important;
+  }
+
+  .stack-card-4 {
+    margin-bottom: 0.75rem !important;
   }
 }
 
@@ -9074,12 +9078,12 @@ footer,
   .stack-card-4 {
     top: 215px !important;
     z-index: 40 !important;
-    margin-bottom: clamp(140px, 28vh, 260px) !important;
+    margin-bottom: clamp(40px, 8vh, 80px) !important;
   }
 
   .stack-deck-runway {
     display: block !important;
-    height: 80vh !important;
+    height: clamp(200px, 28vh, 280px) !important;
     pointer-events: none !important;
   }
 }
@@ -9088,6 +9092,7 @@ footer,
   .cwd-case-studies,
   .industry-stack-section {
     overflow: hidden !important;
+    padding-bottom: 1.5rem !important;
   }
 
   .stack-deck-runway {
@@ -9104,6 +9109,11 @@ footer,
     bottom: auto !important;
     transform: none !important;
     will-change: auto !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  .stack-card-4 {
+    margin-bottom: 0.75rem !important;
   }
 }
 
