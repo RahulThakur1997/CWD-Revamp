@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Awakened Films Website Redesign &amp; SEO Case Study | Crafting Web Designs</title>
+  <meta name="title" content="Awakened Films Website Redesign &amp; SEO Case Study | Crafting Web Designs">
+  <meta name="description" content="See how Crafting Web Designs supported Awakened Films with WordPress redesign, SEO, content strategy, and conversion-focused website improvements.">
+  <link rel="canonical" href="https://craftingwebdesigns.com/case-studies/awakened-films/">
+
+  <!-- Open Graph / Social Meta -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://craftingwebdesigns.com/case-studies/awakened-films/">
+  <meta property="og:title" content="Awakened Films Website Redesign &amp; SEO Case Study | Crafting Web Designs">
+  <meta property="og:description" content="See how Crafting Web Designs supported Awakened Films with WordPress redesign, SEO, content strategy, and conversion-focused website improvements.">
+  <meta property="og:image" content="../../assets/case-studies/awakened-films/awakened-films-homepage.png">
+
+  <!-- Twitter Meta -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://craftingwebdesigns.com/case-studies/awakened-films/">
+  <meta property="twitter:title" content="Awakened Films Website Redesign &amp; SEO Case Study | Crafting Web Designs">
+  <meta property="twitter:description" content="See how Crafting Web Designs supported Awakened Films with WordPress redesign, SEO, content strategy, and conversion-focused website improvements.">
+  <meta property="twitter:image" content="../../assets/case-studies/awakened-films/awakened-films-homepage.png">
+
+  <!-- Brand Favicon Support -->
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/logo.png">
+  <link rel="icon" type="image/svg+xml" href="../../assets/logo.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/logo.png">
+  <meta name="theme-color" content="#09090B">
+
+  <!-- Google Fonts: Plus Jakarta Sans (Headings & UI), Inter (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Image Error Fallback Script -->
+  <script>
+    function handleImgError(img, customFallback) {
+      if (!img || img.dataset.hasFailed) return;
+      img.dataset.hasFailed = "true";
+      img.onerror = null;
+      if (customFallback && typeof customFallback === 'string') {
+        img.src = customFallback;
+        return;
+      }
+      var alt = img.getAttribute('alt') || 'Crafting Web Designs';
+      var cleanAlt = alt.replace(/[<>&"]/g, '') || 'Crafting Web Designs';
+      var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 480 300" preserveAspectRatio="none">' +
+        '<rect width="100%" height="100%" fill="#121216"/>' +
+        '<rect x="0" y="0" width="100%" height="3" fill="#BFF747"/>' +
+        '<g transform="translate(240, 150)" text-anchor="middle">' +
+        '<circle cx="0" cy="-20" r="24" fill="#202025" stroke="rgba(191, 247, 71, 0.4)" stroke-width="1.5"/>' +
+        '<text y="24" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="13" font-weight="700">' + cleanAlt + '</text>' +
+        '<text y="42" fill="#71717A" font-family="system-ui, sans-serif" font-size="10" font-weight="600" letter-spacing="0.1em">CRAFTING WEB DESIGNS</text>' +
+        '</g>' +
+        '</svg>';
+      img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+    }
+  </script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              lime: '#BFF747',
+              limeGlow: 'rgba(191, 247, 71, 0.35)',
+              dark: '#09090B',
+              obsidian: '#050507',
+              surface: '#111115'
+            }
+          },
+          fontFamily: {
+            display: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+            body: ['Inter', 'Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Core Global Stylesheet & Case Study Stylesheet -->
+  <link rel="stylesheet" href="../../css/styles.css?v=3.8">
+  <link rel="stylesheet" href="../../css/case-study.css?v=2.2">
+
+  <style>
+    /* Critical Inline Layout Overrides matching Homepage & Case Study System */
+    body {
+      background-color: #09090B !important;
+      color: #FFFFFF !important;
+      font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      overflow-x: hidden;
+    }
+    .font-display {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+      letter-spacing: -0.035em !important;
+    }
+    .font-body {
+      font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+    }
+  </style>
+</head>
+<body class="cs-page">
+
+  <!-- Top Atmospheric Lime Glow -->
+  <div class="cs-ambient-glow" aria-hidden="true"></div>
+
+  <!-- =======================================================================
+       GLOBAL SITE HEADER (Centered CWD Capsule Logo & Corner Menu Trigger)
+       ======================================================================= -->
+  <header class="site-header" id="site-header" style="position: absolute; top: 0; left: 0; right: 0; width: 100%; z-index: 50; pointer-events: none; padding: 1.5rem; box-sizing: border-box;">
+    
+    <!-- Centered CWD Capsule Logo Pill -->
+    <div class="hero-capsule-logo-wrap pointer-events-auto">
+      <a href="../../" class="brand-capsule-pill" aria-label="Crafting Web Designs - Back to Homepage">
+        <span class="brand-capsule-icon">
+          <img src="../../assets/logo.png" alt="CWD Logo" class="cwd-glow-logo" onerror="handleImgError(this)">
+        </span>
+        <span class="brand-capsule-text text-sm font-semibold tracking-tight text-white/95 whitespace-nowrap">Crafting Web Designs</span>
+      </a>
+    </div>
+
+    <!-- Right-Side Menu Trigger (Preserved & Anchored to Top-Right Corner) -->
+    <button id="nav-menu-trigger" aria-label="Toggle Navigation Menu" aria-expanded="false" class="nav-menu-trigger-btn pointer-events-auto">
+      <div class="nav-trigger-icon pointer-events-none" aria-hidden="true">
+        <span class="nav-bar nav-bar-1"></span>
+        <span class="nav-bar nav-bar-2"></span>
+      </div>
+    </button>
+  </header>
+
+  <!-- Navigation Overlay Backdrop -->
+  <div id="nav-overlay-backdrop" class="nav-overlay-backdrop" aria-hidden="true"></div>
+
+  <!-- Dropdown Navigation Menu Panel -->
+  <div id="nav-overlay-panel" class="nav-overlay-panel" role="dialog" aria-modal="true" aria-label="Site Navigation">
+    
+    <!-- Top Row: Label + Close Button (✕) -->
+    <div class="nav-panel-header">
+      <div class="nav-panel-tag">
+        <span class="nav-status-dot"></span>
+        <span class="nav-tag-label">DIRECTORY</span>
+      </div>
+      <button id="nav-menu-close" aria-label="Close Navigation Menu" class="nav-close-btn">
+        ✕
+      </button>
+    </div>
+
+    <!-- Menu Links List with Nested Submenus -->
+    <nav class="nav-menu-links" aria-label="Primary Navigation">
+      
+      <!-- 1. OUR SERVICES (Accordion Submenu) -->
+      <div class="nav-menu-item nav-has-submenu">
+        <button class="nav-submenu-trigger" aria-expanded="false">
+          <div class="nav-item-left">
+            <span class="nav-item-index">[01]</span>
+            <span class="nav-item-title">Our Services</span>
+          </div>
+          <span class="nav-item-chevron" aria-hidden="true">▾</span>
+        </button>
+        <div class="nav-submenu-list">
+          <a href="../../#services" class="nav-sub-link">
+            <span class="sub-dot"></span>
+            <span>All Capabilities</span>
+            <span class="sub-arrow">→</span>
+          </a>
+          <a href="../../one-day-websites/" class="nav-sub-link">
+            <span class="sub-dot"></span>
+            <span>One Day Websites</span>
+            <span class="sub-tag-pill">HOT</span>
+          </a>
+          <a href="../../#b2b" class="nav-sub-link">
+            <span class="sub-dot"></span>
+            <span>B2B Growth Websites</span>
+            <span class="sub-arrow">→</span>
+          </a>
+          <a href="../../#seo" class="nav-sub-link">
+            <span class="sub-dot"></span>
+            <span>SEO &amp; Organic Domination</span>
+            <span class="sub-arrow">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 2. CLIENT WORK & CASE STUDIES (Active) -->
+      <div class="nav-menu-item nav-has-submenu is-active">
+        <button class="nav-submenu-trigger" aria-expanded="true">
+          <div class="nav-item-left">
+            <span class="nav-item-index">[02]</span>
+            <span class="nav-item-title">Case Studies</span>
+          </div>
+          <span class="nav-item-chevron" aria-hidden="true">▾</span>
+        </button>
+        <div class="nav-submenu-list">
+          <a href="../vignesh-wadarajan/" class="nav-sub-link">
+            <span class="sub-dot"></span>
+            <span>Vignesh Wadarajan</span>
+            <span class="sub-arrow">→</span>
+          </a>
+          <a href="./" class="nav-sub-link is-active">
+            <span class="sub-dot"></span>
+            <span>Awakened Films</span>
+            <span class="sub-tag-pill">NEW</span>
+          </a>
+          <a href="../../#cwd-case-studies" class="nav-sub-link">
+            <span class="sub-dot"></span>
+            <span>All Selected Work</span>
+            <span class="sub-arrow">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 3. HOW WE WORK (Direct Link) -->
+      <div class="nav-menu-item">
+        <a href="../../#process" class="nav-direct-link" id="nav-link-process" aria-label="Our Process">
+          <div class="nav-item-left">
+            <span class="nav-item-index">[03]</span>
+            <span class="nav-item-title">Process &amp; Sprints</span>
+          </div>
+          <span class="nav-direct-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <!-- 4. CWD ADVANTAGE (Direct Link) -->
+      <div class="nav-menu-item">
+        <a href="../../#cwd-advantage" class="nav-direct-link" id="nav-link-advantage" aria-label="The CWD Advantage">
+          <div class="nav-item-left">
+            <span class="nav-item-index">[04]</span>
+            <span class="nav-item-title">CWD Advantage</span>
+          </div>
+          <span class="nav-direct-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <!-- 5. CONTACT US (Direct Link) -->
+      <div class="nav-menu-item">
+        <a href="../../#contact" class="nav-direct-link">
+          <div class="nav-item-left">
+            <span class="nav-item-index">[05]</span>
+            <span class="nav-item-title">Contact Us</span>
+          </div>
+          <span class="nav-direct-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+    </nav>
+
+    <!-- Bottom Action CTA -->
+    <div class="nav-panel-footer">
+      <a href="../../#contact" class="nav-panel-cta-btn">
+        <span>Get Your Website Today</span>
+        <span aria-hidden="true">→</span>
+      </a>
+      <div class="nav-panel-contact-info">
+        <span>Direct studio:</span>
+        <a href="mailto:hello@craftingwebdesigns.com">hello@craftingwebdesigns.com</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- =======================================================================
+       1. HERO SECTION — THE BUSINESS IMPACT STORY (Black #09090B Background)
+       ======================================================================= -->
+  <section class="cs-hero-section">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Eyebrow Tag -->
+      <div class="cs-reveal">
+        <div class="cs-eyebrow-tag">
+          <span class="cs-eyebrow-dot" aria-hidden="true"></span>
+          <span>SELECTED WORK / 002</span>
+        </div>
+      </div>
+
+      <!-- Main Headline -->
+      <div class="cs-reveal">
+        <h1 class="cs-hero-headline font-display">
+          From Creative Storytelling to <span class="highlight-lime">Consistent B2B Leads</span>.
+        </h1>
+      </div>
+
+      <!-- Supporting Paragraph -->
+      <div class="cs-reveal">
+        <p class="cs-hero-lead font-body">
+          We partnered with Awakened Films to improve a video-heavy WordPress website, strengthen its search presence, and turn its digital platform into a more effective source of business inquiries.
+        </p>
+      </div>
+
+      <!-- Project Metadata Strip -->
+      <div class="cs-metadata-grid cs-reveal">
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">CLIENT</span>
+          <span class="cs-meta-value font-display">Awakened Films</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">INDUSTRY</span>
+          <span class="cs-meta-value font-display">Video Production &amp; Creative Services</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">SERVICES</span>
+          <span class="cs-meta-value font-display">Website Redesign / SEO / Content Strategy / CRO</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">PLATFORM</span>
+          <span class="cs-meta-value font-display">WordPress + Custom Code</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">WEBSITE</span>
+          <span class="cs-meta-value font-display">awakenedfilms.com</span>
+        </div>
+      </div>
+
+      <!-- Hero Visual: Supplied Exact Awakened Films Homepage Screenshot -->
+      <div class="cs-reveal">
+        <div class="cs-hero-mockup-frame">
+          <img 
+            src="../../assets/case-studies/awakened-films/awakened-films-homepage.png" 
+            alt="Awakened Films Video Production Website Homepage Screenshot"
+            class="cs-hero-mockup-img"
+            loading="eager"
+            onerror="handleImgError(this)">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       2. ABOUT THE CLIENT (Crisp White #FFFFFF Background)
+       ======================================================================= -->
+  <section class="cs-intro-section" id="the-client">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        
+        <!-- Left Column: Eyebrow + Heading + Production Studio Card -->
+        <div class="lg:col-span-5 cs-reveal">
+          <div class="cs-intro-eyebrow">
+            <span class="marker-dot" aria-hidden="true"></span>
+            <span>THE CLIENT</span>
+          </div>
+          
+          <h2 class="cs-intro-heading font-display">
+            A Production Studio Built Around Powerful Stories.
+          </h2>
+
+          <!-- Studio Info Card -->
+          <div class="cs-client-portrait-card">
+            <div class="w-16 h-16 rounded-xl bg-black border border-zinc-200 flex items-center justify-center p-2 shrink-0 shadow-sm">
+              <img 
+                src="../../assets/case-studies/awakened-films/awakened-films-logo.png" 
+                alt="Awakened Films Studio Mark" 
+                class="w-full h-full object-contain"
+                loading="lazy"
+                onerror="handleImgError(this)">
+            </div>
+            <div class="cs-client-portrait-info">
+              <h4 class="font-display">Awakened Films</h4>
+              <p class="font-body">Creative Video Production &bull; Madison, New Jersey</p>
+            </div>
+          </div>
+
+          <!-- Compact Visit Link -->
+          <div class="pt-6 mt-6 border-t border-zinc-200">
+            <a href="https://awakenedfilms.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-bold text-zinc-900 hover:text-black transition-colors group">
+              <span>VISIT AWAKENED FILMS</span>
+              <span class="text-xs text-zinc-400 group-hover:text-[#BFF747] group-hover:translate-x-0.5 transition-all" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Editorial Narrative -->
+        <div class="lg:col-span-7 cs-reveal">
+          <div class="cs-intro-body font-body">
+            <p>
+              Awakened Films is a New Jersey-based video production company specializing in creative visual storytelling for businesses and organizations.
+            </p>
+            <p>
+              From commercial advertising and corporate films to brand storytelling, healthcare videos, and social media content, the team helps businesses communicate through professional video production.
+            </p>
+            <p>
+              Operating from its production studio in Madison, New Jersey, Awakened Films serves organizations looking for high-quality visual content that connects with audiences and supports their business goals.
+            </p>
+            <p>
+              For a business built around video, the website plays an important role: it needs to showcase creative work while helping potential clients discover the right services and get in touch.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       3. HOW IT STARTED (Dark Storytelling Section #09090B)
+       ======================================================================= -->
+  <section class="cs-story-section" id="the-beginning">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <!-- Left Column: Storytelling Narrative -->
+        <div class="lg:col-span-7 cs-reveal">
+          <div class="cs-eyebrow-tag mb-4">
+            <span class="cs-eyebrow-dot" aria-hidden="true"></span>
+            <span>THE BEGINNING</span>
+          </div>
+
+          <h2 class="cs-story-heading font-display">
+            One Email. One Conversation. A <span class="highlight-lime">Bigger Opportunity</span>.
+          </h2>
+
+          <div class="cs-story-body font-body">
+            <p>
+              Our collaboration began when Jason from Awakened Films reached out to us by email.
+            </p>
+            <p>
+              We scheduled an initial call to discuss the business and its digital marketing goals. Jason was particularly interested in improving the company's SEO and bringing more relevant businesses to its website.
+            </p>
+            <p>
+              As the conversations continued, the scope expanded beyond search optimization.
+            </p>
+            <p>
+              We identified opportunities to improve the website itself—how it presented Awakened Films' work, supported its content strategy, and guided potential clients toward making an inquiry.
+            </p>
+            <p>
+              What started as an SEO conversation developed into a broader website and organic growth project.
+            </p>
+          </div>
+
+          <!-- Direct Verified Tag -->
+          <div class="pt-6 mt-6 border-t border-white/10 flex items-center gap-3 text-xs font-mono text-zinc-400">
+            <span class="w-2 h-2 rounded-full bg-[#BFF747]"></span>
+            <span>Direct Client Outreach &bull; Email Inquiry to Full-Stack Organic Growth</span>
+          </div>
+        </div>
+
+        <!-- Right Column: Abstract Collaboration Timeline Visual -->
+        <div class="lg:col-span-5 cs-reveal">
+          <div class="cs-collab-timeline">
+            
+            <!-- Step 1 -->
+            <div class="cs-timeline-step">
+              <span class="cs-timeline-dot"></span>
+              <div class="cs-timeline-step-tag">01 / INITIAL INQUIRY</div>
+              <div class="cs-timeline-step-title">Direct Inbound Email</div>
+              <p class="cs-timeline-step-desc">
+                Jason contacted CWD focusing on search visibility and bringing qualified commercial clients to the production studio.
+              </p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="cs-timeline-step">
+              <span class="cs-timeline-dot"></span>
+              <div class="cs-timeline-step-tag">02 / DISCOVERY &amp; AUDIT</div>
+              <div class="cs-timeline-step-title">Technical Call &amp; Architecture Audit</div>
+              <p class="cs-timeline-step-desc">
+                Evaluated WordPress backend, diagnosed media-heavy loading bottlenecks, and mapped commercial keyword targets.
+              </p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="cs-timeline-step">
+              <span class="cs-timeline-dot"></span>
+              <div class="cs-timeline-step-tag">03 / EXPANDED SCOPE</div>
+              <div class="cs-timeline-step-title">Full Digital Platform Refinement</div>
+              <p class="cs-timeline-step-desc">
+                Scope expanded into WordPress frontend enhancements, structured content planning, keyword tracking, and Clarity CRO.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       4. THE CHALLENGE (Dedicated Technical Constraint Section #070709)
+       ======================================================================= -->
+  <section class="cs-challenge-section" id="the-challenge">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl cs-reveal">
+        <div class="cs-eyebrow-tag mb-4">
+          <span class="cs-eyebrow-dot" aria-hidden="true"></span>
+          <span>THE CHALLENGE</span>
+        </div>
+
+        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-6">
+          A Video-Heavy Website With Technical Constraints.
+        </h2>
+
+        <div class="space-y-4 text-zinc-300 font-body text-base sm:text-lg leading-relaxed">
+          <p>
+            Awakened Films' website needed to showcase the quality of its video production work. That meant incorporating rich video content throughout the site, including on important service and portfolio pages.
+          </p>
+          <p>
+            But a media-heavy website introduces practical challenges. Large video files can increase page weight, affect loading performance, and make the browsing experience more demanding—particularly on mobile devices.
+          </p>
+          <p>
+            The website also used a combination of WordPress and custom-coded elements. Some parts were hard-coded, limiting how easily they could be edited through the usual WordPress interface.
+          </p>
+          <p>
+            Our task was to improve the website and its search strategy while working within these technical constraints.
+          </p>
+        </div>
+      </div>
+
+      <!-- Three Restrained Dark Cards -->
+      <div class="cs-challenge-grid cs-reveal">
+        
+        <div class="cs-challenge-card">
+          <span class="cs-challenge-num">01</span>
+          <h3 class="cs-challenge-title">Media-Heavy Pages</h3>
+          <p class="cs-challenge-desc">
+            Showcase high-quality video content without compromising usability and page experience.
+          </p>
+        </div>
+
+        <div class="cs-challenge-card">
+          <span class="cs-challenge-num">02</span>
+          <h3 class="cs-challenge-title">WordPress + Custom Code</h3>
+          <p class="cs-challenge-desc">
+            Work around hard-coded sections and existing technical limitations without unnecessarily rebuilding the entire website.
+          </p>
+        </div>
+
+        <div class="cs-challenge-card">
+          <span class="cs-challenge-num">03</span>
+          <h3 class="cs-challenge-title">Search Visibility &amp; Conversions</h3>
+          <p class="cs-challenge-desc">
+            Help relevant businesses find the right service pages and make it easier for interested visitors to take the next step.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       5. WHAT WE DID (Five Core Deliverables #050507)
+       ======================================================================= -->
+  <section class="cs-deliverables-section" id="the-work">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="cs-deliverables-header cs-reveal">
+        <div class="cs-eyebrow-tag mb-4">
+          <span class="cs-eyebrow-dot" aria-hidden="true"></span>
+          <span>THE WORK / CORE DELIVERABLES</span>
+        </div>
+        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
+          Design, Search, and Conversion—Working Together.
+        </h2>
+      </div>
+
+      <div class="cs-deliverables-list">
+        
+        <!-- Deliverable 01 -->
+        <div class="cs-deliverable-row cs-reveal">
+          <div class="cs-deliverable-num">01</div>
+          <div class="cs-deliverable-title font-display">
+            WordPress Website Redesign
+          </div>
+          <div class="cs-deliverable-desc font-body">
+            We worked within the site's existing WordPress and custom-coded structure to improve the website's presentation and user experience. Rather than treating the project as a simple template replacement, we had to account for hard-coded sections, existing functionality, and the site's extensive use of video. The goal was to create a more cohesive experience while preserving the visual storytelling that defines Awakened Films.
+          </div>
+        </div>
+
+        <!-- Deliverable 02 -->
+        <div class="cs-deliverable-row cs-reveal">
+          <div class="cs-deliverable-num">02</div>
+          <div class="cs-deliverable-title font-display">
+            Technical &amp; Video-Heavy Page Improvements
+          </div>
+          <div class="cs-deliverable-desc font-body">
+            The website relies on video to demonstrate the company's creative capabilities. We worked around the practical challenges of maintaining a media-rich website, focusing on how its pages were structured, presented, and experienced by visitors. The challenge was to balance an engaging visual experience with the usability needed for a professional B2B website.
+          </div>
+        </div>
+
+        <!-- Deliverable 03 -->
+        <div class="cs-deliverable-row cs-reveal">
+          <div class="cs-deliverable-num">03</div>
+          <div class="cs-deliverable-title font-display">
+            SEO Strategy &amp; Keyword Tracking
+          </div>
+          <div class="cs-deliverable-desc font-body">
+            We developed an SEO strategy around relevant commercial searches for video production services. This included keyword research, mapping search opportunities to appropriate pages, tracking search positions, and identifying opportunities to strengthen the site's visibility. We monitored keyword rankings over time to understand which areas were improving and which needed further attention.
+          </div>
+        </div>
+
+        <!-- Deliverable 04 -->
+        <div class="cs-deliverable-row cs-reveal">
+          <div class="cs-deliverable-num">04</div>
+          <div class="cs-deliverable-title font-display">
+            Content Planning &amp; SEO Content
+          </div>
+          <div class="cs-deliverable-desc font-body">
+            We created a structured content plan covering commercial video production, corporate video services, industry-specific production topics, and educational search queries. The strategy included both blog content and service-page opportunities. Our goal was to help Awakened Films build topical relevance and reach potential clients at different stages of their research and buying journey.
+          </div>
+        </div>
+
+        <!-- Deliverable 05 -->
+        <div class="cs-deliverable-row cs-reveal">
+          <div class="cs-deliverable-num">05</div>
+          <div class="cs-deliverable-title font-display">
+            Microsoft Clarity &amp; Conversion Analysis
+          </div>
+          <div class="cs-deliverable-desc font-body">
+            After website improvements were introduced, we used Microsoft Clarity to study visitor interactions. We reviewed how users engaged with important pages, where they clicked, and how visitors interacted with the site's calls to action. These observations informed ongoing reviews of landing-page usability and conversion opportunities.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       6. WEBSITE SHOWCASE (Clean White #FFFFFF Background)
+       ======================================================================= -->
+  <section class="cs-showcase-section" id="showcase">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="max-w-3xl mb-12 lg:mb-16 cs-reveal">
+        <div class="cs-intro-eyebrow mb-3">
+          <span class="marker-dot" aria-hidden="true"></span>
+          <span>THE WEBSITE</span>
+        </div>
+        <h2 class="cs-showcase-heading font-display">
+          A Website That Puts Video First.
+        </h2>
+        <p class="cs-showcase-copy font-body">
+          For Awakened Films, video isn't an accessory—it's the product. The website needed to give that work room to shine while helping businesses explore services and start a conversation.
+        </p>
+      </div>
+
+      <!-- Showcase Visual 1: Large Browser Frame — Live Commercial Video Service Landing Page -->
+      <div class="cs-showcase-main-frame cs-reveal">
+        <div class="cs-browser-header">
+          <div class="cs-browser-dots" aria-hidden="true">
+            <span class="cs-browser-dot red"></span>
+            <span class="cs-browser-dot yellow"></span>
+            <span class="cs-browser-dot green"></span>
+          </div>
+          <div class="cs-browser-url-pill font-mono">
+            <svg class="w-3.5 h-3.5 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+            <span>https://awakenedfilms.com/our-work/commercial-video/</span>
+          </div>
+          <div class="w-12"></div>
+        </div>
+        <div class="cs-showcase-img-container" data-lightbox="../../assets/case-studies/awakened-films/awakened-commercial-service-page.png" data-caption="Awakened Films — Commercial Video Service Landing Page" role="button" tabindex="0" aria-label="Click to enlarge service landing page screenshot">
+          <img 
+            src="../../assets/case-studies/awakened-films/awakened-commercial-service-page.png" 
+            alt="Awakened Films Commercial Video Service Landing Page"
+            class="cs-showcase-homepage-img"
+            loading="lazy"
+            onerror="handleImgError(this)">
+          <div class="cs-showcase-zoom-hint">
+            <span>🔍</span>
+            <span>TAP TO ENLARGE</span>
+          </div>
+        </div>
+        <div class="cs-showcase-caption">
+          <span class="font-bold text-zinc-900 font-display">Commercial Video Production — Targeted Service Landing Page</span>
+          <span class="font-mono text-xs text-zinc-500">Live Service Architecture &bull; Desktop Viewport</span>
+        </div>
+      </div>
+
+      <!-- Showcase Visual 2: Complete Studio Portfolio Showcase -->
+      <div class="cs-fullpage-frame cs-reveal mb-12">
+        <div class="cs-browser-header">
+          <div class="cs-browser-dots" aria-hidden="true">
+            <span class="cs-browser-dot red"></span>
+            <span class="cs-browser-dot yellow"></span>
+            <span class="cs-browser-dot green"></span>
+          </div>
+          <div class="cs-browser-url-pill font-mono">
+            <svg class="w-3.5 h-3.5 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+            <span>https://awakenedfilms.com/our-work/</span>
+          </div>
+          <div class="w-12"></div>
+        </div>
+        <div class="cs-fullpage-scroll-container" data-lightbox="../../assets/case-studies/awakened-films/awakened-work-portfolio-page.png" data-caption="Awakened Films — Creative Portfolio &amp; Work Showcase">
+          <img 
+            src="../../assets/case-studies/awakened-films/awakened-work-portfolio-page.png" 
+            alt="Awakened Films Work Showcase and Creative Video Portfolio" 
+            class="cs-fullpage-img"
+            loading="lazy"
+            onerror="handleImgError(this)">
+        </div>
+        <div class="cs-fullpage-caption flex items-center justify-between text-xs text-zinc-500 font-body">
+          <span>Creative Portfolio Architecture &bull; Video Showcases, Client Credits &amp; Direct Quote Inquiries</span>
+          <span class="font-mono text-[11px] text-zinc-400">Portfolio Flow</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       7. BEHIND THE SEO STRATEGY (Deep-Dive Strategy & Working Documents #09090B)
+       ======================================================================= -->
+  <section class="cs-seo-section" id="seo-strategy">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="max-w-3xl mb-12 lg:mb-16 cs-reveal">
+        <div class="cs-eyebrow-tag mb-4">
+          <span class="cs-eyebrow-dot" aria-hidden="true"></span>
+          <span>BEHIND THE WORK</span>
+        </div>
+        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-4">
+          The Strategy Behind the Search Visibility.
+        </h2>
+        <p class="cs-hero-lead font-body text-zinc-300">
+          Alongside the website work, we developed a structured SEO approach covering keyword opportunities, content planning, and ongoing search-position monitoring.
+        </p>
+      </div>
+
+      <!-- Working Document 1: Content Planning Spreadsheet -->
+      <div class="cs-spreadsheet-frame cs-reveal">
+        <div class="cs-spreadsheet-header">
+          <div class="cs-spreadsheet-title-pill font-mono">
+            <span class="cs-sheets-icon" aria-hidden="true"></span>
+            <span>Google Sheets &bull; Content Planning &amp; Keyword Research</span>
+          </div>
+          <div class="text-xs font-mono text-zinc-400">Working Project Document</div>
+        </div>
+        <div class="cs-spreadsheet-img-container" data-lightbox="../../assets/case-studies/awakened-films/content-planning-for-awakened-films.png" data-caption="Content Planning &amp; Keyword Research — Awakened Films Roadmap" role="button" tabindex="0" aria-label="Click to enlarge Content Planning spreadsheet">
+          <img 
+            src="../../assets/case-studies/awakened-films/content-planning-for-awakened-films.png" 
+            alt="Content Planning and Keyword Research Spreadsheet for Awakened Films"
+            class="cs-spreadsheet-img"
+            loading="lazy"
+            onerror="handleImgError(this)">
+          <div class="cs-showcase-zoom-hint">
+            <span>🔍</span>
+            <span>TAP TO ENLARGE SPREADSHEET</span>
+          </div>
+        </div>
+        <div class="cs-spreadsheet-caption">
+          <h4 class="font-display">Content Planning &amp; Keyword Research</h4>
+          <p class="font-body">
+            A structured roadmap of blog topics and service-page opportunities designed around relevant searches in the video production industry. The spreadsheet tracks target keywords, monthly search volumes, content formats, recommended article titles, target word counts, and publication status.
+          </p>
+        </div>
+      </div>
+
+      <!-- Working Document 2: Keyword Rankings Tracker -->
+      <div class="cs-spreadsheet-frame cs-reveal">
+        <div class="cs-spreadsheet-header">
+          <div class="cs-spreadsheet-title-pill font-mono">
+            <span class="cs-sheets-icon" aria-hidden="true"></span>
+            <span>Google Sheets &bull; Keyword Rankings &amp; Position Monitoring</span>
+          </div>
+          <div class="text-xs font-mono text-zinc-400">Organic Visibility Tracking</div>
+        </div>
+        <div class="cs-spreadsheet-img-container" data-lightbox="../../assets/case-studies/awakened-films/tracking-awakened-films-keyword-rankings.png" data-caption="Tracking Organic Search Progress — Awakened Films Search Positions" role="button" tabindex="0" aria-label="Click to enlarge Keyword Rankings Tracker spreadsheet">
+          <img 
+            src="../../assets/case-studies/awakened-films/tracking-awakened-films-keyword-rankings.png" 
+            alt="Keyword Rankings Tracking Spreadsheet for Awakened Films"
+            class="cs-spreadsheet-img"
+            loading="lazy"
+            onerror="handleImgError(this)">
+          <div class="cs-showcase-zoom-hint">
+            <span>🔍</span>
+            <span>TAP TO ENLARGE SPREADSHEET</span>
+          </div>
+        </div>
+        <div class="cs-spreadsheet-caption">
+          <h4 class="font-display">Tracking Organic Search Progress</h4>
+          <p class="font-body">
+            A keyword-tracking system used to monitor important service-related searches and review changes in search visibility over time. The tracking framework logs target queries, assigned landing-page URLs, commercial search volumes, starting baseline Ahrefs ranks, and subsequent ranking observations.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       8. THE RESULTS — A MORE CONSISTENT B2B LEAD PIPELINE (#09090B)
+       ======================================================================= -->
+  <section class="cs-outcome-section" id="outcome">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl cs-reveal">
+        <div class="cs-eyebrow-tag mb-4">
+          <span class="cs-eyebrow-dot" aria-hidden="true"></span>
+          <span>THE OUTCOME</span>
+        </div>
+        
+        <h2 class="cs-outcome-heading font-display">
+          From Weekly Inquiries to <span class="highlight-lime">Daily Opportunities</span>.
+        </h2>
+
+        <p class="cs-outcome-lead font-body">
+          By combining website improvements, SEO strategy, content planning, and ongoing performance analysis, we helped Awakened Films strengthen its digital presence and create more opportunities for potential clients to discover its services.
+        </p>
+      </div>
+
+      <!-- Three Core Results Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mt-12 mb-8 cs-reveal">
+        
+        <!-- Result 1 -->
+        <div class="cs-results-metric-card">
+          <div class="cs-metric-stat">~3×</div>
+          <h3 class="cs-metric-heading">Keyword Footprint</h3>
+          <p class="cs-metric-description">
+            The project team reports that Awakened Films grew to rank for approximately three times as many keywords over the course of the engagement. This is an approximate overall keyword-coverage figure, not a claim that every tracked keyword improved.
+          </p>
+        </div>
+
+        <!-- Result 2 -->
+        <div class="cs-results-metric-card">
+          <div class="cs-metric-stat">Weekly → Daily</div>
+          <h3 class="cs-metric-heading">Lead Frequency</h3>
+          <p class="cs-metric-description">
+            The project team reports a shift from receiving website inquiries on a weekly basis to receiving leads on a daily basis.
+          </p>
+        </div>
+
+        <!-- Result 3 -->
+        <div class="cs-results-metric-card">
+          <div class="cs-metric-stat">High-Value B2B</div>
+          <h3 class="cs-metric-heading">Lead Opportunities</h3>
+          <p class="cs-metric-description">
+            For a professional video production business, qualified inquiries can represent substantial commercial opportunities. These are potentially high-value production projects, rather than low-ticket consumer transactions.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Results Disclaimer Note -->
+      <div class="cs-reveal">
+        <p class="cs-metric-disclaimer">
+          Note: Results reflect project-team observations and reported outcomes. Individual keyword positions and lead values vary.
+        </p>
+      </div>
+
+      <!-- Live Site External CTA Button -->
+      <div class="pt-8 cs-reveal">
+        <a 
+          href="https://awakenedfilms.com/" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="btn-lime-primary cs-btn-primary">
+          <span>VIEW LIVE WEBSITE</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       9. THE BIGGER PICTURE (Closing Strategic Perspective #050507)
+       ======================================================================= -->
+  <section class="cs-story-section" style="background-color: #050507;">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 cs-reveal">
+      
+      <div class="cs-eyebrow-tag mb-4">
+        <span class="cs-eyebrow-dot" aria-hidden="true"></span>
+        <span>THE BIGGER PICTURE</span>
+      </div>
+
+      <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-6">
+        A Better Website Is Only Part of the Story.
+      </h2>
+
+      <div class="space-y-4 text-zinc-300 font-body text-base sm:text-lg leading-relaxed">
+        <p>
+          For Awakened Films, the work extended beyond visual improvements.
+        </p>
+        <p>
+          The project brought website development, SEO, content strategy, and visitor-behavior analysis together around a common goal: helping more relevant businesses find the company and take the next step.
+        </p>
+        <p>
+          From navigating custom WordPress constraints to tracking search opportunities and refining landing pages, the engagement focused on building a more useful digital platform for long-term growth.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       10. FINAL CTA / PORTFOLIO TRANSITION SECTION
+       ======================================================================= -->
+  <section class="cs-next-section">
+    <div class="cs-ambient-glow" aria-hidden="true"></div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 cs-reveal">
+      
+      <div class="cs-eyebrow-tag mb-4">
+        <span class="cs-eyebrow-dot" aria-hidden="true"></span>
+        <span>WHAT'S NEXT</span>
+      </div>
+
+      <h2 class="cs-next-heading font-display">
+        Great Websites Are Built With Purpose.
+      </h2>
+
+      <p class="cs-next-lead font-body">
+        Whether you need a stronger website, better search visibility, or a more effective digital presence, we build experiences designed to support business growth.
+      </p>
+
+      <div class="cs-actions-wrap">
+        <a href="../../#contact" class="btn-lime-primary cs-btn-primary">
+          <span>LET'S BUILD YOURS</span>
+          <span aria-hidden="true">→</span>
+        </a>
+        <a href="../../#cwd-case-studies" class="btn-glass-secondary cs-btn-secondary">
+          <span>BACK TO SELECTED WORK</span>
+          <span aria-hidden="true">←</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       GLOBAL FOOTER (CWD Studio Standards & Accreditation)
+       ======================================================================= -->
+  <footer class="site-footer bg-[#09090B] border-t border-white/10" id="site-footer" style="padding-top: 5rem; padding-bottom: 3rem;">
+    <div class="footer-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Top Grid: 4 Balanced Columns -->
+      <div class="footer-quad-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-white/10">
+        
+        <!-- Column 1: Studio Identity & High-Performance Mission -->
+        <div class="footer-quad-col col-brand-identity">
+          <a href="../../" class="footer-brand-title block mb-4 text-white text-xl font-bold font-display no-underline">
+            CRAFTING WEB DESIGNS
+          </a>
+          <p class="footer-brand-bio text-zinc-400 text-sm leading-relaxed mb-6 font-body">
+            High-converting digital architecture and bespoke web design for ambitious brands and creators worldwide. Delivered in days, engineered to convert.
+          </p>
+          <div class="footer-studio-badge inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-zinc-400 font-mono">
+            <span class="w-2 h-2 rounded-full bg-[#BFF747]"></span>
+            <span>Independent UK Studio &bull; Global Operations</span>
+          </div>
+        </div>
+
+        <!-- Column 2: Navigation Directory -->
+        <div class="footer-quad-col col-directory">
+          <div class="footer-col-eyebrow text-xs font-mono font-bold uppercase tracking-widest text-zinc-400 mb-4 flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#BFF747]"></span>
+            <span>Navigation Directory</span>
+          </div>
+          <ul class="footer-nav-list space-y-2.5 text-sm font-body" role="list">
+            <li><a href="../../#cwd-case-studies" class="text-zinc-400 hover:text-white transition-colors flex items-center justify-between"><span>Client Outcomes</span><span>↗</span></a></li>
+            <li><a href="../../#services" class="text-zinc-400 hover:text-white transition-colors flex items-center justify-between"><span>Full Capabilities</span><span>↗</span></a></li>
+            <li><a href="../../one-day-websites/" class="text-zinc-400 hover:text-white transition-colors flex items-center justify-between"><span>One Day Websites</span><span class="text-[#BFF747]">★</span></a></li>
+            <li><a href="../../#advantages" class="text-zinc-400 hover:text-white transition-colors flex items-center justify-between"><span>The CWD Advantage</span><span>↗</span></a></li>
+            <li><a href="../../#process" class="text-zinc-400 hover:text-white transition-colors flex items-center justify-between"><span>Rapid Process</span><span>↗</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Regional Hubs -->
+        <div class="footer-quad-col col-global-hubs">
+          <div class="footer-col-eyebrow text-xs font-mono font-bold uppercase tracking-widest text-zinc-400 mb-4 flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#BFF747]"></span>
+            <span>Worldwide Delivery</span>
+          </div>
+          <div class="footer-hubs-grid space-y-3 font-body text-sm">
+            <div class="hub-item flex items-center gap-3 p-2 rounded-lg bg-white/5 border border-white/5">
+              <span class="text-lg">🇬🇧</span>
+              <div class="hub-info"><span class="font-bold text-white block text-xs">London</span><span class="text-zinc-400 text-xs">UK &amp; Europe</span></div>
+            </div>
+            <div class="hub-item flex items-center gap-3 p-2 rounded-lg bg-white/5 border border-white/5">
+              <span class="text-lg">🇺🇸</span>
+              <div class="hub-info"><span class="font-bold text-white block text-xs">New York</span><span class="text-zinc-400 text-xs">Americas</span></div>
+            </div>
+            <div class="hub-item flex items-center gap-3 p-2 rounded-lg bg-white/5 border border-white/5">
+              <span class="text-lg">🇦🇺</span>
+              <div class="hub-info"><span class="font-bold text-white block text-xs">Sydney</span><span class="text-zinc-400 text-xs">Asia-Pacific</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 4: Studio Standards & Assurance -->
+        <div class="footer-quad-col col-studio-security">
+          <div class="footer-col-eyebrow text-xs font-mono font-bold uppercase tracking-widest text-zinc-400 mb-4 flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#BFF747]"></span>
+            <span>Studio Standards</span>
+          </div>
+          <div class="security-assurance-box space-y-2.5 font-body text-xs">
+            <div class="flex items-center gap-2.5 p-2 rounded-lg bg-white/5 border border-white/5 text-zinc-300">
+              <span>🛡️</span>
+              <span>Zero-Risk Client Previews</span>
+            </div>
+            <div class="flex items-center gap-2.5 p-2 rounded-lg bg-white/5 border border-white/5 text-zinc-300">
+              <span>⚡</span>
+              <span>Rapid Production Sprints</span>
+            </div>
+            <div class="flex items-center gap-2.5 p-2 rounded-lg bg-white/5 border border-white/5 text-zinc-300">
+              <span>💻</span>
+              <span>100% Code &amp; Asset Ownership</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar: Copyright & Back-to-Top -->
+      <div class="footer-bottom-bar pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-400 font-body">
+        <div class="footer-copyright-text flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-center sm:text-left">
+          <span>&copy; 2026 Crafting Web Designs (CWD). All rights reserved.</span>
+          <span class="text-zinc-600 hidden sm:inline">&bull;</span>
+          <span class="text-zinc-500">Built for High-Growth Brands &amp; Creators.</span>
+        </div>
+        <button class="footer-back-to-top-btn inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-zinc-300 hover:text-white transition-colors cursor-pointer text-xs font-mono" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Scroll back to top of page">
+          <span>↑</span>
+          <span>BACK TO TOP</span>
+        </button>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- =======================================================================
+       ACCESSIBLE TAP-TO-ENLARGE LIGHTBOX MODAL
+       ======================================================================= -->
+  <div class="cs-lightbox" id="cs-lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Website Screenshot Preview">
+    <div class="cs-lightbox-dialog">
+      <div class="cs-lightbox-header">
+        <span class="cs-lightbox-title" id="cs-lightbox-title">Awakened Films Screenshot Preview</span>
+        <button class="cs-lightbox-close" id="cs-lightbox-close" aria-label="Close image preview">✕</button>
+      </div>
+      <div class="cs-lightbox-body">
+        <img src="" alt="" class="cs-lightbox-img" id="cs-lightbox-img">
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts: GSAP Core, ScrollTrigger & Dedicated Case Study Controller -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="../../js/case-study.js?v=2.2"></script>
+</body>
+</html>
