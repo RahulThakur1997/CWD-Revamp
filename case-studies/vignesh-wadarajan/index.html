@@ -30,10 +30,10 @@
   <link rel="apple-touch-icon" sizes="180x180" href="../../assets/logo.png">
   <meta name="theme-color" content="#09090B">
 
-  <!-- Google Fonts: Syne (Display), Plus Jakarta Sans, Inter (Body & UI) -->
+  <!-- Google Fonts: Plus Jakarta Sans (Headings & UI), Inter (Body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Image Error Fallback Script -->
   <script>
@@ -76,10 +76,9 @@
             }
           },
           fontFamily: {
-            syne: ['Syne', 'Plus Jakarta Sans', 'system-ui', 'sans-serif'],
-            display: ['Syne', 'Plus Jakarta Sans', 'system-ui', 'sans-serif'],
-            inter: ['Inter', 'Plus Jakarta Sans', 'system-ui', 'sans-serif'],
-            body: ['Inter', 'Plus Jakarta Sans', 'system-ui', 'sans-serif']
+            display: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+            body: ['Inter', 'Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif']
           }
         }
       }
@@ -88,7 +87,24 @@
 
   <!-- Core Global Stylesheet & Case Study Stylesheet -->
   <link rel="stylesheet" href="../../css/styles.css?v=3.8">
-  <link rel="stylesheet" href="../../css/case-study.css?v=2.0">
+  <link rel="stylesheet" href="../../css/case-study.css?v=2.1">
+
+  <style>
+    /* Critical Inline Layout Overrides matching Homepage & One Day Websites */
+    body {
+      background-color: #09090B !important;
+      color: #FFFFFF !important;
+      font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      overflow-x: hidden;
+    }
+    .font-display {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+      letter-spacing: -0.035em !important;
+    }
+    .font-body {
+      font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+    }
+  </style>
 </head>
 <body class="cs-page">
 
@@ -106,7 +122,7 @@
         <span class="brand-capsule-icon">
           <img src="../../assets/logo.png" alt="CWD Logo" class="cwd-glow-logo" onerror="handleImgError(this)">
         </span>
-        <span class="brand-capsule-text font-syne">Crafting Web Designs</span>
+        <span class="brand-capsule-text text-sm font-semibold tracking-tight text-white/95 whitespace-nowrap">Crafting Web Designs</span>
       </a>
     </div>
 
@@ -286,14 +302,14 @@
 
       <!-- Main Headline -->
       <div class="cs-reveal">
-        <h1 class="cs-hero-headline font-syne">
+        <h1 class="cs-hero-headline font-display">
           A Stronger <span class="highlight-lime">Digital Presence</span> for Vignesh Wadarajan.
         </h1>
       </div>
 
       <!-- Supporting Text (Concise & Accurate) -->
       <div class="cs-reveal">
-        <p class="cs-hero-lead font-inter">
+        <p class="cs-hero-lead font-body">
           We helped actor, media personality, and entrepreneur Vignesh Wadarajan refresh his digital presence through a WordPress website redesign, improved content presentation, and blogging and SEO support.
         </p>
       </div>
@@ -302,7 +318,7 @@
       <div class="cs-metadata-grid cs-reveal">
         <div class="cs-meta-item">
           <span class="cs-meta-label">CLIENT</span>
-          <span class="cs-meta-value font-syne">Vignesh Wadarajan</span>
+          <span class="cs-meta-value font-display">Vignesh Wadarajan</span>
         </div>
         <div class="cs-meta-item">
           <span class="cs-meta-label">INDUSTRY</span>
@@ -348,7 +364,7 @@
             <span>THE CLIENT</span>
           </div>
           
-          <h2 class="cs-intro-heading font-syne">
+          <h2 class="cs-intro-heading font-display">
             A Familiar Face. A Personal Brand With More to Say.
           </h2>
 
@@ -361,15 +377,15 @@
               loading="lazy"
               onerror="handleImgError(this)">
             <div class="cs-client-portrait-info">
-              <h4 class="font-syne">Vignesh Wadarajan</h4>
-              <p class="font-inter">Actor, Media Personality &amp; Entrepreneur</p>
+              <h4 class="font-display">Vignesh Wadarajan</h4>
+              <p class="font-body">Actor, Media Personality &amp; Entrepreneur</p>
             </div>
           </div>
         </div>
 
-        <!-- Right Column: Editorial Body & Verified Profile Links -->
+        <!-- Right Column: Editorial Body -->
         <div class="lg:col-span-7 cs-reveal">
-          <div class="cs-intro-body font-inter">
+          <div class="cs-intro-body font-body">
             <p>
               Vignesh Wadarajan is a Singapore-based actor, media personality, entrepreneur, and digital creator.
             </p>
@@ -383,35 +399,6 @@
               Our role was to help bring these different sides of his professional identity together through a refreshed WordPress website and a stronger content experience.
             </p>
           </div>
-
-          <!-- Compact Profile Links Row (IMDb, Instagram, Facebook, Website) -->
-          <div class="cs-profile-links-row">
-            <a href="https://www.imdb.com/name/nm7246682/" target="_blank" rel="noopener noreferrer" class="cs-profile-link" title="IMDb Acting Profile">
-              <span>IMDb</span>
-              <span class="text-zinc-400 font-normal">—</span>
-              <span>View Acting Profile</span>
-              <span class="link-arrow" aria-hidden="true">↗</span>
-            </a>
-            <a href="https://www.instagram.com/vigneshwadarajan/" target="_blank" rel="noopener noreferrer" class="cs-profile-link" title="Instagram Profile">
-              <span>Instagram</span>
-              <span class="text-zinc-400 font-normal">—</span>
-              <span>Follow Vignesh</span>
-              <span class="link-arrow" aria-hidden="true">↗</span>
-            </a>
-            <a href="https://www.facebook.com/vignesh.wadarajan/" target="_blank" rel="noopener noreferrer" class="cs-profile-link" title="Facebook Profile">
-              <span>Facebook</span>
-              <span class="text-zinc-400 font-normal">—</span>
-              <span>View Profile</span>
-              <span class="link-arrow" aria-hidden="true">↗</span>
-            </a>
-            <a href="https://thisisvignesh.com/" target="_blank" rel="noopener noreferrer" class="cs-profile-link" title="Official Website">
-              <span>Website</span>
-              <span class="text-zinc-400 font-normal">—</span>
-              <span>thisisvignesh.com</span>
-              <span class="link-arrow" aria-hidden="true">↗</span>
-            </a>
-          </div>
-
         </div>
 
       </div>
@@ -434,11 +421,11 @@
             <span>THE COLLABORATION</span>
           </div>
 
-          <h2 class="cs-story-heading font-syne">
+          <h2 class="cs-story-heading font-display">
             It Started With a <span class="highlight-lime">LinkedIn Conversation</span>.
           </h2>
 
-          <div class="cs-story-body font-inter">
+          <div class="cs-story-body font-body">
             <p>
               Our collaboration began after connecting with Vignesh on LinkedIn.
             </p>
@@ -476,7 +463,7 @@
                 onerror="handleImgError(this)">
             </div>
             <div class="cs-chat-frame-footer">
-              <span class="text-xs text-zinc-400 font-inter">Initial discussion connecting personal brand with structured WordPress architecture.</span>
+              <span class="text-xs text-zinc-400 font-body">Initial discussion connecting personal brand with structured WordPress architecture.</span>
             </div>
           </div>
         </div>
@@ -497,7 +484,7 @@
           <span class="cs-eyebrow-dot" aria-hidden="true"></span>
           <span>THE WORK / CORE DELIVERABLES</span>
         </div>
-        <h2 class="font-syne text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
+        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
           What We Brought to the Project.
         </h2>
       </div>
@@ -507,10 +494,10 @@
         <!-- Deliverable 01 -->
         <div class="cs-deliverable-row cs-reveal">
           <div class="cs-deliverable-num">01</div>
-          <div class="cs-deliverable-title font-syne">
+          <div class="cs-deliverable-title font-display">
             WordPress Website Redesign
           </div>
-          <div class="cs-deliverable-desc font-inter">
+          <div class="cs-deliverable-desc font-body">
             We redesigned Vignesh's website using WordPress, recreating and customizing a template to better reflect his personal brand. The refreshed design brought together a bold visual identity, clearer navigation, prominent calls to action, and a more engaging homepage experience.
           </div>
         </div>
@@ -518,10 +505,10 @@
         <!-- Deliverable 02 -->
         <div class="cs-deliverable-row cs-reveal">
           <div class="cs-deliverable-num">02</div>
-          <div class="cs-deliverable-title font-syne">
+          <div class="cs-deliverable-title font-display">
             A Better Content Experience
           </div>
-          <div class="cs-deliverable-desc font-inter">
+          <div class="cs-deliverable-desc font-body">
             We improved how visitors navigate and explore the website's educational content. The structure places greater emphasis on readability and content discovery, making it easier to explore topics such as blogging, affiliate marketing, and eCommerce.
           </div>
         </div>
@@ -529,10 +516,10 @@
         <!-- Deliverable 03 -->
         <div class="cs-deliverable-row cs-reveal">
           <div class="cs-deliverable-num">03</div>
-          <div class="cs-deliverable-title font-syne">
+          <div class="cs-deliverable-title font-display">
             Blogging &amp; SEO Support
           </div>
-          <div class="cs-deliverable-desc font-inter">
+          <div class="cs-deliverable-desc font-body">
             Beyond the redesign, we supported the website's content efforts through blogging and SEO work. Our focus was on strengthening content organization, supporting search visibility, and creating a more structured foundation for future publishing.
           </div>
         </div>
@@ -554,10 +541,10 @@
           <span class="marker-dot" aria-hidden="true"></span>
           <span>WEBSITE SHOWCASE</span>
         </div>
-        <h2 class="cs-showcase-heading font-syne">
+        <h2 class="cs-showcase-heading font-display">
           A Digital Home That Reflects Every Side of Vignesh.
         </h2>
-        <p class="cs-showcase-copy font-inter">
+        <p class="cs-showcase-copy font-body">
           A bold personal brand, clearer content navigation, and a more cohesive WordPress experience—bringing his media identity, entrepreneurial knowledge, and educational content together.
         </p>
       </div>
@@ -589,7 +576,7 @@
           </div>
         </div>
         <div class="cs-showcase-caption">
-          <span class="font-bold text-zinc-900 font-syne">Vignesh Wadarajan — WordPress Homepage Redesign</span>
+          <span class="font-bold text-zinc-900 font-display">Vignesh Wadarajan — WordPress Homepage Redesign</span>
           <span class="font-mono text-xs text-zinc-500">1601 × 887 High-Resolution Desktop Capture</span>
         </div>
       </div>
@@ -599,7 +586,7 @@
         <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
           <div>
             <span class="font-mono text-xs font-bold uppercase tracking-widest text-zinc-500 block mb-1">Complete End-to-End Experience</span>
-            <h3 class="font-syne text-2xl sm:text-3xl font-extrabold text-zinc-900">
+            <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-zinc-900">
               Full Website Architecture &amp; Content Flow
             </h3>
           </div>
@@ -630,7 +617,7 @@
               loading="lazy"
               onerror="handleImgError(this)">
           </div>
-          <div class="cs-fullpage-caption flex items-center justify-between text-xs text-zinc-500 font-inter">
+          <div class="cs-fullpage-caption flex items-center justify-between text-xs text-zinc-500 font-body">
             <span>Scroll inside frame to explore the full layout: Hero • Monetization Guides • Lead Funnels • Community Footer</span>
             <span class="font-mono text-[11px] text-zinc-400">Full Design Capture</span>
           </div>
@@ -655,20 +642,20 @@
         <div class="lg:col-span-7 order-1 lg:order-2 cs-reveal">
           <div class="space-y-6 max-w-xl">
             <span class="font-mono text-xs font-bold uppercase tracking-widest text-zinc-500">Responsive Architecture</span>
-            <h3 class="font-syne text-2xl sm:text-3xl font-extrabold text-zinc-900">
+            <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-zinc-900">
               Mobile-First Readability for Growing Readers.
             </h3>
-            <p class="font-inter text-zinc-600 leading-relaxed">
+            <p class="font-body text-zinc-600 leading-relaxed">
               With a substantial portion of his audience accessing educational guides and affiliate reviews on mobile devices, every element—from typography hierarchy to tap-friendly navigation—was tailored for frictionless reading and engagement.
             </p>
             <div class="grid grid-cols-2 gap-4 pt-4">
               <div class="p-4 rounded-xl bg-white border border-zinc-200 shadow-sm">
-                <span class="block font-syne text-xl font-bold text-zinc-900 mb-1">Instant Touch</span>
-                <span class="text-xs text-zinc-500 font-inter">Optimized tap targets and swift mobile drawer navigation.</span>
+                <span class="block font-display text-xl font-bold text-zinc-900 mb-1">Instant Touch</span>
+                <span class="text-xs text-zinc-500 font-body">Optimized tap targets and swift mobile drawer navigation.</span>
               </div>
               <div class="p-4 rounded-xl bg-white border border-zinc-200 shadow-sm">
-                <span class="block font-syne text-xl font-bold text-zinc-900 mb-1">Clean Columns</span>
-                <span class="text-xs text-zinc-500 font-inter">Single-column editorial flow for tutorials and monetization guides.</span>
+                <span class="block font-display text-xl font-bold text-zinc-900 mb-1">Clean Columns</span>
+                <span class="text-xs text-zinc-500 font-body">Single-column editorial flow for tutorials and monetization guides.</span>
               </div>
             </div>
           </div>
@@ -691,14 +678,14 @@
           <span>THE OUTCOME</span>
         </div>
         
-        <h2 class="cs-outcome-heading font-syne">
+        <h2 class="cs-outcome-heading font-display">
           One Website. A More Cohesive Personal Brand.
         </h2>
 
-        <p class="cs-outcome-lead font-inter mb-4">
+        <p class="cs-outcome-lead font-body mb-4">
           The redesigned website brought Vignesh's personal identity and educational content into a more unified digital experience.
         </p>
-        <p class="cs-outcome-lead font-inter">
+        <p class="cs-outcome-lead font-body">
           Through WordPress redesign, improved content organization, and blogging and SEO support, we helped create a more polished platform for sharing his knowledge and connecting with his audience.
         </p>
       </div>
@@ -710,8 +697,8 @@
           <div class="w-8 h-8 rounded-lg bg-[#BFF747]/10 flex items-center justify-center text-[#BFF747] font-mono text-sm font-bold mb-2">
             01
           </div>
-          <h3 class="cs-highlight-title font-syne">Refreshed Brand Experience</h3>
-          <p class="cs-highlight-text font-inter">
+          <h3 class="cs-highlight-title font-display">Refreshed Brand Experience</h3>
+          <p class="cs-highlight-text font-body">
             A more polished website presentation aligned with his personal identity.
           </p>
         </div>
@@ -720,8 +707,8 @@
           <div class="w-8 h-8 rounded-lg bg-[#BFF747]/10 flex items-center justify-center text-[#BFF747] font-mono text-sm font-bold mb-2">
             02
           </div>
-          <h3 class="cs-highlight-title font-syne">Clearer Content Navigation</h3>
-          <p class="cs-highlight-text font-inter">
+          <h3 class="cs-highlight-title font-display">Clearer Content Navigation</h3>
+          <p class="cs-highlight-text font-body">
             A more organized experience for visitors exploring his educational resources.
           </p>
         </div>
@@ -730,8 +717,8 @@
           <div class="w-8 h-8 rounded-lg bg-[#BFF747]/10 flex items-center justify-center text-[#BFF747] font-mono text-sm font-bold mb-2">
             03
           </div>
-          <h3 class="cs-highlight-title font-syne">Blogging &amp; SEO Foundation</h3>
-          <p class="cs-highlight-text font-inter">
+          <h3 class="cs-highlight-title font-display">Blogging &amp; SEO Foundation</h3>
+          <p class="cs-highlight-text font-body">
             A structured platform supporting ongoing content publishing and search visibility efforts.
           </p>
         </div>
@@ -766,11 +753,11 @@
         <span>WHAT'S NEXT</span>
       </div>
 
-      <h2 class="cs-next-heading font-syne">
+      <h2 class="cs-next-heading font-display">
         Great Websites Are Built With Purpose.
       </h2>
 
-      <p class="cs-next-lead font-inter">
+      <p class="cs-next-lead font-body">
         From personal brands to ambitious businesses, we create digital experiences designed around the people they serve.
       </p>
 
@@ -799,10 +786,10 @@
         
         <!-- Column 1: Studio Identity & High-Performance Mission -->
         <div class="footer-quad-col col-brand-identity">
-          <a href="../../" class="footer-brand-title block mb-4 text-white text-xl font-bold font-syne no-underline">
+          <a href="../../" class="footer-brand-title block mb-4 text-white text-xl font-bold font-display no-underline">
             CRAFTING WEB DESIGNS
           </a>
-          <p class="footer-brand-bio text-zinc-400 text-sm leading-relaxed mb-6 font-inter">
+          <p class="footer-brand-bio text-zinc-400 text-sm leading-relaxed mb-6 font-body">
             High-converting digital architecture and bespoke web design for ambitious brands and creators worldwide. Delivered in days, engineered to convert.
           </p>
           <div class="footer-studio-badge inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-zinc-400 font-mono">
@@ -817,7 +804,7 @@
             <span class="w-1.5 h-1.5 rounded-full bg-[#BFF747]"></span>
             <span>Navigation Directory</span>
           </div>
-          <ul class="footer-nav-list space-y-2.5 text-sm font-inter" role="list">
+          <ul class="footer-nav-list space-y-2.5 text-sm font-body" role="list">
             <li><a href="../../#cwd-case-studies" class="text-zinc-400 hover:text-white transition-colors flex items-center justify-between"><span>Client Outcomes</span><span>↗</span></a></li>
             <li><a href="../../#services" class="text-zinc-400 hover:text-white transition-colors flex items-center justify-between"><span>Full Capabilities</span><span>↗</span></a></li>
             <li><a href="../../one-day-websites/" class="text-zinc-400 hover:text-white transition-colors flex items-center justify-between"><span>One Day Websites</span><span class="text-[#BFF747]">★</span></a></li>
@@ -832,7 +819,7 @@
             <span class="w-1.5 h-1.5 rounded-full bg-[#BFF747]"></span>
             <span>Worldwide Delivery</span>
           </div>
-          <div class="footer-hubs-grid space-y-3 font-inter text-sm">
+          <div class="footer-hubs-grid space-y-3 font-body text-sm">
             <div class="hub-item flex items-center gap-3 p-2 rounded-lg bg-white/5 border border-white/5">
               <span class="text-lg">🇬🇧</span>
               <div class="hub-info"><span class="font-bold text-white block text-xs">London</span><span class="text-zinc-400 text-xs">UK &amp; Europe</span></div>
@@ -854,7 +841,7 @@
             <span class="w-1.5 h-1.5 rounded-full bg-[#BFF747]"></span>
             <span>Studio Standards</span>
           </div>
-          <div class="security-assurance-box space-y-2.5 font-inter text-xs">
+          <div class="security-assurance-box space-y-2.5 font-body text-xs">
             <div class="flex items-center gap-2.5 p-2 rounded-lg bg-white/5 border border-white/5 text-zinc-300">
               <span>🛡️</span>
               <span>Zero-Risk Client Previews</span>
@@ -873,7 +860,7 @@
       </div>
 
       <!-- Bottom Bar: Copyright & Back-to-Top -->
-      <div class="footer-bottom-bar pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-400 font-inter">
+      <div class="footer-bottom-bar pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-400 font-body">
         <div class="footer-copyright-text flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-center sm:text-left">
           <span>&copy; 2026 Crafting Web Designs (CWD). All rights reserved.</span>
           <span class="text-zinc-600 hidden sm:inline">•</span>

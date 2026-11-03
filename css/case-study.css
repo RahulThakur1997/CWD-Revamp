@@ -2,7 +2,7 @@
    CRAFTING WEB DESIGNS (CWD) — EDITORIAL CASE STUDY SYSTEM
    Client: Vignesh Wadarajan
    Design Language: Matches CWD Homepage & One Day Websites Standards
-   Primary Display: Syne / Plus Jakarta Sans | Body: Inter / Plus Jakarta Sans
+   Primary Display: Plus Jakarta Sans | Body: Inter / Plus Jakarta Sans
    Brand Colors: Primary Lime #BFF747 / #C6F24D | Dark #09090B | White #FFFFFF
    ========================================================================== */
 
@@ -27,7 +27,7 @@
   --cs-zinc-800: #27272A;
   --cs-zinc-900: #18181B;
 
-  --cs-font-display: 'Syne', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --cs-font-display: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --cs-font-body: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --cs-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
@@ -54,16 +54,16 @@
   color: #000000 !important;
 }
 
-/* Typography Utility Helpers matching CWD */
-.font-syne,
-.font-display {
-  font-family: var(--cs-font-display) !important;
+/* Typography Utility Helpers matching CWD Standards */
+.font-display,
+.font-syne {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   letter-spacing: -0.035em !important;
 }
 
-.font-inter,
-.font-body {
-  font-family: var(--cs-font-body) !important;
+.font-body,
+.font-inter {
+  font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
 }
 
 .font-mono {
